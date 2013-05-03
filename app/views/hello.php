@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Organic.Edunet</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link href="css/_app.css" rel="stylesheet" media="screen">
+	</head>
+
+	<body>
+
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+
+				<a class="navbar-brand" href="/">Organic.Edunet</a>
+
+				<div class="nav-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+                                    <form id="login-form" action="/" method="post" style="margin-bottom: 0">
+                                        <input id="login-form-username" type="text" placeholder="<?php echo Lang::get('website.user'); ?>"/>
+                                        <input id="login-form-password" type="password" placeholder="<?php echo Lang::get('website.password'); ?>"/>
+                                        <button id="submit-login-form" type="submit" class="btn btn-primary"><?php echo Lang::get('website.submit'); ?></button>
+                                    </form>
+								</li>
+							</ul>
+						</li>
+					</ul>
+	                <ul class="nav navbar-nav pull-right">
+	                    <!--<li style="width: 300px; margin-right: 15px; ">
+	                        <div style="margin-left: 10px; float: right; padding-top: 9px; ">
+	                            <div class="onoffswitch" id="onoffswitch">
+	                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" autocomplete="off">
+	                                <label class="onoffswitch-label" for="myonoffswitch">
+	                                    <div class="onoffswitch-inner"></div>
+	                                    <div class="onoffswitch-switch"></div>
+	                                </label>
+	                            </div> 
+	                        </div>
+	                        <div style="float: right; padding-top: 9px; color: #eee; "><?php echo Lang::get('website.auto-translate'); ?></div>
+	                    </li>-->
+	                    <li class="dropdown pull-right" id="lang-selector">
+	                        <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle"><span class="flag <?php echo Session::get( 'language' ) ?>flag"></span> <?php echo Lang::get('website.'.LANG ) ?> <b class="caret"></b></a>
+	                        <ul class="dropdown-menu">
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=de<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag deflag"></div> Deutsch</a></li>
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=et<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag etflag"></div> Eesti keel</a></li>
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=en<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag enflag"></div> English</a></li>
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=es<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag esflag"></div> Español</a></li>
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=el<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag elflag"></div> ελληνικά</a></li>
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=fr<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag frflag"></div> Français</a></li>
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=it<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag itflag"></div> Italiano</a></li>
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=lv<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag lvflag"></div> Latviešu valoda</a></li>
+	                            <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=tr<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag trflag"></div> Türkçe</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+				</div>
+			</div>
+		</div>
+
+		<header id="header" class="jumbotron">
+			<div class="container">
+				<h1 class="pull-left">Organic.Edunet</h1>
+				<form id="search-form" action="" class="pull-right">
+					<div class="input-group">
+						<input type="text" class="input-large" name="form-search" placeholder="Search" />
+						<span class="input-group-btn">
+							<button class="btn btn-large" type="button">Go!</button>
+						</span>
+						<input type="submit" />
+					</div>
+				</form>
+			</div>
+		</header>
+
+		<div id="home-banner">
+			<div class="container">
+	            <a href="http://greenideasproject.org/" target="_blank"><img alt="green ideas 2013" src="http://organic.teluria.es/images/home-green-ideas.png"></a>
+	        </div>
+        </div>
+
+		<div class="container">
+			<div class="row">
+				<div id="page-home">
+					<section class="col col-lg-8">
+						<?php foreach( $carousel as $resource ): ?>
+						<h3><?php echo $resource->title ?></h3>
+						<p><?php echo $resource->description ?></p>
+						<?php endforeach; ?>
+					</section>
+					<aside class="col col-lg-4">
+						<?php foreach( $featured as $resource ): ?>
+						<h2><?php echo $resource->title ?></h2>
+						<p><?php echo $resource->description ?></p>
+						<?php endforeach; ?>
+					</aside>
+				</div>
+				<div id="page-app">
+					<aside id="app-content-filters" class="col col-lg-4">
+					</aside>
+					<div id="app-content-results" class="col col-lg-8">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr class="container"/>
+
+		<footer>
+			<div class="container">
+				<p>&copy; Organic.Edunet 2013</p>
+			</div>
+		</footer>
+
+		<script id="resource-content" type="text/template">
+			<header>
+				<h2><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
+				<p>This resource is in <%= language %></p>
+			</header>
+			<p><%= texts[metadata_language].description.substr(0,200).trim() %>...</p>
+			<footer>
+
+			</footer>
+		</script>
+
+		<script id="facets-content" type="text/template">
+			<%= name %>
+		</script>
+
+		<script id="facets-filter" type="text/template">
+			<a title="<%= filter %>"><%= translation %></a> | <%= value %>
+		</script>
+
+		<!-- jQuery + Bootstrap -->
+		<script src="js/jquery.js"></script>
+	    <script src="js/vendor/bootstrap/bootstrap.js"></script>
+    	<script src="js/respond.js"></script>
+    	<!-- Libraries for using Backbone.js -->
+		<script src="js/require.js"></script>
+		<script src="js/underscore.js"></script>
+		<script src="js/backbone.js"></script>
+    	<!-- App javaScript files -->
+		<script src="js/app.js"></script>
+		<script src="js/app.models.js"></script>
+		<script src="js/app.views.js"></script>
+		<script src="js/app.collections.js"></script>
+		<script src="js/app.router.js"></script>
+
+		<script>
+			new App.Router;
+			Backbone.history.start();
+
+			// Wait for search request
+			var Box = new App.Models.App();
+			var doSearch = new App.Views.DoSearch();
+		</script>
+  </body>
+</html>

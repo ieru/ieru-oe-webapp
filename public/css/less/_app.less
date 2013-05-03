@@ -1,0 +1,52 @@
+@import "bootstrap.less";
+
+/* Special font setup */
+	@import url( 'https://fonts.googleapis.com/css?family=Ubuntu' );
+	@abydosTitlesFont:        open-sans-condensed, serif;
+	@abydosTitlesFontWeight:  normal;
+
+	.specialfont() {
+	  font-family: @abydosTitlesFont; 
+	  font-weight: @abydosTitlesFontWeight;
+	}
+
+/* Change Twitter Bootstrap styles */
+
+	/* Top navbar */
+	.navbar { background: #004d5f; border-bottom: 3px solid #00b19e; }
+	.navbar-inverse .navbar-nav li.dropdown > .dropdown-toggle .caret { border-bottom-color: #fff; border-top-color: #fff; }
+	.navbar-inverse .navbar-nav li.dropdown:hover > .dropdown-toggle .caret { border-bottom-color: #999; border-top-color: #999; }
+	.navbar .open > a { background: #0081A5 !important; }
+	.navbar-inverse .navbar-brand,
+	.navbar-inverse .navbar-nav > li > a { color: #fff; }
+	.navbar-inverse .navbar-brand:hover,
+	.navbar-inverse .navbar-nav > li > a:hover { color: #ccc; }
+	.navbar-brand,
+	.navbar-nav > li > a { padding-top: 10px; padding-bottom: 10px; }
+	.navbar-toggle { top: 3px; }
+
+	/* Jumbotron */
+	#header { margin-bottom: 0; border-bottom: 3px solid #00b19e; background: #ececec url('http://organic.teluria.es/css/images/header_bg.png') bottom center no-repeat; border-radius: 0; }
+	#header h1 { margin-top: 5px; color: rgba(0,0,0,0); background: url('http://organic.teluria.es/css/images/logo.png') no-repeat; width: 50%; height: 94px; }
+	#header form { margin-top: 25px; width: 50%; padding: 8px; background: #ddd; box-shadow: inset 0 0 3px rgba(0,0,0,0.3); border-radius: 5px; }
+	#header form input[type=text] { font-size: 25px; padding: 5px 0 6px 10px; }
+	#header form button { background: url('../images/search-magnifying-glass.png') 50% 50% no-repeat; color: rgba(0,0,0,0); }
+
+	/* Banner */
+	#home-banner { background: url("http://organic.teluria.es/images/slideshow_bg_patter.png") repeat scroll 0 0 transparent; }
+	#home-banner > div { text-align: center; }
+
+
+/* Responsive styles */
+
+	/* Remove the facets view for phones */
+	@media (max-width: @screen-tablet){
+		#app-content-filters { display: none; }
+		#header h1 { display: none; }
+		#header form { width: 100%; margin-top:40px; }
+	}
+
+	@media (min-width: @screen-tablet) and (max-width: @screen-small-max){
+		#header h1 { width: 90px; }
+		#header form { width: 75%; }
+	}
