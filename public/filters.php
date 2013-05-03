@@ -212,21 +212,26 @@ return array(
 	),
 	'author'=>array(
 		'en'=>'author',
+		'es'=>'Autor',
 	),
 	'counselor'=>array(
 		'en'=>'counselor',
 	),
 	'library'=>array(
 		'en'=>'library',
+		'es'=>'Biblioteca',
 	),
 	'educational administration'=>array(
 		'en'=>'educational administration',
+		'es'=>'administración educativa',
 	),
 	'te'=>array(
 		'en'=>'Telugu',
+		'es'=>'Telugu',
 	),
 	'it'=>array(
 		'en'=>'Italian',
+		'es'=>'Italiano',
 	),
 	'fi'=>array(
 		'en'=>'Finnish',
@@ -239,18 +244,22 @@ return array(
 	),
 	'da'=>array(
 		'en'=>'Danish',
+		'es'=>'Danés',
 	),
 	'nl'=>array(
 		'en'=>'Dutch',
+		'es'=>'Holandés',
 	),
 	'ru'=>array(
 		'en'=>'Russian',
 	),
 	'application/msword'=>array(
 		'en'=>'application/msword',
+		'es'=>'application/msword',
 	),
 	'xml'=>array(
 		'en'=>'XML',
+		'es'=>'XML',
 	),
 	'video/mpeg'=>array(
 		'en'=>'video/mpeg',
@@ -260,9 +269,13 @@ return array(
 	),
 	'application/vnd.ms-word'=>array(
 		'en'=>'application/vnd.ms-word',
+		'es'=>'aplicación/vnd.ms-palabra',
 	),
 	'video/mp4'=>array(
 		'en'=>'video/mp4',
+	),
+	'tw'=>array(
+		'es'=>'Twi',
 	),
 
 );

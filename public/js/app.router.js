@@ -6,13 +6,13 @@ App.Router = Backbone.Router.extend({
 
 	index: function(){
 		console.log('index page');
-		$('#home-banner').show();
-		$('#page-home').show();
-		$('#page-app').hide();
+		show_view( 'page-home' );
+		vent.trigger('cancel:ajaxs');
 	},
 
 	search: function(text){
 		console.log('search page: '+text);
+		show_view( 'page-app' );
 		$('#header form input[type=text]').val(text);
 		vent.trigger('search:submit');
 	},

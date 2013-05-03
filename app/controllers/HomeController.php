@@ -2,18 +2,18 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Default Home Controller
+    |--------------------------------------------------------------------------
+    |
+    | You may wish to use controllers instead of, or in addition to, Closure
+    | based routes. That's great! Here is an example controller method to
+    | get you started. To route to this controller, just add the route:
+    |
+    |   Route::get('/', 'HomeController@showWelcome');
+    |
+    */
 
     private $_user = null;
 
@@ -42,8 +42,8 @@ class HomeController extends BaseController {
         */
     }
 
-	public function showWelcome()
-	{
+    public function showWelcome()
+    {
 # Fetch one featured resource to show
         $ch = curl_init();
         $lang['en'] = 'english';
@@ -111,7 +111,7 @@ class HomeController extends BaseController {
                             INNER JOIN identifier ON string.FK_general=identifier.FK_general
                        WHERE string.FK_title is not NULL AND strings.FK_description is not NULL
                             AND string.language="'.Session::get( 'language' ).'" AND strings.language="'.Session::get( 'language' ).'"
-                            AND string.fk_general = '.$resource->fk_general.'
+                            AND string.fk_general = '.$resource->FK_general.'
                        ORDER BY string.FK_general DESC
                        LIMIT 1' ));
                 if ( count( $new ) )
@@ -119,10 +119,10 @@ class HomeController extends BaseController {
             }
         }
 
-		return View::make('hello')
+        return View::make('hello')
                 ->with( 'carousel', $carousel )
                 ->with( 'featured', $featured )
                 ->with( '_user', $this->_user );
-	}
+    }
 
 }

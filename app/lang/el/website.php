@@ -1,5 +1,14 @@
 <?php
 return array(
+	'en'=>'English',
+'fr'=>'Français',
+'de'=>'Deutsch',
+'el'=>'ελληνικά',
+'lv'=>'Latviešu valoda',
+'it'=>'Italiano',
+'et'=>'Eesti keel',
+'es'=>'Español',
+'tr'=>'Türkçe',
 'resource_language'=>'Αυτός ο πόρος είναι σε',
 'age_rage_context'=>'Τυπικό ηλικία φάσμα πλαίσιο',
 'comments'=>'Σχόλια',

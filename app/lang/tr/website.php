@@ -1,5 +1,14 @@
 <?php
 return array(
+	'en'=>'English',
+'fr'=>'Français',
+'de'=>'Deutsch',
+'el'=>'ελληνικά',
+'lv'=>'Latviešu valoda',
+'it'=>'Italiano',
+'et'=>'Eesti keel',
+'es'=>'Español',
+'tr'=>'Türkçe',
 'resource_language'=>'Bu kaynak olduğunu',
 'age_rage_context'=>'Tipik yaş aralığı içerik',
 'comments'=>'Yorumlar',
