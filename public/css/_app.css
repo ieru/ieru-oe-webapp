@@ -4757,6 +4757,11 @@ body {
 #search-content .accordion-heading {
   background: #004d5f;
 }
+#search-content .accordion-heading .glyphicon {
+  color: #fff;
+  margin: 10px 10px 0 15px;
+  font-weight: normal;
+}
 #search-content .accordion-heading a {
   color: #fff;
 }
@@ -4799,12 +4804,26 @@ body {
 #search-content .accordion-inner a {
   font-weight: normal;
 }
+#search-content article {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+}
 #search-content article header h2 {
   font-size: 25px;
   line-height: 30px;
   margin-top: 0;
   height: 30px;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  -ms-text-overflow: clip;
+  -webkit-text-overflow: clip;
+  -moz-text-overflow: clip;
+}
+#search-content article figure {
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 15px;
 }
 /* Common styles */
 /* Rating stars */

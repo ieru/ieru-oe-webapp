@@ -111,7 +111,10 @@
                                 </header>
                                 <p><?php echo $resource->description ?></p>
                                 <footer>
-                                    <p><?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?></p>
+                                    <p>
+                                        <?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?>
+                                        <a href="#" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover on top"><span class="glyphicon glyphicon-expand"></span></a>
+                                    </p>
                                 </footer>
                             </article>
                             <?php endforeach ?>
@@ -178,6 +181,9 @@
 
         <script id="resource-content" type="text/template">
             <header>
+                <figure class="hidden-phone">
+                    <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
+                </figure>
                 <h2><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <p>This resource is in <%= language %></p>
             </header>
@@ -191,6 +197,7 @@
 
         <script id="facets-content" type="text/template">
             <div class="accordion-heading">
+                <span class="glyphicon glyphicon-chevron-down pull-left"></span>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters" href="#collapse-<%= name %>">
                     <%= name %>
                 </a>

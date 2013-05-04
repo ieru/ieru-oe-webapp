@@ -13,6 +13,8 @@ App.Views.SearchResults = Backbone.View.extend({
     App.Views.Resource = Backbone.View.extend({
         tagName: 'article',
 
+        className: 'clearfix',
+
         template: _.template( $('#resource-content').html() ),
 
         initialize: function(){
@@ -98,8 +100,10 @@ App.Views.Facets = Backbone.View.extend({
                 },
 
                 render: function(){
+                    // Take the last part in technical format filters
                     var translation = this.model.get('translation').split('/');
                     this.model.set('translation', translation[translation.length-1]);
+
                     this.$el.html( this.template( this.model.toJSON() ) );
                     return this;
                 }
