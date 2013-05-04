@@ -198,7 +198,10 @@
         </script>
 
         <script id="facets-filter" type="text/template">
-            <input type="checkbox"/> <a title="<%= filter %>"><%= translation.substr(0,20).trim() %></a> <span class="label pull-right"><%= value %></span>
+            <input type="checkbox" id="checkbox-<%= filter.replace(' ','-') %>" name="checkbox-<%= filter.replace(' ','-') %>" />
+            <label for="checkbox-<%= filter.replace(' ','-') %>"><span></span></label>
+            <a title="<%= filter %>"><%= translation.substr(0,20).trim() %></a> 
+            <span class="label pull-right"><%= value %></span>
         </script>
 
         <!-- jQuery + Bootstrap -->

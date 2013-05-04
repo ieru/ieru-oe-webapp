@@ -4803,6 +4803,21 @@ body {
 .rating-tooltip .rating-star {
   display: inline !important;
 }
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label span {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  background: url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) left top no-repeat;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked + label span {
+  background: url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) -19px top no-repeat;
+}
 /* Responsive styles */
 /* Remove the facets view for phones */
 @media (max-width: 768px) {
