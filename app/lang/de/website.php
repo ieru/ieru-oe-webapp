@@ -1,6 +1,6 @@
 <?php
 return array(
-	'en'=>'English',
+'en'=>'English',
 'fr'=>'Français',
 'de'=>'Deutsch',
 'el'=>'ελληνικά',

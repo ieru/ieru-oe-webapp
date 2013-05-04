@@ -18,3 +18,9 @@ function show_view ( view ){
 
 	$('#'+view).show();
 }
+
+function lang ( text )
+{
+	var langFile = Box.get('langFile');
+	return !!langFile[text] ? langFile[text] : '[['+text+']]';
+}

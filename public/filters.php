@@ -252,6 +252,7 @@ return array(
 	),
 	'counselor'=>array(
 		'en'=>'counselor',
+		'es'=>'Consejero',
 	),
 	'library'=>array(
 		'en'=>'library',

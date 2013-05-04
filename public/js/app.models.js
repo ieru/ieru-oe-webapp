@@ -30,6 +30,10 @@ App.Models.Search = Backbone.Model.extend({
 	}
 });
 
+App.Models.Autocomplete = Backbone.Model.extend({
+
+})
+
 App.Models.App = Backbone.Model.extend({
 	default: {
 		interface: 'en',

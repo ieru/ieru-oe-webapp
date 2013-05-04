@@ -113,7 +113,11 @@ App.Views.DoSearch = Backbone.View.extend({
     el: '#search-form',
 
     events: {
-        'submit': 'submit',
+        'submit': 'submit'
+    },
+
+    autocomplete: function(e){
+        console.log(e.type, e.keyCode);
     },
 
     initialize: function(){
@@ -132,6 +136,7 @@ App.Views.DoSearch = Backbone.View.extend({
                 delete this.ajax;
             }
         }, this );
+        $('#search-form input[type=text]').keyup(this.autocomplete);
     },
 
     submit: function(e){

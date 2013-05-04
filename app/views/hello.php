@@ -51,17 +51,17 @@
                             <div style="float: right; padding-top: 9px; color: #eee; "><?php echo Lang::get('website.auto-translate') ?></div>
                         </li>-->
                         <li class="dropdown pull-right" id="lang-selector">
-                            <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle"><span class="flag <?php echo Session::get( 'language' ) ?>flag"></span> <?php echo Lang::get('website.'.LANG ) ?> <b class="caret"></b></a>
+                            <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle"><span class="flag <?php echo Session::get( 'language' ) ?>flag"></span> <img src="/images/blank.png" class="flag flag-<?php echo LANG ?>" alt="User's Language" /> <?php echo Lang::get('website.'.LANG ) ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=de<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag deflag"></div> Deutsch</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=et<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag etflag"></div> Eesti keel</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=en<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag enflag"></div> English</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=es<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag esflag"></div> Español</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=el<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag elflag"></div> ελληνικά</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=fr<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag frflag"></div> Français</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=it<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag itflag"></div> Italiano</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=lv<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag lvflag"></div> Latviešu valoda</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=tr<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><div class="flag trflag"></div> Türkçe</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=de<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-de" alt="Deutsch" /> Deutsch</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=et<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-et" alt="Deutsch" /> Eesti keel</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=en<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-en" alt="Deutsch" /> English</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=es<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-es" alt="Deutsch" /> Español</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=el<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-el" alt="Deutsch" /> Eλληνικά</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=fr<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-fr" alt="Deutsch" /> Français</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=it<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-it" alt="Deutsch" /> Italiano</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=lv<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-lv" alt="Deutsch" /> Latviešu valoda</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=tr<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-tr" alt="Deutsch" /> Türkçe</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -185,13 +185,37 @@
                     <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
                 </figure>
                 <h2><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
-                <p>This resource is in <%= language %></p>
+                <p><?php echo Lang::get('website.resource_language') ?> <img src="/images/blank.png" class="flag flag-<%= language %>" alt="<%= lang(language) %>" /> <%= lang(language) %></p>
             </header>
             <% if ( texts[metadata_language].description ){ %>
-            <p><%= texts[metadata_language].description.substr(0,200).trim() %>...</p>
+                <p><%= texts[metadata_language].description.substr(0,200).trim() %>...</p>
             <% } %>
             <footer>
-
+                <ul class="list-unstyled">
+                    <li>
+                        <span><?php echo Lang::get('website.abstracts_language') ?></span>
+                        <ul class="list-unstyled">
+                            <li class="dropdown organic-dropdown">
+                                <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <?php echo Lang::get('website.'.LANG ) ?> (Human)
+                                    <!--<b class="caret"></b>-->
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                <% for ( var i in texts ){ %>
+                                    <li class="lang-select-<%= texts[i].lang %> list-unstyled"> 
+                                        <a class="<%= texts[i].type_class %>" href="#">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <%= lang(i) %> (<%= lang(texts[i].type) %>)
+                                        </a>
+                                    </li>
+                                <% } %>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </footer>
         </script>
 
@@ -199,7 +223,7 @@
             <div class="accordion-heading">
                 <span class="glyphicon glyphicon-chevron-down pull-left"></span>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters" href="#collapse-<%= name %>">
-                    <%= name %>
+                    <%= lang(name) %>
                 </a>
             </div>
         </script>
@@ -224,11 +248,14 @@
         <script src="js/app.views.js"></script>
         <script src="js/app.collections.js"></script>
         <script src="js/app.router.js"></script>
+        <!--Default language file -->
+        <script src="js/lang/<?php echo LANG ?>.js"></script>
 
         <script>
             //$.ajaxSetup({ cache: false });
             // Wait for search request
             var Box = new App.Models.App();
+            Box.set('langFile',lang_file);
             var doSearch = new App.Views.DoSearch();
 
             // Router + History
