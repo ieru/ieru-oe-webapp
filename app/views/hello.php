@@ -113,7 +113,7 @@
                                 <footer>
                                     <p>
                                         <?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?>
-                                        <a href="#" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover on top"><span class="glyphicon glyphicon-expand"></span></a>
+                                        <a href="#" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover on top"><span class="glyphicon glyphicon-expand"></span></a></span>
                                     </p>
                                 </footer>
                             </article>
@@ -134,7 +134,7 @@
                                     </header>
                                     <p><?php echo $resource->description ?></p>
                                     <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?></p>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?></span></p>
                                     </footer>
                                 </article>
                                 <?php endforeach ?>
@@ -192,9 +192,27 @@
             <% } %>
             <footer>
                 <ul class="list-unstyled">
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range %></li>
                     <li>
-                        <span><?php echo Lang::get('website.abstracts_language') ?></span>
-                        <ul class="list-unstyled">
+                        <strong><?php echo Lang::get('website.rate') ?>:</strong>
+                        <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating">
+                            <a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0" /><img src="/images/full_star.png" class="rating-star star-value-1" /><img src="/images/full_star.png" class="rating-star star-value-2" /><img src="/images/full_star.png" class="rating-star star-value-3" /><img src="/images/empty_star.png" class="rating-star star-value-4" /></a> 
+                            <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?>
+                        </span>
+                    </li>
+                    <li class="search-result-keywords"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
+                        <span>
+                            <% if ( !!texts[metadata_language].keywords ){ %>
+                                <% for ( var i in texts[metadata_language].keywords ){ %>
+                                <a href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %>,</a>
+                                <% } %>
+                            <% } %>
+                        </span>
+                    </li>
+                    <li><a class="moreinfo" href="/browser/resource/${id}"><?php echo Lang::get('website.more_info') ?></a></li>
+                    <li>
+                        <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
+                        <ul class="list-unstyled" style="display: inline; ">
                             <li class="dropdown organic-dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle">
                                     <span class="glyphicon glyphicon-user"></span>
