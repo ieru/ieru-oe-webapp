@@ -199,8 +199,7 @@
 
         <script id="facets-filter" type="text/template">
             <input type="checkbox" id="checkbox-<%= filter.replace(' ','-') %>" name="checkbox-<%= filter.replace(' ','-') %>" />
-            <label for="checkbox-<%= filter.replace(' ','-') %>"><span></span></label>
-            <a title="<%= filter %>"><%= translation.substr(0,20).trim() %></a> 
+            <label for="checkbox-<%= filter.replace(' ','-') %>"><span></span> <a title="<%= filter %>"><%= translation.substr(0,20).trim() %></a></label>
             <span class="label pull-right"><%= value %></span>
         </script>
 
@@ -220,7 +219,7 @@
         <script src="js/app.router.js"></script>
 
         <script>
-            $.ajaxSetup({ cache: false });
+            //$.ajaxSetup({ cache: false });
             // Wait for search request
             var Box = new App.Models.App();
             var doSearch = new App.Views.DoSearch();

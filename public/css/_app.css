@@ -4783,6 +4783,9 @@ body {
 #search-content .accordion-inner .label {
   margin-top: 2px;
 }
+#search-content .accordion-inner a {
+  font-weight: normal;
+}
 #search-content article header h2 {
   font-size: 25px;
   line-height: 30px;
@@ -4803,6 +4806,7 @@ body {
 .rating-tooltip .rating-star {
   display: inline !important;
 }
+/* Input of filter selection */
 input[type="checkbox"] {
   display: none;
 }
@@ -4810,7 +4814,7 @@ input[type="checkbox"] + label span {
   display: inline-block;
   width: 19px;
   height: 19px;
-  margin: -1px 4px 0 0;
+  margin: -1px 2px 0 0;
   vertical-align: middle;
   background: url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) left top no-repeat;
   cursor: pointer;
