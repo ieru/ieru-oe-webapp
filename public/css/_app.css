@@ -4625,6 +4625,8 @@ a:hover {
 .navbar {
   background: #004d5f;
   border-bottom: 3px solid #00b19e;
+  margin: 0;
+  border-radius: 0;
 }
 .navbar-inverse .navbar-nav li.dropdown > .dropdown-toggle .caret {
   border-bottom-color: #fff;
@@ -4660,6 +4662,7 @@ a:hover {
 }
 /* Jumbotron */
 #header {
+  padding-top: 15px;
   margin-bottom: 0;
   border-bottom: 3px solid #00b19e;
   background: #ececec url('http://organic.teluria.es/css/images/header_bg.png') bottom center no-repeat;
@@ -4827,6 +4830,12 @@ input[type="checkbox"]:checked + label span {
 @media (max-width: 768px) {
   #app-content-filters {
     display: none;
+  }
+  #header {
+    padding: 0 15px 15px;
+  }
+  #header form {
+    margin-top: 15px !important;
   }
   #header h1 {
     display: none;
