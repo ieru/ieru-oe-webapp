@@ -4786,6 +4786,16 @@ body {
 #search-content .accordion-inner .label {
   margin-top: 2px;
 }
+#search-content .accordion-inner label {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 145px;
+  text-overflow: clip;
+  -ms-text-overflow: clip;
+  -webkit-text-overflow: clip;
+  -moz-text-overflow: clip;
+  height: 20px;
+}
 #search-content .accordion-inner a {
   font-weight: normal;
 }
@@ -4828,17 +4838,11 @@ input[type="checkbox"]:checked + label span {
 /* Responsive styles */
 /* Remove the facets view for phones */
 @media (max-width: 768px) {
-  #app-content-filters {
-    display: none;
-  }
   #header {
     padding: 0 15px 15px;
   }
   #header form {
     margin-top: 15px !important;
-  }
-  #header h1 {
-    display: none;
   }
   #header form {
     width: 100%;

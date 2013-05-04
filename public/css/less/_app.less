@@ -72,6 +72,7 @@
     #search-content .accordion-inner li:hover a { text-decoration: none; color: #124E62; text-shadow: 1px 1px #fff; }
     #search-content .accordion-inner li:last-child { border-bottom: none; }
     #search-content .accordion-inner .label { margin-top: 2px; }
+    #search-content .accordion-inner label { white-space: nowrap; overflow: hidden; width: 145px; text-overflow: clip; -ms-text-overflow: clip; -webkit-text-overflow: clip; -moz-text-overflow: clip; height: 20px; }
     #search-content .accordion-inner a { font-weight: normal; }
     #search-content article header h2 { font-size: 25px; line-height: 30px; margin-top: 0; height: 30px; overflow: hidden; }
 
@@ -91,10 +92,8 @@
 
     /* Remove the facets view for phones */
     @media (max-width: @screen-tablet){
-        #app-content-filters { display: none; }
         #header { padding: 0 15px 15px; }
         #header form { margin-top: 15px !important; }
-        #header h1 { display: none; }
         #header form { width: 100%; margin-top:40px; }
 
         #search-content p { font-size: 18px; line-height: 25px; }

@@ -71,7 +71,7 @@
 
         <header id="header" class="jumbotron">
             <div class="container">
-                <h1 class="pull-left">Organic.Edunet</h1>
+                <h1 class="pull-left hidden-phone">Organic.Edunet</h1>
                 <form id="search-form" action="" class="pull-right">
                     <div class="input-group">
                         <input type="text" class="input-large" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
@@ -149,7 +149,7 @@
             <div class="container">
                 <div class="row">
                     <div id="search-content">
-                        <aside id="app-content-filters" class="col col-lg-3">
+                        <aside id="app-content-filters" class="col col-lg-3 hidden-phone">
                         </aside>
                         <div id="app-content-results" class="col col-lg-9">
                         </div>
@@ -199,8 +199,8 @@
 
         <script id="facets-filter" type="text/template">
             <input type="checkbox" id="checkbox-<%= filter.replace(' ','-') %>" name="checkbox-<%= filter.replace(' ','-') %>" />
-            <label for="checkbox-<%= filter.replace(' ','-') %>"><span></span> <a title="<%= filter %>"><%= translation.substr(0,20).trim() %></a></label>
-            <span class="label pull-right"><%= value %></span>
+            <label for="checkbox-<%= filter.replace(' ','-') %>"><span></span> <a title="<%= filter %>"><%= translation %></a></label>
+            <span class="label pull-right hidden-tablet hidden-phone"><%= value %></span>
         </script>
 
         <!-- jQuery + Bootstrap -->

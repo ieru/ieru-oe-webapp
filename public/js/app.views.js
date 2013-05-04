@@ -98,6 +98,8 @@ App.Views.Facets = Backbone.View.extend({
                 },
 
                 render: function(){
+                    var translation = this.model.get('translation').split('/');
+                    this.model.set('translation', translation[translation.length-1]);
                     this.$el.html( this.template( this.model.toJSON() ) );
                     return this;
                 }
