@@ -33,6 +33,7 @@ App.Models.Search = Backbone.Model.extend({
 App.Models.App = Backbone.Model.extend({
 	default: {
 		interface: 'en',
+		searchText: '',
 	},
 
 	initialize: function(){

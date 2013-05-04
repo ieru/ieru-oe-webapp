@@ -14,6 +14,6 @@ App.Router = Backbone.Router.extend({
 		console.log('search page: '+text);
 		show_view( 'page-app' );
 		$('#header form input[type=text]').val(text);
-		vent.trigger('search:submit');
+		vent.trigger('search:submit', text);
 	},
 })

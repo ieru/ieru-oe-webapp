@@ -248,6 +248,7 @@ return array(
 	'author'=>array(
 		'en'=>'author',
 		'es'=>'Autor',
+		'it'=>'autore',
 	),
 	'counselor'=>array(
 		'en'=>'counselor',
@@ -255,52 +256,72 @@ return array(
 	'library'=>array(
 		'en'=>'library',
 		'es'=>'Biblioteca',
+		'it'=>'libreria',
 	),
 	'educational administration'=>array(
 		'en'=>'educational administration',
 		'es'=>'administración educativa',
+		'it'=>'amministrazione educativa',
 	),
 	'te'=>array(
 		'en'=>'Telugu',
 		'es'=>'Telugu',
+		'it'=>'Telugu',
 	),
 	'it'=>array(
 		'en'=>'Italian',
 		'es'=>'Italiano',
+		'it'=>'Italiano',
 	),
 	'fi'=>array(
 		'en'=>'Finnish',
+		'it'=>'Finlandese',
+		'es'=>'Finlandés',
 	),
 	'ro'=>array(
 		'en'=>'Romanian',
+		'it'=>'Rumeno',
+		'es'=>'Rumano',
 	),
 	'sv'=>array(
 		'en'=>'Swedish',
+		'it'=>'Svedese',
+		'es'=>'Sueco',
 	),
 	'da'=>array(
 		'en'=>'Danish',
 		'es'=>'Danés',
+		'it'=>'Danese',
 	),
 	'nl'=>array(
 		'en'=>'Dutch',
 		'es'=>'Holandés',
+		'it'=>'Olandese',
 	),
 	'ru'=>array(
 		'en'=>'Russian',
+		'it'=>'Russo',
+		'es'=>'Ruso',
 	),
 	'application/msword'=>array(
 		'en'=>'application/msword',
 		'es'=>'application/msword',
+		'it'=>'application/msword',
 	),
 	'xml'=>array(
 		'en'=>'XML',
 		'es'=>'XML',
+		'it'=>'XML',
 	),
 	'video/mpeg'=>array(
 		'en'=>'video/mpeg',
+		'it'=>'video/mpeg',
+		'es'=>'video/mpeg',
 	),
 	'application/x-shockwave-flash'=>array(
 		'en'=>'application/x-shockwave-flash',
+		'it'=>'Application/x-shockwave-flash',
+		'es'=>'application/x-shockwave-flash',
 	),
 	'application/vnd.ms-word'=>array(
 		'en'=>'application/vnd.ms-word',
@@ -311,6 +332,11 @@ return array(
 	),
 	'tw'=>array(
 		'es'=>'Twi',
+	),
+	'tr'=>array(
+		'it'=>'Turco',
+		'es'=>'Turco',
+		'en'=>'Turkish',
 	),
 
 );

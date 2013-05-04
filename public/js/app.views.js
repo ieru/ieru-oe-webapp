@@ -111,8 +111,14 @@ App.Views.DoSearch = Backbone.View.extend({
     },
 
     initialize: function(){
-        vent.on( 'search:submit', function(){
-            $('#header form').submit();
+        vent.on( 'search:submit', function(text){
+            // Remove elements not needed
+            if ( !Box.get('searchText') || Box.get('searchText') != text ){
+                console.log(text);
+                $('#app-content-filters').empty();
+                $('#app-content-results').empty();
+                $('#header form').submit();
+            }
         }, this );
         vent.on( 'cancel:ajaxs', function(){
             if ( !!this.ajax ){
@@ -125,18 +131,20 @@ App.Views.DoSearch = Backbone.View.extend({
     submit: function(e){
         e.preventDefault();
 
-        // Remove elements not needed
+        // Abort any current ajax requests
+        vent.trigger('cancel:ajaxs');
+
+        // Get the search text
+        Box.set('searchText', $(e.currentTarget).find('input[type=text]').val());
+
         $('#app-content-filters').empty();
         $('#app-content-results').empty();
 
-        // Get the search text
-        var searchText = $(e.currentTarget).find('input[type=text]').val();
-
         // Change URL
-        Router.navigate('#/search/'+searchText);
+        Router.navigate('#/search/'+Box.get('searchText'));
 
         // Do the search
-        var search = new App.Models.Search({ text: searchText, lang: Box.get('interface'), offset: 0, limit: 10, total: 0 });
+        var search = new App.Models.Search({ text: Box.get('searchText'), lang: Box.get('interface'), offset: 0, limit: 10, total: 0 });
         this.ajax = search.fetch();
         this.ajax.then(function(response){
             // Assign facets and results
