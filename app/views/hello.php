@@ -220,6 +220,7 @@
         <script src="js/app.router.js"></script>
 
         <script>
+            $.ajaxSetup({ cache: false });
             // Wait for search request
             var Box = new App.Models.App();
             var doSearch = new App.Views.DoSearch();
