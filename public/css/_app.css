@@ -4726,6 +4726,7 @@ body {
 }
 #home-content section article {
   border-bottom: 1px solid #ddd;
+  overflow: hidden;
 }
 #home-content section article footer {
   padding-bottom: 10px;
