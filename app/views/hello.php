@@ -149,15 +149,25 @@
             <div class="container">
                 <div class="row">
                     <div id="search-content">
-                        <aside id="app-content-filters" class="col col-lg-4">
+                        <aside id="app-content-filters" class="col col-lg-3">
                         </aside>
-                        <div id="app-content-results" class="col col-lg-8">
+                        <div id="app-content-results" class="col col-lg-9">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- END SEARCH PAGE -->
+
+
+        <!-- VIEW RESOURCE PAGE -->
+        <div id="page-resource">
+            <div class="container">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+        <!-- END VIEW RESOURCE PAGE -->
 
 
         <footer id="footer">
@@ -180,11 +190,15 @@
         </script>
 
         <script id="facets-content" type="text/template">
-            <%= name %>
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters" href="#collapse-<%= name %>">
+                    <%= name %>
+                </a>
+            </div>
         </script>
 
         <script id="facets-filter" type="text/template">
-            <a title="<%= filter %>"><%= translation %></a> | <%= value %>
+            <a title="<%= filter %>"><%= translation.substr(0,20).trim() %></a> <span class="label pull-right"><%= value %></span>
         </script>
 
         <!-- jQuery + Bootstrap -->

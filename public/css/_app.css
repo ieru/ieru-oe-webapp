@@ -4743,6 +4743,46 @@ body {
   margin-bottom: 3px;
 }
 /* Search Page */
+#search-content {
+  margin-top: 30px;
+}
+#search-content .accordion-group {
+  border-radius: 0;
+  margin-bottom: 0;
+  border-color: #175867;
+}
+#search-content .accordion-heading {
+  background: #004d5f;
+}
+#search-content .accordion-heading a {
+  color: #fff;
+}
+#search-content .accordion-inner {
+  padding: 0;
+}
+#search-content .accordion-inner ul {
+  margin: 0;
+}
+#search-content .accordion-inner li {
+  padding: 3px 6px;
+  border-bottom: 1px solid #ddd;
+}
+#search-content .accordion-inner li:hover {
+  background: #eee;
+}
+#search-content .accordion-inner li:last-child {
+  border-bottom: none;
+}
+#search-content .accordion-inner .label {
+  margin-top: 2px;
+}
+#search-content article header h2 {
+  font-size: 25px;
+  line-height: 30px;
+  margin-top: 0;
+  height: 30px;
+  overflow: hidden;
+}
 /* Common styles */
 /* Rating stars */
 .rating-star {

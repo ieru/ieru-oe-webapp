@@ -38,7 +38,10 @@ App.Views.SearchResults = Backbone.View.extend({
     });
 
 App.Views.Facets = Backbone.View.extend({
-    tagName: 'ul',
+
+    className: 'accordion',
+
+    idName: 'facets-listing-ajax',
 
     render: function(){
         this.collection.each(function(facet){
@@ -50,7 +53,9 @@ App.Views.Facets = Backbone.View.extend({
 });
 
     App.Views.Facet = Backbone.View.extend({
-        tagName: 'li',
+        tagName: 'div',
+
+        className: 'accordion-group',
 
         template: _.template( $('#facets-content').html() ),
 
@@ -65,7 +70,8 @@ App.Views.Facets = Backbone.View.extend({
             // Render the filters of this facet and append to this
             var filters = new App.Collections.Filters(this.model.get('results'));
             var filtersView = new App.Views.Filters({ collection: filters });
-            this.$el.append( filtersView.render().el );
+            this.$el.append('<div id="collapse-'+this.model.get('name')+'" class="accordion-body collapse in"><div class="accordion-inner"></div></div>')
+                .find('.accordion-inner').append( filtersView.render().el );
 
             return this;
         },
@@ -73,6 +79,7 @@ App.Views.Facets = Backbone.View.extend({
 
         App.Views.Filters = Backbone.View.extend({
             tagName: 'ul',
+            className: 'list-unstyled',
 
             render: function(){
                 this.collection.each(function(filter){
@@ -81,7 +88,6 @@ App.Views.Facets = Backbone.View.extend({
                 return this;
             }
         })
-
             App.Views.Filter = Backbone.View.extend({
                 tagName: 'li',
 
