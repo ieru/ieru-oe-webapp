@@ -175,6 +175,27 @@
                                 <li>Elemento</li>
                             </ul>
                         </div>
+                        <div class="scroll-container">
+  <div class="scroll-wrapper">
+    <div class="scroll-body">
+                                    <ul class="list-inline">
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                            </ul>
+    </div>
+  </div
+</div>
                         <aside id="app-content-filters" class="col col-lg-3 hidden-phone">
                         </aside>
                         <div id="app-content-results" class="col col-lg-9">
