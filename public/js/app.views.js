@@ -2,6 +2,7 @@ App.Views.SearchResults = Backbone.View.extend({
     tagName: 'section',
 
     render: function(){
+        this.$el.append( '<div class="app-content-pagination"></div>' );
         this.collection.each(function(resource){
             this.$el.append( new App.Views.Resource({ model: resource }).el );
         }, this);
@@ -130,31 +131,39 @@ App.Views.DoSearch = Backbone.View.extend({
         'submit': 'submit'
     },
 
-    autocomplete: function(e){
-        console.log(e.type, e.keyCode);
-    },
-
     initialize: function(){
+
+        // Submit search event
         vent.on( 'search:submit', function(text,page){
             // Remove elements not needed
             if ( !Box.get('searchText') || Box.get('searchText') != text || Box.get('page') != page ){
                 $('#app-content-filters').empty();
                 $('#app-content-results').empty();
-                $('#header form').submit();
-                if ( page != undefined )
                     Box.set('page',page);
+                console.log(Box.get('page'))
+                $('#header form').submit();
             }
         }, this );
+
+        // Cancel any ongoing ajax requests
         vent.on( 'cancel:ajaxs', function(){
             if ( !!this.ajax ){
                 this.ajax.abort();
                 delete this.ajax;
             }
         }, this );
+
+        // Search request was not successful
         vent.on( 'search:error', function(message){
             $('#app-content-results').html('<div class="alert alert-danger">'+message+'</div>');
         }, this );
+
+        // Add event for key pressing in the search form
         $('#search-form input[type=text]').keyup(this.autocomplete);
+    },
+
+    autocomplete: function(e){
+        console.log(e.type, e.keyCode);
     },
 
     submit: function(e){
@@ -164,8 +173,8 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Get the search text
         Box.set('searchText', $(e.currentTarget).find('input[type=text]').val());
-        //$('#app-content-filters').empty();
-        //$('#app-content-results').empty();
+        $('#app-content-filters').empty();
+        $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" />');
 
         // Change URL
         Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page'));
@@ -174,7 +183,7 @@ App.Views.DoSearch = Backbone.View.extend({
         var request = { 
             text:   Box.get('searchText'), 
             lang:   Box.get('interface'),
-            offset: parseInt(Box.get('page'))-1, 
+            offset: (parseInt(Box.get('page'))-1)*Box.get('perPage'),
             limit:  Box.get('perPage'), 
             total:  0 
         }

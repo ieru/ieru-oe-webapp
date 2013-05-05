@@ -86,6 +86,12 @@
                         </span>
                     </div>
                 </form>
+                <nav class="hidden-phone">
+                    <ul class="list-inline">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#/navigation">Navigational Search</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
 
@@ -192,14 +198,15 @@
                     <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
                 </figure>
                 <h2><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
-                <small><?php echo Lang::get('website.resource_language') ?> 
-            <% for ( var i in napa_langs ){ %>
+                <small><?php echo Lang::get('website.resource_language') ?>
+                <!--<img src="/images/blank.png" class="flag flag-<%= napa_langs[0] %>" alt="<%= lang(napa_langs[0]) %>" />--> <%= lang(napa_langs[0]) %>
+            <% for ( var i in napa_langs ){ if ( i > 0 ) { %>
                 <!--<img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" />--> <%= lang(napa_langs[i]) %>,
-            <% } %>
+            <% } } %>
                 </small>
             </header>
             <% if ( texts[metadata_language].description ){ %>
-                <p><%= texts[metadata_language].description.substr(0,300).trim() %> <a class="moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                <p><%= texts[metadata_language].description.substr(0,200).trim() %> <a class="moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
             <% } %>
             <footer>
                 <hr/>
