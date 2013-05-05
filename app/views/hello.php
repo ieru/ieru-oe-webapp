@@ -186,16 +186,17 @@
                     <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
                 </figure>
                 <h2><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
-                <p><?php echo Lang::get('website.resource_language') ?> 
+                <small><?php echo Lang::get('website.resource_language') ?> 
             <% for ( var i in napa_langs ){ %>
                 <!--<img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" />--> <%= lang(napa_langs[i]) %>,
             <% } %>
-                </p>
+                </small>
             </header>
             <% if ( texts[metadata_language].description ){ %>
-                <p><%= texts[metadata_language].description.substr(0,200).trim() %>... <a class="moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                <p><%= texts[metadata_language].description.substr(0,300).trim() %> <a class="moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
             <% } %>
             <footer>
+                <hr/>
                 <ul class="list-unstyled">
                     <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range %></li>
                     <li>
