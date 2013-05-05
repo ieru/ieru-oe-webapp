@@ -330,14 +330,48 @@ return array(
 	),
 	'video/mp4'=>array(
 		'en'=>'video/mp4',
+		'es'=>'video/mp4',
 	),
 	'tw'=>array(
 		'es'=>'Twi',
+		'en'=>'Twi',
 	),
 	'tr'=>array(
 		'it'=>'Turco',
 		'es'=>'Turco',
 		'en'=>'Turkish',
+	),
+	'pl'=>array(
+		'en'=>'Polish',
+		'es'=>'Polaco',
+	),
+	'cs'=>array(
+		'en'=>'Czech',
+		'es'=>'Checo',
+	),
+	'sk'=>array(
+		'en'=>'Slovak',
+		'es'=>'Eslovaco',
+	),
+	'no'=>array(
+		'en'=>'Norwegian',
+		'es'=>'Noruego',
+	),
+	'ja'=>array(
+		'en'=>'Japanese (ja)',
+		'es'=>'Japonés (ja)',
+	),
+	'audio/mp3'=>array(
+		'en'=>'audio/mp3',
+		'es'=>'audio/mp3',
+	),
+	'application/vnd.ms-excel'=>array(
+		'en'=>'application/vnd.ms-excel',
+		'es'=>'aplicación/vnd.ms-excel',
+	),
+	'video/quicktime'=>array(
+		'en'=>'video/quicktime',
+		'es'=>'video/quicktime',
 	),
 
 );
