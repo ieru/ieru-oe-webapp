@@ -159,7 +159,7 @@
                 <div class="row">
                     <div id="search-content">
                         <div id="prueba-horizontal">
-                            <ul>
+                            <ul class="list-inline">
                                 <li>Elemento</li>
                                 <li>Elemento</li>
                                 <li>Elemento</li>
