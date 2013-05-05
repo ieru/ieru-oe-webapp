@@ -205,16 +205,16 @@
                             <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?>
                         </span>
                     </li>
-                    <li class="search-result-keywords"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
+                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
                         <span>
                             <% if ( !!texts[metadata_language].keywords ){ %>
                                 <% for ( var i in texts[metadata_language].keywords ){ %>
-                                <a href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %>,</a>
+                                <a class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></a>
                                 <% } %>
                             <% } %>
                         </span>
                     </li>
-                    <li>
+                    <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
                         <ul class="organic-dropdown list-unstyled" style="display: inline; ">
                             <li class="dropdown">
