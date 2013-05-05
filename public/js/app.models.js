@@ -10,6 +10,9 @@ App.Models.Facet = Backbone.Model.extend({
 App.Models.Filter = Backbone.Model.extend({
 });
 
+App.Models.Pagination = Backbone.Model.extend({
+});
+
 App.Models.Search = Backbone.Model.extend({
 
 	urlRoot: '/api/organic/search',
@@ -35,9 +38,11 @@ App.Models.Autocomplete = Backbone.Model.extend({
 })
 
 App.Models.App = Backbone.Model.extend({
-	default: {
+	defaults: {
 		interface: 'en',
 		searchText: '',
+		page: 1,
+		perPage: 10
 	},
 
 	initialize: function(){

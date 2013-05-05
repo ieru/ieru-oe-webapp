@@ -5,9 +5,12 @@ App.Views.SearchResults = Backbone.View.extend({
         this.collection.each(function(resource){
             this.$el.append( new App.Views.Resource({ model: resource }).el );
         }, this);
+
+        // Add pagination box
+        this.$el.append( '<div class="app-content-pagination"></div>' );
+
         return this;
     }
-
 });
 
     App.Views.Resource = Backbone.View.extend({
@@ -109,6 +112,17 @@ App.Views.Facets = Backbone.View.extend({
                 }
             })
 
+App.Views.Pagination = Backbone.View.extend({
+
+    template: _.template( $('#search-pagination').html() ),
+
+    render: function(){
+        this.$el.html( this.template( this.model.toJSON() ) );
+        return this;
+    }
+
+});
+
 App.Views.DoSearch = Backbone.View.extend({
     el: '#search-form',
 
@@ -121,13 +135,14 @@ App.Views.DoSearch = Backbone.View.extend({
     },
 
     initialize: function(){
-        vent.on( 'search:submit', function(text){
+        vent.on( 'search:submit', function(text,page){
             // Remove elements not needed
-            if ( !Box.get('searchText') || Box.get('searchText') != text ){
-                console.log(text);
+            if ( !Box.get('searchText') || Box.get('searchText') != text || Box.get('page') != page ){
                 $('#app-content-filters').empty();
                 $('#app-content-results').empty();
                 $('#header form').submit();
+                if ( page != undefined )
+                    Box.set('page',page);
             }
         }, this );
         vent.on( 'cancel:ajaxs', function(){
@@ -136,28 +151,42 @@ App.Views.DoSearch = Backbone.View.extend({
                 delete this.ajax;
             }
         }, this );
+        vent.on( 'search:error', function(message){
+            $('#app-content-results').html('<div class="alert alert-danger">'+message+'</div>');
+        }, this );
         $('#search-form input[type=text]').keyup(this.autocomplete);
     },
 
     submit: function(e){
-        e.preventDefault();
-
         // Abort any current ajax requests
+        e.preventDefault();
         vent.trigger('cancel:ajaxs');
 
         // Get the search text
         Box.set('searchText', $(e.currentTarget).find('input[type=text]').val());
-
-        $('#app-content-filters').empty();
-        $('#app-content-results').empty();
+        //$('#app-content-filters').empty();
+        //$('#app-content-results').empty();
 
         // Change URL
-        Router.navigate('#/search/'+Box.get('searchText'));
+        Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page'));
 
         // Do the search
-        var search = new App.Models.Search({ text: Box.get('searchText'), lang: Box.get('interface'), offset: 0, limit: 10, total: 0 });
+        var request = { 
+            text:   Box.get('searchText'), 
+            lang:   Box.get('interface'),
+            offset: parseInt(Box.get('page'))-1, 
+            limit:  Box.get('perPage'), 
+            total:  0 
+        }
+        var search = new App.Models.Search(request);
         this.ajax = search.fetch();
         this.ajax.then(function(response){
+            // On error
+            if ( !response.success ){
+                vent.trigger( 'search:error', response.message );
+                return;
+            }
+
             // Assign facets and results
             var facets = new App.Collections.Facets(search.get('data').facets);
             var resources = new App.Collections.Resources(search.get('data').resources);
@@ -169,7 +198,14 @@ App.Views.DoSearch = Backbone.View.extend({
             // Render the results
             var resultsView = new App.Views.SearchResults({ collection: resources });
             $('#app-content-results').empty().append(resultsView.render().el);
+
+            // Render the pagination
+            var pagination = new App.Models.Pagination({ items: 120, perPage: 10, current: 2 });
+            var paginationView = new App.Views.Pagination({ model: pagination });
+            $('.app-content-pagination').empty().append(paginationView.render().el);
         });
+
+        // Remove memory of request object
         delete App.Ajaxs.search;
     }
 });
