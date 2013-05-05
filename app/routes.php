@@ -11,7 +11,7 @@
 |
 */
 
-Route::get( '/',                                'HomeController@showWelcome' );
+Route::get( '/',                                'HomeController@index' );
 Route::post( '/',                               array( 'as'=>'home',         'uses'=>'default@index' ) );
 
 Route::get( '/textual-search',                  array( 'as'=>'search',       'uses'=>'default@search' ) );

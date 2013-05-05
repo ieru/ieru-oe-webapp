@@ -263,9 +263,22 @@
             <span class="label pull-right hidden-tablet hidden-phone"><%= value %></span>
         </script>
 
+        <script id="search-pagination" type="text/template">
+            <ul class="pagination">
+              <li><a href="/#/search/<%= Box.get('searchText') %>/1">&laquo;</a></li>
+              <li><a href="/#/search/<%= Box.get('searchText') %>/1">1</a></li>
+              <li><a href="/#/search/<%= Box.get('searchText') %>/2">2</a></li>
+              <li><a href="/#/search/<%= Box.get('searchText') %>/3">3</a></li>
+              <li><a href="/#/search/<%= Box.get('searchText') %>/4">4</a></li>
+              <li><a href="/#/search/<%= Box.get('searchText') %>/5">5</a></li>
+              <li><a href="/#/search/<%= Box.get('searchText') %>/10">&raquo;</a></li>
+            </ul>
+        </script>
+
         <!-- jQuery + Bootstrap -->
         <script src="js/jquery.js"></script>
         <script src="js/vendor/bootstrap/bootstrap.js"></script>
+        <!-- Activate IE8 responsive features -->
         <script src="js/respond.js"></script>
         <!-- Libraries for using Backbone.js -->
         <script src="js/require.js"></script>

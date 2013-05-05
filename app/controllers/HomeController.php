@@ -31,7 +31,6 @@ class HomeController extends BaseController {
         App::setLocale(LANG);
 
         // Get user data
-        /*
         if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] )
         {
             $this->_user = User::order_by( 'users.user_id', 'desc' )
@@ -39,10 +38,9 @@ class HomeController extends BaseController {
                                  ->where( 'tokens.token_chars', '=', $_COOKIE['usertoken'] )
                                  ->first();
         }
-        */
     }
 
-    public function showWelcome()
+    public function index ()
     {
 # Fetch one featured resource to show
         $ch = curl_init();
@@ -119,7 +117,7 @@ class HomeController extends BaseController {
             }
         }
 
-        return View::make('hello')
+        return View::make('appview')
                 ->with( 'carousel', $carousel )
                 ->with( 'featured', $featured )
                 ->with( '_user', $this->_user );
