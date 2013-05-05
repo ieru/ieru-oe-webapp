@@ -8,6 +8,12 @@
         <link href="css/_app.css" rel="stylesheet" media="screen">
 
         <script src="http://use.edgefonts.net/amaranth.js"></script> 
+
+        <!-- iOS web app configuration -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent" /> 
+        <link rel="apple-touch-icon" href="img/icon.png"/>
+        <!--<link rel="apple-touch-startup-image" href="img/splash.png" />-->
     </head>
 
     <body>
@@ -152,6 +158,23 @@
             <div class="container">
                 <div class="row">
                     <div id="search-content">
+                        <div id="prueba-horizontal">
+                            <ul>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                                <li>Elemento</li>
+                            </ul>
+                        </div>
                         <aside id="app-content-filters" class="col col-lg-3 hidden-phone">
                         </aside>
                         <div id="app-content-results" class="col col-lg-9">
