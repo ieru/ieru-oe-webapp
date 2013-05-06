@@ -12,7 +12,7 @@
         <!-- iOS web app configuration -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent" /> 
-        <link rel="apple-touch-icon" href="img/icon.png"/>
+        <link rel="apple-touch-icon" href="/images/ios-icon.png"/>
         <!--<link rel="apple-touch-startup-image" href="img/splash.png" />-->
     </head>
 
