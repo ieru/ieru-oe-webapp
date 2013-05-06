@@ -8,6 +8,7 @@
         <link href="css/_app.css" rel="stylesheet" media="screen">
 
         <script src="http://use.edgefonts.net/amaranth.js"></script> 
+        <script src="http://use.edgefonts.net/league-gothic.js"></script>
 
         <!-- iOS web app configuration -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -271,10 +272,10 @@
         </script>
 
         <script id="search-pagination" type="text/template">
-            <ul class="pagination pagination-small">
+            <ul class="pagination">
 
             <% if ( page > 1 ) { %>
-              <li><a href="/#/search/<%= searchText %>/<%= 1 %>">First</a></li>
+              <li><a href="/#/search/<%= searchText %>/<%= 1 %>"><%= lang('first') %></a></li>
             <% } %>
 
             <% if ( page > 1 ) { %>
@@ -290,7 +291,7 @@
             <% } %>
 
             <% if ( page < totalPages ) { %>
-              <li><a href="/#/search/<%= searchText %>/<%= totalPages %>">Last</a></li>
+              <li><a href="/#/search/<%= searchText %>/<%= totalPages %>"><%= lang('last') %></a></li>
             <% } %>
 
             </ul>

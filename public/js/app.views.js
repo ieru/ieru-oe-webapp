@@ -28,14 +28,17 @@ App.Views.SearchResults = Backbone.View.extend({
         render: function(){
             // Get language to show of those in the resource
             var model = this.model.toJSON();
+            console.log(model);
             if ( !!model.texts[Box.get('interface')] && model.texts[Box.get('interface')].title != '' )
                 model.metadata_language = Box.get('interface');
             else if ( !!model.texts.en && model.texts.en.title != '' )
                 model.metadata_language = 'en';
             else
                 for ( var lang in model.texts )
-                    if ( lang.title != '' )
+                    if ( model.texts[lang].title ){
                         model.metadata_language = lang;
+                        break;
+                    }
 
             // Render view
             this.$el.html( this.template( model ) );
@@ -149,7 +152,6 @@ App.Views.DoSearch = Backbone.View.extend({
                 $('#app-content-filters').empty();
                 $('#app-content-results').empty();
                     Box.set('page',page);
-                console.log(Box.get('page'))
                 $('#header form').submit();
             }
         }, this );
