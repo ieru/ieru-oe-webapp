@@ -373,5 +373,23 @@ return array(
 		'en'=>'video/quicktime',
 		'es'=>'video/quicktime',
 	),
+	'cy'=>array(
+		'en'=>'Welsh',
+	),
+	'ar'=>array(
+		'en'=>'Arabic',
+	),
+	'zh'=>array(
+		'en'=>'Chinese',
+	),
+	'video/avi'=>array(
+		'en'=>'video/avi',
+	),
+	'audio/mpeg'=>array(
+		'en'=>'audio/mpeg',
+	),
+	'image/png'=>array(
+		'en'=>'image/png',
+	),
 
 );
