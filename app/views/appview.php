@@ -271,7 +271,7 @@
         </script>
 
         <script id="search-pagination" type="text/template">
-            <ul class="pagination">
+            <ul class="pagination pagination-small">
 
             <% if ( page > 1 ) { %>
               <li><a href="/#/search/<%= searchText %>/<%= 1 %>">First</a></li>
