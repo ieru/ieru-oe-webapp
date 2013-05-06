@@ -118,4 +118,5 @@ lang_file = {
 'educationalRole':'Audiencia',
 'human':'Humano',
 'automatic':'Automático',
+'last':'Última',
 }

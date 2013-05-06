@@ -118,4 +118,5 @@ lang_file = {
 'educationalRole':'Educational Role',
 'human':'Human',
 'automatic':'Automatic',
+'last':'Last',
 }
