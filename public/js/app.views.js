@@ -2,7 +2,7 @@ App.Views.SearchResults = Backbone.View.extend({
     tagName: 'section',
 
     render: function(){
-        this.$el.append( '<div class="app-content-pagination"></div>' );
+        //this.$el.append( '<div class="app-content-pagination"></div>' );
         this.collection.each(function(resource){
             this.$el.append( new App.Views.Resource({ model: resource }).el );
         }, this);
@@ -118,6 +118,15 @@ App.Views.Pagination = Backbone.View.extend({
     template: _.template( $('#search-pagination').html() ),
 
     render: function(){
+        // Set vars and startPage
+        this.model.set('page',parseInt(this.model.get('page')));
+        this.model.set('totalPages',parseInt(this.model.get('totalPages')));
+        this.model.set('numPagLinks',2);
+        var startPage = this.model.get('page') - this.model.get('numPagLinks');
+        if (startPage < 1)
+            startPage = 1;
+        this.model.set('startPage',startPage);
+
         this.$el.html( this.template( this.model.toJSON() ) );
         return this;
     }
@@ -196,6 +205,9 @@ App.Views.DoSearch = Backbone.View.extend({
                 return;
             }
 
+            // Assign total pages and other data
+            Box.set('totalPages',response.data.pages);
+
             // Assign facets and results
             var facets = new App.Collections.Facets(search.get('data').facets);
             var resources = new App.Collections.Resources(search.get('data').resources);
@@ -209,8 +221,7 @@ App.Views.DoSearch = Backbone.View.extend({
             $('#app-content-results').empty().append(resultsView.render().el);
 
             // Render the pagination
-            var pagination = new App.Models.Pagination({ items: 120, perPage: 10, current: 2 });
-            var paginationView = new App.Views.Pagination({ model: pagination });
+            var paginationView = new App.Views.Pagination({ model: Box });
             $('.app-content-pagination').empty().append(paginationView.render().el);
         });
 

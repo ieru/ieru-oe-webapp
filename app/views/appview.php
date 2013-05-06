@@ -272,13 +272,27 @@
 
         <script id="search-pagination" type="text/template">
             <ul class="pagination">
-              <li><a href="/#/search/<%= Box.get('searchText') %>/1">&laquo;</a></li>
-              <li><a href="/#/search/<%= Box.get('searchText') %>/1">1</a></li>
-              <li><a href="/#/search/<%= Box.get('searchText') %>/2">2</a></li>
-              <li><a href="/#/search/<%= Box.get('searchText') %>/3">3</a></li>
-              <li><a href="/#/search/<%= Box.get('searchText') %>/4">4</a></li>
-              <li><a href="/#/search/<%= Box.get('searchText') %>/5">5</a></li>
-              <li><a href="/#/search/<%= Box.get('searchText') %>/10">&raquo;</a></li>
+
+            <% if ( page > 1 ) { %>
+              <li><a href="/#/search/<%= searchText %>/<%= 1 %>">First</a></li>
+            <% } %>
+
+            <% if ( page > 1 ) { %>
+              <li><a href="/#/search/<%= searchText %>/<%= page-1 %>">&laquo;</a></li>
+            <% } %>
+
+            <% for ( var i = startPage ; i <= page+numPagLinks && i <= totalPages ; i++ ){ %>
+              <li <% if ( i == page ) { %>class="disabled"<% } %>><a href="/#/search/<%= searchText %>/<%= i %>"><%= i %></a></li>
+            <% } %>
+
+            <% if ( page < totalPages ) { %>
+              <li><a href="/#/search/<%= searchText %>/<%= page+1 %>">&raquo;</a></li>
+            <% } %>
+
+            <% if ( page < totalPages ) { %>
+              <li><a href="/#/search/<%= searchText %>/<%= totalPages %>">Last</a></li>
+            <% } %>
+
             </ul>
         </script>
 
