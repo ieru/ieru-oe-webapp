@@ -48,6 +48,8 @@ App.Models.App = Backbone.Model.extend({
 	},
 
 	initialize: function(){
+		var filters = new App.Collections.Filters([]);
+		this.set('filters', filters);
 		this.set('interface', $('#lang-selector').find('a').attr('id').split('-')[1] );
 	}
 })

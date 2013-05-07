@@ -168,7 +168,7 @@
                         <aside id="app-content-filters" class="col col-lg-3 hidden-phone">
                         </aside>
                         <div id="content-filters-bar" class="col col-lg-9">
-                            <strong>Filters:</strong>
+                            <p>Filters: <span>None</span></p>
                         </div>
                         <div id="app-content-results" class="col col-lg-9">
                         </div>
@@ -226,7 +226,7 @@
                         <span>
                             <% if ( !!texts[metadata_language].keywords ){ %>
                                 <% for ( var i in texts[metadata_language].keywords ){ %>
-                                <a class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></a>
+                                <a class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>" onclick="return false;"><%= texts[metadata_language].keywords[i] %></a>
                                 <% } %>
                             <% } %>
                         </span>
@@ -330,6 +330,9 @@
 
             // Ratings
             $('.rating-tooltip').tooltip({'title':'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'});
+
+            // Add views
+            var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
         </script>
   </body>
 </html>

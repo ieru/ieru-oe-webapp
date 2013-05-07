@@ -1,17 +1,3 @@
-App.Views.FiltersBar = Backbone.View.extend({
-    tagName: '#content-filters-bar',
-
-    initialize: function(){
-        this.render();
-    },
-
-    render: function(){
-        var model = this.model.toJSON();
-        this.$el.html( this.template( model ) );
-        return this;
-    },
-})
-
 App.Views.SearchResults = Backbone.View.extend({
     tagName: 'section',
 
@@ -34,6 +20,16 @@ App.Views.SearchResults = Backbone.View.extend({
         className: 'clearfix',
 
         template: _.template( $('#resource-content').html() ),
+
+        events: {
+            'click .search-result-keywords a': 'addFilter',
+        },
+
+        addFilter: function(e){
+            var filterModel = new App.Models.Filter({clave:'keyword', valor:$(e.currentTarget).attr('href').split('/')[3], indice:Box.get('filters').length});
+            filtersBarView.collection.add(filterModel);
+            $('#header form').submit();
+        },
 
         initialize: function(){
             this.render();
@@ -69,6 +65,9 @@ App.Views.Facets = Backbone.View.extend({
         this.collection.each(function(facet){
             this.$el.append( new App.Views.Facet({ model: facet }).el );
         }, this);
+
+        // Loop the filters and set as selected those in the filters
+        var filters = Box.get('filters');
         return this;
     }
 
@@ -133,12 +132,6 @@ App.Views.Facets = Backbone.View.extend({
                     // Check if the filter has been already set, remove if so
                     var filters = Box.get('filters');
                     this.model.set('active',false);
-                    for ( var f in filters ){
-                        if ( filters[f].valor == this.model.get('filter') ){
-                            this.model.set('active',true);
-                            break;
-                        }
-                    }
                     this.$el.html( this.template( this.model.toJSON() ) );
                     return this;
                 },
@@ -149,24 +142,66 @@ App.Views.Facets = Backbone.View.extend({
                     var filter  = this.$el.find('a').attr('title');
                     var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
 
-                    // Check if the filter has been already set, remove if so
-                    for ( var f in filters ){
-                        if ( filters[f].clave == parent && filters[f].valor == filter ){
-                            delete filters[f];
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if( !found ){
-                        Box.set('page',1);
-                        filters.push({clave:parent, valor:filter, indice:filters.length});
-                        $('#content-filters-bar').append('<a class="label label-success" title="'+parent+'" href="#" onclick="return false;"><button class="close" style="float: none;">&times;</button> '+filter+'</a> ');
-                    }
+                    var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
+                    filtersBarView.collection.add(filterModel);
+                    Box.set('page',1);
 
                     $('#header form').submit();
                 }
             })
+
+App.Views.FiltersBar = Backbone.View.extend({
+    el: '#content-filters-bar',
+
+    initialize: function(){
+        this.collection.on('add', this.addOne, this);
+    },
+
+    render: function(){
+        this.collection.each(this.addOne, this);
+        return this;
+    },
+
+    addOne: function(filter) {
+        var filterView = new App.Views.FilterActive({ model: filter });
+        this.$el.find('span').append(filterView.render().el);
+        this.$el.find('span').append(' ');
+    },
+})
+
+    App.Views.FilterActive = Backbone.View.extend({
+        tagName: 'a',
+
+        className: 'label',
+
+        attributes: {
+            'href': '#',
+            'onclick': 'return false',
+        },
+
+        events: {
+            'click .close': 'destroy',
+        },
+
+        initialize: function(){
+            this.model.on('destroy', this.remove, this);
+        },
+
+        destroy: function(){
+            this.model.destroy();
+        },
+
+        remove: function(){
+            this.$el.remove();
+            $('#checkbox-higher-education').attr('checked',false);
+            $('#header form').submit();
+        },
+
+        render: function(){
+            this.$el.html( '<button class="close" style="float: none;">&times;</button> '+this.model.get('valor') );
+            return this;
+        },
+    })
 
 App.Views.Pagination = Backbone.View.extend({
 
@@ -249,14 +284,15 @@ App.Views.DoSearch = Backbone.View.extend({
             offset:  (parseInt(Box.get('page'))-1)*Box.get('perPage'),
             limit:   Box.get('perPage'), 
             total:   0,
-            filter:  Box.get('filters'),
+            filter:  Box.get('filters').toJSON(),
         }
+        console.log(Box.get('filters').toJSON())
         var search = new App.Models.Search(request);
         this.ajax = search.fetch();
         this.ajax.then(function(response){
             // On error
             if ( !response.success ){
-                vent.trigger( 'search:error', response.message );
+                vent.trigger('search:error',response.message);
                 return;
             }
 
