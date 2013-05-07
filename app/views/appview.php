@@ -167,6 +167,9 @@
                     <div id="search-content">
                         <aside id="app-content-filters" class="col col-lg-3 hidden-phone">
                         </aside>
+                        <div id="content-filters-bar" class="col col-lg-9">
+                            <strong>Filters:</strong> <span></span>
+                        </div>
                         <div id="app-content-results" class="col col-lg-9">
                         </div>
                     </div>
@@ -200,10 +203,9 @@
                 </figure>
                 <h2><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
-                <img src="/images/blank.png" class="flag flag-<%= napa_langs[0] %>" alt="<%= lang(napa_langs[0]) %>" /> <%= lang(napa_langs[0]) %>
-            <% for ( var i in napa_langs ){ if ( i > 0 ) { %>
-                <img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %>,
-            <% } } %>
+            <% for ( var i in napa_langs ){ %>
+                <img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %>
+            <% } %>
                 </small>
             </header>
             <% if ( texts[metadata_language].description ){ %>
@@ -259,14 +261,14 @@
         <script id="facets-content" type="text/template">
             <div class="accordion-heading">
                 <span class="glyphicon glyphicon-chevron-down pull-left"></span>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters" href="#collapse-<%= name %>">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters" href="#collapse-<%= name %>" title="<%= name %>">
                     <%= lang(name) %>
                 </a>
             </div>
         </script>
 
         <script id="facets-filter" type="text/template">
-            <input type="checkbox" id="checkbox-<%= filter.replace(' ','-') %>" name="checkbox-<%= filter.replace(' ','-') %>" />
+            <input type="checkbox" id="checkbox-<%= filter.replace(' ','-') %>" name="checkbox-<%= filter.replace(' ','-') %>" <% if ( active ) { %>checked="checked"<% } %>/>
             <label for="checkbox-<%= filter.replace(' ','-') %>"><span></span> <a title="<%= filter %>"><%= translation %></a></label>
             <span class="label pull-right hidden-tablet hidden-phone"><%= value %></span>
         </script>

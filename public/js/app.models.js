@@ -43,7 +43,8 @@ App.Models.App = Backbone.Model.extend({
 		searchText: '',
 		page: 1,
 		perPage: 10,
-		totalPages: 1
+		totalPages: 1,
+		filters: [],
 	},
 
 	initialize: function(){

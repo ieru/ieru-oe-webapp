@@ -1,3 +1,17 @@
+App.Views.FiltersBar = Backbone.View.extend({
+    tagName: '#content-filters-bar',
+
+    initialize: function(){
+        this.render();
+    },
+
+    render: function(){
+        var model = this.model.toJSON();
+        this.$el.html( this.template( model ) );
+        return this;
+    },
+})
+
 App.Views.SearchResults = Backbone.View.extend({
     tagName: 'section',
 
@@ -28,7 +42,6 @@ App.Views.SearchResults = Backbone.View.extend({
         render: function(){
             // Get language to show of those in the resource
             var model = this.model.toJSON();
-            console.log(model);
             if ( !!model.texts[Box.get('interface')] && model.texts[Box.get('interface')].title != '' )
                 model.metadata_language = Box.get('interface');
             else if ( !!model.texts.en && model.texts.en.title != '' )
@@ -88,6 +101,7 @@ App.Views.Facets = Backbone.View.extend({
 
         App.Views.Filters = Backbone.View.extend({
             tagName: 'ul',
+
             className: 'list-unstyled',
 
             render: function(){
@@ -97,10 +111,15 @@ App.Views.Facets = Backbone.View.extend({
                 return this;
             }
         })
+
             App.Views.Filter = Backbone.View.extend({
                 tagName: 'li',
 
                 template: _.template( $('#facets-filter').html() ),
+
+                events: {
+                    'click input': 'addFilter',
+                },
 
                 initialize: function(){
                     this.render();
@@ -111,8 +130,41 @@ App.Views.Facets = Backbone.View.extend({
                     var translation = this.model.get('translation').split('/');
                     this.model.set('translation', translation[translation.length-1]);
 
+                    // Check if the filter has been already set, remove if so
+                    var filters = Box.get('filters');
+                    this.model.set('active',false);
+                    for ( var f in filters ){
+                        if ( filters[f].valor == this.model.get('filter') ){
+                            this.model.set('active',true);
+                            break;
+                        }
+                    }
                     this.$el.html( this.template( this.model.toJSON() ) );
                     return this;
+                },
+
+                addFilter: function(){
+                    var found   = false;
+                    var filters = Box.get('filters');
+                    var filter  = this.$el.find('a').attr('title');
+                    var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
+
+                    // Check if the filter has been already set, remove if so
+                    for ( var f in filters ){
+                        if ( filters[f].clave == parent && filters[f].valor == filter ){
+                            delete filters[f];
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if( !found ){
+                        Box.set('page',1);
+                        filters.push({clave:parent, valor:filter, indice:filters.length});
+                        $('#content-filters-bar').find('span').append('<a class="label label-success" title="'+parent+'" href="#" onclick="return false;"><button class="close" style="float: none;">&times;</button> '+filter+'</a>');
+                    }
+
+                    $('#header form').submit();
                 }
             })
 
@@ -184,7 +236,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Get the search text
         Box.set('searchText', $(e.currentTarget).find('input[type=text]').val());
-        $('#app-content-filters').empty();
+        //$('#app-content-filters').empty();
         $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" />');
 
         // Change URL
@@ -192,11 +244,12 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Do the search
         var request = { 
-            text:   Box.get('searchText'), 
-            lang:   Box.get('interface'),
-            offset: (parseInt(Box.get('page'))-1)*Box.get('perPage'),
-            limit:  Box.get('perPage'), 
-            total:  0 
+            text:    Box.get('searchText'), 
+            lang:    Box.get('interface'),
+            offset:  (parseInt(Box.get('page'))-1)*Box.get('perPage'),
+            limit:   Box.get('perPage'), 
+            total:   0,
+            filter:  Box.get('filters'),
         }
         var search = new App.Models.Search(request);
         this.ajax = search.fetch();
@@ -216,7 +269,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Render the facets in the View
             var facetsView = new App.Views.Facets({ collection: facets });
-            $('#app-content-filters').append(facetsView.render().el);
+            $('#app-content-filters').empty().append(facetsView.render().el);
 
             // Render the results
             var resultsView = new App.Views.SearchResults({ collection: resources });

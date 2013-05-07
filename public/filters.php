@@ -6,6 +6,7 @@ return array(
 		'es'=>'Educación superior',
 		'el'=>'τριτοβάθμιας εκπαίδευσης',
 		'it'=>'istruzione superiore',
+		'fr'=>'enseignement supérieur',
 	),
 	'vocational education'=>array(
 		'en'=>'vocational education',
@@ -13,6 +14,7 @@ return array(
 		'es'=>'Educación vocacional',
 		'el'=>'επαγγελματικής εκπαίδευσης',
 		'it'=>'formazione professionale',
+		'fr'=>'enseignement professionnel',
 	),
 	'compulsory education'=>array(
 		'en'=>'compulsory education',
@@ -20,6 +22,7 @@ return array(
 		'es'=>'educación obligatoria',
 		'el'=>'υποχρεωτικής εκπαίδευσης',
 		'it'=>'istruzione obbligatoria',
+		'fr'=>'enseignement obligatoire',
 	),
 	'continuing education'=>array(
 		'en'=>'continuing education',
@@ -27,6 +30,7 @@ return array(
 		'es'=>'educación continua',
 		'el'=>'συνεχιζόμενη εκπαίδευση',
 		'it'=>'formazione continua',
+		'fr'=>'formation continue',
 	),
 	'distance education'=>array(
 		'en'=>'distance education',
@@ -34,6 +38,7 @@ return array(
 		'es'=>'Educación a distancia',
 		'el'=>'εξ αποστάσεως εκπαίδευση',
 		'it'=>'formazione a distanza',
+		'fr'=>'enseignement à distance',
 	),
 	'professional development'=>array(
 		'en'=>'professional development',
@@ -41,6 +46,7 @@ return array(
 		'es'=>'desarrollo profesional',
 		'el'=>'επαγγελματική εξέλιξη',
 		'it'=>'sviluppo professionale',
+		'fr'=>'perfectionnement professionnel',
 	),
 	'policy making'=>array(
 		'en'=>'policy making',
@@ -48,6 +54,7 @@ return array(
 		'es'=>'formulación de políticas',
 		'el'=>'χάραξη πολιτικής',
 		'it'=>'elaborazione di politiche',
+		'fr'=>'élaboration de la politique',
 	),
 	'pre-school'=>array(
 		'en'=>'pre-school',
@@ -55,6 +62,7 @@ return array(
 		'es'=>'preescolar',
 		'el'=>'Νηπιαγωγείο',
 		'it'=>'pre-scuola',
+		'fr'=>'Pre-School',
 	),
 	'special education'=>array(
 		'en'=>'special education',
@@ -62,6 +70,7 @@ return array(
 		'es'=>'Educación especial',
 		'el'=>'ειδικής αγωγής',
 		'it'=>'educazione speciale',
+		'fr'=>'éducation spéciale',
 	),
 	'other'=>array(
 		'en'=>'other',
@@ -69,6 +78,7 @@ return array(
 		'es'=>'otros',
 		'el'=>'άλλα',
 		'it'=>'altri',
+		'fr'=>'autres',
 	),
 	'fr'=>array(
 		'en'=>'French',
@@ -76,6 +86,7 @@ return array(
 		'es'=>'Francés',
 		'el'=>'Γαλλικά',
 		'it'=>'Francese',
+		'fr'=>'Français',
 	),
 	'en'=>array(
 		'en'=>'English',
@@ -83,6 +94,7 @@ return array(
 		'es'=>'Inglés',
 		'el'=>'Αγγλικά',
 		'it'=>'Inglese',
+		'fr'=>'Anglais',
 	),
 	'de'=>array(
 		'en'=>'German',
@@ -90,6 +102,7 @@ return array(
 		'es'=>'Alemán',
 		'el'=>'Γερμανικά',
 		'it'=>'Tedesco',
+		'fr'=>'Allemand',
 	),
 	'or'=>array(
 		'en'=>'Oriya',
@@ -97,6 +110,7 @@ return array(
 		'es'=>'Oriya',
 		'el'=>'Οριγικό',
 		'it'=>'Oriya',
+		'fr'=>'Oriya',
 	),
 	'hi'=>array(
 		'en'=>'Hindi',
@@ -104,6 +118,7 @@ return array(
 		'es'=>'Hindi',
 		'el'=>'Χίντι',
 		'it'=>'Hindi',
+		'fr'=>'Hindi',
 	),
 	'el'=>array(
 		'en'=>'Greek',
@@ -111,6 +126,7 @@ return array(
 		'es'=>'Griego',
 		'el'=>'Ελληνικά',
 		'it'=>'Greco',
+		'fr'=>'Grec',
 	),
 	'es'=>array(
 		'en'=>'Spanish',
@@ -118,6 +134,7 @@ return array(
 		'es'=>'Español',
 		'el'=>'Ισπανικά',
 		'it'=>'Spagnolo',
+		'fr'=>'Espagnol',
 	),
 	'kn'=>array(
 		'en'=>'Kannada',
@@ -125,6 +142,7 @@ return array(
 		'es'=>'Kannada',
 		'el'=>'Κανάντα',
 		'it'=>'Kannada',
+		'fr'=>'Canara',
 	),
 	'pt'=>array(
 		'en'=>'Portuguese',
@@ -132,6 +150,7 @@ return array(
 		'es'=>'Portugués',
 		'el'=>'Πορτογαλικά',
 		'it'=>'Portoghese',
+		'fr'=>'Portugais',
 	),
 	'hu'=>array(
 		'en'=>'Hungarian',
@@ -139,6 +158,7 @@ return array(
 		'es'=>'Húngaro',
 		'el'=>'Ουγγρικά',
 		'it'=>'Ungherese',
+		'fr'=>'Hongrois',
 	),
 	'et'=>array(
 		'en'=>'Estonian',
@@ -146,6 +166,7 @@ return array(
 		'es'=>'Estonio',
 		'el'=>'Εσθονικά',
 		'it'=>'Estone',
+		'fr'=>'Estonien',
 	),
 	'application/pdf'=>array(
 		'en'=>'application/pdf',
@@ -153,6 +174,7 @@ return array(
 		'es'=>'Application/pdf',
 		'el'=>'εφαρμογή/pdf',
 		'it'=>'application/pdf',
+		'fr'=>'application/pdf',
 	),
 	'text/html'=>array(
 		'en'=>'text/html',
@@ -160,6 +182,7 @@ return array(
 		'es'=>'texto/html',
 		'el'=>'κείμενο/html',
 		'it'=>'testo/html',
+		'fr'=>'texte/html',
 	),
 	'image/jpeg'=>array(
 		'en'=>'image/jpeg',
@@ -167,6 +190,7 @@ return array(
 		'es'=>'image/jpeg',
 		'el'=>'εικόνα/jpeg',
 		'it'=>'immagine jpeg',
+		'fr'=>'image/jpeg',
 	),
 	'application/vnd.ms-powerpoint'=>array(
 		'en'=>'application/vnd.ms-powerpoint',
@@ -174,6 +198,7 @@ return array(
 		'es'=>'aplicación/vnd.ms-powerpoint',
 		'el'=>'εφαρμογή/vnd.ms-powerpoint',
 		'it'=>'Application/vnd. ms-powerpoint',
+		'fr'=>'application/vnd.ms-powerpoint',
 	),
 	'application/octet-stream'=>array(
 		'en'=>'application/octet-stream',
@@ -181,6 +206,7 @@ return array(
 		'es'=>'application/octet-stream',
 		'el'=>'εφαρμογή/οκτάδα-ροή',
 		'it'=>'application/octet-stream',
+		'fr'=>'application/octet-stream',
 	),
 	'application/zip'=>array(
 		'en'=>'application/zip',
@@ -188,6 +214,7 @@ return array(
 		'es'=>'application/zip',
 		'el'=>'εφαρμογή/zip',
 		'it'=>'Application/zip',
+		'fr'=>'application/zip',
 	),
 	'image/gif'=>array(
 		'en'=>'image/gif',
@@ -195,6 +222,7 @@ return array(
 		'es'=>'image/gif',
 		'el'=>'εικόνα/gif',
 		'it'=>'image/gif',
+		'fr'=>'image/gif',
 	),
 	'text/plain'=>array(
 		'en'=>'text/plain',
@@ -202,6 +230,7 @@ return array(
 		'es'=>'text/plain',
 		'el'=>'κείμενο/απλό',
 		'it'=>'text/plain',
+		'fr'=>'text/plain',
 	),
 	'video/x-ms-wmv'=>array(
 		'en'=>'video/x-ms-wmv',
@@ -209,6 +238,7 @@ return array(
 		'es'=>'video/x-ms-wmv',
 		'el'=>'βίντεο/x-ms-wmv',
 		'it'=>'video/x-ms-wmv',
+		'fr'=>'vidéo/x-ms-wmv',
 	),
 	'learner'=>array(
 		'en'=>'learner',
@@ -216,6 +246,7 @@ return array(
 		'es'=>'alumno',
 		'el'=>'μαθητή',
 		'it'=>'studente',
+		'fr'=>'apprenant',
 	),
 	'manager'=>array(
 		'en'=>'manager',
@@ -223,6 +254,7 @@ return array(
 		'es'=>'Gerente',
 		'el'=>'Διευθυντής',
 		'it'=>'Manager',
+		'fr'=>'gestionnaire',
 	),
 	'teacher'=>array(
 		'en'=>'teacher',
@@ -230,6 +262,7 @@ return array(
 		'es'=>'Profesor',
 		'el'=>'δάσκαλος',
 		'it'=>'insegnante',
+		'fr'=>'enseignant',
 	),
 	'counsellor'=>array(
 		'en'=>'counsellor',
@@ -237,6 +270,7 @@ return array(
 		'es'=>'Consejero',
 		'el'=>'Σύμβουλος',
 		'it'=>'Consigliere',
+		'fr'=>'conseiller',
 	),
 	'parent'=>array(
 		'en'=>'parent',
@@ -244,6 +278,7 @@ return array(
 		'es'=>'padre',
 		'el'=>'γονέας',
 		'it'=>'padre',
+		'fr'=>'parent',
 	),
 	'author'=>array(
 		'en'=>'author',
@@ -384,6 +419,7 @@ return array(
 	),
 	'video/avi'=>array(
 		'en'=>'video/avi',
+		'es'=>'video/avi',
 	),
 	'audio/mpeg'=>array(
 		'en'=>'audio/mpeg',
