@@ -168,7 +168,7 @@
                         <aside id="app-content-filters" class="col col-lg-3 hidden-phone">
                         </aside>
                         <div id="content-filters-bar" class="col col-lg-9">
-                            <strong>Filters:</strong> <span></span>
+                            <strong>Filters:</strong>
                         </div>
                         <div id="app-content-results" class="col col-lg-9">
                         </div>

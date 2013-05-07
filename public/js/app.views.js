@@ -161,7 +161,7 @@ App.Views.Facets = Backbone.View.extend({
                     if( !found ){
                         Box.set('page',1);
                         filters.push({clave:parent, valor:filter, indice:filters.length});
-                        $('#content-filters-bar').find('span').append('<a class="label label-success" title="'+parent+'" href="#" onclick="return false;"><button class="close" style="float: none;">&times;</button> '+filter+'</a>');
+                        $('#content-filters-bar').append('<a class="label label-success" title="'+parent+'" href="#" onclick="return false;"><button class="close" style="float: none;">&times;</button> '+filter+'</a> ');
                     }
 
                     $('#header form').submit();
