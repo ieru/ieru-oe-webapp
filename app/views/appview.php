@@ -167,6 +167,31 @@
                     <div id="search-content">
                         <aside id="app-content-filters" class="col col-lg-3 hidden-phone">
                         </aside>
+                        <div id="app-content-info" class="col col-lg-9">
+                            <div class="jquery-results-bar pull-left">
+                                <?php echo Lang::get('website.results') ?> 
+                                <span id="jquery-results-first">1</span>-
+                                <span id="jquery-results-last">10</span> <?php echo Lang::get('website.of') ?> 
+                                <span id="jquery-results-total">983</span>
+                            </div>
+                            <div class="search-results-per-page pull-right">
+                                <span><?php echo Lang::get('website.results_per_page') ?>:</span>
+                                <ul class="organic-dropdown list-unstyled" style="display: inline; ">
+                                    <li id="results-per-page" class="dropdown">
+                                        <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle">
+                                            10
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#10">10</a></li>
+                                            <li><a href="#20">20</a></li>
+                                            <li><a href="#50">50</a></li>
+                                            <li><a href="#100">100</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <div id="content-filters-bar" class="col col-lg-9">
                             <p>Filters: <span>None</span></p>
                         </div>
@@ -238,7 +263,6 @@
                                 <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle">
                                     <span class="glyphicon glyphicon-user"></span>
                                     <?php echo Lang::get('website.'.LANG ) ?> (Human)
-                                    <!--<b class="caret"></b>-->
                                     <span class="glyphicon glyphicon-chevron-down"></span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -318,9 +342,11 @@
         <script src="js/lang/<?php echo LANG ?>.js"></script>
 
         <script>
-            //$.ajaxSetup({ cache: false });
+            $.ajaxSetup({ cache: false });
             // Wait for search request
             var Box = new App.Models.App();
+            var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
+            var searchBarInfo = new App.Views.SearchInfoBar();
             Box.set('langFile',lang_file);
             var doSearch = new App.Views.DoSearch();
 
@@ -330,9 +356,6 @@
 
             // Ratings
             $('.rating-tooltip').tooltip({'title':'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'});
-
-            // Add views
-            var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
         </script>
   </body>
 </html>

@@ -1,3 +1,35 @@
+App.Views.SearchInfoBar = Backbone.View.extend({
+    el: '#app-content-info',
+
+    events: {
+        'click #results-per-page li': 'changePerPage',
+    },
+
+    initialize: function(){
+        // Submit search event
+        vent.on( 'search:resolved', function(){
+            var total = Box.get('totalRecords');
+            var first = (parseInt(Box.get('page'))-1)*Box.get('perPage') + 1;
+            var last = (parseInt(Box.get('page')))*Box.get('perPage');
+
+            if ( last > total )
+                last = total;
+
+            $('#app-content-info').show();
+            $(this.el).find('#jquery-results-first').html(first);
+            $(this.el).find('#jquery-results-last').html(last);
+            $(this.el).find('#jquery-results-total').html(total);
+        }, this );
+    },
+
+    changePerPage: function(e){
+        e.preventDefault();
+        Box.set('perPage',$(e.currentTarget).find('a').html());
+        $('#results-per-page').find('> a').html(Box.get('perPage')+'<span class="glyphicon glyphicon-chevron-down"></span>');
+        $('#header form').submit();
+    },
+})
+
 App.Views.SearchResults = Backbone.View.extend({
     tagName: 'section',
 
@@ -163,6 +195,9 @@ App.Views.FiltersBar = Backbone.View.extend({
     },
 
     addOne: function(filter) {
+        if ( this.collection.length == 1 )
+            $(this.el).find('span').empty();
+
         var filterView = new App.Views.FilterActive({ model: filter });
         this.$el.find('span').append(filterView.render().el);
         this.$el.find('span').append(' ');
@@ -172,7 +207,7 @@ App.Views.FiltersBar = Backbone.View.extend({
     App.Views.FilterActive = Backbone.View.extend({
         tagName: 'a',
 
-        className: 'label',
+        className: 'label label-success',
 
         attributes: {
             'href': '#',
@@ -189,15 +224,20 @@ App.Views.FiltersBar = Backbone.View.extend({
 
         destroy: function(){
             this.model.destroy();
+            $('#checkbox-higher-education').attr('checked',false);
+            var parent = $('#content-filters-bar').find('span');
+            if ( $.trim(parent.html()) == '' )
+                parent.html(lang('none'));
+            $('#header form').submit();
         },
 
         remove: function(){
             this.$el.remove();
-            $('#checkbox-higher-education').attr('checked',false);
-            $('#header form').submit();
         },
 
         render: function(){
+            if ( this.model.get('clave') == 'keyword' )
+                this.$el.addClass('label-info').removeClass('label-success');
             this.$el.html( '<button class="close" style="float: none;">&times;</button> '+this.model.get('valor') );
             return this;
         },
@@ -271,24 +311,25 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Get the search text
         Box.set('searchText', $(e.currentTarget).find('input[type=text]').val());
-        //$('#app-content-filters').empty();
         $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" />');
+        $('#app-content-info').hide();
 
         // Change URL
         Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page'));
 
-        // Do the search
-        var request = { 
-            text:    Box.get('searchText'), 
-            lang:    Box.get('interface'),
-            offset:  (parseInt(Box.get('page'))-1)*Box.get('perPage'),
-            limit:   Box.get('perPage'), 
-            total:   0,
-            filter:  Box.get('filters').toJSON(),
-        }
-        console.log(Box.get('filters').toJSON())
-        var search = new App.Models.Search(request);
+        // Create search request
+        var search = new App.Models.Search();
+        search.set('text', Box.get('searchText'));
+        search.set('lang', Box.get('interface'));
+        search.set('offset', (parseInt(Box.get('page'))-1)*Box.get('perPage'));
+        search.set('limit', Box.get('perPage'));
+        search.set('total', 0);
+        search.set('filter', Box.get('filters').toJSON());
+
+        // Register ajax request for being able to abort the request
         this.ajax = search.fetch();
+
+        // Generate response
         this.ajax.then(function(response){
             // On error
             if ( !response.success ){
@@ -298,6 +339,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Assign total pages and other data
             Box.set('totalPages',response.data.pages);
+            Box.set('totalRecords', response.data.total);
 
             // Assign facets and results
             var facets = new App.Collections.Facets(search.get('data').facets);
@@ -305,18 +347,20 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Render the facets in the View
             var facetsView = new App.Views.Facets({ collection: facets });
-            $('#app-content-filters').empty().append(facetsView.render().el);
+            $('#app-content-filters').html(facetsView.render().el);
 
             // Render the results
             var resultsView = new App.Views.SearchResults({ collection: resources });
-            $('#app-content-results').empty().append(resultsView.render().el);
+            $('#app-content-results').html(resultsView.render().el);
 
             // Render the pagination
             var paginationView = new App.Views.Pagination({ model: Box });
-            $('.app-content-pagination').empty().append(paginationView.render().el);
+            $('.app-content-pagination').html(paginationView.render().el);
+
+            // Remove memory of request object
+            delete App.Ajaxs.search;
+            vent.trigger('search:resolved');
         });
 
-        // Remove memory of request object
-        delete App.Ajaxs.search;
     }
 });

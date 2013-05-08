@@ -30,7 +30,7 @@ App.Models.Search = Backbone.Model.extend({
 
 	fetch: function(){
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
-	}
+	},
 });
 
 App.Models.Autocomplete = Backbone.Model.extend({
@@ -45,6 +45,7 @@ App.Models.App = Backbone.Model.extend({
 		perPage: 10,
 		totalPages: 1,
 		filters: [],
+		totalRecords: 0,
 	},
 
 	initialize: function(){
