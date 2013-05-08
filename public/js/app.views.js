@@ -311,7 +311,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Get the search text
         Box.set('searchText', $(e.currentTarget).find('input[type=text]').val());
-        $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" />');
+        $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
         $('#app-content-info').hide();
 
         // Change URL
