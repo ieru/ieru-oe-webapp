@@ -182,7 +182,7 @@
                                             10
                                             <span class="glyphicon glyphicon-chevron-down"></span>
                                         </a>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu pull-right">
                                             <li><a href="#10">10</a></li>
                                             <li><a href="#20">20</a></li>
                                             <li><a href="#50">50</a></li>
