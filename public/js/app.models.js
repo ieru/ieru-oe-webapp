@@ -13,6 +13,21 @@ App.Models.Filter = Backbone.Model.extend({
 App.Models.Pagination = Backbone.Model.extend({
 });
 
+App.Models.Grnet = {};
+
+App.Models.Grnet.Rating = Backbone.Model.extend({
+
+	urlRoot: '/api/analytics/resources',
+
+	url: function() {
+		return this.urlRoot + '/' + this.id + '/rating';
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
+});
+
 App.Models.Search = Backbone.Model.extend({
 
 	urlRoot: '/api/organic/search',

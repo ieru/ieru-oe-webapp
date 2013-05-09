@@ -147,7 +147,7 @@
                                     </header>
                                     <p><?php echo $resource->description ?></p>
                                     <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?></span></p>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?></span></p>
                                     </footer>
                                 </article>
                                 <?php endforeach ?>
@@ -240,12 +240,8 @@
                 <hr/>
                 <ul class="list-unstyled">
                     <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range %></li>
-                    <li>
+                    <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
-                        <span title="<%= location %>" id="item-show-rating-<%= id %>" class="item-rating">
-                            <a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0" /><img src="/images/full_star.png" class="rating-star star-value-1" /><img src="/images/full_star.png" class="rating-star star-value-2" /><img src="/images/full_star.png" class="rating-star star-value-3" /><img src="/images/empty_star.png" class="rating-star star-value-4" /></a> 
-                            <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?>
-                        </span>
                     </li>
                     <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
                         <span>
@@ -321,6 +317,14 @@
             <% } %>
 
             </ul>
+        </script>
+
+        <script id="grnet-rating" type="text/template">
+            <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#" data-original-title="" title="">
+            <% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %>
+            </a>
+            <%= lang('of') %>
+            <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
         </script>
 
         <!-- jQuery + Bootstrap -->

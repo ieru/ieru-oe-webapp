@@ -1,3 +1,32 @@
+App.Views.Grnet = {};
+
+App.Views.Grnet.Rating = Backbone.View.extend({
+    tagName: 'span',
+
+    template: _.template( $('#grnet-rating').html() ),
+
+    initialize: function(){
+        // Cancel any ongoing ajax requests
+        vent.on( 'cancel:ajaxs', function(){
+            if ( !!this.ajax ){
+                this.ajax.abort();
+                delete this.ajax;
+            }
+        }, this );
+
+        this.render();
+    },
+
+    render: function(){
+        var that = this;
+        this.ajax = this.model.fetch();
+        this.ajax.then(function(response){
+            that.$el.html( that.template( response.data ) );
+        });
+        return this;
+    }
+})
+
 App.Views.SearchInfoBar = Backbone.View.extend({
     el: '#app-content-info',
 
@@ -19,7 +48,7 @@ App.Views.SearchInfoBar = Backbone.View.extend({
             $(this.el).find('#jquery-results-first').html(first);
             $(this.el).find('#jquery-results-last').html(last);
             $(this.el).find('#jquery-results-total').html(total);
-        }, this );
+        }, this);
     },
 
     changePerPage: function(e){
@@ -58,7 +87,11 @@ App.Views.SearchResults = Backbone.View.extend({
         },
 
         addFilter: function(e){
-            var filterModel = new App.Models.Filter({clave:'keyword', valor:$(e.currentTarget).attr('href').split('/')[3], indice:Box.get('filters').length});
+            var filterModel = new App.Models.Filter({
+                clave:'keyword', 
+                valor:$(e.currentTarget).attr('href').split('/')[3], 
+                indice:Box.get('filters').length
+            });
             filtersBarView.collection.add(filterModel);
             $('#header form').submit();
         },
@@ -83,6 +116,15 @@ App.Views.SearchResults = Backbone.View.extend({
 
             // Render view
             this.$el.html( this.template( model ) );
+
+            // Add Ratings
+            var grnet = this.$el.find('.grnet-rating');
+            grnet.append('<img src="/images/ajax-loader.gif" />');
+            var request = new App.Models.Grnet.Rating({id:this.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' )})
+            var ratings = new App.Views.Grnet.Rating({model: request});
+            grnet.append(ratings.el);
+            grnet.find('img').remove();
+            
             return this;
         },
     });
