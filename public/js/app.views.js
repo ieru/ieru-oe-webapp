@@ -58,6 +58,10 @@ App.Views.Grnet.Rating = Backbone.View.extend({
         this.ajax = this.model.fetch();
         this.ajax.then(function(response){
             that.$el.html( that.template( response.data ) );
+            if ( !_.cookie('usertoken'))
+                that.$el.find('a.grnet-rating-tooltip').tooltip({'title':lang('log_in_or_register_for_rating')});
+
+            $('.grnet-rating-info').popover();
         });
         return this;
     },

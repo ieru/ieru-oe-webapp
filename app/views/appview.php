@@ -154,8 +154,8 @@
                                 <p><?php echo $resource->description ?></p>
                                 <footer>
                                     <p>
-                                        <?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?>
-                                        <a href="#" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover on top"><span class="glyphicon glyphicon-expand"></span></a></span>
+                                        <?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;"  class="grnet-rating-tooltip" href="#" data-toggle="tooltip" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?>
+                                        <a class="grnet-rating-info" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Votes history"><span class="glyphicon glyphicon-expand"></span></a></span>
                                     </p>
                                 </footer>
                             </article>
@@ -176,7 +176,7 @@
                                     </header>
                                     <p><?php echo $resource->description ?></p>
                                     <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating"><a onclick="return false;" data-toggle="tooltip" class="rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?></span></p>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating"><a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?></span></p>
                                     </footer>
                                 </article>
                                 <?php endforeach ?>
@@ -352,6 +352,7 @@
             <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#" data-original-title="" title=""><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
                <%= lang('of') %>
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
+            <a class="grnet-rating-info" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Votes history"><span class="glyphicon glyphicon-expand"></span></a></span>
         </script>
 
         <!-- jQuery + Bootstrap -->
@@ -387,7 +388,8 @@
             Backbone.history.start();
 
             // Ratings
-            $('.rating-tooltip').tooltip({'title':'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'});
+            $('.grnet-rating-tooltip').tooltip({'title':'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'});
+            $('.grnet-rating-info').popover();
         </script>
   </body>
 </html>
