@@ -15,6 +15,7 @@ function show_view ( view ){
 	$('#page-home').hide();
 	$('#page-app').hide();
 	$('#page-resource').hide();
+	$('#page-register-user').hide();
 
 	$('#'+view).show();
 }

@@ -70,7 +70,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href=""><?php echo Lang::get('website.register'); ?></a></li>
+                        <li><a href="#/user/register"><?php echo Lang::get('website.register'); ?></a></li>
                     <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
@@ -222,7 +222,7 @@
                             </div>
                         </div>
                         <div id="content-filters-bar" class="col col-lg-9">
-                            <p>Filters: <span>None</span></p>
+                            <p><strong>Filters:</strong> <span>None</span></p>
                         </div>
                         <div id="app-content-results" class="col col-lg-9">
                         </div>
@@ -243,6 +243,15 @@
         </div>
         <!-- END VIEW RESOURCE PAGE -->
 
+        <!-- REGISTER NEW ACCOUNT PAGE -->
+        <div id="page-register-user">
+            <div class="container">
+                <div class="row">
+                    User wants to register a new account.
+                </div>
+            </div>
+        </div>
+        <!-- END REGISTER NEW ACCOUNT PAGE -->
 
         <footer id="footer">
             <div class="container">
@@ -352,7 +361,7 @@
             <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#"><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
                <%= lang('of') %>
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
-            <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Votes history"><span class="glyphicon glyphicon-expand">history</span></a></span>
+            <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#" data-placement="bottom" data-content="Información del historial." data-original-title="Votes history"><span class="glyphicon glyphicon-expand">history</span></a></span>
         </script>
 
         <!-- jQuery + Bootstrap -->

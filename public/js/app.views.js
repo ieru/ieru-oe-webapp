@@ -441,7 +441,8 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Render the facets in the View
             var facetsView = new App.Views.Facets({ collection: facets });
-            $('#app-content-filters').html(facetsView.render().el);
+            $('#app-content-filters').append('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
+            $('#app-content-filters').append(facetsView.render().el);
 
             // Render the results
             var resultsView = new App.Views.SearchResults({ collection: resources });
