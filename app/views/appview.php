@@ -349,10 +349,10 @@
         </script>
 
         <script id="grnet-rating" type="text/template">
-            <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#" data-original-title="" title=""><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
+            <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#"><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
                <%= lang('of') %>
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
-            <a href="#" onclick="return false;" class="grnet-rating-info" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Votes history"><span class="glyphicon glyphicon-expand"></span></a></span>
+            <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Votes history"><span class="glyphicon glyphicon-expand">history</span></a></span>
         </script>
 
         <!-- jQuery + Bootstrap -->
