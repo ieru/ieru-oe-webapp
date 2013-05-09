@@ -33,9 +33,9 @@ class HomeController extends BaseController {
         // Get user data
         if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] )
         {
-            $this->_user = User::order_by( 'users.user_id', 'desc' )
-                                 ->join( 'tokens', 'users.user_id', '=', 'tokens.user_id')
+            $this->_user = User::join( 'tokens', 'users.user_id', '=', 'tokens.user_id')
                                  ->where( 'tokens.token_chars', '=', $_COOKIE['usertoken'] )
+                                 ->where( 'tokens.token_active', '=', 1 )
                                  ->first();
         }
     }

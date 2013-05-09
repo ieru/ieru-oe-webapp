@@ -30,12 +30,39 @@
                 <a class="navbar-brand" href="/#">Organic.Edunet</a>
 
                 <div class="nav-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <ul id="user-login" class="nav navbar-nav">
+                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] ): ?>
+                        <li>
+                            <p class="navbar-text"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> | <a href="#" id="user-logout"><?php echo Lang::get('website.logout'); ?></a></p>
+                        </li>
+                        <li>
+                            <p class="navbar-text">
+                                <a  id="organic-suggest-resource" 
+                                href="
+                                    javascript:(function() {
+                                        WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
+                                        var path_js = '/UGC/ugc-widget-server/';
+                                        try {
+                                            var x = document.createElement('SCRIPT');
+                                            x.type = 'text/javascript';
+                                            x.src = WIDGET_HOST +  path_js + 'loadUGC.js';
+                                            x.setAttribute('Name', '<?php echo  $_user->user_username ?>');
+                                            x.setAttribute('Username', '<?php echo  $_user->user_username ?>');
+                                            x.setAttribute('Email', '<?php echo  $_user->user_email ?>');
+                                            x.setAttribute('Operation', 'add');
+                                            x.setAttribute('id', 'LOMWidget');
+                                            x.setAttribute('URL', window.location.href);
+                                            document.getElementsByTagName('head')[0].appendChild(x);
+                                        } catch (e) {}
+                                    })();
+                                "><?php echo Lang::get('website.suggest_a_new_resource')?></a></p>
+                        </li>
+                    <?php else: ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.sign_in') ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <form id="login-form" action="/" method="post" style="margin-bottom: 0">
+                                    <form id="login-form" action="">
                                         <input id="login-form-username" type="text" placeholder="<?php echo Lang::get('website.user') ?>"/>
                                         <input id="login-form-password" type="password" placeholder="<?php echo Lang::get('website.password') ?>"/>
                                         <button id="submit-login-form" type="submit" class="btn btn-primary"><?php echo Lang::get('website.submit') ?></button>
@@ -43,6 +70,8 @@
                                 </li>
                             </ul>
                         </li>
+                        <li><a href=""><?php echo Lang::get('website.register'); ?></a></li>
+                    <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <!--<li style="width: 300px; margin-right: 15px; ">
@@ -170,7 +199,7 @@
                         <div id="app-content-info" class="col col-lg-9">
                             <div class="jquery-results-bar pull-left">
                                 <?php echo Lang::get('website.results') ?> 
-                                <span id="jquery-results-first">1</span>-
+                                <span id="jquery-results-first">1</span> -
                                 <span id="jquery-results-last">10</span> <?php echo Lang::get('website.of') ?> 
                                 <span id="jquery-results-total">983</span>
                             </div>
@@ -320,10 +349,8 @@
         </script>
 
         <script id="grnet-rating" type="text/template">
-            <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#" data-original-title="" title="">
-            <% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %>
-            </a>
-            <%= lang('of') %>
+            <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#" data-original-title="" title=""><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
+               <%= lang('of') %>
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
         </script>
 
@@ -353,6 +380,7 @@
             var searchBarInfo = new App.Views.SearchInfoBar();
             Box.set('langFile',lang_file);
             var doSearch = new App.Views.DoSearch();
+            var doLogin = new App.Views.LoginForm();
 
             // Router + History
             Router = new App.Router;

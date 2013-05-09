@@ -1,9 +1,45 @@
+App.Views.LoginForm = Backbone.View.extend({
+    el: '#user-login',
+
+    events: {
+        'submit #login-form': 'submit',
+        'click #user-logout': 'logout',
+    },
+
+    logout: function(e){
+        e.preventDefault();
+
+        this.model = new App.Models.Logout({usertoken:_.cookie('usertoken')});
+        this.model.fetch().then(function(response){
+            _.cookie('usertoken',null);
+            location.reload();
+        });
+    },
+
+    submit: function(e){
+        e.preventDefault();
+
+        this.model = new App.Models.Login({
+            username: $('#login-form-username').val(),
+            password: $('#login-form-password').val(),
+        });
+        this.model.fetch().then(function(response){
+            _.cookie('usertoken',response.data.usertoken);
+            location.reload();
+        });
+    },
+})
+
 App.Views.Grnet = {};
 
 App.Views.Grnet.Rating = Backbone.View.extend({
     tagName: 'span',
 
     template: _.template( $('#grnet-rating').html() ),
+
+    events: {
+        'click .grnet-rating-star': 'addRating',
+    },
 
     initialize: function(){
         // Cancel any ongoing ajax requests
@@ -24,6 +60,17 @@ App.Views.Grnet.Rating = Backbone.View.extend({
             that.$el.html( that.template( response.data ) );
         });
         return this;
+    },
+
+    addRating: function(e){
+        e.preventDefault();
+        var rating = $(e.currentTarget).attr('class').split(' ')[1].split('-')[2];
+        var addRating = new App.Models.Grnet.AddRating({location:this.model.get('id'), rating:parseInt(rating)+1, usertoken:_.cookie('usertoken')});
+        var that = this;
+        addRating.save().then(function(response){
+            if ( response.success )
+                that.$el.html( that.template( response.data ) );
+        });
     }
 })
 
@@ -97,11 +144,12 @@ App.Views.SearchResults = Backbone.View.extend({
         },
 
         initialize: function(){
+            this.model.set('location_rep', this.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' ));
             this.render();
         },
 
         render: function(){
-            // Get language to show of those in the resource
+            // Get language to show of those available in the resource
             var model = this.model.toJSON();
             if ( !!model.texts[Box.get('interface')] && model.texts[Box.get('interface')].title != '' )
                 model.metadata_language = Box.get('interface');
@@ -120,7 +168,7 @@ App.Views.SearchResults = Backbone.View.extend({
             // Add Ratings
             var grnet = this.$el.find('.grnet-rating');
             grnet.append('<img src="/images/ajax-loader.gif" />');
-            var request = new App.Models.Grnet.Rating({id:this.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' )})
+            var request = new App.Models.Grnet.Rating({id:this.model.get('location_rep')})
             var ratings = new App.Views.Grnet.Rating({model: request});
             grnet.append(ratings.el);
             grnet.find('img').remove();
