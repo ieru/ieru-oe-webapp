@@ -9,8 +9,8 @@ App.Views.LoginForm = Backbone.View.extend({
     logout: function(e){
         e.preventDefault();
 
-        this.model = new App.Models.Logout({usertoken:_.cookie('usertoken')});
-        this.model.fetch().then(function(response){
+        var model = new App.Models.Logout({usertoken:_.cookie('usertoken')});
+        model.fetch().then(function(response){
             _.cookie('usertoken',null);
             location.reload();
         });
@@ -19,11 +19,11 @@ App.Views.LoginForm = Backbone.View.extend({
     submit: function(e){
         e.preventDefault();
 
-        this.model = new App.Models.Login({
+        var model = new App.Models.Login({
             username: $('#login-form-username').val(),
             password: $('#login-form-password').val(),
         });
-        this.model.fetch().then(function(response){
+        model.fetch().then(function(response){
             _.cookie('usertoken',response.data.usertoken);
             location.reload();
         });
@@ -68,13 +68,15 @@ App.Views.Grnet.Rating = Backbone.View.extend({
 
     addRating: function(e){
         e.preventDefault();
-        var rating = $(e.currentTarget).attr('class').split(' ')[1].split('-')[2];
-        var addRating = new App.Models.Grnet.AddRating({location:this.model.get('id'), rating:parseInt(rating)+1, usertoken:_.cookie('usertoken')});
-        var that = this;
-        addRating.save().then(function(response){
-            if ( response.success )
-                that.$el.html( that.template( response.data ) );
-        });
+        if ( _.cookie('usertoken')){
+            var rating = $(e.currentTarget).attr('class').split(' ')[1].split('-')[2];
+            var addRating = new App.Models.Grnet.AddRating({location:this.model.get('id'), rating:parseInt(rating)+1, usertoken:_.cookie('usertoken')});
+            var that = this;
+            addRating.save().then(function(response){
+                if ( response.success )
+                    that.$el.html( that.template( response.data ) );
+            });
+        }
     }
 })
 
@@ -268,8 +270,21 @@ App.Views.Facets = Backbone.View.extend({
                     var filter  = this.$el.find('a').attr('title');
                     var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
 
+
                     var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
-                    filtersBarView.collection.add(filterModel);
+                    var isDupe = filtersBarView.collection.add(filterModel);
+                    // Remove the filter as it is already on the collection
+                    // (user clicked twice on filter)
+                    if ( isDupe === false ){
+                        // Remove filter from list
+                        for ( var i in filtersBarView.collection.models ){
+                            if ( filtersBarView.collection.models[i].get('valor') == filter ){
+                                filtersBarView.collection.remove(filtersBarView.collection.models[i]);
+                            }
+                        }
+                        // Remove filter from filter bar
+                        $('#close-button-'+filter.trim().replace(/ /g, '-')).trigger('click');
+                    }
                     Box.set('page',1);
 
                     $('#header form').submit();
@@ -293,8 +308,8 @@ App.Views.FiltersBar = Backbone.View.extend({
             $(this.el).find('span').empty();
 
         var filterView = new App.Views.FilterActive({ model: filter });
-        this.$el.find('span').append(filterView.render().el);
-        this.$el.find('span').append(' ');
+        $(this.$el.find('span')[0]).append(filterView.render().el);
+        $(this.$el.find('span')[0]).append(' ');
     },
 })
 
@@ -316,9 +331,10 @@ App.Views.FiltersBar = Backbone.View.extend({
             this.model.on('destroy', this.remove, this);
         },
 
-        destroy: function(){
+        destroy: function(e){
             this.model.destroy();
-            $('#checkbox-higher-education').attr('checked',false);
+            var filterName = $(e.currentTarget).parent().find('span').html().trim().replace(/ /g, '-');
+            $('#checkbox-'+filterName).attr('checked',false);
             var parent = $('#content-filters-bar').find('span');
             if ( $.trim(parent.html()) == '' )
                 parent.html(lang('none'));
@@ -332,7 +348,7 @@ App.Views.FiltersBar = Backbone.View.extend({
         render: function(){
             if ( this.model.get('clave') == 'keyword' )
                 this.$el.addClass('label-info').removeClass('label-success');
-            this.$el.html( '<button class="close" style="float: none;">&times;</button> '+this.model.get('valor') );
+            this.$el.html( '<button id="close-button-'+this.model.get('valor').trim().replace(/ /g, '-')+'" class="close" style="float: none;">&times;</button> <span>'+this.model.get('valor')+'</span>' );
             return this;
         },
     })
@@ -368,13 +384,10 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Submit search event
         vent.on( 'search:submit', function(text,page){
-            // Remove elements not needed
-            if ( !Box.get('searchText') || Box.get('searchText') != text || Box.get('page') != page ){
-                $('#app-content-filters').empty();
-                $('#app-content-results').empty();
-                    Box.set('page',page);
-                $('#header form').submit();
-            }
+            vent.trigger('cancel:ajaxs');
+            Box.set('searchText', text);
+            Box.set('page',page);
+            $('#header form').submit();
         }, this );
 
         // Cancel any ongoing ajax requests
@@ -401,14 +414,24 @@ App.Views.DoSearch = Backbone.View.extend({
     submit: function(e){
         // Abort any current ajax requests
         e.preventDefault();
-        vent.trigger('cancel:ajaxs');
 
-        // Get the search text
-        Box.set('searchText', $(e.currentTarget).find('input[type=text]').val());
+        // Visualization thingies
+        window.scrollTo(0,0);
+        //$('#app-content-filters').empty();
         $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
         $('#app-content-info').hide();
 
+        // If searchText is different, reset filters
+        var formBoxText = $(e.currentTarget).find('input[type=text]').val();
+        if ( formBoxText != Box.get('searchText') ) {
+            $('#app-content-filters').empty();
+            $('#content-filters-bar').find('span').html(lang('none'));
+            Box.set('filters',new App.Collections.Filters());
+            Box.set('searchText', formBoxText);
+        }
+
         // Change URL
+        console.log('Router: change page');
         Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page'));
 
         // Create search request
@@ -425,6 +448,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Generate response
         this.ajax.then(function(response){
+
             // On error
             if ( !response.success ){
                 vent.trigger('search:error',response.message);

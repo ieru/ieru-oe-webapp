@@ -1152,7 +1152,6 @@
     if (options.data == null && model && method=='create'){
     	params.contentType = 'application/x-www-form-urlencoded';
     	params.data = jQuery.param(model.toJSON(options));
-    	console.log(jQuery.param(model.toJSON(options)));
     }
 
     // For older servers, emulate JSON by encoding the request into an HTML-form.

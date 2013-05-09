@@ -368,7 +368,7 @@
         <script src="js/jquery.js"></script>
         <script src="js/vendor/bootstrap/bootstrap.js"></script>
         <!-- Activate IE8 responsive features -->
-        <script src="js/respond.js"></script>
+        <!--<script src="js/respond.js"></script>-->
         <!-- Libraries for using Backbone.js -->
         <script src="js/require.js"></script>
         <script src="js/underscore.js"></script>

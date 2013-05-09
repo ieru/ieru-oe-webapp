@@ -12,6 +12,8 @@
 })();
 
 function show_view ( view ){
+	window.scrollTo(0,0);
+
 	$('#page-home').hide();
 	$('#page-app').hide();
 	$('#page-resource').hide();

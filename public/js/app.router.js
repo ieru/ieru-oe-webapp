@@ -10,34 +10,37 @@ App.Router = Backbone.Router.extend({
 	index: function(){
 		console.log('index page');
 		show_view( 'page-home' );
+
 		vent.trigger( 'cancel:ajaxs' );
 	},
 
 	search: function(text){
-		console.log('search page: '+text);
+		console.log('search: '+text);
 		show_view( 'page-app' );
-		$('#header form input[type=text]').val(text,1);
-		vent.trigger( 'cancel:ajaxs' );
-		vent.trigger( 'search:submit', text );
+
+		$('#header form input[type=text]').val(text);
+		vent.trigger( 'search:submit', text, 1 );
 	},
 
 	search_page: function(text,page){
-		console.log('search pagination: '+text);
+		console.log('search/page: '+text);
 		show_view( 'page-app' );
+
 		$('#header form input[type=text]').val(text);
-		vent.trigger( 'cancel:ajaxs' );
 		vent.trigger( 'search:submit', text, page );
 	},
 
 	resource: function(id){
 		console.log('resource '+id)
 		show_view( 'page-resource' );
+
 		vent.trigger( 'cancel:ajaxs' );
 	},
 
 	register: function(){
 		console.log('register user');
 		show_view( 'page-register-user' );
+
 		vent.trigger( 'cancel:ajaxs' );
 	},
 
