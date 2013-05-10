@@ -151,7 +151,7 @@ App.Views.SearchResults = Backbone.View.extend({
             // If the texts are not in the desired language, request translation
             if ( texts[to].title == '' ){
                 // Get the language to translate from (english by default)
-                if ( !!texts[from] || texts[from].title == '' )
+                if ( texts[from] == undefined || texts[from].title == '' )
                     for ( from in texts )
                         if ( texts[from].title )
                             break;
