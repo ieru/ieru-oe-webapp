@@ -143,24 +143,25 @@ App.Views.SearchResults = Backbone.View.extend({
         changeLanguage: function(e){
             e.preventDefault();
 
+            var texts = this.model.get('texts');
             var to = $(e.currentTarget).attr('class').split('-')[2];
             var from = 'en';
             this.model.set('metadata_language', to);
 
             // If the texts are not in the desired language, request translation
-            if ( this.model.get('texts')[to].title == '' ){
+            if ( texts[to].title == '' ){
                 // Get the language to translate from (english by default)
-                if ( this.model.get('texts')[from].title == '' )
-                    for ( from in this.model.get('texts') )
-                        if ( this.model.get('texts')[from].title )
+                if ( !!texts[from] || texts[from].title == '' )
+                    for ( from in texts )
+                        if ( texts[from].title )
                             break;
 
                 that = this.$el;
                 that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> Translating...');
                 that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> Translating...');
 
-                var title = new App.Models.Translation({text: this.model.get('texts')[from].title.substr(0,200), from:from, to:to});
-                var description = new App.Models.Translation({text: this.model.get('texts')[from].description.substr(0,200), from:from, to:to});
+                var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
+                var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
 
                 this.ajaxTitle = title.fetch();
                 this.ajaxTitle.then(function(response){
