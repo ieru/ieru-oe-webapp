@@ -143,18 +143,24 @@ App.Views.SearchResults = Backbone.View.extend({
         changeLanguage: function(e){
             e.preventDefault();
 
-            var lang = $(e.currentTarget).attr('class').split('-')[2];
-            this.model.set('metadata_language', lang);
+            var to = $(e.currentTarget).attr('class').split('-')[2];
+            var from = 'en';
+            this.model.set('metadata_language', to);
 
             // If the texts are not in the desired language, request translation
-            if ( this.model.get('texts')[lang].title == '' ){
-                that = this.$el;
+            if ( this.model.get('texts')[to].title == '' ){
+                // Get the language to translate from (english by default)
+                if ( this.model.get('texts')[from].title == '' )
+                    for ( from in this.model.get('texts') )
+                        if ( this.model.get('texts')[from].title )
+                            break;
 
+                that = this.$el;
                 that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> Translating...');
                 that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> Translating...');
 
-                var title = new App.Models.Translation({text: this.model.get('texts').en.title.substr(0,200), from:'en', to:lang});
-                var description = new App.Models.Translation({text: this.model.get('texts').en.description.substr(0,200), from:'en', to:lang});
+                var title = new App.Models.Translation({text: this.model.get('texts')[from].title.substr(0,200), from:from, to:to});
+                var description = new App.Models.Translation({text: this.model.get('texts')[from].description.substr(0,200), from:from, to:to});
 
                 this.ajaxTitle = title.fetch();
                 this.ajaxTitle.then(function(response){
@@ -163,7 +169,7 @@ App.Views.SearchResults = Backbone.View.extend({
                 this.ajaxDescription = description.fetch();
                 this.ajaxDescription.then(function(response){
                     that.find('> p > span').html(response.data.translation);
-                });
+                }); 
             }
 
             this.render();

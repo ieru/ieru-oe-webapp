@@ -294,7 +294,7 @@
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" class="dropdown-toggle">
                                     <span class="glyphicon glyphicon-user"></span>
-                                    <?php echo Lang::get('website.'.LANG ) ?> (Human)
+                                    <%= lang(metadata_language) %> (<%= lang(texts[metadata_language].type) %>)
                                     <span class="glyphicon glyphicon-chevron-down"></span>
                                 </a>
                                 <ul class="dropdown-menu">
