@@ -142,6 +142,7 @@ App.Views.SearchResults = Backbone.View.extend({
 
         changeLanguage: function(e){
             e.preventDefault();
+            vent.trigger('cancel:ajaxs');
 
             var texts = this.model.get('texts');
             var to = $(e.currentTarget).attr('class').split('-')[2];
@@ -165,10 +166,12 @@ App.Views.SearchResults = Backbone.View.extend({
 
                 this.ajaxTitle = title.fetch();
                 this.ajaxTitle.then(function(response){
+                    texts[to].title = response.data.translation;
                     that.find('header h2 a').html(response.data.translation);
                 });
                 this.ajaxDescription = description.fetch();
                 this.ajaxDescription.then(function(response){
+                    texts[to].description = response.data.translation;
                     that.find('> p > span').html(response.data.translation);
                 }); 
             }
