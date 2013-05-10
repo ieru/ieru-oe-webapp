@@ -284,6 +284,7 @@ App.Views.Facets = Backbone.View.extend({
                         }
                         // Remove filter from filter bar
                         $('#close-button-'+filter.trim().replace(/ /g, '-')).trigger('click');
+                        vent.trigger('cancel:ajaxs');
                     }
                     Box.set('page',1);
 
@@ -465,7 +466,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Render the facets in the View
             var facetsView = new App.Views.Facets({ collection: facets });
-            $('#app-content-filters').append('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
+            $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
             $('#app-content-filters').append(facetsView.render().el);
 
             // Render the results
