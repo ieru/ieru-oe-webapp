@@ -13,6 +13,15 @@ App.Models.Filter = Backbone.Model.extend({
 App.Models.Pagination = Backbone.Model.extend({
 });
 
+App.Models.Translation = Backbone.Model.extend({
+
+	urlRoot: '/api/analytics/translate',
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
+});
+
 App.Models.Grnet = {};
 
 App.Models.Grnet.Rating = Backbone.Model.extend({

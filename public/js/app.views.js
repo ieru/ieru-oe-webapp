@@ -137,6 +137,36 @@ App.Views.SearchResults = Backbone.View.extend({
 
         events: {
             'click .search-result-keywords a': 'addFilter',
+            'click .organic-dropdown ul a': 'changeLanguage',
+        },
+
+        changeLanguage: function(e){
+            e.preventDefault();
+
+            var lang = $(e.currentTarget).attr('class').split('-')[2];
+            this.model.set('metadata_language', lang);
+
+            // If the texts are not in the desired language, request translation
+            if ( this.model.get('texts')[lang].title == '' ){
+                that = this.$el;
+
+                that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> Translating...');
+                that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> Translating...');
+
+                var title = new App.Models.Translation({text: this.model.get('texts').en.title.substr(0,200), from:'en', to:lang});
+                var description = new App.Models.Translation({text: this.model.get('texts').en.description.substr(0,200), from:'en', to:lang});
+
+                this.ajaxTitle = title.fetch();
+                this.ajaxTitle.then(function(response){
+                    that.find('header h2 a').html(response.data.translation);
+                });
+                this.ajaxDescription = description.fetch();
+                this.ajaxDescription.then(function(response){
+                    that.find('> p > span').html(response.data.translation);
+                });
+            }
+
+            this.render();
         },
 
         addFilter: function(e){
@@ -150,34 +180,47 @@ App.Views.SearchResults = Backbone.View.extend({
         },
 
         initialize: function(){
+            // Cancel any ongoing ajax requests
+            vent.on( 'cancel:ajaxs', function(){
+                if ( !!this.ajaxTitle ){
+                    this.ajaxTitle.abort();
+                    delete this.ajaxTitle;
+                    this.ajaxDescription.abort();
+                    delete this.ajaxDescription;
+                }
+            }, this );
+
             this.model.set('location_rep', this.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' ));
+
+            // Get language to show of those available in the resource
+            if ( !!this.model.get('texts')[Box.get('interface')] && this.model.get('texts')[Box.get('interface')].title != '' )
+                this.model.set('metadata_language', Box.get('interface'));
+            else if ( !!this.model.get('texts').en && this.model.get('texts').en.title != '' )
+                this.model.set('metadata_language', 'en');
+            else
+                for ( var lang in this.model.get('texts') )
+                    if ( this.model.get('texts')[lang].title ){
+                        this.model.set('metadata_language', lang);
+                        break;
+                    }
+
             this.render();
         },
 
         render: function(){
-            // Get language to show of those available in the resource
-            var model = this.model.toJSON();
-            if ( !!model.texts[Box.get('interface')] && model.texts[Box.get('interface')].title != '' )
-                model.metadata_language = Box.get('interface');
-            else if ( !!model.texts.en && model.texts.en.title != '' )
-                model.metadata_language = 'en';
-            else
-                for ( var lang in model.texts )
-                    if ( model.texts[lang].title ){
-                        model.metadata_language = lang;
-                        break;
-                    }
-
             // Render view
-            this.$el.html( this.template( model ) );
+            this.$el.html( this.template( this.model.toJSON() ) );
 
             // Add Ratings
             var grnet = this.$el.find('.grnet-rating');
-            grnet.append('<img src="/images/ajax-loader.gif" />');
-            var request = new App.Models.Grnet.Rating({id:this.model.get('location_rep')})
-            var ratings = new App.Views.Grnet.Rating({model: request});
-            grnet.append(ratings.el);
-            grnet.find('img').remove();
+            if ( !this.model.get('ratings') ){
+                grnet.append('<img src="/images/ajax-loader.gif" />');
+                var request = new App.Models.Grnet.Rating({id:this.model.get('location_rep')})
+                var ratings = new App.Views.Grnet.Rating({model: request});
+                this.model.set('ratings',ratings.el);
+                grnet.find('img').remove();
+            }
+            grnet.append(this.model.get('ratings'));
             
             return this;
         },

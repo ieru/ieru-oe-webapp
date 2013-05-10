@@ -222,7 +222,7 @@
                             </div>
                         </div>
                         <div id="content-filters-bar" class="col col-lg-9">
-                            <p><strong>Filters:</strong> <span>None</span></p>
+                            <p><strong><?php echo Lang::get('website.filters') ?>:</strong> <span><?php echo Lang::get('website.none') ?></span></p>
                         </div>
                         <div id="app-content-results" class="col col-lg-9">
                         </div>
@@ -264,16 +264,14 @@
                 <figure class="hidden-phone">
                     <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
                 </figure>
-                <h2><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
+                <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
             <% for ( var i in napa_langs ){ %>
                 <span style="white-space: nowrap; "><img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %></span>
             <% } %>
                 </small>
             </header>
-            <% if ( texts[metadata_language].description ){ %>
-                <p><%= texts[metadata_language].description.substr(0,200).trim() %> <a class="moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
-            <% } %>
+                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %></span> <a class="moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
@@ -294,15 +292,15 @@
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
                         <ul class="organic-dropdown list-unstyled" style="display: inline; ">
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle">
+                                <a href="#" data-toggle="dropdown" role="button" class="dropdown-toggle">
                                     <span class="glyphicon glyphicon-user"></span>
                                     <?php echo Lang::get('website.'.LANG ) ?> (Human)
                                     <span class="glyphicon glyphicon-chevron-down"></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                 <% for ( var i in texts ){ %>
-                                    <li class="lang-select-<%= texts[i].lang %> list-unstyled"> 
-                                        <a class="<%= texts[i].type_class %>" href="#">
+                                    <li class="<%= texts[i].type_class %> list-unstyled"> 
+                                        <a class="lang-select-<%= texts[i].lang %>" href="#">
                                             <span class="glyphicon glyphicon-user"></span>
                                             <%= lang(i) %> (<%= lang(texts[i].type) %>)
                                         </a>
