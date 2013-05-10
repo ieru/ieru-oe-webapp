@@ -165,7 +165,7 @@
 .flag.flag-dj {
   background-position: -96px -33px;
 }
-.flag.flag-dk {
+.flag.flag-da {
   background-position: -112px -33px;
 }
 .flag.flag-dm {
@@ -180,7 +180,7 @@
 .flag.flag-ec {
   background-position: -176px -33px;
 }
-.flag.flag-ee {
+.flag.flag-et {
   background-position: -192px -33px;
 }
 .flag.flag-eg {
@@ -198,9 +198,7 @@
 .flag.flag-es {
   background-position: -16px -44px;
 }
-.flag.flag-et {
-  background-position: -32px -44px;
-}
+/*.flag.flag-et {background-position: -32px -44px}*/
 .flag.flag-eu {
   background-position: -48px -44px;
 }
@@ -315,7 +313,12 @@
 .flag.flag-im {
   background-position: -112px -66px;
 }
-.flag.flag-in {
+.flag.flag-ori,
+.flag.flag-or,
+.flag.flag-kan,
+.flag.flag-ka,
+.flag.flag-hin,
+.flag.flag-hi {
   background-position: -128px -66px;
 }
 .flag.flag-io {
@@ -594,7 +597,7 @@
 .flag.flag-sd {
   background-position: -64px -132px;
 }
-.flag.flag-se {
+.flag.flag-sv {
   background-position: -80px -132px;
 }
 .flag.flag-sg {
@@ -633,9 +636,7 @@
 .flag.flag-st {
   background-position: -16px -143px;
 }
-.flag.flag-sv {
-  background-position: -32px -143px;
-}
+/*.flag.flag-sv {background-position: -32px -143px}*/
 .flag.flag-sx {
   background-position: -48px -143px;
 }

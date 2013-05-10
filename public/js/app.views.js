@@ -270,18 +270,18 @@ App.Views.Facets = Backbone.View.extend({
                     var filter  = this.$el.find('a').attr('title');
                     var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
 
-
+                    // Try to add the filter
                     var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
                     var isDupe = filtersBarView.collection.add(filterModel);
-                    // Remove the filter as it is already on the collection
-                    // (user clicked twice on filter)
+
+                    // If it couldnt add the filter, remove it from the collection
                     if ( isDupe === false ){
+                        console.log('-->remove filter');
                         // Remove filter from list
-                        for ( var i in filtersBarView.collection.models ){
-                            if ( filtersBarView.collection.models[i].get('valor') == filter ){
+                        for ( var i in filtersBarView.collection.models )
+                            if ( filtersBarView.collection.models[i].get('valor') == filter )
                                 filtersBarView.collection.remove(filtersBarView.collection.models[i]);
-                            }
-                        }
+
                         // Remove filter from filter bar
                         $('#close-button-'+filter.trim().replace(/ /g, '-')).trigger('click');
                         vent.trigger('cancel:ajaxs');
