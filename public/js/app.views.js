@@ -147,6 +147,12 @@ App.Views.SearchResults = Backbone.View.extend({
             var texts = this.model.get('texts');
             var to = $(e.currentTarget).attr('class').split('-')[2];
             var from = 'en';
+            var that = this.$el;
+
+            console.log(that.find('header h2 a').html());
+            that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> Translating...');
+            console.log(that.find('header h2 a').html());
+            that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> Translating...');
             this.model.set('metadata_language', to);
 
             // If the texts are not in the desired language, request translation
@@ -157,20 +163,18 @@ App.Views.SearchResults = Backbone.View.extend({
                         if ( texts[from].title )
                             break;
 
-                that = this.$el;
-                that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> Translating...');
-                that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> Translating...');
 
                 var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
                 var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
-
+console.log(that.find('header h2 a').html());
                 this.ajaxTitle = title.fetch();
-                this.ajaxTitle.then(function(response){
+                console.log(that.find('header h2 a').html());
+                this.ajaxTitle.done(function(response){
                     texts[to].title = response.data.translation;
                     that.find('header h2 a').html(response.data.translation);
                 });
                 this.ajaxDescription = description.fetch();
-                this.ajaxDescription.then(function(response){
+                this.ajaxDescription.done(function(response){
                     texts[to].description = response.data.translation;
                     that.find('> p > span').html(response.data.translation);
                 }); 
@@ -480,7 +484,7 @@ App.Views.DoSearch = Backbone.View.extend({
         if ( formBoxText != Box.get('searchText') ) {
             $('#app-content-filters').empty();
             $('#content-filters-bar').find('span').html(lang('none'));
-            Box.set('filters',new App.Collections.Filters());
+            Box.set('filters', new App.Collections.Filters());
             Box.set('searchText', formBoxText);
         }
 

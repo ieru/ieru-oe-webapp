@@ -6,6 +6,7 @@
 		Router: {},
 		Helpers: {},
 		Ajaxs: {},
+		Searches: {}
 	};
 	
 	window.vent = _.extend({}, Backbone.Events);
