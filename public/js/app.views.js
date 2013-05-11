@@ -501,25 +501,60 @@ App.Views.DoSearch = Backbone.View.extend({
         search.set('total', 0);
         search.set('filter', Box.get('filters').toJSON());
 
-        // Register ajax request for being able to abort the request
-        this.ajax = search.fetch();
+        // Create hash with request params for not requesting twice same data
+        var hash = hashcode( JSON.stringify(search.toJSON()) );
 
-        // Generate response
-        this.ajax.then(function(response){
+        // If it is a fresh request
+        if ( !App.Searches[hash] ){
+            this.ajax = search.fetch();
 
-            // On error
-            if ( !response.success ){
-                vent.trigger('search:error',response.message);
-                return;
-            }
+            // Generate response
+            this.ajax.then(function(response){
+                App.Searches[hash] = response;
+
+                // On error
+                if ( !response.success ){
+                    vent.trigger('search:error',response.message);
+                    return;
+                }
+
+                // Assign total pages and other data
+                Box.set('totalPages',response.data.pages);
+                Box.set('totalRecords', response.data.total);
+
+                // Assign facets and results
+                var facets = new App.Collections.Facets(search.get('data').facets);
+                var resources = new App.Collections.Resources(search.get('data').resources);
+
+                // Render the facets in the View
+                var facetsView = new App.Views.Facets({ collection: facets });
+                $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
+                $('#app-content-filters').append(facetsView.render().el);
+
+                // Render the results
+                var resultsView = new App.Views.SearchResults({ collection: resources });
+                $('#app-content-results').html(resultsView.render().el);
+
+                // Render the pagination
+                var paginationView = new App.Views.Pagination({ model: Box });
+                $('.app-content-pagination').html(paginationView.render().el);
+
+                // Remove memory of request object
+                delete App.Ajaxs.search;
+                vent.trigger('search:resolved');
+            });
+
+        // Duplicated request
+        }else{
+            var response = App.Searches[hash];
 
             // Assign total pages and other data
             Box.set('totalPages',response.data.pages);
             Box.set('totalRecords', response.data.total);
 
             // Assign facets and results
-            var facets = new App.Collections.Facets(search.get('data').facets);
-            var resources = new App.Collections.Resources(search.get('data').resources);
+            var facets = new App.Collections.Facets(response.data.facets);
+            var resources = new App.Collections.Resources(response.data.resources);
 
             // Render the facets in the View
             var facetsView = new App.Views.Facets({ collection: facets });
@@ -537,7 +572,6 @@ App.Views.DoSearch = Backbone.View.extend({
             // Remove memory of request object
             delete App.Ajaxs.search;
             vent.trigger('search:resolved');
-        });
-
+        }
     }
 });

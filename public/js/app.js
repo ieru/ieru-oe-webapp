@@ -28,3 +28,11 @@ function lang ( text )
 	var langFile = Box.get('langFile');
 	return !!langFile[text] ? langFile[text] : '[['+text+']]';
 }
+
+function hashcode ( s )
+{
+	return s.split("").reduce(function(a,b){
+		a=((a<<5)-a)+b.charCodeAt(0);
+		return a&a
+	}, 0);
+}
