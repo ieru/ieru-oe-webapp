@@ -136,7 +136,7 @@ App.Views.SearchResults = Backbone.View.extend({
         template: _.template( $('#resource-content').html() ),
 
         events: {
-            'click .search-result-keywords a': 'addFilter',
+            'click .search-result-keywords a': 'addKeywordFilter',
             'click .organic-dropdown ul a': 'changeLanguage',
         },
 
@@ -149,9 +149,7 @@ App.Views.SearchResults = Backbone.View.extend({
             var from = 'en';
             var that = this.$el;
 
-            console.log(that.find('header h2 a').html());
             that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> Translating...');
-            console.log(that.find('header h2 a').html());
             that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> Translating...');
             this.model.set('metadata_language', to);
 
@@ -166,9 +164,8 @@ App.Views.SearchResults = Backbone.View.extend({
 
                 var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
                 var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
-console.log(that.find('header h2 a').html());
+
                 this.ajaxTitle = title.fetch();
-                console.log(that.find('header h2 a').html());
                 this.ajaxTitle.done(function(response){
                     texts[to].title = response.data.translation;
                     that.find('header h2 a').html(response.data.translation);
@@ -183,11 +180,11 @@ console.log(that.find('header h2 a').html());
             this.render();
         },
 
-        addFilter: function(e){
+        addKeywordFilter: function(e){
             var filterModel = new App.Models.Filter({
-                clave:'keyword', 
-                valor:$(e.currentTarget).attr('href').split('/')[3], 
-                indice:Box.get('filters').length
+                clave:  'keyword', 
+                valor:  $(e.currentTarget).attr('href').split('/')[3], 
+                indice: Box.get('filters').length
             });
             filtersBarView.collection.add(filterModel);
             $('#header form').submit();
@@ -241,7 +238,6 @@ console.log(that.find('header h2 a').html());
     });
 
 App.Views.Facets = Backbone.View.extend({
-
     className: 'accordion',
 
     idName: 'facets-listing-ajax',
@@ -302,7 +298,7 @@ App.Views.Facets = Backbone.View.extend({
                 template: _.template( $('#facets-filter').html() ),
 
                 events: {
-                    'click input': 'addFilter',
+                    'click input': 'addFacetFilter',
                 },
 
                 initialize: function(){
@@ -321,19 +317,19 @@ App.Views.Facets = Backbone.View.extend({
                     return this;
                 },
 
-                addFilter: function(){
+                addFacetFilter: function(){
                     var found   = false;
                     var filters = Box.get('filters');
                     var filter  = this.$el.find('a').attr('title');
                     var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
 
                     // Try to add the filter
-                    var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
-                    var isDupe = filtersBarView.collection.add(filterModel);
+                    for ( var i in filtersBarView.collection.models )
+                        if ( filtersBarView.collection.models[i].get('valor') == filter )
+                            found = true;
 
                     // If it couldnt add the filter, remove it from the collection
-                    if ( isDupe === false ){
-                        console.log('-->remove filter');
+                    if ( found == true ){
                         // Remove filter from list
                         for ( var i in filtersBarView.collection.models )
                             if ( filtersBarView.collection.models[i].get('valor') == filter )
@@ -342,7 +338,11 @@ App.Views.Facets = Backbone.View.extend({
                         // Remove filter from filter bar
                         $('#close-button-'+filter.trim().replace(/ /g, '-')).trigger('click');
                         vent.trigger('cancel:ajaxs');
+                    }else{
+                        var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
+                        filtersBarView.collection.add(filterModel);
                     }
+                    Box.set('filters', filtersBarView.collection);
                     Box.set('page',1);
 
                     $('#header form').submit();
@@ -412,7 +412,6 @@ App.Views.FiltersBar = Backbone.View.extend({
     })
 
 App.Views.Pagination = Backbone.View.extend({
-
     template: _.template( $('#search-pagination').html() ),
 
     render: function(){
@@ -439,13 +438,15 @@ App.Views.DoSearch = Backbone.View.extend({
     },
 
     initialize: function(){
-
         // Submit search event
         vent.on( 'search:submit', function(text,page){
             vent.trigger('cancel:ajaxs');
             Box.set('searchText', text);
             Box.set('page',page);
+            console.log('Reroute');
+            Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page'));
             $('#header form').submit();
+            console.log('---');
         }, this );
 
         // Cancel any ongoing ajax requests
@@ -482,15 +483,13 @@ App.Views.DoSearch = Backbone.View.extend({
         // If searchText is different, reset filters
         var formBoxText = $(e.currentTarget).find('input[type=text]').val();
         if ( formBoxText != Box.get('searchText') ) {
+            Router.navigate('#/search/'+formBoxText+'/'+Box.get('page'));
             $('#app-content-filters').empty();
             $('#content-filters-bar').find('span').html(lang('none'));
+            Box.set('page', 1);
             Box.set('filters', new App.Collections.Filters());
             Box.set('searchText', formBoxText);
         }
-
-        // Change URL
-        console.log('Router: change page');
-        Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page'));
 
         // Create search request
         var search = new App.Models.Search();
@@ -510,13 +509,12 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Generate response
             this.ajax.then(function(response){
-                App.Searches[hash] = response;
-
                 // On error
                 if ( !response.success ){
                     vent.trigger('search:error',response.message);
                     return;
                 }
+                App.Searches[hash] = response;
 
                 // Assign total pages and other data
                 Box.set('totalPages',response.data.pages);

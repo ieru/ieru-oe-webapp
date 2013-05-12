@@ -15,7 +15,7 @@ App.Collections.Filters = Backbone.Collection.extend({
 	initialize: function(filters){
 	},
 })
-
+/*
 App.Collections.Filters.prototype.add = function(filter) {
     //Using isDupe routine from @Bill Eisenhauer's answer
     var isDupe = this.any(function(_filter) { 
@@ -26,4 +26,4 @@ App.Collections.Filters.prototype.add = function(filter) {
         return false;
     }
     Backbone.Collection.prototype.add.call(this, filter);
-}
+}*/

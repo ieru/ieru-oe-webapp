@@ -381,12 +381,13 @@
         <script src="js/lang/<?php echo LANG ?>.js"></script>
 
         <script>
-            $.ajaxSetup({ cache: false });
+            //$.ajaxSetup({ cache: false });
+
             // Wait for search request
             var Box = new App.Models.App();
             var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
             var searchBarInfo = new App.Views.SearchInfoBar();
-            Box.set('langFile',lang_file);
+            Box.set('langFile', lang_file);
             var doSearch = new App.Views.DoSearch();
             var doLogin = new App.Views.LoginForm();
 
