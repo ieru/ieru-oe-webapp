@@ -31,7 +31,7 @@
 
                 <div class="nav-collapse collapse">
                     <ul id="user-login" class="nav navbar-nav">
-                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] ): ?>
+                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' ): ?>
                         <li>
                             <p class="navbar-text"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> | <a href="#" id="user-logout"><?php echo Lang::get('website.logout'); ?></a></p>
                         </li>
