@@ -151,12 +151,9 @@
                                     </figure>
                                     <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'"><?php echo$resource->title ?></a></h3>
                                 </header>
-                                <p><?php echo $resource->description ?></p>
+                                <p><?php echo $resource->description ?>... <a class="moreinfo" style="white-space: nowrap;" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                 <footer>
-                                    <p>
-                                        <?php echo Lang::get('website.rate') ?>: <span title="http://www.insights.co.nz/" id="item-show-rating-16787" class="item-rating"><a onclick="return false;"  class="grnet-rating-tooltip" href="#" data-toggle="tooltip" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?>
-                                        <a class="grnet-rating-info" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Votes history"><span class="glyphicon glyphicon-expand"></span></a></span>
-                                    </p>
+                                    <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
                                 </footer>
                             </article>
                             <?php endforeach ?>
@@ -172,11 +169,11 @@
                                                 <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />
                                             </a>
                                         </figure>
-                                        <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'"><?php echo$resource->title ?></a></h3>
+                                        <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'"><?php echo $resource->title ?></a></h3>
                                     </header>
-                                    <p><?php echo $resource->description ?></p>
+                                    <p><?php echo $resource->description ?>... <a class="moreinfo" style="white-space: nowrap;" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating"><a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#" data-original-title="" title=""><img src="/images/full_star.png" class="rating-star star-value-0"><img src="/images/full_star.png" class="rating-star star-value-1"><img src="/images/full_star.png" class="rating-star star-value-2"><img src="/images/full_star.png" class="rating-star star-value-3"><img src="/images/empty_star.png" class="rating-star star-value-4"></a> <?php echo Lang::get('website.of') ?> 3 <?php echo Lang::get('website.votes') ?></span></p>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
                                     </footer>
                                 </article>
                                 <?php endforeach ?>

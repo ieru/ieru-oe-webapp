@@ -11,6 +11,16 @@ App.Router = Backbone.Router.extend({
 		show_view( 'page-home' );
 
 		vent.trigger( 'cancel:ajaxs' );
+
+        // Add Ratings
+        $('#page-home .grnet-rating').each(function(){
+
+        	if ( $(this).html() == '' ){
+	            var request = new App.Models.Grnet.Rating({id:$(this).attr('data-resource').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' )})
+	            var ratings = new App.Views.Grnet.Rating({model: request});
+	            $(this).empty().append(ratings.el);
+        	}
+        })
 	},
 
 	search: function(text){
