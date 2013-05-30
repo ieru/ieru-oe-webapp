@@ -573,3 +573,97 @@ App.Views.DoSearch = Backbone.View.extend({
         }
     }
 });
+
+App.Views.FullResource = Backbone.View.extend({
+    el: '#resource-viewport',
+
+    className: 'clearfix',
+
+    template: _.template( $('#resource-content-full').html() ),
+
+        events: {
+            'click .organic-dropdown ul a': 'changeLanguage',
+        },
+
+    initialize: function(){
+        // Cancel any ongoing ajax requests
+        vent.on( 'cancel:ajaxs', function(){
+            if ( !!this.ajax ){
+                this.ajax.abort();
+                delete this.ajax;
+            }
+            if ( !!this.ajaxTitle ){
+                this.ajaxTitle.abort();
+                delete this.ajaxTitle;
+                this.ajaxDescription.abort();
+                delete this.ajaxDescription;
+            }
+        }, this );
+
+        // Fetch the resource data
+        var that = this;
+        this.ajax = this.model.fetch();
+        this.ajax.then(function(response){
+            // Parse fetch data
+            that.model.set('location_rep', that.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' ));
+
+            // Get language to show of those available in the resource
+            if ( !!that.model.get('texts')[Box.get('interface')] && that.model.get('texts')[Box.get('interface')].title != '' )
+                that.model.set('metadata_language', Box.get('interface'));
+            else if ( !!that.model.get('texts').en && that.model.get('texts').en.title != '' )
+                that.model.set('metadata_language', 'en');
+            else
+                for ( var lang in that.model.get('texts') )
+                    if ( that.model.get('texts')[lang].title ){
+                        that.model.set('metadata_language', lang);
+                        break;
+                    }
+            that.render();
+        });
+    },
+
+    changeLanguage: function(e){
+        e.preventDefault();
+        vent.trigger('cancel:ajaxs');
+
+        var texts = this.model.get('texts');
+        var to = $(e.currentTarget).attr('class').split('-')[2];
+        var from = 'en';
+        var that = this.$el;
+
+        that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> Translating...');
+        that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> Translating...');
+        this.model.set('metadata_language', to);
+
+        // If the texts are not in the desired language, request translation
+        if ( texts[to].title == '' ){
+            // Get the language to translate from (english by default)
+            if ( texts[from] == undefined || texts[from].title == '' )
+                for ( from in texts )
+                    if ( texts[from].title )
+                        break;
+
+
+            var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
+            var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
+
+            this.ajaxTitle = title.fetch();
+            this.ajaxTitle.done(function(response){
+                texts[to].title = response.data.translation;
+                that.find('header h2 a').html(response.data.translation);
+            });
+            this.ajaxDescription = description.fetch();
+            this.ajaxDescription.done(function(response){
+                texts[to].description = response.data.translation;
+                that.find('> p > span').html(response.data.translation);
+            }); 
+        }
+
+        this.render();
+    },
+
+    render: function(){
+        this.$el.html( this.template( this.model.toJSON() ) );
+        return this;
+    }
+});

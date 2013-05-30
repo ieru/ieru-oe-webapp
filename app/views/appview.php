@@ -234,7 +234,10 @@
         <div id="page-resource">
             <div class="container">
                 <div class="row">
-                    Hello resource!
+                    <aside class="col col-lg-3 hidden-phone">
+                    </aside>
+                    <article id="resource-viewport" class="col col-lg-9">
+                    </article>
                 </div>
             </div>
         </div>
@@ -255,6 +258,61 @@
                 <p>&copy; Organic.Edunet 2013</p>
             </div>
         </footer>
+
+        <script id="resource-content-full" type="text/template">
+            <header>
+                <!--<figure class="hidden-phone">
+                    <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
+                </figure>-->
+                <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
+                <small><?php echo Lang::get('website.resource_language') ?>
+            <% for ( var i in napa_langs ){ %>
+                <span style="white-space: nowrap; "><img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %></span>
+            <% } %>
+                </small>
+            </header>
+                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description %><% } %></span></p>
+            <footer>
+                <hr/>
+                <ul class="list-unstyled">
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range %></li>
+                    <li class="grnet-rating">
+                        <strong><?php echo Lang::get('website.rate') ?>:</strong>
+                    </li>
+                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
+                        <span>
+                            <% if ( !!texts[metadata_language].keywords ){ %>
+                                <% for ( var i in texts[metadata_language].keywords ){ %>
+                                <a class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>" onclick="return false;"><%= texts[metadata_language].keywords[i] %></a>
+                                <% } %>
+                            <% } %>
+                        </span>
+                    </li>
+                    <li class="clearfix">
+                        <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
+                        <ul class="organic-dropdown list-unstyled" style="display: inline; ">
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" role="button" class="dropdown-toggle">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <%= lang(metadata_language) %> (<%= lang(texts[metadata_language].type) %>)
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                <% for ( var i in texts ){ %>
+                                    <li class="<%= texts[i].type_class %> list-unstyled"> 
+                                        <a class="lang-select-<%= texts[i].lang %>" href="#">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <%= lang(i) %> (<%= lang(texts[i].type) %>)
+                                        </a>
+                                    </li>
+                                <% } %>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </footer>
+        </script>
 
         <script id="resource-content" type="text/template">
             <header>

@@ -13,6 +13,14 @@ App.Models.Filter = Backbone.Model.extend({
 App.Models.Pagination = Backbone.Model.extend({
 });
 
+App.Models.FullResource = Backbone.Model.extend({
+	urlRoot: '/api/organic/resources/',
+
+	default: {
+		lang: 'en',
+	}
+});
+
 App.Models.Translation = Backbone.Model.extend({
 
 	urlRoot: '/api/analytics/translate',
