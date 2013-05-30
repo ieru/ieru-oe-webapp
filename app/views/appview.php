@@ -144,7 +144,7 @@
                             <?php foreach( $carousel as $resource ): ?>
                             <article class="resource">
                                 <header>
-                                    <figure>
+                                    <figure class="hidden-phone">
                                         <a href="<?php echo $resource->url ?>">
                                             <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />
                                         </a>
@@ -255,7 +255,7 @@
 
         <footer id="footer">
             <div class="container">
-                <p>&copy; Organic.Edunet 2013</p>
+                <p style="margin-right: 15px; ">&copy; Organic.Edunet 2013</p>
             </div>
         </footer>
 
