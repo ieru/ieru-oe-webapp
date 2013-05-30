@@ -664,6 +664,18 @@ App.Views.FullResource = Backbone.View.extend({
 
     render: function(){
         this.$el.html( this.template( this.model.toJSON() ) );
+        
+        // Add Ratings
+        var grnet = this.$el.find('.grnet-rating');
+        if ( !this.model.get('ratings') ){
+            grnet.append('<img src="/images/ajax-loader.gif" />');
+            var request = new App.Models.Grnet.Rating({id:this.model.get('location_rep')})
+            var ratings = new App.Views.Grnet.Rating({model: request});
+            this.model.set('ratings',ratings.el);
+            grnet.find('img').remove();
+        }
+        grnet.append(this.model.get('ratings'));
+
         return this;
     }
 });
