@@ -378,7 +378,7 @@
         <script id="facets-content" type="text/template">
             <div class="accordion-heading">
                 <span class="glyphicon glyphicon-chevron-down pull-left"></span>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters" href="#collapse-<%= name %>" title="<%= name %>">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters-accordion" href="#collapse-<%= name %>" title="<%= name %>">
                     <%= lang(name) %>
                 </a>
             </div>
@@ -457,6 +457,8 @@
             };
 
             function onSelectionChange(selectedNodes){
+                Box.set('page', 1);
+                Router.navigate('#/navigation/1');
                 renderAdvancedOptions($);
             }
 
@@ -484,14 +486,13 @@
 
             function initInterface ( $ )
             {
-                var request = $.getJSON('http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw');
+                /*var request = $.getJSON('http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw');
                 request.done(function(){
                    renderAdvancedOptions($);
                 }).fail(function(){
                    $('#page-navigational .row').html('<div class="alert alert-danger col col-lg-8 col-offset-4">Navigational Search unavailable.</div>');
                    console.log('fail',arguments);
-                });
-                /*
+                });*/
                 try{
                     $.ajax({
                         url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw',
@@ -509,7 +510,6 @@
                     });
                 }catch(e){
                 }
-                */
             }
         </script>
         <!-- jQuery + Bootstrap -->

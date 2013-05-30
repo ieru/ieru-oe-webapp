@@ -244,7 +244,7 @@ App.Views.SearchResults = Backbone.View.extend({
 App.Views.Facets = Backbone.View.extend({
     className: 'accordion',
 
-    idName: 'facets-listing-ajax',
+    id: 'app-content-filters-accordion',
 
     render: function(){
         this.collection.each(function(facet){
@@ -275,7 +275,7 @@ App.Views.Facets = Backbone.View.extend({
             // Render the filters of this facet and append to this
             var filters = new App.Collections.Filters(this.model.get('results'));
             var filtersView = new App.Views.Filters({ collection: filters });
-            this.$el.append('<div id="collapse-'+this.model.get('name')+'" class="accordion-body collapse in"><div class="accordion-inner"></div></div>')
+            this.$el.append('<div id="collapse-'+this.model.get('name')+'" class="accordion-body collapse"><div class="accordion-inner"></div></div>')
                 .find('.accordion-inner').append( filtersView.render().el );
 
             return this;
@@ -428,7 +428,11 @@ App.Views.Pagination = Backbone.View.extend({
         if (startPage < 1)
             startPage = 1;
         this.model.set('startPage',startPage);
-        this.model.set('route', Backbone.history.fragment.split('/')[1]);
+        //alert(Backbone.history.fragment);
+        var i = Backbone.history.fragment.split('/');
+        //alert(i.length);
+        var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
+        this.model.set('route', text);
 
         this.$el.html( this.template( this.model.toJSON() ) );
         return this;
@@ -485,7 +489,6 @@ App.Views.DoSearch = Backbone.View.extend({
             dataType: 'jsonp',
             success: function(data, textStatus, jqXHR) 
             {
-                alert('aye');
                 if ( !!data ){
 
                     // Visualization thingies
@@ -499,7 +502,7 @@ App.Views.DoSearch = Backbone.View.extend({
                     // Create search request
                     var search = new App.Models.Search();
                     Box.set('totalRecords', data.totalSize);
-                    Box.set('totalPages', (parseInt(data.totalSize)/Box.get('perPage')));
+                    Box.set('totalPages', Math.ceil(parseInt(data.totalSize)/Box.get('perPage')));
                     search.set('lang', Box.get('interface'));
                     search.set('offset', (parseInt(Box.get('page'))-1)*Box.get('perPage'));
                     search.set('limit', Box.get('perPage'));
@@ -539,9 +542,6 @@ App.Views.DoSearch = Backbone.View.extend({
                         vent.trigger('search:resolved');
                     });
                 }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert('asd');
             }
         });        
     },
