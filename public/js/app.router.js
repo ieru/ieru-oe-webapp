@@ -5,6 +5,8 @@ App.Router = Backbone.Router.extend({
 		'search/:id/:page': 'search_page',
 		'resource/:id': 'resource',
 		'user/register': 'register',
+		'navigation': 'navigation',
+		'navigation/:id': 'navigation',
 	},
 
 	index: function(){
@@ -21,6 +23,15 @@ App.Router = Backbone.Router.extend({
 	            $(this).empty().append(ratings.el);
         	}
         })
+	},
+
+	navigation: function(id){
+		show_view( 'page-navigational' );
+		Box.set('page', !!id?id:1);
+		if ( $('#flash').html() == '' ){
+	    	swfobject.embedSWF(URL, flashID, width, height, flashVersion, expressInstallURL, flashvars, params, attributes);
+		}
+    	initInterface($);
 	},
 
 	search: function(text){

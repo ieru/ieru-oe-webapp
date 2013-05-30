@@ -108,7 +108,10 @@ App.Views.SearchInfoBar = Backbone.View.extend({
         e.preventDefault();
         Box.set('perPage',$(e.currentTarget).find('a').html());
         $('#results-per-page').find('> a').html(Box.get('perPage')+'<span class="glyphicon glyphicon-chevron-down"></span>');
-        $('#header form').submit();
+        if ( Box.get('searchText') != '' )
+            $('#header form').submit();
+        else
+            doSearch.submit();
     },
 })
 
@@ -187,7 +190,8 @@ App.Views.SearchResults = Backbone.View.extend({
                 indice: Box.get('filters').length
             });
             filtersBarView.collection.add(filterModel);
-            $('#header form').submit();
+            if ( Box.get('searchText') != '' )
+                $('#header form').submit();
         },
 
         initialize: function(){
@@ -251,7 +255,6 @@ App.Views.Facets = Backbone.View.extend({
         var filters = Box.get('filters');
         return this;
     }
-
 });
 
     App.Views.Facet = Backbone.View.extend({
@@ -425,6 +428,7 @@ App.Views.Pagination = Backbone.View.extend({
         if (startPage < 1)
             startPage = 1;
         this.model.set('startPage',startPage);
+        this.model.set('route', Backbone.history.fragment.split('/')[1]);
 
         this.$el.html( this.template( this.model.toJSON() ) );
         return this;
@@ -472,13 +476,82 @@ App.Views.DoSearch = Backbone.View.extend({
         console.log(e.type, e.keyCode);
     },
 
+    submitNavigational: function(){
+        $.ajax({
+            url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=search&format=raw&offset='+((parseInt(Box.get('page'))-1)*Box.get('perPage'))+'&limit=' + Box.get('perPage') + '&language=null&elevel=null&rtype=null&order=alphabetical&flash=yes&predicate=null&inclusive=yes',
+            async: false,
+            jsonpCallback: 'jsonCallback',
+            contentType: "application/json",
+            dataType: 'jsonp',
+            success: function(data, textStatus, jqXHR) 
+            {
+                alert('aye');
+                if ( !!data ){
+
+                    // Visualization thingies
+                    $('#page-app').show();
+                    $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
+                    $('#app-content-info').hide();
+
+                    // If searchText is different, reset filters
+                    Box.set('searchText', '');
+
+                    // Create search request
+                    var search = new App.Models.Search();
+                    Box.set('totalRecords', data.totalSize);
+                    Box.set('totalPages', (parseInt(data.totalSize)/Box.get('perPage')));
+                    search.set('lang', Box.get('interface'));
+                    search.set('offset', (parseInt(Box.get('page'))-1)*Box.get('perPage'));
+                    search.set('limit', Box.get('perPage'));
+                    search.set('total', data.totalSize);
+                    search.set('identifiers', data.identifiers);
+                    search.set('type', 'POST');
+
+                    this.ajax = search.fetch();
+
+                    // Generate response
+                    this.ajax.then(function(response){
+                        // On error
+                        if ( !response.success ){
+                            vent.trigger('search:error',response.message);
+                            return;
+                        }
+
+                        // Assign facets and results
+                        var facets = new App.Collections.Facets({});
+                        var resources = new App.Collections.Resources(search.get('records'));
+
+                        // Render the facets in the View
+                        var facetsView = new App.Views.Facets({ collection: facets });
+                        $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
+                        $('#app-content-filters').append(facetsView.render().el);
+
+                        // Render the results
+                        var resultsView = new App.Views.SearchResults({ collection: resources });
+                        $('#app-content-results').html(resultsView.render().el);
+
+                        // Render the pagination
+                        var paginationView = new App.Views.Pagination({ model: Box });
+                        $('.app-content-pagination').html(paginationView.render().el);
+
+                        // Remove memory of request object
+                        delete App.Ajaxs.search;
+                        vent.trigger('search:resolved');
+                    });
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('asd');
+            }
+        });        
+    },
+
     submit: function(e){
         // Abort any current ajax requests
         e.preventDefault();
 
         // Visualization thingies
         window.scrollTo(0,0);
-        //$('#app-content-filters').empty();
         show_view( 'page-app' );
         $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
         $('#app-content-info').hide();

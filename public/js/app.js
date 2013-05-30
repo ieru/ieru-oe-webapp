@@ -19,6 +19,7 @@ function show_view ( view ){
 	$('#page-app').hide();
 	$('#page-resource').hide();
 	$('#page-register-user').hide();
+	$('#page-navigational').hide();
 
 	$('#'+view).show();
 }

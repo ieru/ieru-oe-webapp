@@ -13,6 +13,10 @@ App.Models.Filter = Backbone.Model.extend({
 App.Models.Pagination = Backbone.Model.extend({
 });
 
+App.Models.Resources = Backbone.Model.extend({
+	urlRoot: '/api/organic/resources',
+});
+
 App.Models.FullResource = Backbone.Model.extend({
 	urlRoot: '/api/organic/resources/',
 
@@ -75,7 +79,7 @@ App.Models.Search = Backbone.Model.extend({
 	},
 
 	fetch: function(){
-		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type:this.get('type') });
 	},
 });
 

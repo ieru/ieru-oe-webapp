@@ -185,6 +185,15 @@
         </div>
         <!-- END HOME PAGE -->
 
+        <!-- NAVIGATIONAL SEARCH PAGE -->
+        <div id="page-navigational">
+            <div class="container">
+                <div class="row">
+                    <div id="flash"></div>
+                </div>
+            </div>
+        </div>
+        <!-- NAVIGATIONAL SEARCH PAGE -->
 
         <!-- SEARCH PAGE -->
         <div id="page-app">
@@ -229,7 +238,6 @@
         </div>
         <!-- END SEARCH PAGE -->
 
-
         <!-- VIEW RESOURCE PAGE -->
         <div id="page-resource">
             <div class="container">
@@ -271,7 +279,7 @@
             <% } %>
                 </small>
             </header>
-                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description %><% } %></span></p>
+            <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description %><% } %></span></p>
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
@@ -386,23 +394,23 @@
             <ul class="pagination">
 
             <% if ( page > 1 ) { %>
-              <li><a href="/#/search/<%= searchText %>/<%= 1 %>"><%= lang('first') %></a></li>
+              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= 1 %>"><%= lang('first') %></a></li>
             <% } %>
 
             <% if ( page > 1 ) { %>
-              <li><a href="/#/search/<%= searchText %>/<%= page-1 %>">&laquo;</a></li>
+              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page-1 %>">&laquo;</a></li>
             <% } %>
 
             <% for ( var i = startPage ; i <= page+numPagLinks && i <= totalPages ; i++ ){ %>
-              <li <% if ( i == page ) { %>class="disabled"<% } %>><a href="/#/search/<%= searchText %>/<%= i %>"><%= i %></a></li>
+              <li <% if ( i == page ) { %>class="disabled"<% } %>><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= i %>"><%= i %></a></li>
             <% } %>
 
             <% if ( page < totalPages ) { %>
-              <li><a href="/#/search/<%= searchText %>/<%= page+1 %>">&raquo;</a></li>
+              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page+1 %>">&raquo;</a></li>
             <% } %>
 
             <% if ( page < totalPages ) { %>
-              <li><a href="/#/search/<%= searchText %>/<%= totalPages %>"><%= lang('last') %></a></li>
+              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= totalPages %>"><%= lang('last') %></a></li>
             <% } %>
 
             </ul>
@@ -415,6 +423,95 @@
             <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#" data-placement="bottom" data-content="Información del historial." data-original-title="Votes history"><span class="glyphicon glyphicon-expand">history</span></a></span>
         </script>
 
+        <!-- Navigational search -->
+        <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
+        <script type="text/javascript">
+            var ontResourcesURI;
+            var ontResources;
+            var labels;
+            var predicate = 'null';
+            var ipCounter = 0;
+            var advancedOptionsOpened = false;
+            var inclusiveSearch = true;
+            var descriptionLimit = 300;
+            var titleLimit = 68;
+
+            ///////////////////
+            // MORITZ STUFF //
+            /////////////////
+            var URL='/semanticsearch.swf?treelang=<?php echo LANG ?>';
+            var flashID = 'flash';          
+            var width = '100%';
+            var height = '500';
+            var flashVersion = '10.0.0';
+            var expressInstallURL = 'http://oe.dynalias.net/components/com_navigational/moritz/expressInstall.swf';            
+            var params = {};
+            var attributes = {};
+
+            var flashvars = 
+            {
+                baseURL: 'http://oe.dynalias.net/', 
+                locale: 'en',
+                JSCallBack_selectionChange: 'onSelectionChange',
+                JSCallBack_searchPointUpdate: 'onSearchPointUpdate'
+            };
+
+            function onSelectionChange(selectedNodes){
+                renderAdvancedOptions($);
+            }
+
+            function getFlashMovie(movieName) {
+                   var isIE = navigator.appName.indexOf('Microsoft') != -1;
+                   return (isIE) ? window[movieName] : document[movieName];
+            }
+
+            function renderAdvancedOptions($)
+            {     
+                $.ajax({
+                    url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=getState&format=raw',
+                    async: false,
+                    jsonpCallback: 'jsonCallback',
+                    contentType: "application/json",
+                    dataType: 'jsonp',
+                    success: function(data) 
+                    {
+                        doSearch.submitNavigational();
+                    },
+                    error: function(e) {
+                    }
+                });
+            }
+
+            function initInterface ( $ )
+            {
+                var request = $.getJSON('http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw');
+                request.done(function(){
+                   renderAdvancedOptions($);
+                }).fail(function(){
+                   $('#page-navigational .row').html('<div class="alert alert-danger col col-lg-8 col-offset-4">Navigational Search unavailable.</div>');
+                   console.log('fail',arguments);
+                });
+                /*
+                try{
+                    $.ajax({
+                        url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw',
+                        async: false,
+                        jsonpCallback: 'jsonCallback',
+                        contentType: "application/json",
+                        dataType: 'jsonp',
+                        success: function(data) 
+                        {
+                            renderAdvancedOptions($);
+                        },
+                        error: function(e) 
+                        {
+                        }
+                    });
+                }catch(e){
+                }
+                */
+            }
+        </script>
         <!-- jQuery + Bootstrap -->
         <script src="js/jquery.js"></script>
         <script src="js/vendor/bootstrap/bootstrap.js"></script>
