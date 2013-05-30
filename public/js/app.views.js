@@ -362,6 +362,7 @@ App.Views.FiltersBar = Backbone.View.extend({
     },
 
     addOne: function(filter) {
+        vent.trigger( 'cancel:ajaxs' );
         if ( this.collection.length == 1 )
             $(this.el).find('span').empty();
 
@@ -390,6 +391,7 @@ App.Views.FiltersBar = Backbone.View.extend({
         },
 
         destroy: function(e){
+            vent.trigger( 'cancel:ajaxs' );
             this.model.destroy();
             var filterName = $(e.currentTarget).parent().find('span').html().trim().replace(/ /g, '-');
             $('#checkbox-'+filterName).attr('checked',false);
@@ -477,6 +479,7 @@ App.Views.DoSearch = Backbone.View.extend({
         // Visualization thingies
         window.scrollTo(0,0);
         //$('#app-content-filters').empty();
+        show_view( 'page-app' );
         $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
         $('#app-content-info').hide();
 
