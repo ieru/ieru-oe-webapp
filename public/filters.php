@@ -328,6 +328,7 @@ return array(
 		'en'=>'library',
 		'es'=>'Biblioteca',
 		'it'=>'libreria',
+		'tr'=>'Kütüphane',
 	),
 	'educational administration'=>array(
 		'en'=>'educational administration',

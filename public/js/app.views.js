@@ -108,7 +108,6 @@ App.Views.SearchInfoBar = Backbone.View.extend({
         e.preventDefault();
         Box.set('perPage',$(e.currentTarget).find('a').html());
         Box.set('page', 1);
-        Router.navigate('#/search/'+Box.get('searchText')+'/1');
         var i = Backbone.history.fragment.split('/');
         var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
         var stext = Box.get('searchText') == '' ? '' : '/'+Box.get('searchText');
