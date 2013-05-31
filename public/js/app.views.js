@@ -108,6 +108,7 @@ App.Views.SearchInfoBar = Backbone.View.extend({
         e.preventDefault();
         Box.set('perPage',$(e.currentTarget).find('a').html());
         Box.set('page', 1);
+        Router.navigate('#/search/'+Box.get('searchText')+'/1');
         $('#results-per-page').find('> a').html(Box.get('perPage')+'<span class="glyphicon glyphicon-chevron-down"></span>');
         if ( Box.get('searchText') != '' )
             $('#header form').submit();
@@ -191,6 +192,8 @@ App.Views.SearchResults = Backbone.View.extend({
                 indice: Box.get('filters').length
             });
             filtersBarView.collection.add(filterModel);
+            Box.set('page',1);
+            Router.navigate('#/search/'+Box.get('searchText')+'/1');
             if ( Box.get('searchText') != '' )
                 $('#header form').submit();
         },
@@ -357,6 +360,7 @@ App.Views.Facets = Backbone.View.extend({
                     }
                     Box.set('filters', filtersBarView.collection);
                     Box.set('page',1);
+                    Router.navigate('#/search/'+Box.get('searchText')+'/1');
 
                     $('#header form').submit();
                 }
