@@ -120,4 +120,5 @@ lang_file = {
 'automatic':'Automático',
 'last':'Última',
 'log_in_or_register_for_improving_translation': 'Inicia sesión o regístrate para mejorar la traducción',
+'wrong_username_or_password': 'Nombre de usuario o contraseña incorrectos',
 }

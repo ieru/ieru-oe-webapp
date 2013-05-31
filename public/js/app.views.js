@@ -24,8 +24,12 @@ App.Views.LoginForm = Backbone.View.extend({
             password: $('#login-form-password').val(),
         });
         model.fetch().then(function(response){
-            _.cookie('usertoken',response.data.usertoken);
-            location.reload();
+            if ( response.success ){
+                _.cookie('usertoken',response.data.usertoken);
+                location.reload();
+            }else{
+                alert(lang('Wrong username or password'));
+            }
         });
     },
 })

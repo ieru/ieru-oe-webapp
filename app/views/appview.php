@@ -255,7 +255,40 @@
         <div id="page-register-user">
             <div class="container">
                 <div class="row">
-                    User wants to register a new account.
+                    <div>
+                        <form id="register-new-user" class="form-horizontal">
+                            <legend><?php echo Lang::get('website.register_a_new_user') ?></legend>
+                            <div class="control-group">
+                                <label class="control-label" for="form-register-username"><?php echo Lang::get('website.username') ?></label>
+                                <div class="controls">
+                                    <input type="text" id="form-register-username" name="form-register-username">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="form-register-email"><?php echo Lang::get('website.email') ?></label>
+                                <div class="controls">
+                                    <input type="text" id="form-register-email" name="form-register-email">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="form-register-password"><?php echo Lang::get('website.password') ?></label>
+                                <div class="controls">
+                                    <input type="password" id="form-register-password" name="form-register-password">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="form-register-repeat-password"><?php echo Lang::get('website.repeat_password') ?></label>
+                                <div class="controls">
+                                    <input type="password" id="form-register-repeat-password" name="form-register-repeat-password">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button type="submit" class="btn" id="form-register-submit"><?php echo Lang::get('website.register') ?></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -602,5 +635,43 @@
             });
         <?php endif; ?>
         </script>
-  </body>
+
+        <script>
+                    
+            $.fn.serializeObject = function()
+            {
+                var o = {};
+                var a = this.serializeArray();
+                $.each(a, function() {
+                    if (o[this.name] !== undefined) {
+                        if (!o[this.name].push) {
+                            o[this.name] = [o[this.name]];
+                        }
+                        o[this.name].push(this.value || '');
+                    } else {
+                        o[this.name] = this.value || '';
+                    }
+                });
+                return o;
+            };
+
+            $('#form-register-submit').click(function (e) {
+                $.ajax({
+                    url: '/api/organic/register',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $('#register-new-user').serializeObject(), 
+                    success: function(response) {
+                        if ( response.success ){
+                            alert(response.message);
+                            document.location.href = '/';
+                        }else{
+                            alert(response.message);
+                        }
+                    }
+                });
+                return false;
+            })
+        </script>
+    </body>
 </html>
