@@ -118,8 +118,8 @@
                 </form>
                 <nav class="hidden-phone">
                     <ul class="list-inline">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#/navigation">Navigational Search</a></li>
+                        <li><a href="#"><?php echo Lang::get('website.home') ?></a></li>
+                        <li><a href="#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
                     </ul>
                 </nav>
             </div>
@@ -414,7 +414,7 @@
             <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#"><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
                <%= lang('of') %>
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
-            <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#"><span class="glyphicon glyphicon-expand">history</span></a></span>
+            <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#"><span class="glyphicon glyphicon-expand"><?php echo Lang::get('website.view_rating_history'); ?></span></a></span>
         </script>
 
         <script id="facets-content" type="text/template">
