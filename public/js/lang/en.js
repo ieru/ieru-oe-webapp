@@ -123,4 +123,5 @@ lang_file = {
 'human':'Human',
 'automatic':'Automatic',
 'last':'Last',
+'log_in_or_register_for_improving_translation': 'Log in or register for improving translation',
 }

@@ -119,4 +119,5 @@ lang_file = {
 'human':'Humano',
 'automatic':'Automático',
 'last':'Última',
+'log_in_or_register_for_improving_translation': 'Inicia sesión o regístrate para mejorar la traducción',
 }
