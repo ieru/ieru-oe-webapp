@@ -500,13 +500,12 @@ App.Views.DoSearch = Backbone.View.extend({
 
     submitNavigational: function(){
         $('#app-content-filters').css({'visibility':'hidden'});
-        $.ajax({
+        this.ajax = $.ajax({
             url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=search&format=raw&offset='+((parseInt(Box.get('page'))-1)*Box.get('perPage'))+'&limit=' + Box.get('perPage') + '&language=null&elevel=null&rtype=null&order=alphabetical&flash=yes&predicate=null&inclusive=yes',
-            async: false,
             jsonpCallback: 'jsonCallback',
             contentType: "application/json",
             dataType: 'jsonp',
-            success: function(data, textStatus, jqXHR) 
+            success: function(data) 
             {
                 if ( !!data ){
 
@@ -533,6 +532,11 @@ App.Views.DoSearch = Backbone.View.extend({
 
                     // Generate response
                     this.ajax.then(function(response){
+                        var i = Backbone.history.fragment.split('/');
+                        var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
+                        if ( text != 'navigation' )
+                            return;
+
                         // On error
                         if ( !response.success ){
                             vent.trigger('search:error',response.message);
@@ -605,6 +609,11 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Generate response
             this.ajax.then(function(response){
+                var i = Backbone.history.fragment.split('/');
+                var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
+                if ( text != 'search' )
+                    return;
+
                 // On error
                 if ( !response.success ){
                     vent.trigger('search:error',response.message);
