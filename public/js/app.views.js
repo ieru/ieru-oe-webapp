@@ -249,10 +249,9 @@ App.Views.Facets = Backbone.View.extend({
     render: function(){
         this.collection.each(function(facet){
             this.$el.append( new App.Views.Facet({ model: facet }).el );
+            //alert(JSON.stringify(facet));
         }, this);
 
-        // Loop the filters and set as selected those in the filters
-        var filters = Box.get('filters');
         return this;
     }
 });
@@ -275,8 +274,11 @@ App.Views.Facets = Backbone.View.extend({
             // Render the filters of this facet and append to this
             var filters = new App.Collections.Filters(this.model.get('results'));
             var filtersView = new App.Views.Filters({ collection: filters });
+            var found = false;
             this.$el.append('<div id="collapse-'+this.model.get('name')+'" class="accordion-body collapse"><div class="accordion-inner"></div></div>')
                 .find('.accordion-inner').append( filtersView.render().el );
+
+            //[{"clave":"educationalContext","valor":"higher education","indice":0}]
 
             return this;
         },
@@ -314,9 +316,16 @@ App.Views.Facets = Backbone.View.extend({
                     this.model.set('translation', translation[translation.length-1]);
 
                     // Check if the filter has been already set, remove if so
-                    var filters = Box.get('filters');
-                    this.model.set('active',false);
+                    this.model.set('active', false);
+                    var filters = Box.get('filters').toJSON();
+                    if ( filters.length > 0 ){
+                        for ( var f in filters ){
+                            if ( filters[f].valor == this.model.get('filter') )
+                                this.model.set('active', true);
+                        }
+                    }
                     this.$el.html( this.template( this.model.toJSON() ) );
+
                     return this;
                 },
 
