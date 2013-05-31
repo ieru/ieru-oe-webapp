@@ -315,6 +315,7 @@
                                 </ul>
                             </li>
                         </ul>
+                        <a href="#" data-location="<%= entry %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
                 </ul>
             </footer>
