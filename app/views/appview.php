@@ -587,8 +587,8 @@
             });
             $('body').popover({
                 selector: '.grnet-rating-info',
-                title: 'título',
-                content: 'contenido',
+                title: 'Título: sé que falta por mostrarlo',
+                content: 'contenido: sé que falta por mostrarlo',
                 placement: 'bottom',
             });
         </script>
