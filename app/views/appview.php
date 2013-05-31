@@ -296,7 +296,7 @@
                     </li>
                     <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
-                        <ul class="organic-dropdown list-unstyled" style="display: inline; ">
+                        <ul class="organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" class="dropdown-toggle">
                                     <span class="glyphicon glyphicon-user"></span>
@@ -351,7 +351,7 @@
                     </li>
                     <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
-                        <ul class="organic-dropdown list-unstyled" style="display: inline; ">
+                        <ul class="organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" class="dropdown-toggle">
                                     <span class="glyphicon glyphicon-user"></span>
@@ -370,9 +370,17 @@
                                 </ul>
                             </li>
                         </ul>
+                        <a href="#" data-location="<%= entry %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
                 </ul>
             </footer>
+        </script>
+
+        <script id="grnet-rating" type="text/template">
+            <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#"><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
+               <%= lang('of') %>
+            <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
+            <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#"><span class="glyphicon glyphicon-expand">history</span></a></span>
         </script>
 
         <script id="facets-content" type="text/template">
@@ -414,13 +422,6 @@
             <% } %>
 
             </ul>
-        </script>
-
-        <script id="grnet-rating" type="text/template">
-            <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#"><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
-               <%= lang('of') %>
-            <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
-            <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#" data-placement="bottom" data-content="Información del historial." data-original-title="Votes history"><span class="glyphicon glyphicon-expand">history</span></a></span>
         </script>
 
         <!-- Navigational search -->
@@ -546,8 +547,59 @@
             Backbone.history.start();
 
             // Ratings
-            $('.grnet-rating-tooltip').tooltip({'title':'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'});
-            $('.grnet-rating-info').popover();
+            $('body').tooltip({
+                selector: '.grnet-rating-tooltip',
+                title:'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'
+            });
+            $('body').popover({
+                selector: '.grnet-rating-info',
+                title: 'título',
+                content: 'contenido',
+                placement: 'bottom',
+            });
+        </script>
+
+        <script>
+        <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] ): ?>
+            $('html').on('click', '.ugc-widget', function(event){
+                event.preventDefault();
+                var WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
+                var path_js = '/UGC/ugc-widget-server/';
+
+                var lang = $(this).parents('article').find('.organic-dropdown').find('li > a').attr('data-lang');
+                var type_text = $(this).parents('article').find('.organic-dropdown').find('li > a').html();
+                var action = !!type_text.match(/human/g) ? 'edit' : 'translate';
+                try {
+                    var x = document.createElement("SCRIPT");
+                    x.type = "text/javascript";
+                    x.src = WIDGET_HOST + path_js + "loadUGC.js";
+                    if ( action == 'edit'){
+                        // CORRECT
+                        x.setAttribute("Language", lang);
+                    }else{
+                        //TRANSLATE
+                        x.setAttribute("sourceLanguage", 'en');
+                        //TRANSLATE
+                        x.setAttribute("targetLanguage", lang); 
+                    }
+                    x.setAttribute('Name', '<?php echo $_user->user_username ?>');
+                    x.setAttribute('Username', '<?php echo $_user->user_username ?>');
+                    x.setAttribute('Email', '<?php echo $_user->user_email ?>');
+                    x.setAttribute('Operation', action);
+                    x.setAttribute('id', 'LOMWidget');
+                    x.setAttribute("LOMID", $(this).attr('data-id'));
+                    x.setAttribute("LOMLocation", 'http://oe.dynalias.net/harvested_files/oai_scam_'+$(this).attr('data-location').replace(/oai:scam[.]kmr[.]se:/,'').replace( /[:\/.]/g, '_' ).replace( /\?/g, '@')+'.xml');
+                    document.getElementsByTagName("head")[0].appendChild(x);
+                }catch(e){
+                    alert(e.getMessage());
+                }
+            })
+        <?php else: ?>
+            $('#app-content-results').tooltip({
+                selector: '.ugc-widget',
+                title: '<?php echo Lang::get('website.log_in_or_register_for_improving_translation') ?>'
+            });
+        <?php endif; ?>
         </script>
   </body>
 </html>
