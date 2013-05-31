@@ -103,4 +103,6 @@ return array(
 'none'=>'None',
 'tags'=>'Tags',
 'suggest_a_new_resource'=>'Suggest a new resource',
+
+'log_in_or_register_for_improving_translation': 'Log in or register for improving translation',
 );
