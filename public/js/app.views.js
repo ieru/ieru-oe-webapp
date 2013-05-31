@@ -109,6 +109,10 @@ App.Views.SearchInfoBar = Backbone.View.extend({
         Box.set('perPage',$(e.currentTarget).find('a').html());
         Box.set('page', 1);
         Router.navigate('#/search/'+Box.get('searchText')+'/1');
+        var i = Backbone.history.fragment.split('/');
+        var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
+        var stext = Box.get('searchText') == '' ? '' : '/'+Box.get('searchText');
+        Router.navigate('#/'+text+stext+'/1');
         $('#results-per-page').find('> a').html(Box.get('perPage')+'<span class="glyphicon glyphicon-chevron-down"></span>');
         if ( Box.get('searchText') != '' )
             $('#header form').submit();
@@ -495,6 +499,7 @@ App.Views.DoSearch = Backbone.View.extend({
     },
 
     submitNavigational: function(){
+        $('#app-content-filters').css({'visibility':'hidden'});
         $.ajax({
             url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=search&format=raw&offset='+((parseInt(Box.get('page'))-1)*Box.get('perPage'))+'&limit=' + Box.get('perPage') + '&language=null&elevel=null&rtype=null&order=alphabetical&flash=yes&predicate=null&inclusive=yes',
             async: false,
@@ -569,6 +574,7 @@ App.Views.DoSearch = Backbone.View.extend({
         show_view( 'page-app' );
         $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
         $('#app-content-info').hide();
+        $('#app-content-filters').css({'visibility':'visible'});
 
         // If searchText is different, reset filters
         var formBoxText = $(e.currentTarget).find('input[type=text]').val();
