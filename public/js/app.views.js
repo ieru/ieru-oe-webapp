@@ -604,6 +604,7 @@ App.Views.DoSearch = Backbone.View.extend({
                 var facetsView = new App.Views.Facets({ collection: facets });
                 $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
                 $('#app-content-filters').append(facetsView.render().el);
+                $('#collapse-click-educationalContext').trigger('click');
 
                 // Render the results
                 var resultsView = new App.Views.SearchResults({ collection: resources });
@@ -634,6 +635,7 @@ App.Views.DoSearch = Backbone.View.extend({
             var facetsView = new App.Views.Facets({ collection: facets });
             $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
             $('#app-content-filters').append(facetsView.render().el);
+            $('#collapse-click-educationalContext').trigger('click');
 
             // Render the results
             var resultsView = new App.Views.SearchResults({ collection: resources });

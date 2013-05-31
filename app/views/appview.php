@@ -378,7 +378,7 @@
         <script id="facets-content" type="text/template">
             <div class="accordion-heading">
                 <span class="glyphicon glyphicon-chevron-down pull-left"></span>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters-accordion" href="#collapse-<%= name %>" title="<%= name %>">
+                <a id="collapse-click-<%= name %>" class="accordion-toggle" data-toggle="collapse" data-parent="#app-content-filters-accordion" href="#collapse-<%= name %>" title="<%= name %>">
                     <%= lang(name) %>
                 </a>
             </div>
