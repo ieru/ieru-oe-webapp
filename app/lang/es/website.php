@@ -104,5 +104,5 @@ return array(
 'tags'=>'Etiquetas',
 'suggest_a_new_resource'=>'',
 
-'log_in_or_register_for_improving_translation': 'Inicia sesión o regístrate para mejorar la traducción',
+'log_in_or_register_for_improving_translation'=> 'Inicia sesión o regístrate para mejorar la traducción',
 );
