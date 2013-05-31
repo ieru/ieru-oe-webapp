@@ -107,7 +107,7 @@
 
         <header id="header" class="jumbotron">
             <div class="container">
-                <h1 class="pull-left hidden-phone">Organic.Edunet</h1>
+                <a href="/#"><h1 class="pull-left hidden-phone">Organic.Edunet</h1></a>
                 <form id="search-form" action="" class="pull-right">
                     <div class="input-group">
                         <input type="text" class="input-large" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
