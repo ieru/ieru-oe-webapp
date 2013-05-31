@@ -629,7 +629,7 @@
                 }
             })
         <?php else: ?>
-            $('#app-content-results').tooltip({
+            $('#app-content-results, #resource-viewport').tooltip({
                 selector: '.ugc-widget',
                 title: '<?php echo Lang::get('website.log_in_or_register_for_improving_translation') ?>'
             });
