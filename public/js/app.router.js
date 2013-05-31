@@ -49,8 +49,6 @@ App.Router = Backbone.Router.extend({
 	resource: function(id){
 		show_view( 'page-resource' );
 
-		vent.trigger( 'cancel:ajaxs' );
-
 		var resource = new App.Views.FullResource({ model: new App.Models.FullResource({id:id}) });
 
 		$('#page-resource article').html( resource.el );

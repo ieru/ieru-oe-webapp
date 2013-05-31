@@ -28,7 +28,7 @@ App.Views.LoginForm = Backbone.View.extend({
                 _.cookie('usertoken',response.data.usertoken);
                 location.reload();
             }else{
-                alert(lang('Wrong username or password'));
+                alert(lang('wrong_username_or_password'));
             }
         });
     },
@@ -481,10 +481,8 @@ App.Views.DoSearch = Backbone.View.extend({
             vent.trigger('cancel:ajaxs');
             Box.set('searchText', text);
             Box.set('page',page);
-            console.log('Reroute');
             Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page'));
             $('#header form').submit();
-            console.log('---');
         }, this );
 
         // Cancel any ongoing ajax requests
@@ -505,7 +503,7 @@ App.Views.DoSearch = Backbone.View.extend({
     },
 
     autocomplete: function(e){
-        console.log(e.type, e.keyCode);
+        //console.log(e.type, e.keyCode);
     },
 
     submitNavigational: function(){
@@ -593,6 +591,7 @@ App.Views.DoSearch = Backbone.View.extend({
         // If searchText is different, reset filters
         var formBoxText = $(e.currentTarget).find('input[type=text]').val();
         if ( formBoxText != Box.get('searchText') ) {
+            //alert('#/search/'+formBoxText+'/'+Box.get('page'));
             Router.navigate('#/search/'+formBoxText+'/'+Box.get('page'));
             $('#app-content-filters').empty();
             $('#content-filters-bar').find('span').html(lang('none'));
@@ -609,8 +608,6 @@ App.Views.DoSearch = Backbone.View.extend({
         search.set('limit', Box.get('perPage'));
         search.set('total', 0);
         search.set('filter', Box.get('filters').toJSON());
-
-        console.log(Box.get('filters').toJSON());
 
         // Create hash with request params for not requesting twice same data
         var hash = hashcode( JSON.stringify(search.toJSON()) );
