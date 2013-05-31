@@ -247,6 +247,7 @@ App.Views.Facets = Backbone.View.extend({
     id: 'app-content-filters-accordion',
 
     render: function(){
+        filters_box = Box.get('filters').toJSON();
         this.collection.each(function(facet){
             this.$el.append( new App.Views.Facet({ model: facet }).el );
             //alert(JSON.stringify(facet));
@@ -317,10 +318,9 @@ App.Views.Facets = Backbone.View.extend({
 
                     // Check if the filter has been already set, remove if so
                     this.model.set('active', false);
-                    var filters = Box.get('filters').toJSON();
-                    if ( filters.length > 0 ){
-                        for ( var f in filters ){
-                            if ( filters[f].valor == this.model.get('filter') )
+                    if ( filters_box.length > 0 ){
+                        for ( var f in filters_box ){
+                            if ( filters_box[f].valor == this.model.get('filter') )
                                 this.model.set('active', true);
                         }
                     }
