@@ -189,16 +189,19 @@ App.Views.SearchResults = Backbone.View.extend({
         },
 
         addKeywordFilter: function(e){
-            var filterModel = new App.Models.Filter({
-                clave:  'keyword', 
-                valor:  $(e.currentTarget).attr('href').split('/')[3], 
-                indice: Box.get('filters').length
-            });
-            filtersBarView.collection.add(filterModel);
-            Box.set('page',1);
-            Router.navigate('#/search/'+Box.get('searchText')+'/1');
-            if ( Box.get('searchText') != '' )
+            if ( Box.get('searchText') != '' ){
+                var filterModel = new App.Models.Filter({
+                    clave:  'keyword', 
+                    valor:  $(e.currentTarget).attr('href').split('/')[3], 
+                    indice: Box.get('filters').length
+                });
+                filtersBarView.collection.add(filterModel);
+                Box.set('page',1);
+                Box.set('filters', filtersBarView.collection);
+                Router.navigate('#/search/'+Box.get('searchText')+'/1');
+
                 $('#header form').submit();
+            }
         },
 
         initialize: function(){
@@ -598,6 +601,8 @@ App.Views.DoSearch = Backbone.View.extend({
         search.set('limit', Box.get('perPage'));
         search.set('total', 0);
         search.set('filter', Box.get('filters').toJSON());
+
+        console.log(Box.get('filters').toJSON());
 
         // Create hash with request params for not requesting twice same data
         var hash = hashcode( JSON.stringify(search.toJSON()) );
