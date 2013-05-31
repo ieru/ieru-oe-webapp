@@ -107,11 +107,12 @@ App.Views.SearchInfoBar = Backbone.View.extend({
     changePerPage: function(e){
         e.preventDefault();
         Box.set('perPage',$(e.currentTarget).find('a').html());
+        Box.set('page', 1);
         $('#results-per-page').find('> a').html(Box.get('perPage')+'<span class="glyphicon glyphicon-chevron-down"></span>');
         if ( Box.get('searchText') != '' )
             $('#header form').submit();
         else
-            doSearch.submit();
+            doSearch.submitNavigational();
     },
 })
 
