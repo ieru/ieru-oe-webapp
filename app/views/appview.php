@@ -592,18 +592,6 @@
             // Router + History
             Router = new App.Router;
             Backbone.history.start();
-
-            // Ratings
-            $('body').tooltip({
-                selector: '.grnet-rating-tooltip',
-                title:'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'
-            });
-            /*$('body').popover({
-                selector: '.grnet-rating-info',
-                title: 'Título: sé que falta por mostrarlo',
-                content: 'contenido: sé que falta por mostrarlo',
-                placement: 'bottom',
-            });*/
         </script>
 
         <script>
@@ -646,11 +634,14 @@
                 selector: '.ugc-widget',
                 title: '<?php echo Lang::get('website.log_in_or_register_for_improving_translation') ?>'
             });
+            $('body').tooltip({
+                selector: '.grnet-rating-tooltip',
+                title:'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'
+            });
         <?php endif; ?>
         </script>
 
         <script>
-                    
             $.fn.serializeObject = function()
             {
                 var o = {};
