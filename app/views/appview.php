@@ -425,12 +425,7 @@
 
         <script id="grnet-rating-stars" type="text/template">
             <li>
-                <% for ( var i = 0 ; i < ratingMean ; i++ ){ %>
-                    <img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>">
-                <% } %>
-                <% for ( var i = ratingMean ; i < 5 ; i++ ){ %>
-                    <img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>">
-                <% } %>
+                <% for ( var i = 0 ; i < ratingMean ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = ratingMean ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %>
                 <%= rated_on %>
             </li>
         </script>
