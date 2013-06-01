@@ -600,6 +600,13 @@ App.Views.DoSearch = Backbone.View.extend({
         // Abort any current ajax requests
         e.preventDefault();
 
+        // Get text search
+        var formBoxText = $(e.currentTarget).find('input[type=text]').val();
+        if ( formBoxText.trim() == '' ){
+            alert(lang('empty_search_not_allowed'));
+            return;
+        }
+
         // Visualization thingies
         window.scrollTo(0,0);
         show_view( 'page-app' );
@@ -608,7 +615,6 @@ App.Views.DoSearch = Backbone.View.extend({
         $('#app-content-filters').css({'visibility':'visible'});
 
         // If searchText is different, reset filters
-        var formBoxText = $(e.currentTarget).find('input[type=text]').val();
         if ( formBoxText != Box.get('searchText') ) {
             //alert('#/search/'+formBoxText+'/'+Box.get('page'));
             $('#app-content-filters').empty();
