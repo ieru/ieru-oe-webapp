@@ -126,4 +126,5 @@ lang_file = {
 'log_in_or_register_for_improving_translation': 'Register or login to improve translation',
 'wrong_username_or_password': 'Wrong username or password',
 'no_ratings_yet': 'No ratings yet.',
+'empty_search_not_allowed': 'Please input a search term',
 }
