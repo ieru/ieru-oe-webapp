@@ -611,12 +611,12 @@ App.Views.DoSearch = Backbone.View.extend({
         var formBoxText = $(e.currentTarget).find('input[type=text]').val();
         if ( formBoxText != Box.get('searchText') ) {
             //alert('#/search/'+formBoxText+'/'+Box.get('page'));
-            Router.navigate('#/search/'+formBoxText+'/'+Box.get('page'));
             $('#app-content-filters').empty();
             $('#content-filters-bar').find('span').html(lang('none'));
             Box.set('page', 1);
             Box.set('filters', new App.Collections.Filters());
             Box.set('searchText', formBoxText);
+            Router.navigate('#/search/'+formBoxText+'/'+Box.get('page'));
         }
 
         // Create search request
