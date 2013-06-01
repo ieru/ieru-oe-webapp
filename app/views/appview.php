@@ -151,7 +151,7 @@
                                     </figure>
                                     <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'"><?php echo$resource->title ?></a></h3>
                                 </header>
-                                <p><?php echo $resource->description ?>... <a class="moreinfo" style="white-space: nowrap;" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                <p><?php echo $resource->description ?>... <a class="moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                 <footer>
                                     <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
                                 </footer>
@@ -171,7 +171,7 @@
                                         </figure>
                                         <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'"><?php echo $resource->title ?></a></h3>
                                     </header>
-                                    <p><?php echo $resource->description ?>... <a class="moreinfo" style="white-space: nowrap;" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                    <p><?php echo $resource->description ?>... <a class="moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
                                         <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
                                     </footer>
@@ -211,7 +211,7 @@
                             </div>
                             <div class="search-results-per-page pull-right">
                                 <span><?php echo Lang::get('website.results_per_page') ?>:</span>
-                                <ul class="organic-dropdown list-unstyled" style="display: inline; ">
+                                <ul class="organic-dropdown list-unstyled">
                                     <li id="results-per-page" class="dropdown">
                                         <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle">
                                             10
@@ -308,7 +308,7 @@
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
             <% for ( var i in napa_langs ){ %>
-                <span style="white-space: nowrap; "><img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %></span>
+                <span class="resourcelang"><img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %></span>
             <% } %>
                 </small>
             </header>
@@ -362,7 +362,7 @@
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
             <% for ( var i in napa_langs ){ %>
-                <span style="white-space: nowrap; "><img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %></span>
+                <span class="resourcelang"><img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %></span>
             <% } %>
                 </small>
             </header>
@@ -415,7 +415,7 @@
                <%= lang('of') %>
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
             <!--<a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#"><span class="glyphicon glyphicon-expand"> </span></a></span>-->
-            <span class="rating-history dropdown" style="margin-left: 15px; white-space: nowrap; ">
+            <span class="rating-history dropdown">
                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
                     <?php echo Lang::get('website.view_rating_history'); ?> <span class="caret"></span>
                 </a>
