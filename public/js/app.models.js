@@ -63,6 +63,19 @@ App.Models.Grnet.AddRating = Backbone.Model.extend({
 	},
 });
 
+App.Models.Grnet.RatingHistory = Backbone.Model.extend({
+
+	urlRoot: '/api/analytics/resources',
+
+	url: function() {
+		return this.urlRoot + '/' + this.id + '/ratings';
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
+});
+
 App.Models.Search = Backbone.Model.extend({
 
 	urlRoot: '/api/organic/search',

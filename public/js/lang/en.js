@@ -125,4 +125,5 @@ lang_file = {
 'last':'Last',
 'log_in_or_register_for_improving_translation': 'Log in or register for improving translation',
 'wrong_username_or_password': 'Wrong username or password',
+'no_ratings_yet': 'No ratings yet.',
 }

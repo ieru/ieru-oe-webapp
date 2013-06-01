@@ -41,8 +41,32 @@ App.Views.Grnet.Rating = Backbone.View.extend({
 
     template: _.template( $('#grnet-rating').html() ),
 
+    templateStars: _.template( $('#grnet-rating-stars').html() ),
+
     events: {
         'click .grnet-rating-star': 'addRating',
+        'click .rating-history a': 'getHistory',
+    },
+
+    getHistory: function(e){
+        //e.preventDefault();
+        var that = this;
+        var request = new App.Models.Grnet.RatingHistory({id:this.model.get('id')});
+        var box = this.$el.find('.rating-history > ul');
+        if ( box.html() == '' ){
+            box.append('<img src="/images/ajax-loader.gif" />');
+            this.ajax = request.fetch();
+            this.ajax.then(function(response){
+                box.empty();
+                if ( response.data.length ){
+                    for ( var i in response.data ){
+                        box.append( that.templateStars( response.data[i] ) );
+                    }
+                }else{
+                    box.append( lang('no_ratings_yet') );
+                }
+            })
+        }
     },
 
     initialize: function(){
@@ -62,11 +86,6 @@ App.Views.Grnet.Rating = Backbone.View.extend({
         this.ajax = this.model.fetch();
         this.ajax.then(function(response){
             that.$el.html( that.template( response.data ) );
-//            if ( !_.cookie('usertoken'))
-//                that.$el.find('a.grnet-rating-tooltip').tooltip({'title':lang('log_in_or_register_for_rating')});
-
-//            $('.grnet-rating-info').popover();
-
         });
         return this;
     },
@@ -190,7 +209,7 @@ App.Views.SearchResults = Backbone.View.extend({
                 this.ajaxDescription.done(function(response){
                     texts[to].description = response.data.translation;
                     that.find('> p > span').html(response.data.translation);
-                }); 
+                });
             }
 
             this.render();

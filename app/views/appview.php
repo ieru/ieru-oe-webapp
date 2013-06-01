@@ -414,7 +414,25 @@
             <a onclick="return false;" data-toggle="tooltip" class="grnet-rating-tooltip" href="#"><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %></a>
                <%= lang('of') %>
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
-            <a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#"><span class="glyphicon glyphicon-expand"> <?php echo Lang::get('website.view_rating_history'); ?></span></a></span>
+            <!--<a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#"><span class="glyphicon glyphicon-expand"> </span></a></span>-->
+            <span class="rating-history dropdown" style="margin-left: 15px; white-space: nowrap; ">
+                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                    <?php echo Lang::get('website.view_rating_history'); ?> <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="padding: 5px; font-size: 11px; "></ul>
+            </span>
+        </script>
+
+        <script id="grnet-rating-stars" type="text/template">
+            <li>
+                <% for ( var i = 0 ; i < ratingMean ; i++ ){ %>
+                    <img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>">
+                <% } %>
+                <% for ( var i = ratingMean ; i < 5 ; i++ ){ %>
+                    <img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>">
+                <% } %>
+                <%= rated_on %>
+            </li>
         </script>
 
         <script id="facets-content" type="text/template">
@@ -585,12 +603,12 @@
                 selector: '.grnet-rating-tooltip',
                 title:'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'
             });
-            $('body').popover({
+            /*$('body').popover({
                 selector: '.grnet-rating-info',
                 title: 'Título: sé que falta por mostrarlo',
                 content: 'contenido: sé que falta por mostrarlo',
                 placement: 'bottom',
-            });
+            });*/
         </script>
 
         <script>
