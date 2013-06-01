@@ -110,7 +110,7 @@ lang_file = {
 'password':'Password',
 'welcome':'Welcome',
 'abstracts_language':'Abstract\'s Language',
-'log_in_or_register_for_rating':'Log in or register for rating',
+'log_in_or_register_for_rating':'Register or login to rate',
 'auto-translate':'Auto-translate',
 'filters':'Filters',
 'none':'None',
@@ -123,7 +123,7 @@ lang_file = {
 'human':'Human',
 'automatic':'Automatic',
 'last':'Last',
-'log_in_or_register_for_improving_translation': 'Log in or register for improving translation',
+'log_in_or_register_for_improving_translation': 'Register or login to improve translation',
 'wrong_username_or_password': 'Wrong username or password',
 'no_ratings_yet': 'No ratings yet.',
 }

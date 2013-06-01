@@ -97,12 +97,12 @@ return array(
 'password'=>'Password',
 'welcome'=>'Welcome',
 'abstracts_language'=>'Abstract\'s Language',
-'log_in_or_register_for_rating'=>'Log in or register for rating',
+'log_in_or_register_for_rating'=>'Register or login to rate resource',
 'auto-translate'=>'Auto-translate',
 'filters'=>'Filters',
 'none'=>'None',
 'tags'=>'Tags',
 'suggest_a_new_resource'=>'Suggest a new resource',
 
-'log_in_or_register_for_improving_translation'=> 'Log in or register for improving translation',
+'log_in_or_register_for_improving_translation'=> 'Register or login to rate translation',
 );
