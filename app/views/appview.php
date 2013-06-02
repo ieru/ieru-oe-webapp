@@ -321,11 +321,13 @@
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
                     <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
-                        <% if ( !!texts[metadata_language].keywords ){ %>
+                        <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords > 0 ){ %>
                             <% for ( var i in texts[metadata_language].keywords ){ %>
                             <span class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></span>
                             <% } %>
-                        <% }else{ document.write(lang('none')); } %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
                     </li>
                     <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
@@ -370,18 +372,18 @@
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range ? age_range : lang('none') %></li>
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range.trim() ? age_range : lang('none') %></li>
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
                     <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
-                        <span>
-                            <% if ( !!texts[metadata_language].keywords ){ %>
-                                <% for ( var i in texts[metadata_language].keywords ){ %>
-                                <a class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>" onclick="return false;"><%= texts[metadata_language].keywords[i] %></a>
-                                <% } %>
+                        <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords > 0 ){ %>
+                            <% for ( var i in texts[metadata_language].keywords ){ %>
+                            <span class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></span>
                             <% } %>
-                        </span>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
                     </li>
                     <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>

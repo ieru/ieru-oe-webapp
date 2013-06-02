@@ -128,4 +128,5 @@ lang_file = {
 'no_ratings_yet': 'No ratings yet.',
 'empty_search_not_allowed': 'Please input a search term',
 'translating': 'Translating',
+'loading_resources':'Searching, please wait...',
 }

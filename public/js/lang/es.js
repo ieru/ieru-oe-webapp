@@ -128,4 +128,5 @@ lang_file = {
 'no_ratings_yet': 'No se ha emitido ningún voto.',
 'empty_search_not_allowed': 'Por favor, introduce un término de búsqueda',
 'translating': 'Traducción en curso',
+'loading_resources':'Realizando búsqueda, por favor espere...',
 }
