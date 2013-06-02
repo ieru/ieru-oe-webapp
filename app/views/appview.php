@@ -151,7 +151,7 @@
                                     </figure>
                                     <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'" class="translation-text"><?php echo$resource->title ?></a></h3>
                                 </header>
-                                <p><span class="translation-text"><?php echo $resource->description ?>...</span> <a class="moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                <p><span class="translation-text"><?php echo $resource->description ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                 <footer>
                                     <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
                                 </footer>
@@ -171,7 +171,7 @@
                                         </figure>
                                         <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'" class="translation-text"><?php echo $resource->title ?></a></h3>
                                     </header>
-                                    <p><span class="translation-text"><?php echo $resource->description ?>...</span> <a class="moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                    <p><span class="translation-text"><?php echo $resource->description ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
                                         <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
                                     </footer>
@@ -371,7 +371,7 @@
             <% } %>
                 </small>
             </header>
-                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %></span> <a class="moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %></span> <a class="label label-primary moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
