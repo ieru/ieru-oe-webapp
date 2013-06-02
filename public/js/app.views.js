@@ -788,7 +788,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
                 // Render the facets in the View
                 var facetsView = new App.Views.Facets({ collection: facets });
-                $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
+                $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">'+lang('apply_filters')+':</h4>');
                 $('#app-content-filters').append(facetsView.render().el);
                 $('#collapse-click-educationalContext').trigger('click');
 
