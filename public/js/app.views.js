@@ -922,7 +922,7 @@ App.Views.FullResource = Backbone.View.extend({
                         break;
 
             // Translate title
-            var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
+            var title = new App.Models.Translation({text: texts[from].title, from:from, to:to});
             this.ajaxTitle = title.fetch();
             this.ajaxTitle.done(function(response){
                 texts[to].title = response.data.translation;
@@ -930,7 +930,7 @@ App.Views.FullResource = Backbone.View.extend({
                 // Translate description
                 if ( !!texts[from].description ){
                     that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                    var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
+                    var description = new App.Models.Translation({text: texts[from].description, from:from, to:to});
                     this.ajaxDescription = description.fetch();
                     this.ajaxDescription.done(function(response){
                         texts[to].description = response.data.translation;
