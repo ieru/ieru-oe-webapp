@@ -6,7 +6,7 @@ App.Views.Autotranslate = Backbone.View.extend({
     },
 
     initialize: function(){
-        var home_translation = false;
+        home_translation = false;
         // Autotranslate home page contents
         vent.on('auto:translate', function(){
             if ( _.cookie('autotrans') && !home_translation){
@@ -17,8 +17,8 @@ App.Views.Autotranslate = Backbone.View.extend({
                     var request = new App.Models.Translation({text: text, from:'en', to:$('#user-selected-language').attr('alt')});
                     request.fetch().done(function(response){
                         that.html(response.data.translation);
-                        home_translation = true;
                     });
+                    home_translation = true;
                 })
             }
         }),
