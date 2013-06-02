@@ -258,7 +258,7 @@ App.Views.SearchResults = Backbone.View.extend({
 
                 // Translate title
                 var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
-                this.ajaxTitle = title.fetch();
+                this.ajaxTitle = title.fetch({timeout:10000});
                 this.ajaxTitle.done(function(response){
                     texts[to].title = response.data.translation;
                     that.find('header h2 a').html(response.data.translation);
@@ -266,7 +266,7 @@ App.Views.SearchResults = Backbone.View.extend({
                     if ( !!texts[from].description ){
                         that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
                         var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
-                        this.ajaxDescription = description.fetch();
+                        this.ajaxDescription = description.fetch({timeout:10000});
                         this.ajaxDescription.done(function(response){
                             texts[to].description = response.data.translation;
                             that.find('> p > span').html(response.data.translation);
@@ -275,7 +275,7 @@ App.Views.SearchResults = Backbone.View.extend({
                             if ( !!texts[from].keywords ){
                                 that.find('.search-result-keywords').html('<strong>'+lang('keywords')+':</strong> <img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
                                 var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
-                                this.ajaxKeywords = keywords.fetch();
+                                this.ajaxKeywords = keywords.fetch({timeout:10000});
                                 this.ajaxKeywords.done(function(response){
                                     texts[to].keywords = response.data.translation.split(',');
                                     box.render();
@@ -285,7 +285,7 @@ App.Views.SearchResults = Backbone.View.extend({
                     // Translate keywords
                     }else if ( !!texts[from].keywords ){
                         var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
-                        this.ajaxKeywords = keywords.fetch();
+                        this.ajaxKeywords = keywords.fetch({timeout:10000});
                         this.ajaxKeywords.done(function(response){
                             texts[to].keywords = response.data.translation.split(',');
                             box.render();
@@ -923,7 +923,7 @@ App.Views.FullResource = Backbone.View.extend({
 
             // Translate title
             var title = new App.Models.Translation({text: texts[from].title, from:from, to:to});
-            this.ajaxTitle = title.fetch();
+            this.ajaxTitle = title.fetch({timeout:10000});
             this.ajaxTitle.done(function(response){
                 texts[to].title = response.data.translation;
                 that.find('header h2 a').html(response.data.translation);
@@ -931,7 +931,7 @@ App.Views.FullResource = Backbone.View.extend({
                 if ( !!texts[from].description ){
                     that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
                     var description = new App.Models.Translation({text: texts[from].description, from:from, to:to});
-                    this.ajaxDescription = description.fetch();
+                    this.ajaxDescription = description.fetch({timeout:10000});
                     this.ajaxDescription.done(function(response){
                         texts[to].description = response.data.translation;
                         that.find('> p > span').html(response.data.translation);
@@ -940,7 +940,7 @@ App.Views.FullResource = Backbone.View.extend({
                         if ( !!texts[from].keywords ){
                             that.find('.search-result-keywords').html('<strong>'+lang('keywords')+':</strong> <img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
                             var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
-                            this.ajaxKeywords = keywords.fetch();
+                            this.ajaxKeywords = keywords.fetch({timeout:10000});
                             this.ajaxKeywords.done(function(response){
                                 texts[to].keywords = response.data.translation.split(',');
                                 box.render();
@@ -950,7 +950,7 @@ App.Views.FullResource = Backbone.View.extend({
                 // Translate keywords
                 }else if ( !!texts[from].keywords ){
                     var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
-                    this.ajaxKeywords = keywords.fetch();
+                    this.ajaxKeywords = keywords.fetch({timeout:10000});
                     this.ajaxKeywords.done(function(response){
                         texts[to].keywords = response.data.translation.split(',');
                         box.render();
