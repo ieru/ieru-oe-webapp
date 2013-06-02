@@ -131,7 +131,7 @@
             <!-- Banner section -->
             <div id="home-banner">
                 <div class="container">
-                    <a href="http://greenideasproject.org/" target="_blank"><img alt="green ideas 2013" src="http://organic.teluria.es/images/home-green-ideas.png"></a>
+                    <a href="http://greenideasproject.org/" target="_blank"><img alt="green ideas 2013" src="/images/home-green-ideas.jpg"></a>
                 </div>
             </div>
 
@@ -302,9 +302,9 @@
 
         <script id="resource-content-full" type="text/template">
             <header>
-                <!--<figure class="hidden-phone">
+                <figure class="hidden-phone">
                     <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
-                </figure>-->
+                </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
             <% for ( var i in napa_langs ){ %>

@@ -319,149 +319,182 @@ return array(
 		'en'=>'author',
 		'es'=>'Autor',
 		'it'=>'autore',
+		'el'=>'συγγραφέας',
 	),
 	'counselor'=>array(
 		'en'=>'counselor',
 		'es'=>'Consejero',
+		'el'=>'Σύμβουλος',
 	),
 	'library'=>array(
 		'en'=>'library',
 		'es'=>'Biblioteca',
 		'it'=>'libreria',
 		'tr'=>'Kütüphane',
+		'el'=>'Βιβλιοθήκη',
 	),
 	'educational administration'=>array(
 		'en'=>'educational administration',
 		'es'=>'administración educativa',
 		'it'=>'amministrazione educativa',
+		'el'=>'διοίκηση της εκπαίδευσης',
 	),
 	'te'=>array(
 		'en'=>'Telugu',
 		'es'=>'Telugu',
 		'it'=>'Telugu',
+		'el'=>'Τελουγκουικά',
 	),
 	'it'=>array(
 		'en'=>'Italian',
 		'es'=>'Italiano',
 		'it'=>'Italiano',
+		'el'=>'Ιταλικά',
 	),
 	'fi'=>array(
 		'en'=>'Finnish',
 		'it'=>'Finlandese',
 		'es'=>'Finlandés',
+		'el'=>'Φινλανδικά',
 	),
 	'ro'=>array(
 		'en'=>'Romanian',
 		'it'=>'Rumeno',
 		'es'=>'Rumano',
+		'el'=>'Ρουμανικά',
 	),
 	'sv'=>array(
 		'en'=>'Swedish',
 		'it'=>'Svedese',
 		'es'=>'Sueco',
+		'el'=>'Σουηδικά',
 	),
 	'da'=>array(
 		'en'=>'Danish',
 		'es'=>'Danés',
 		'it'=>'Danese',
+		'el'=>'Δανικά',
 	),
 	'nl'=>array(
 		'en'=>'Dutch',
 		'es'=>'Holandés',
 		'it'=>'Olandese',
+		'el'=>'Ολλανδικά',
 	),
 	'ru'=>array(
 		'en'=>'Russian',
 		'it'=>'Russo',
 		'es'=>'Ruso',
+		'el'=>'Ρωσικά',
 	),
 	'application/msword'=>array(
 		'en'=>'application/msword',
 		'es'=>'application/msword',
 		'it'=>'application/msword',
+		'el'=>'εφαρμογή/msword',
 	),
 	'xml'=>array(
 		'en'=>'XML',
 		'es'=>'XML',
 		'it'=>'XML',
+		'el'=>'XML',
 	),
 	'video/mpeg'=>array(
 		'en'=>'video/mpeg',
 		'it'=>'video/mpeg',
 		'es'=>'video/mpeg',
+		'el'=>'βίντεο/mpeg',
 	),
 	'application/x-shockwave-flash'=>array(
 		'en'=>'application/x-shockwave-flash',
 		'it'=>'Application/x-shockwave-flash',
 		'es'=>'application/x-shockwave-flash',
+		'el'=>'εφαρμογή/x-shockwave-φλας',
 	),
 	'application/vnd.ms-word'=>array(
 		'en'=>'application/vnd.ms-word',
 		'es'=>'aplicación/vnd.ms-palabra',
+		'el'=>'εφαρμογή/vnd.ms-λέξη',
 	),
 	'video/mp4'=>array(
 		'en'=>'video/mp4',
 		'es'=>'video/mp4',
+		'el'=>'βίντεο/mp4',
 	),
 	'tw'=>array(
 		'es'=>'Twi',
 		'en'=>'Twi',
+		'el'=>'Twi',
 	),
 	'tr'=>array(
 		'it'=>'Turco',
 		'es'=>'Turco',
 		'en'=>'Turkish',
+		'el'=>'Τουρκικά',
 	),
 	'pl'=>array(
 		'en'=>'Polish',
 		'es'=>'Polaco',
+		'el'=>'Πολωνικά',
 	),
 	'cs'=>array(
 		'en'=>'Czech',
 		'es'=>'Checo',
+		'el'=>'Τσεχικά',
 	),
 	'sk'=>array(
 		'en'=>'Slovak',
 		'es'=>'Eslovaco',
+		'el'=>'Σλοβακικά',
 	),
 	'no'=>array(
 		'en'=>'Norwegian',
 		'es'=>'Noruego',
+		'el'=>'Νορβηγικά',
 	),
 	'ja'=>array(
 		'en'=>'Japanese (ja)',
 		'es'=>'Japonés (ja)',
+		'el'=>'Ιαπωνικά (ja)',
 	),
 	'audio/mp3'=>array(
 		'en'=>'audio/mp3',
 		'es'=>'audio/mp3',
+		'el'=>'ήχου/mp3',
 	),
 	'application/vnd.ms-excel'=>array(
 		'en'=>'application/vnd.ms-excel',
 		'es'=>'aplicación/vnd.ms-excel',
+		'el'=>'εφαρμογή/vnd.ms-excel',
 	),
 	'video/quicktime'=>array(
 		'en'=>'video/quicktime',
 		'es'=>'video/quicktime',
+		'el'=>'βίντεο/quicktime',
 	),
 	'cy'=>array(
 		'en'=>'Welsh',
+		'el'=>'Ουαλλικά',
 	),
 	'ar'=>array(
 		'en'=>'Arabic',
 	),
 	'zh'=>array(
 		'en'=>'Chinese',
+		'el'=>'Κινεζικά',
 	),
 	'video/avi'=>array(
 		'en'=>'video/avi',
 		'es'=>'video/avi',
+		'el'=>'βίντεο/avi',
 	),
 	'audio/mpeg'=>array(
 		'en'=>'audio/mpeg',
+		'el'=>'ήχου/mpeg',
 	),
 	'image/png'=>array(
 		'en'=>'image/png',
+		'el'=>'image/png',
 	),
 
 );

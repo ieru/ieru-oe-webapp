@@ -6,6 +6,19 @@ App.Views.Autotranslate = Backbone.View.extend({
     },
 
     initialize: function(){
+        // Autotranslate home page contents
+        vent.on('auto:translate', function(){
+            if ( _.cookie('autotrans') ){
+                $('#home-content .translation-text').each(function(){
+                    var that = $(this);
+                    var text = new App.Models.Translation({text: $(this).html(), from:'en', to:$('#user-selected-language').attr('alt')});
+                    $(this).request = text.fetch().done(function(response){
+                        that.html(response.data.translation);
+                    });
+                })
+            }
+        }),
+
         vent.on( 'search:resolved', function(){
             if ( _.cookie('autotrans') ){
                 vent.trigger('auto:translate');
@@ -85,6 +98,7 @@ App.Views.Grnet.Rating = Backbone.View.extend({
     },
 
     getHistory: function(e){
+        alert('xx');
         //e.preventDefault();
         var that = this;
         var request = new App.Models.Grnet.RatingHistory({id:this.model.get('id')});
@@ -314,10 +328,10 @@ App.Views.SearchResults = Backbone.View.extend({
                 grnet.append('<img src="/images/ajax-loader.gif" />');
                 var request = new App.Models.Grnet.Rating({id:this.model.get('location_rep')})
                 var ratings = new App.Views.Grnet.Rating({model: request});
-                this.model.set('ratings',ratings.el);
+                this.model.set('ratingsModel',ratings);
                 grnet.find('img').remove();
             }
-            grnet.append(this.model.get('ratings'));
+            grnet.append(this.model.get('ratingsModel').el);
             
             return this;
         },
@@ -583,7 +597,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
                     // Visualization thingies
                     $('#page-app').show();
-                    $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
+                    $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resources'));
                     $('#app-content-info').hide();
 
                     // If searchText is different, reset filters
@@ -788,6 +802,8 @@ App.Views.FullResource = Backbone.View.extend({
             this.changeLanguage();
         }, this );
 
+        this.$el.empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resources'));
+
         // Fetch the resource data
         var that = this;
         this.ajax = this.model.fetch();
@@ -834,7 +850,6 @@ App.Views.FullResource = Backbone.View.extend({
                     if ( texts[from].title )
                         break;
 
-
             var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
             this.ajaxTitle = title.fetch();
             this.ajaxTitle.done(function(response){
@@ -864,10 +879,10 @@ App.Views.FullResource = Backbone.View.extend({
             grnet.append('<img src="/images/ajax-loader.gif" />');
             var request = new App.Models.Grnet.Rating({id:this.model.get('location_rep')})
             var ratings = new App.Views.Grnet.Rating({model: request});
-            this.model.set('ratings',ratings.el);
+            this.model.set('ratingsModel',ratings);
             grnet.find('img').remove();
         }
-        grnet.append(this.model.get('ratings'));
+        grnet.append(this.model.get('ratingsModel').el);
 
         return this;
     }
