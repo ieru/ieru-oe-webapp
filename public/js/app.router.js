@@ -11,13 +11,15 @@ App.Router = Backbone.Router.extend({
 
 	index: function(){
 		vent.on('auto:translate', function(){
-			$('#home-content .translation-text').each(function(){
-				var that = $(this);
-            	var text = new App.Models.Translation({text: $(this).html(), from:'en', to:$('#user-selected-language').attr('alt')});
-            	$(this).request = text.fetch().done(function(response){
-            		that.html(response.data.translation);
-            	});
-			})
+			if ( _.cookie('autotrans') ){
+				$('#home-content .translation-text').each(function(){
+					var that = $(this);
+	            	var text = new App.Models.Translation({text: $(this).html(), from:'en', to:$('#user-selected-language').attr('alt')});
+	            	$(this).request = text.fetch().done(function(response){
+	            		that.html(response.data.translation);
+	            	});
+				})
+			}
 		})
 
 		show_view( 'page-home' );
@@ -26,7 +28,6 @@ App.Router = Backbone.Router.extend({
 
         // Add Ratings
         $('#page-home .grnet-rating').each(function(){
-
         	if ( $(this).html() == '' ){
 	            var request = new App.Models.Grnet.Rating({id:$(this).attr('data-resource').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' )})
 	            var ratings = new App.Views.Grnet.Rating({model: request});
@@ -34,6 +35,7 @@ App.Router = Backbone.Router.extend({
         	}
         });
 
+        // Check for need of autotranslation
         vent.trigger('auto:translate');
 	},
 
