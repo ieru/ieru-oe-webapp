@@ -98,7 +98,6 @@ App.Views.Grnet.Rating = Backbone.View.extend({
     },
 
     getHistory: function(e){
-        alert('xx');
         //e.preventDefault();
         var that = this;
         var request = new App.Models.Grnet.RatingHistory({id:this.model.get('id')});
