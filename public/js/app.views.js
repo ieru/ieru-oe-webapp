@@ -9,7 +9,7 @@ App.Views.Autotranslate = Backbone.View.extend({
         home_translation = false;
         // Autotranslate home page contents
         vent.on('auto:translate', function(){
-            if ( _.cookie('autotrans') && !home_translation){
+            if ( _.cookie('autotrans') && !home_translation && $('#page-home').css('display') == 'block' ){
                 $('#home-content .translation-text').each(function(){
                     var that = $(this);
                     var text = $(this).html();
