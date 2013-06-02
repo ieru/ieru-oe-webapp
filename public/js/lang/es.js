@@ -127,4 +127,5 @@ lang_file = {
 'wrong_username_or_password': 'Nombre de usuario o contraseña incorrectos',
 'no_ratings_yet': 'No se ha emitido ningún voto.',
 'empty_search_not_allowed': 'Por favor, introduce un término de búsqueda',
+'translating': 'Traducción en curso',
 }

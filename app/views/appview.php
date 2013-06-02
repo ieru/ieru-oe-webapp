@@ -316,7 +316,7 @@
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range %></li>
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range.trim() != '' ? age_range : lang('none') %></li>
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
@@ -325,7 +325,7 @@
                             <% for ( var i in texts[metadata_language].keywords ){ %>
                             <span class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></span>
                             <% } %>
-                        <% } %>
+                        <% }else{ document.write(lang('none')); } %>
                     </li>
                     <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
@@ -370,7 +370,7 @@
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range %></li>
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range ? age_range : lang('none') %></li>
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
