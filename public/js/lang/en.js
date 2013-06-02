@@ -130,4 +130,5 @@ lang_file = {
 'translating': 'Translating',
 'loading_resources':'Searching, please wait...',
 'character_not_allowed': 'Your search contains an invalid character',
+'apply_filters': 'Apply Filters',
 }
