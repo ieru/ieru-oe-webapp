@@ -10,6 +10,16 @@ App.Router = Backbone.Router.extend({
 	},
 
 	index: function(){
+		vent.on('auto:translate', function(){
+			$('#home-content .translation-text').each(function(){
+				var that = $(this);
+            	var text = new App.Models.Translation({text: $(this).html(), from:'en', to:$('#user-selected-language').attr('alt')});
+            	$(this).request = text.fetch().done(function(response){
+            		that.html(response.data.translation);
+            	});
+			})
+		})
+
 		show_view( 'page-home' );
 
 		vent.trigger( 'cancel:ajaxs' );
@@ -22,7 +32,9 @@ App.Router = Backbone.Router.extend({
 	            var ratings = new App.Views.Grnet.Rating({model: request});
 	            $(this).empty().append(ratings.el);
         	}
-        })
+        });
+
+        vent.trigger('auto:translate');
 	},
 
 	navigation: function(id){

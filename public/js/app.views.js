@@ -1,3 +1,39 @@
+App.Views.Autotranslate = Backbone.View.extend({
+    el: '#button-autotranslate',
+
+    events: {
+        'click input':'switch',
+    },
+
+    initialize: function(){
+        vent.on( 'search:resolved', function(){
+            if ( _.cookie('autotrans') ){
+                vent.trigger('auto:translate');
+            }
+        }, this);
+
+        vent.on( 'resource:loaded', function(){
+            if ( _.cookie('autotrans') ){
+                vent.trigger('auto:translate');
+            }
+        }, this);
+
+        if ( _.cookie('autotrans') ){
+            this.$el.find('input').attr('checked','checked');
+        }
+    },
+
+    switch: function(){
+        if ( !!_.cookie('autotrans') ){
+            _.cookie('autotrans',null);
+
+        }else{
+            _.cookie('autotrans', true);
+            vent.trigger('auto:translate');
+        }
+    }
+})
+
 App.Views.LoginForm = Backbone.View.extend({
     el: '#user-login',
 
@@ -176,11 +212,13 @@ App.Views.SearchResults = Backbone.View.extend({
         },
 
         changeLanguage: function(e){
-            e.preventDefault();
-            vent.trigger('cancel:ajaxs');
+            if ( !!e ) {
+                e.preventDefault();
+                vent.trigger('cancel:ajaxs');
+            }
 
             var texts = this.model.get('texts');
-            var to = $(e.currentTarget).attr('class').split('-')[2];
+            var to = ( !!e ) ? $(e.currentTarget).attr('class').split('-')[2] : $('#user-selected-language').attr('alt');
             var from = 'en';
             var that = this.$el;
 
@@ -196,20 +234,21 @@ App.Views.SearchResults = Backbone.View.extend({
                         if ( texts[from].title )
                             break;
 
-
                 var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
-                var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
-
                 this.ajaxTitle = title.fetch();
                 this.ajaxTitle.done(function(response){
                     texts[to].title = response.data.translation;
                     that.find('header h2 a').html(response.data.translation);
                 });
-                this.ajaxDescription = description.fetch();
-                this.ajaxDescription.done(function(response){
-                    texts[to].description = response.data.translation;
-                    that.find('> p > span').html(response.data.translation);
-                });
+
+                if ( !!texts[from].description ){
+                    var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
+                    this.ajaxDescription = description.fetch();
+                    this.ajaxDescription.done(function(response){
+                        texts[to].description = response.data.translation;
+                        that.find('> p > span').html(response.data.translation);
+                    });
+                }
             }
 
             this.render();
@@ -237,9 +276,15 @@ App.Views.SearchResults = Backbone.View.extend({
                 if ( !!this.ajaxTitle ){
                     this.ajaxTitle.abort();
                     delete this.ajaxTitle;
+                }
+                if ( !!this.ajaxDescription ){
                     this.ajaxDescription.abort();
                     delete this.ajaxDescription;
                 }
+            }, this );
+
+            vent.on( 'auto:translate', function(){
+                this.changeLanguage();
             }, this );
 
             this.model.set('location_rep', this.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' ));
@@ -522,7 +567,7 @@ App.Views.DoSearch = Backbone.View.extend({
     },
 
     autocomplete: function(e){
-        //console.log(e.type, e.keyCode);
+        console.log(e.type, e.keyCode);
     },
 
     submitNavigational: function(){
@@ -729,16 +774,18 @@ App.Views.FullResource = Backbone.View.extend({
     initialize: function(){
         // Cancel any ongoing ajax requests
         vent.on( 'cancel:ajaxs', function(){
-            if ( !!this.ajax ){
-                this.ajax.abort();
-                delete this.ajax;
-            }
             if ( !!this.ajaxTitle ){
                 this.ajaxTitle.abort();
                 delete this.ajaxTitle;
+            }
+            if ( !!this.ajaxDescription ){
                 this.ajaxDescription.abort();
                 delete this.ajaxDescription;
             }
+        }, this );
+
+        vent.on( 'auto:translate', function(){
+            this.changeLanguage();
         }, this );
 
         // Fetch the resource data
@@ -760,15 +807,18 @@ App.Views.FullResource = Backbone.View.extend({
                         break;
                     }
             that.render();
+            vent.trigger('resource:loaded');
         });
     },
 
     changeLanguage: function(e){
-        e.preventDefault();
-        vent.trigger('cancel:ajaxs');
+        if ( !!e ) {
+            e.preventDefault();
+            vent.trigger('cancel:ajaxs');
+        }
 
         var texts = this.model.get('texts');
-        var to = $(e.currentTarget).attr('class').split('-')[2];
+        var to = ( !!e ) ? $(e.currentTarget).attr('class').split('-')[2] : $('#user-selected-language').attr('alt');
         var from = 'en';
         var that = this.$el;
 
@@ -786,18 +836,20 @@ App.Views.FullResource = Backbone.View.extend({
 
 
             var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
-            var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
-
             this.ajaxTitle = title.fetch();
             this.ajaxTitle.done(function(response){
                 texts[to].title = response.data.translation;
                 that.find('header h2 a').html(response.data.translation);
             });
-            this.ajaxDescription = description.fetch();
-            this.ajaxDescription.done(function(response){
-                texts[to].description = response.data.translation;
-                that.find('> p > span').html(response.data.translation);
-            }); 
+
+            if ( !!texts[from].description ){
+                var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
+                this.ajaxDescription = description.fetch();
+                this.ajaxDescription.done(function(response){
+                    texts[to].description = response.data.translation;
+                    that.find('> p > span').html(response.data.translation);
+                }); 
+            }
         }
 
         this.render();

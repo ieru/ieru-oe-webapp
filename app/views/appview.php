@@ -74,9 +74,9 @@
                     <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <!--<li style="width: 300px; margin-right: 15px; ">
+                        <li style="width: 300px; margin-right: 15px; ">
                             <div style="margin-left: 10px; float: right; padding-top: 9px; ">
-                                <div class="onoffswitch" id="onoffswitch">
+                                <div id="button-autotranslate" class="onoffswitch">
                                     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" autocomplete="off">
                                     <label class="onoffswitch-label" for="myonoffswitch">
                                         <div class="onoffswitch-inner"></div>
@@ -85,9 +85,9 @@
                                 </div> 
                             </div>
                             <div style="float: right; padding-top: 9px; color: #eee; "><?php echo Lang::get('website.auto-translate') ?></div>
-                        </li>-->
+                        </li>
                         <li class="dropdown pull-right" id="lang-selector">
-                            <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle"><span class="flag <?php echo Session::get( 'language' ) ?>flag"></span> <img src="/images/blank.png" class="flag flag-<?php echo LANG ?>" alt="User's Language" /> <?php echo Lang::get('website.'.LANG ) ?> <b class="caret"></b></a>
+                            <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle"><span class="flag <?php echo Session::get( 'language' ) ?>flag"></span> <img id="user-selected-language" src="/images/blank.png" class="flag flag-<?php echo LANG ?>" alt="<?php echo LANG ?>" /> <?php echo Lang::get('website.'.LANG ) ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=de<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-de" alt="Deutsch" /> Deutsch</a></li>
                                 <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=et<?php if (isset($_POST['search-term'])){echo '&search-term='.$_POST['search-term'];} ?>" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-et" alt="Deutsch" /> Eesti keel</a></li>
@@ -149,9 +149,9 @@
                                             <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />
                                         </a>
                                     </figure>
-                                    <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'"><?php echo$resource->title ?></a></h3>
+                                    <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'" class="translation-text"><?php echo$resource->title ?></a></h3>
                                 </header>
-                                <p><?php echo $resource->description ?>... <a class="moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                <p><span class="translation-text"><?php echo $resource->description ?>...</span> <a class="moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                 <footer>
                                     <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
                                 </footer>
@@ -169,9 +169,9 @@
                                                 <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />
                                             </a>
                                         </figure>
-                                        <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'"><?php echo $resource->title ?></a></h3>
+                                        <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'" class="translation-text"><?php echo $resource->title ?></a></h3>
                                     </header>
-                                    <p><?php echo $resource->description ?>... <a class="moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                    <p><span class="translation-text"><?php echo $resource->description ?>...</span> <a class="moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
                                         <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
                                     </footer>
@@ -588,6 +588,7 @@
             Box.set('langFile', lang_file);
             var doSearch = new App.Views.DoSearch();
             var doLogin = new App.Views.LoginForm();
+            var autoTranslate = new App.Views.Autotranslate();
 
             // Router + History
             Router = new App.Router;
