@@ -3,7 +3,7 @@ lang_file = {
 'age_rage_context':'Typical age range context',
 'comments':'Comments',
 'keywords':'Keywords',
-'rate':'Rate',
+'rate':'Rating',
 'improve_translation':'Improve translation',
 'more_info':'More Info',
 'extended_search':'Extended search',
@@ -129,4 +129,5 @@ lang_file = {
 'empty_search_not_allowed': 'Please input a search term',
 'translating': 'Translating',
 'loading_resources':'Searching, please wait...',
+'character_not_allowed': 'Your search contains an invalid character',
 }

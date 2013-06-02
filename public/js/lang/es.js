@@ -129,4 +129,5 @@ lang_file = {
 'empty_search_not_allowed': 'Por favor, introduce un término de búsqueda',
 'translating': 'Traducción en curso',
 'loading_resources':'Realizando búsqueda, por favor espere...',
+'character_not_allowed': 'La búsqueda contiene un caracter no permitido',
 }

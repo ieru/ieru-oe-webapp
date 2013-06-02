@@ -13,7 +13,7 @@ return array(
 'age_rage_context'=>'Typical age range context',
 'comments'=>'Comments',
 'keywords'=>'Keywords',
-'rate'=>'Rate',
+'rate'=>'Rating',
 'improve_translation'=>'Improve translation',
 'more_info'=>'More Info',
 'extended_search'=>'Extended search',
@@ -104,5 +104,5 @@ return array(
 'tags'=>'Tags',
 'suggest_a_new_resource'=>'Suggest a new resource',
 
-'log_in_or_register_for_improving_translation'=> 'Register or login to rate translation',
+'log_in_or_register_for_improving_translation'=> 'Register or login to improve translation',
 );

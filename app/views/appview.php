@@ -242,6 +242,9 @@
         <div id="page-resource">
             <div class="container">
                 <div class="row">
+                    <div class="col col-lg-9 col-offset-3" style="margin-top: 15px; ">
+                        <span class="glyphicon glyphicon-arrow-left"></span> <a href="#" onclick="window.history.back(); return false;"><?php echo Lang::get('website.back') ?></a>
+                    </div>
                     <aside class="col col-lg-3 hidden-phone">
                     </aside>
                     <article id="resource-viewport" class="col col-lg-9">
@@ -321,9 +324,9 @@
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
                     <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
-                        <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords > 0 ){ %>
+                        <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords.length > 0 ){ %>
                             <% for ( var i in texts[metadata_language].keywords ){ %>
-                            <span class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></span>
+                            <%= texts[metadata_language].keywords[i] %>,
                             <% } %>
                         <% }else{ %>
                             <%= lang('none') %>
@@ -331,7 +334,7 @@
                     </li>
                     <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
-                        <ul class="organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
+                        <ul class="resource-change-lang organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" class="dropdown-toggle">
                                     <span class="glyphicon glyphicon-user"></span>
@@ -377,9 +380,9 @@
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
                     <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
-                        <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords > 0 ){ %>
+                        <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords.length > 0 ){ %>
                             <% for ( var i in texts[metadata_language].keywords ){ %>
-                            <span class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></span>
+                            <a class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></a>
                             <% } %>
                         <% }else{ %>
                             <%= lang('none') %>
@@ -387,7 +390,7 @@
                     </li>
                     <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
-                        <ul class="organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
+                        <ul class="resource-change-lang organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" class="dropdown-toggle">
                                     <span class="glyphicon glyphicon-user"></span>
@@ -428,7 +431,6 @@
         <script id="grnet-rating-stars" type="text/template">
             <li>
                 <% for ( var i = 0 ; i < ratingMean ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = ratingMean ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %>
-                <%= rated_on %>
             </li>
         </script>
 
@@ -604,9 +606,11 @@
                 var WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
                 var path_js = '/UGC/ugc-widget-server/';
 
-                var lang = $(this).parents('article').find('.organic-dropdown').find('li > a').attr('data-lang');
-                var type_text = $(this).parents('article').find('.organic-dropdown').find('li > a').html();
-                var action = !!type_text.match(/human/g) ? 'edit' : 'translate';
+                var lang = $(this).parents('article').find('.resource-change-lang').attr('data-lang');
+                var type_text = $(this).parents('article').find('.resource-change-lang').find('li > a').html();
+                alert(type_text);
+                var action = !!type_text.match(/human/gi) ? 'edit' : 'translate';
+                alert(action);
                 try {
                     var x = document.createElement("SCRIPT");
                     x.type = "text/javascript";
@@ -617,7 +621,6 @@
                     }else{
                         //TRANSLATE
                         x.setAttribute("sourceLanguage", 'en');
-                        //TRANSLATE
                         x.setAttribute("targetLanguage", lang); 
                     }
                     x.setAttribute('Name', '<?php echo $_user->user_username ?>');

@@ -42,8 +42,9 @@ App.Views.Autotranslate = Backbone.View.extend({
 
     switch: function(){
         if ( !!_.cookie('autotrans') ){
+            vent.trigger('cancel:ajaxs');
+            vent.trigger('auto:rollback');
             _.cookie('autotrans',null);
-
         }else{
             _.cookie('autotrans', true);
             vent.trigger('auto:translate');
@@ -295,6 +296,8 @@ App.Views.SearchResults = Backbone.View.extend({
         },
 
         addKeywordFilter: function(e){
+            e.preventDefault();
+
             if ( Box.get('searchText') != '' ){
                 var filterModel = new App.Models.Filter({
                     clave:  'keyword', 
@@ -326,6 +329,21 @@ App.Views.SearchResults = Backbone.View.extend({
             vent.on( 'auto:translate', function(){
                 this.changeLanguage();
             }, this );
+
+            vent.on('auto:rollback', function(){
+                // Get language to show of those available in the resource
+                if ( !!this.model.get('texts')[Box.get('interface')] && this.model.get('texts')[Box.get('interface')].title != '' )
+                    this.model.set('metadata_language', Box.get('interface'));
+                else if ( !!this.model.get('texts').en && this.model.get('texts').en.title != '' )
+                    this.model.set('metadata_language', 'en');
+                else
+                    for ( var lang in this.model.get('texts') )
+                        if ( this.model.get('texts')[lang].title ){
+                            this.model.set('metadata_language', lang);
+                            break;
+                        }
+                this.render();
+            }, this);
 
             this.model.set('location_rep', this.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' ));
 
@@ -609,7 +627,7 @@ App.Views.DoSearch = Backbone.View.extend({
     },
 
     submitNavigational: function(){
-        $('#app-content-filters').css({'visibility':'hidden'});
+        $('#app-content-filters').hide();
         this.ajax = $.ajax({
             url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=search&format=raw&offset='+((parseInt(Box.get('page'))-1)*Box.get('perPage'))+'&limit=' + Box.get('perPage') + '&language=null&elevel=null&rtype=null&order=alphabetical&flash=yes&predicate=null&inclusive=yes',
             jsonpCallback: 'jsonCallback',
@@ -683,9 +701,30 @@ App.Views.DoSearch = Backbone.View.extend({
     submit: function(e){
         // Abort any current ajax requests
         e.preventDefault();
+        vent.trigger('cancel:ajaxs');
 
         // Get text search
         var formBoxText = $(e.currentTarget).find('input[type=text]').val();
+        // If search through submit button, reset
+        if ( !e.isTrigger ) {
+            
+            //alert('#/search/'+formBoxText+'/'+Box.get('page'));
+            $('#content-filters-bar').find('span').html(lang('none'));
+            Box.set('page', 1);
+            Box.set('filters', new App.Collections.Filters());
+            if ( Backbone.history.fragment.split('/')[1] != 'search' )
+                Router.navigate('#/search/'+formBoxText+'/1');
+            if ( formBoxText == Box.get('searchText') ){
+                Router.navigate('#/search/'+formBoxText+'/1');
+                $('#header form').submit();
+            }else{
+                Box.set('searchText', formBoxText);
+            }
+            return;
+        }
+        $('#app-content-filters').empty();
+
+        // Check empty search
         if ( formBoxText.trim() == '' ){
             var box = $('#search-form input');
             var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
@@ -693,24 +732,21 @@ App.Views.DoSearch = Backbone.View.extend({
             return;
         }
 
+        // Check not allowed characters
+        if ( formBoxText.match(/[<>]/g) ){
+            var box = $('#search-form input');
+            var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('character_not_allowed')+'</div>'
+            box.after(text);
+            return;
+        }
+
         // Visualization thingies
         window.scrollTo(0,0);
         show_view( 'page-app' );
-        $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
+        $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resources'));
         $('#app-content-info').hide();
         $('#content-filters-bar').hide();
-        $('#app-content-filters').css({'visibility':'visible'});
-
-        // If searchText is different, reset filters
-        if ( formBoxText != Box.get('searchText') ) {
-            //alert('#/search/'+formBoxText+'/'+Box.get('page'));
-            $('#app-content-filters').empty();
-            $('#content-filters-bar').find('span').html(lang('none'));
-            Box.set('page', 1);
-            Box.set('filters', new App.Collections.Filters());
-            Box.set('searchText', formBoxText);
-            Router.navigate('#/search/'+formBoxText+'/'+Box.get('page'));
-        }
+        $('#app-content-filters').show();;
 
         // Create search request
         var search = new App.Models.Search();

@@ -37,11 +37,13 @@ App.Router = Backbone.Router.extend({
 	},
 
 	search: function(text){
+		console.log('search sin id');
 		Router.navigate('#/search/'+text+'/1');
 	},
 
 	search_page: function(text,page){
 		show_view( 'page-app' );
+		console.log('search con id');
 
 		vent.trigger( 'cancel:ajaxs' );
 		$('#header form input[type=text]').val(text);
