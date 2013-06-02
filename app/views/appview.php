@@ -146,7 +146,8 @@
                                 <header>
                                     <figure class="hidden-phone">
                                         <a href="<?php echo $resource->url ?>">
-                                            <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />
+                                            <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
+                                            <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />-->
                                         </a>
                                     </figure>
                                     <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'" class="translation-text"><?php echo$resource->title ?></a></h3>
@@ -166,7 +167,8 @@
                                     <header>
                                         <figure>
                                             <a href="<?php echo $resource->url ?>">
-                                                <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />
+                                                <img width="100%" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
+                                                <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />-->
                                             </a>
                                         </figure>
                                         <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'" class="translation-text"><?php echo $resource->title ?></a></h3>
@@ -306,7 +308,8 @@
         <script id="resource-content-full" type="text/template">
             <header>
                 <figure class="hidden-phone">
-                    <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
+                    <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
+                    <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />-->
                 </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
@@ -362,7 +365,8 @@
         <script id="resource-content" type="text/template">
             <header>
                 <figure class="hidden-phone">
-                    <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
+                    <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
+                    <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />-->
                 </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
