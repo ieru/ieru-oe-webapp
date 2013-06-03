@@ -1,14 +1,5 @@
 <?php
 return array(
-	'en'=>'English',
-'fr'=>'Français',
-'de'=>'Deutsch',
-'el'=>'ελληνικά',
-'lv'=>'Latviešu valoda',
-'it'=>'Italiano',
-'et'=>'Eesti keel',
-'es'=>'Español',
-'tr'=>'Türkçe',
 'resource_language'=>'See ressurss on',
 'age_rage_context'=>'Tüüpiline vanuse vahemik kontekstis',
 'comments'=>'Kommentaarid',
@@ -102,5 +93,6 @@ return array(
 'filters'=>'filtrid',
 'none'=>'ükski',
 'tags'=>'Sildid',
-'suggest_a_new_resource'=>'',
+'suggest_a_new_resource'=>'soovitan uute ressursside',
+'log_in_or_register_for_improving_translation'=>'Logi sisse või registreeru parandamiseks tõlge',
 );

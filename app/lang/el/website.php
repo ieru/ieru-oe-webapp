@@ -1,14 +1,5 @@
 <?php
 return array(
-	'en'=>'English',
-'fr'=>'Français',
-'de'=>'Deutsch',
-'el'=>'ελληνικά',
-'lv'=>'Latviešu valoda',
-'it'=>'Italiano',
-'et'=>'Eesti keel',
-'es'=>'Español',
-'tr'=>'Türkçe',
 'resource_language'=>'Αυτός ο πόρος είναι σε',
 'age_rage_context'=>'Τυπικό ηλικία φάσμα πλαίσιο',
 'comments'=>'Σχόλια',
@@ -102,5 +93,5 @@ return array(
 'filters'=>'φιλτρα',
 'none'=>'κανένας',
 'tags'=>'Ετικέτες',
-'suggest_a_new_resource'=>'',
+'suggest_a_new_resource'=>'προτείνει ένα νέο πόρο',
 );

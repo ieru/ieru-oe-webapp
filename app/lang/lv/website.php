@@ -1,14 +1,5 @@
 <?php
 return array(
-	'en'=>'English',
-'fr'=>'Français',
-'de'=>'Deutsch',
-'el'=>'ελληνικά',
-'lv'=>'Latviešu valoda',
-'it'=>'Italiano',
-'et'=>'Eesti keel',
-'es'=>'Español',
-'tr'=>'Türkçe',
 'resource_language'=>'Šis resurss ir',
 'age_rage_context'=>'Tipisks vecuma diapazons kontekstā',
 'comments'=>'Komentāri',
@@ -88,7 +79,7 @@ return array(
 'jquery_filter_ontological_classification'=>'Kolekcijas',
 'register'=>'Reģistrēties',
 'submit'=>'Iesniegšanas',
-'logout'=>'Logout',
+'logout'=>'atteiktos',
 'sign_in'=>'pieteikties',
 'register_a_new_user'=>'Reģistrēt jaunu lietotāju',
 'username'=>'Username',
@@ -102,5 +93,6 @@ return array(
 'filters'=>'filtri',
 'none'=>'neviens',
 'tags'=>'tagus',
-'suggest_a_new_resource'=>'',
+'suggest_a_new_resource'=>'ieteikt jaunu resursu',
+'log_in_or_register_for_improving_translation'=>'pieteiktos vai reģistrētos u uzlabo tulkojumu',
 );

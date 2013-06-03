@@ -1,14 +1,5 @@
 <?php
 return array(
-'en'=>'English',
-'fr'=>'Français',
-'de'=>'Deutsch',
-'el'=>'ελληνικά',
-'lv'=>'Latviešu valoda',
-'it'=>'Italiano',
-'et'=>'Eesti keel',
-'es'=>'Español',
-'tr'=>'Türkçe',
 'resource_language'=>'Diese Ressource ist in',
 'age_rage_context'=>'Typische Alter Bereich Kontext',
 'comments'=>'Kommentare',
@@ -102,5 +93,7 @@ return array(
 'filters'=>'Filter',
 'none'=>'keine',
 'tags'=>'Markierungen',
-'suggest_a_new_resource'=>'',
+'suggest_a_new_resource'=>'Die neue Ressource',
+
+'log_in_or_register_for_improving_translation'=> 'Registrieren oder anmelden, um Übersetzung verbessern',
 );
