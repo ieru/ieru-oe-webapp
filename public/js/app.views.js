@@ -707,22 +707,20 @@ App.Views.DoSearch = Backbone.View.extend({
         var formBoxText = $(e.currentTarget).find('input[type=text]').val();
         // If search through submit button, reset
         if ( !e.isTrigger ) {
-            
-            //alert('#/search/'+formBoxText+'/'+Box.get('page'));
-            $('#content-filters-bar').find('span').html(lang('none'));
-            Box.set('page', 1);
-            Box.set('filters', new App.Collections.Filters());
-            if ( Backbone.history.fragment.split('/')[1] != 'search' )
-                Router.navigate('#/search/'+formBoxText+'/1');
             if ( formBoxText == Box.get('searchText') ){
                 Router.navigate('#/search/'+formBoxText+'/1');
                 $('#header form').submit();
             }else{
                 Box.set('searchText', formBoxText);
             }
+            if ( Backbone.history.fragment.split('/')[1] != 'search' )
+                Router.navigate('#/search/'+formBoxText+'/1');
+            //alert('#/search/'+formBoxText+'/'+Box.get('page'));
+            $('#content-filters-bar').find('span').html(lang('none'));
+            Box.set('page', 1);
+            Box.set('filters', new App.Collections.Filters());
             return;
         }
-        $('#app-content-filters').empty();
 
         // Check empty search
         if ( formBoxText.trim() == '' ){
@@ -739,6 +737,7 @@ App.Views.DoSearch = Backbone.View.extend({
             box.after(text);
             return;
         }
+        $('#app-content-filters').empty();
 
         // Visualization thingies
         window.scrollTo(0,0);
