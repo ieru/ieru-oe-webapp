@@ -1,5 +1,14 @@
 <?php
 return array(
+'en'=>'English',
+'fr'=>'Français',
+'de'=>'Deutsch',
+'el'=>'ελληνικά',
+'lv'=>'Latviešu valoda',
+'it'=>'Italiano',
+'et'=>'Eesti keel',
+'es'=>'Español',
+'tr'=>'Türkçe',
 'resource_language'=>'Cette ressource est en',
 'age_rage_context'=>'Tranche d\'âge',
 'comments'=>'Commentaires',

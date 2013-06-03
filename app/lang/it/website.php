@@ -1,5 +1,14 @@
 <?php
 return array(
+'en'=>'English',
+'fr'=>'Français',
+'de'=>'Deutsch',
+'el'=>'ελληνικά',
+'lv'=>'Latviešu valoda',
+'it'=>'Italiano',
+'et'=>'Eesti keel',
+'es'=>'Español',
+'tr'=>'Türkçe',
 'resource_language'=>'Questa risorsa è in',
 'age_rage_context'=>'Contesto di gamma tipica età',
 'comments'=>'Commenti',
