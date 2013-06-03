@@ -187,10 +187,8 @@ App.Views.SearchInfoBar = Backbone.View.extend({
         e.preventDefault();
         Box.set('perPage',$(e.currentTarget).find('a').html());
         Box.set('page', 1);
-        var i = Backbone.history.fragment.split('/');
-        var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
         var stext = Box.get('searchText') == '' ? '' : '/'+Box.get('searchText');
-        Router.navigate('#/'+text+stext+'/1');
+        Router.navigate('#/'+get_section()+stext+'/1');
         $('#results-per-page').find('> a').html(Box.get('perPage')+'<span class="glyphicon glyphicon-chevron-down"></span>');
         if ( Box.get('searchText') != '' )
             $('#header form').submit();
@@ -576,11 +574,7 @@ App.Views.Pagination = Backbone.View.extend({
         if (startPage < 1)
             startPage = 1;
         this.model.set('startPage',startPage);
-        //alert(Backbone.history.fragment);
-        var i = Backbone.history.fragment.split('/');
-        //alert(i.length);
-        var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
-        this.model.set('route', text);
+        this.model.set('route', get_section());
 
         this.$el.html( this.template( this.model.toJSON() ) );
         return this;
@@ -661,9 +655,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
                     // Generate response
                     this.ajax.then(function(response){
-                        var i = Backbone.history.fragment.split('/');
-                        var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
-                        if ( text != 'navigation' )
+                        if ( get_section() != 'navigation' )
                             return;
 
                         // On error
@@ -765,9 +757,8 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Generate response
             this.ajax.then(function(response){
-                var i = Backbone.history.fragment.split('/');
-                var text = (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
-                if ( text != 'search' )
+                
+                if ( get_section() != 'search' )
                     return;
 
                 // On error
@@ -775,6 +766,8 @@ App.Views.DoSearch = Backbone.View.extend({
                     vent.trigger('search:error',response.message);
                     return;
                 }
+
+                // Cache the request
                 App.Searches[hash] = response;
 
                 // Assign total pages and other data

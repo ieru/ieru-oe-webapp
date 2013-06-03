@@ -37,3 +37,9 @@ function hashcode ( s )
 		return a&a
 	}, 0);
 }
+
+function get_section ()
+{
+    var i = Backbone.history.fragment.split('/');
+    return (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
+}
