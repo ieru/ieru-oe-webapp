@@ -612,9 +612,7 @@
 
                 var lang = $(this).parents('article').find('.resource-change-lang').attr('data-lang');
                 var type_text = $(this).parents('article').find('.resource-change-lang').find('li > a').html();
-                alert(type_text);
                 var action = !!type_text.match(/human/gi) ? 'edit' : 'translate';
-                alert(action);
                 try {
                     var x = document.createElement("SCRIPT");
                     x.type = "text/javascript";
