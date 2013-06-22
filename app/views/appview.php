@@ -7,9 +7,6 @@
 
         <link href="css/_app.css" rel="stylesheet" media="screen">
 
-        <script src="http://use.edgefonts.net/amaranth.js"></script> 
-        <script src="http://use.edgefonts.net/league-gothic.js"></script>
-
         <!-- iOS web app configuration -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent" /> 
@@ -31,11 +28,11 @@
 
                 <div class="nav-collapse collapse">
                     <ul id="user-login" class="nav navbar-nav">
-                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' ): ?>
+                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
                         <li>
                             <p class="navbar-text"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> | <a href="#" id="user-logout"><?php echo Lang::get('website.logout'); ?></a></p>
                         </li>
-                        <li>
+                        <!--<li>
                             <p class="navbar-text">
                                 <a  id="organic-suggest-resource" 
                                 href="
@@ -56,7 +53,7 @@
                                         } catch (e) {}
                                     })();
                                 "><?php echo Lang::get('website.suggest_a_new_resource')?></a></p>
-                        </li>
+                        </li>-->
                     <?php else: ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.sign_in') ?> <b class="caret"></b></a>
@@ -74,7 +71,7 @@
                     <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li style="width: 300px; margin-right: 15px; ">
+                        <li style="margin-right: 15px; ">
                             <div style="margin-left: 10px; float: right; padding-top: 9px; ">
                                 <div id="button-autotranslate" class="onoffswitch">
                                     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" autocomplete="off">
@@ -479,7 +476,137 @@
             </ul>
         </script>
 
-        <!-- Navigational search -->
+        <!-- jQuery + Bootstrap -->
+        <script src="js/jquery.js"></script>
+        <script src="js/vendor/bootstrap/bootstrap.js"></script>
+        <!-- Activate IE8 responsive features -->
+        <!--<script src="js/respond.js"></script>-->
+        <!-- Libraries for using Backbone.js -->
+        <script src="js/require.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/backbone.js"></script>
+        <!-- App javaScript files -->
+        <script src="js/app.js"></script>
+        <script src="js/app.models.js"></script>
+        <script src="js/app.views.js"></script>
+        <script src="js/app.collections.js"></script>
+        <script src="js/app.router.js"></script>
+        <!--Default language file -->
+        <script src="js/lang/<?php echo LANG ?>.js"></script>
+
+        <script>
+            //$.ajaxSetup({ cache: false });
+
+            // Wait for search request
+            var Box = new App.Models.App();
+            var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
+            var searchBarInfo = new App.Views.SearchInfoBar();
+            Box.set('langFile', lang_file);
+            var doSearch = new App.Views.DoSearch();
+            var doLogin = new App.Views.LoginForm();
+            var autoTranslate = new App.Views.Autotranslate();
+
+            // Router + History
+            Router = new App.Router;
+            Backbone.history.start();
+        </script>
+
+        <script>
+        <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
+            $('html').on('click', '.ugc-widget', function(event){
+                event.preventDefault();
+                var WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
+                var path_js = '/UGC/ugc-widget-server/';
+
+                var lang = $(this).parents('article').find('.resource-change-lang').attr('data-lang');
+                var type_text = $(this).parents('article').find('.resource-change-lang').find('li > a').html();
+                var action = !!type_text.match(/human/gi) ? 'edit' : 'translate';
+                try {
+                    var x = document.createElement("SCRIPT");
+                    x.type = "text/javascript";
+                    x.src = WIDGET_HOST + path_js + "loadUGC.js";
+                    if ( action == 'edit'){
+                        // CORRECT
+                        x.setAttribute("Language", lang);
+                    }else{
+                        //TRANSLATE
+                        x.setAttribute("sourceLanguage", 'en');
+                        x.setAttribute("targetLanguage", lang); 
+                    }
+                    x.setAttribute('Name', '<?php echo $_user->user_username ?>');
+                    x.setAttribute('Username', '<?php echo $_user->user_username ?>');
+                    x.setAttribute('Email', '<?php echo $_user->user_email ?>');
+                    x.setAttribute('Operation', action);
+                    x.setAttribute('id', 'LOMWidget');
+                    x.setAttribute("LOMID", $(this).attr('data-id'));
+                    x.setAttribute("LOMLocation", 'http://oe.dynalias.net/harvested_files/oai_scam_'+$(this).attr('data-location').replace(/oai:scam[.]kmr[.]se:/,'').replace( /[:\/.]/g, '_' ).replace( /\?/g, '@')+'.xml');
+                    document.getElementsByTagName("head")[0].appendChild(x);
+                }catch(e){
+                    alert(e.getMessage());
+                }
+            })
+        <?php else: ?>
+            $('#app-content-results, #resource-viewport').tooltip({
+                selector: '.ugc-widget',
+                title: '<?php echo Lang::get('website.log_in_or_register_for_improving_translation') ?>'
+            });
+            $('body').tooltip({
+                selector: '.grnet-rating-tooltip',
+                title:'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'
+            });
+        <?php endif; ?>
+        </script>
+
+        <script>
+            $.fn.serializeObject = function()
+            {
+                var o = {};
+                var a = this.serializeArray();
+                $.each(a, function() {
+                    if (o[this.name] !== undefined) {
+                        if (!o[this.name].push) {
+                            o[this.name] = [o[this.name]];
+                        }
+                        o[this.name].push(this.value || '');
+                    } else {
+                        o[this.name] = this.value || '';
+                    }
+                });
+                return o;
+            };
+
+            $('#form-register-submit').click(function (e) {
+                $.ajax({
+                    url: '/api/organic/register',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $('#register-new-user').serializeObject(), 
+                    success: function(response) {
+                        if ( response.success ){
+                            alert(response.message);
+                            document.location.href = '/';
+                        }else{
+                            alert(response.message);
+                        }
+                    }
+                });
+                return false;
+            })
+        </script>
+
+        <script>
+            $.ajax({
+              url: 'http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js', //or your url
+              timeout: 500,
+              success: function(data){
+                console.log('exists');
+              },
+              error: function(data){
+                $('#flash').append('<div class="alert alert-danger col col-lg-8 col-offset-4">Navigational Search unavailable.</div>');
+                console.log('does not exist');
+              },
+            })
+        </script>
         <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
         <script type="text/javascript">
             var ontResourcesURI;
@@ -567,123 +694,6 @@
                 }catch(e){
                 }
             }
-        </script>
-        <!-- jQuery + Bootstrap -->
-        <script src="js/jquery.js"></script>
-        <script src="js/vendor/bootstrap/bootstrap.js"></script>
-        <!-- Activate IE8 responsive features -->
-        <!--<script src="js/respond.js"></script>-->
-        <!-- Libraries for using Backbone.js -->
-        <script src="js/require.js"></script>
-        <script src="js/underscore.js"></script>
-        <script src="js/backbone.js"></script>
-        <!-- App javaScript files -->
-        <script src="js/app.js"></script>
-        <script src="js/app.models.js"></script>
-        <script src="js/app.views.js"></script>
-        <script src="js/app.collections.js"></script>
-        <script src="js/app.router.js"></script>
-        <!--Default language file -->
-        <script src="js/lang/<?php echo LANG ?>.js"></script>
-
-        <script>
-            //$.ajaxSetup({ cache: false });
-
-            // Wait for search request
-            var Box = new App.Models.App();
-            var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
-            var searchBarInfo = new App.Views.SearchInfoBar();
-            Box.set('langFile', lang_file);
-            var doSearch = new App.Views.DoSearch();
-            var doLogin = new App.Views.LoginForm();
-            var autoTranslate = new App.Views.Autotranslate();
-
-            // Router + History
-            Router = new App.Router;
-            Backbone.history.start();
-        </script>
-
-        <script>
-        <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] ): ?>
-            $('html').on('click', '.ugc-widget', function(event){
-                event.preventDefault();
-                var WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
-                var path_js = '/UGC/ugc-widget-server/';
-
-                var lang = $(this).parents('article').find('.resource-change-lang').attr('data-lang');
-                var type_text = $(this).parents('article').find('.resource-change-lang').find('li > a').html();
-                var action = !!type_text.match(/human/gi) ? 'edit' : 'translate';
-                try {
-                    var x = document.createElement("SCRIPT");
-                    x.type = "text/javascript";
-                    x.src = WIDGET_HOST + path_js + "loadUGC.js";
-                    if ( action == 'edit'){
-                        // CORRECT
-                        x.setAttribute("Language", lang);
-                    }else{
-                        //TRANSLATE
-                        x.setAttribute("sourceLanguage", 'en');
-                        x.setAttribute("targetLanguage", lang); 
-                    }
-                    x.setAttribute('Name', '<?php echo $_user->user_username ?>');
-                    x.setAttribute('Username', '<?php echo $_user->user_username ?>');
-                    x.setAttribute('Email', '<?php echo $_user->user_email ?>');
-                    x.setAttribute('Operation', action);
-                    x.setAttribute('id', 'LOMWidget');
-                    x.setAttribute("LOMID", $(this).attr('data-id'));
-                    x.setAttribute("LOMLocation", 'http://oe.dynalias.net/harvested_files/oai_scam_'+$(this).attr('data-location').replace(/oai:scam[.]kmr[.]se:/,'').replace( /[:\/.]/g, '_' ).replace( /\?/g, '@')+'.xml');
-                    document.getElementsByTagName("head")[0].appendChild(x);
-                }catch(e){
-                    alert(e.getMessage());
-                }
-            })
-        <?php else: ?>
-            $('#app-content-results, #resource-viewport').tooltip({
-                selector: '.ugc-widget',
-                title: '<?php echo Lang::get('website.log_in_or_register_for_improving_translation') ?>'
-            });
-            $('body').tooltip({
-                selector: '.grnet-rating-tooltip',
-                title:'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'
-            });
-        <?php endif; ?>
-        </script>
-
-        <script>
-            $.fn.serializeObject = function()
-            {
-                var o = {};
-                var a = this.serializeArray();
-                $.each(a, function() {
-                    if (o[this.name] !== undefined) {
-                        if (!o[this.name].push) {
-                            o[this.name] = [o[this.name]];
-                        }
-                        o[this.name].push(this.value || '');
-                    } else {
-                        o[this.name] = this.value || '';
-                    }
-                });
-                return o;
-            };
-
-            $('#form-register-submit').click(function (e) {
-                $.ajax({
-                    url: '/api/organic/register',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: $('#register-new-user').serializeObject(), 
-                    success: function(response) {
-                        if ( response.success ){
-                            alert(response.message);
-                            document.location.href = '/';
-                        }else{
-                            alert(response.message);
-                        }
-                    }
-                });
-                return false;
-            })
         </script>
     </body>
 </html>
