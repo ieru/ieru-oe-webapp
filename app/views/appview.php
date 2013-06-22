@@ -189,6 +189,94 @@
             <div class="container">
                 <div class="row">
                     <div id="flash"></div>
+<script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
+        <script type="text/javascript">
+            var ontResourcesURI;
+            var ontResources;
+            var labels;
+            var predicate = 'null';
+            var ipCounter = 0;
+            var advancedOptionsOpened = false;
+            var inclusiveSearch = true;
+            var descriptionLimit = 300;
+            var titleLimit = 68;
+
+            ///////////////////
+            // MORITZ STUFF //
+            /////////////////
+            var URL='/semanticsearch.swf?treelang=<?php echo LANG ?>';
+            var flashID = 'flash';          
+            var width = '100%';
+            var height = '500';
+            var flashVersion = '10.0.0';
+            var expressInstallURL = 'http://oe.dynalias.net/components/com_navigational/moritz/expressInstall.swf';            
+            var params = {};
+            var attributes = {};
+
+            var flashvars = 
+            {
+                baseURL: 'http://oe.dynalias.net/', 
+                locale: 'en',
+                JSCallBack_selectionChange: 'onSelectionChange',
+                JSCallBack_searchPointUpdate: 'onSearchPointUpdate'
+            };
+
+            function onSelectionChange(selectedNodes){
+                Box.set('page', 1);
+                Router.navigate('#/navigation/1');
+                renderAdvancedOptions($);
+            }
+
+            function getFlashMovie(movieName) {
+                   var isIE = navigator.appName.indexOf('Microsoft') != -1;
+                   return (isIE) ? window[movieName] : document[movieName];
+            }
+
+            function renderAdvancedOptions($)
+            {     
+                $.ajax({
+                    url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=getState&format=raw',
+                    async: false,
+                    jsonpCallback: 'jsonCallback',
+                    contentType: "application/json",
+                    dataType: 'jsonp',
+                    success: function(data) 
+                    {
+                        doSearch.submitNavigational();
+                    },
+                    error: function(e) {
+                    }
+                });
+            }
+
+            function initInterface ( $ )
+            {
+                /*var request = $.getJSON('http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw');
+                request.done(function(){
+                   renderAdvancedOptions($);
+                }).fail(function(){
+                   $('#page-navigational .row').html('<div class="alert alert-danger col col-lg-8 col-offset-4">Navigational Search unavailable.</div>');
+                   console.log('fail',arguments);
+                });*/
+                try{
+                    $.ajax({
+                        url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw',
+                        async: false,
+                        jsonpCallback: 'jsonCallback',
+                        contentType: "application/json",
+                        dataType: 'jsonp',
+                        success: function(data) 
+                        {
+                            renderAdvancedOptions($);
+                        },
+                        error: function(e) 
+                        {
+                        }
+                    });
+                }catch(e){
+                }
+            }
+        </script>
                 </div>
             </div>
         </div>
@@ -592,108 +680,6 @@
                 });
                 return false;
             })
-        </script>
-
-        <script>
-            $.ajax({
-              url: 'http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js', //or your url
-              timeout: 500,
-              success: function(data){
-                console.log('exists');
-              },
-              error: function(data){
-                $('#flash').append('<div class="alert alert-danger col col-lg-8 col-offset-4">Navigational Search unavailable.</div>');
-                console.log('does not exist');
-              },
-            })
-        </script>
-        <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
-        <script type="text/javascript">
-            var ontResourcesURI;
-            var ontResources;
-            var labels;
-            var predicate = 'null';
-            var ipCounter = 0;
-            var advancedOptionsOpened = false;
-            var inclusiveSearch = true;
-            var descriptionLimit = 300;
-            var titleLimit = 68;
-
-            ///////////////////
-            // MORITZ STUFF //
-            /////////////////
-            var URL='/semanticsearch.swf?treelang=<?php echo LANG ?>';
-            var flashID = 'flash';          
-            var width = '100%';
-            var height = '500';
-            var flashVersion = '10.0.0';
-            var expressInstallURL = 'http://oe.dynalias.net/components/com_navigational/moritz/expressInstall.swf';            
-            var params = {};
-            var attributes = {};
-
-            var flashvars = 
-            {
-                baseURL: 'http://oe.dynalias.net/', 
-                locale: 'en',
-                JSCallBack_selectionChange: 'onSelectionChange',
-                JSCallBack_searchPointUpdate: 'onSearchPointUpdate'
-            };
-
-            function onSelectionChange(selectedNodes){
-                Box.set('page', 1);
-                Router.navigate('#/navigation/1');
-                renderAdvancedOptions($);
-            }
-
-            function getFlashMovie(movieName) {
-                   var isIE = navigator.appName.indexOf('Microsoft') != -1;
-                   return (isIE) ? window[movieName] : document[movieName];
-            }
-
-            function renderAdvancedOptions($)
-            {     
-                $.ajax({
-                    url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=getState&format=raw',
-                    async: false,
-                    jsonpCallback: 'jsonCallback',
-                    contentType: "application/json",
-                    dataType: 'jsonp',
-                    success: function(data) 
-                    {
-                        doSearch.submitNavigational();
-                    },
-                    error: function(e) {
-                    }
-                });
-            }
-
-            function initInterface ( $ )
-            {
-                /*var request = $.getJSON('http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw');
-                request.done(function(){
-                   renderAdvancedOptions($);
-                }).fail(function(){
-                   $('#page-navigational .row').html('<div class="alert alert-danger col col-lg-8 col-offset-4">Navigational Search unavailable.</div>');
-                   console.log('fail',arguments);
-                });*/
-                try{
-                    $.ajax({
-                        url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw',
-                        async: false,
-                        jsonpCallback: 'jsonCallback',
-                        contentType: "application/json",
-                        dataType: 'jsonp',
-                        success: function(data) 
-                        {
-                            renderAdvancedOptions($);
-                        },
-                        error: function(e) 
-                        {
-                        }
-                    });
-                }catch(e){
-                }
-            }
         </script>
     </body>
 </html>
