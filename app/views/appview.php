@@ -509,12 +509,14 @@
                <%= lang('of') %>
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
             <!--<a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#"><span class="glyphicon glyphicon-expand"> </span></a></span>-->
+            <% if ( rating > 0 ) { %>
             <span class="rating-history dropdown">
                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
                     <?php echo Lang::get('website.view_rating_history'); ?> <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="padding: 5px; font-size: 11px; "></ul>
             </span>
+            <% } %>
         </script>
 
         <script id="grnet-rating-stars" type="text/template">
