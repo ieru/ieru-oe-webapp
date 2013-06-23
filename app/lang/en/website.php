@@ -102,7 +102,8 @@ return array(
 'filters'=>'Filters',
 'none'=>'None',
 'tags'=>'Tags',
-'suggest_a_new_resource'=>'Suggest a new resource',
+'suggest_a_new_resource'=>'Suggest resource',
 
 'log_in_or_register_for_improving_translation'=> 'Register or login to improve translation',
+'change_account_details'=>'Change settings',
 );

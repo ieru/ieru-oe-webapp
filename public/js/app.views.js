@@ -53,7 +53,7 @@ App.Views.Autotranslate = Backbone.View.extend({
 })
 
 App.Views.LoginForm = Backbone.View.extend({
-    el: '#user-login',
+    el: '#user-zone',
 
     events: {
         'submit #login-form': 'submit',

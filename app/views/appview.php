@@ -27,13 +27,15 @@
                 <a class="navbar-brand" href="/#">Organic.Edunet</a>
 
                 <div class="nav-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <ul id="user-zone" class="nav navbar-nav">
                     <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
-                        <li class="dropdown">
+                        <li role="menu" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" id="user-logout"><?php echo Lang::get('website.logout'); ?></a></li>
-                                <li><a data-toggle="modal" href="#suggest-modal"><?php echo Lang::get('website.suggest_a_new_resource'); ?></a></li>
+                                <li role="presentation"><a data-toggle="modal" href="#change-account"><span class="glyphicon glyphicon-wrench"></span> <?php echo Lang::get('website.change_account_details'); ?></a></li>
+                                <li role="presentation"><a data-toggle="modal" href="#suggest-modal"><span class="glyphicon glyphicon-pencil"></span> <?php echo Lang::get('website.suggest_a_new_resource'); ?></a></li>
+                                <li class="divider" role="presentation"></li>
+                                <li role="presentation"><a href="#" id="user-logout"><span class="glyphicon glyphicon-off"></span> <?php echo Lang::get('website.logout'); ?></a></li>
                             </ul>
                         </li>
                     <?php else: ?>
@@ -407,11 +409,28 @@
                                 })();
                             ">Bookmarklet</a>
                         </p>
-                        <p>In the new window that you will see, fill in the fields and click on the "Send Suggestion" button when you are don.</p>
+                        <p>In the new window, fill in the fields and click on the "Send Suggestion" button when you are don.</p>
                     </div>
                     <!--<div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>-->
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="change-account">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Change account details</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
