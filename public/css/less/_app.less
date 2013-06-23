@@ -257,3 +257,99 @@
     #search-form .alert { position: absolute; top: 0; left: 0; font-size: 14px; width: 100%; z-index: 10; padding: 6px 10px !important; }
     #search-form .alert .close { right: 0; top: 0; }
     .img-thumbnail { width: 140px; }
+
+    .twitter-typeahead { width: 100% !important; }
+
+
+
+    .tt-dropdown-menu { width: 100%; }
+
+
+
+// The dropdown menu (ul)
+// ----------------------
+.tt-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: @zindex-dropdown;
+  display: none; // none by default, but block on "open" of the menu
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0; // override default ul
+  list-style: none;
+  background-color: @dropdown-bg;
+  border: 1px solid #ccc; // IE8 fallback
+  border: 1px solid @dropdown-border;
+  border-radius: @border-radius-base;
+  .box-shadow(0 6px 12px rgba(0,0,0,.175));
+  .background-clip(padding-box);
+
+  // Aligns the dropdown menu to right
+  &.pull-right {
+    right: 0;
+    left: auto;
+  }
+
+  // Dividers (basically an hr) within the dropdown
+  .divider {
+    .nav-divider(@dropdown-divider-top, @dropdown-divider-bottom);
+  }
+
+  // Links within the dropdown menu
+  > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: @line-height-base;
+    color: @dropdown-link-color;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+  }
+}
+
+// Hover/Focus state
+// -----------
+.tt-dropdown-menu > li > a:hover,
+.tt-dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
+  text-decoration: none;
+  color: @dropdown-link-hover-color;
+  #gradient > .vertical(@start-color: @dropdown-link-hover-bg; @end-color: darken(@dropdown-link-hover-bg, 5%));
+}
+
+// Active state
+// ------------
+.tt-dropdown-menu > .active > a,
+.tt-dropdown-menu > .active > a:hover,
+.tt-dropdown-menu > .active > a:focus {
+  color: @dropdown-link-active-color;
+  text-decoration: none;
+  outline: 0;
+  #gradient > .vertical(@start-color: @dropdown-link-active-bg; @end-color: darken(@dropdown-link-active-bg, 5%));
+}
+
+// Disabled state
+// --------------
+// Gray out text and ensure the hover/focus state remains gray
+.tt-dropdown-menu > .disabled > a,
+.tt-dropdown-menu > .disabled > a:hover,
+.tt-dropdown-menu > .disabled > a:focus {
+  color: @gray-light;
+}
+// Nuke hover/focus effects
+.tt-dropdown-menu > .disabled > a:hover,
+.tt-dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none; // Remove CSS gradient
+  .reset-filter();
+  cursor: default;
+}
+.tt-suggestion:hover { color: #fff; background: #0081A5; }
+.tt-suggestion { padding: 5px 10px; }
+.tt-suggestion p { font-size: 18px; margin: 0; }
+
+

@@ -119,6 +119,15 @@ App.Models.Register = Backbone.Model.extend({
 	},
 });
 
+App.Models.Typeahead = Backbone.Model.extend({
+
+	urlRoot: '/api/organic/search/typeahead',
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
+});
+
 App.Models.Logout = Backbone.Model.extend({
 
 	urlRoot: '/api/organic/logout',

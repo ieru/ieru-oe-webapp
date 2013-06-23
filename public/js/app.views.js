@@ -108,6 +108,7 @@ App.Views.RegisterNewUser = Backbone.View.extend({
                 alert(response.message);
                 document.location.href = '/';
             }else{
+                that.$el.find('input').tooltip('destroy');
                 that.$el.find('.control-group').addClass('has-error');
                 that.$el.find('input').tooltip({title:response.message, placement:'top'});
             }
@@ -640,11 +641,27 @@ App.Views.DoSearch = Backbone.View.extend({
         }, this );
 
         // Add event for key pressing in the search form
-        $('#search-form input[type=text]').keyup(this.autocomplete);
+        //$('#search-form input[type=text]').keyup(this.autocomplete);
+        $('#search-form input[type=text]').typeahead({
+            name: 'terms',
+            local: ['timtrueman', 'JakeHarding', 'vskarich'],
+            remote: {url:'/api/organic/search/typeahead?text=%QUERY'}
+        });
     },
 
     autocomplete: function(e){
-        console.log(e.type, e.keyCode);
+/*
+        var typeahead = $('#search-form input[type=text]');
+        typeahead.typeahead('setQuery', typeahead.val());
+        var model = new App.Models.Typeahead({text:typeahead.val()});
+        var that = this;
+        model.fetch().then(function(response){
+            if ( response.success ){
+                
+            }else{
+            }
+        });
+*/
     },
 
     submitNavigational: function(){

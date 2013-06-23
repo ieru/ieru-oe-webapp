@@ -101,7 +101,7 @@
                 <a href="/#"><h1 class="pull-left hidden-sm">Organic.Edunet</h1></a>
                 <form id="search-form" action="" class="pull-right">
                     <div class="input-group">
-                        <input type="text" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
+                        <input autocomplete="off" type="text" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
                         <span class="input-group-btn">
                             <button class="btn" type="submit">Go!</button>
                         </span>
@@ -624,6 +624,7 @@
         <!-- jQuery + Bootstrap -->
         <script src="js/jquery.js"></script>
         <script src="js/vendor/bootstrap/bootstrap.js"></script>
+        <script src="js/vendor/twitter/typeahead.js"></script>
         <!-- Activate IE8 responsive features -->
         <!--<script src="js/respond.js"></script>-->
         <!-- Libraries for using Backbone.js -->
