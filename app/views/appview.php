@@ -565,17 +565,17 @@
             <span class="grnet-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
             <!--<a  onclick="return false;" data-toggle="popover" class="grnet-rating-info" href="#"><span class="glyphicon glyphicon-expand"> </span></a></span>-->
             <% if ( rating > 0 ) { %>
-            <span class="rating-history dropdown">
+            <span class="rating-history dropdown" style="position: relative; ">
                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
                     <?php echo Lang::get('website.view_rating_history'); ?> <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="padding: 5px; font-size: 11px; "></ul>
+                <ul class="dropdown-menu" aria-labelledby="drop5" role="menu" style="padding: 5px; font-size: 11px; "></ul>
             </span>
             <% } %>
         </script>
 
         <script id="grnet-rating-stars" type="text/template">
-            <li>
+            <li role="presentation">
                 <% for ( var i = 0 ; i < ratingMean ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = ratingMean ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %>
             </li>
         </script>
