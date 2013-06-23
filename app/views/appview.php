@@ -63,6 +63,7 @@
                                         <input id="login-form-username" type="text" placeholder="<?php echo Lang::get('website.user') ?>"/>
                                         <input id="login-form-password" type="password" placeholder="<?php echo Lang::get('website.password') ?>"/>
                                         <button id="submit-login-form" type="submit" class="btn btn-primary"><?php echo Lang::get('website.submit') ?></button>
+                                        <a href="#/user/retrieve"><?php echo Lang::get('website.forgot_password') ?></a>
                                     </form>
                                 </li>
                             </ul>
@@ -102,18 +103,18 @@
             </div>
         </div>
 
-        <header id="header" class="jumbotron">
+        <header id="header">
             <div class="container">
-                <a href="/#"><h1 class="pull-left hidden-phone">Organic.Edunet</h1></a>
+                <a href="/#"><h1 class="pull-left hidden-sm">Organic.Edunet</h1></a>
                 <form id="search-form" action="" class="pull-right">
                     <div class="input-group">
-                        <input type="text" class="input-large" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
+                        <input type="text" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
                         <span class="input-group-btn">
-                            <button class="btn btn-large" type="submit">Go!</button>
+                            <button class="btn" type="submit">Go!</button>
                         </span>
                     </div>
                 </form>
-                <nav class="hidden-phone">
+                <nav class="hidden-sm">
                     <ul class="list-inline">
                         <li><a href="#"><?php echo Lang::get('website.home') ?></a></li>
                         <li><a href="#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
@@ -141,7 +142,7 @@
                             <?php foreach( $carousel as $resource ): ?>
                             <article class="resource">
                                 <header>
-                                    <figure class="hidden-phone">
+                                    <figure class="hidden-sm">
                                         <a href="<?php echo $resource->url ?>">
                                             <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
                                             <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />-->
@@ -287,7 +288,7 @@
             <div class="container">
                 <div class="row">
                     <div id="search-content">
-                        <aside id="app-content-filters" class="col col-lg-3 hidden-phone">
+                        <aside id="app-content-filters" class="col col-lg-3 hidden-sm">
                         </aside>
                         <div id="app-content-info" class="col col-lg-9">
                             <div class="jquery-results-bar pull-left">
@@ -332,7 +333,7 @@
                     <div class="col col-lg-9 col-offset-3" style="margin-top: 15px; ">
                         <span class="glyphicon glyphicon-arrow-left"></span> <a href="#" onclick="window.history.back(); return false;"><?php echo Lang::get('website.back') ?></a>
                     </div>
-                    <aside class="col col-lg-3 hidden-phone">
+                    <aside class="col col-lg-3 hidden-sm">
                     </aside>
                     <article id="resource-viewport" class="col col-lg-9">
                     </article>
@@ -392,7 +393,7 @@
 
         <script id="resource-content-full" type="text/template">
             <header>
-                <figure class="hidden-phone">
+                <figure class="hidden-sm">
                     <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
                     <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />-->
                 </figure>
@@ -449,7 +450,7 @@
 
         <script id="resource-content" type="text/template">
             <header>
-                <figure class="hidden-phone">
+                <figure class="hidden-sm">
                     <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
                     <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />-->
                 </figure>
@@ -537,7 +538,7 @@
         <script id="facets-filter" type="text/template">
             <input type="checkbox" id="checkbox-<%= filter.replace(' ','-') %>" name="checkbox-<%= filter.replace(' ','-') %>" <% if ( active ) { %>checked="checked"<% } %>/>
             <label for="checkbox-<%= filter.replace(' ','-') %>"><span></span> <a title="<%= filter %>"><%= translation %></a></label>
-            <span class="label pull-right hidden-tablet hidden-phone"><%= value %></span>
+            <span class="label pull-right hidden-sm"><%= value %></span>
         </script>
 
         <script id="search-pagination" type="text/template">
