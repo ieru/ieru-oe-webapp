@@ -649,6 +649,7 @@
             Box.set('langFile', lang_file);
             var doSearch = new App.Views.DoSearch();
             var doLogin = new App.Views.LoginForm();
+            var doRegister = new App.Views.RegisterNewUser();
             var autoTranslate = new App.Views.Autotranslate();
 
             // Router + History
@@ -719,24 +720,6 @@
                 });
                 return o;
             };
-
-            $('#form-register-submit').click(function (e) {
-                $.ajax({
-                    url: '/api/organic/register',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: $('#register-new-user').serializeObject(), 
-                    success: function(response) {
-                        if ( response.success ){
-                            alert(response.message);
-                            document.location.href = '/';
-                        }else{
-                            alert(response.message);
-                        }
-                    }
-                });
-                return false;
-            })
         </script>
     </body>
 </html>

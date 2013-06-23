@@ -110,6 +110,15 @@ App.Models.Login = Backbone.Model.extend({
 	},
 });
 
+App.Models.Register = Backbone.Model.extend({
+
+	urlRoot: '/api/organic/register',
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
+	},
+});
+
 App.Models.Logout = Backbone.Model.extend({
 
 	urlRoot: '/api/organic/logout',

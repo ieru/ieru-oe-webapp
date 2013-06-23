@@ -91,6 +91,30 @@ App.Views.LoginForm = Backbone.View.extend({
     },
 })
 
+App.Views.RegisterNewUser = Backbone.View.extend({
+    el: '#register-new-user',
+
+    events: {
+        'submit': 'submit',
+    },
+
+    submit: function(e){
+        e.preventDefault();
+
+        var model = new App.Models.Register($('#register-new-user').serializeObject());
+        var that = this;
+        model.fetch().then(function(response){
+            if ( response.success ){
+                alert(response.message);
+                document.location.href = '/';
+            }else{
+                that.$el.find('.control-group').addClass('has-error');
+                that.$el.find('input').tooltip({title:response.message, placement:'top'});
+            }
+        });
+    },
+})
+
 App.Views.Grnet = {};
 
 App.Views.Grnet.Rating = Backbone.View.extend({
