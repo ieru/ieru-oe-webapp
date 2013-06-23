@@ -1,3 +1,11 @@
+$('#form-search').bind('typeahead:closed', function(e){
+    console.log(e);
+    $('.tt-query').val($(this).next().html());
+    Box.set('searchText', $(this).next().html());
+});
+
+
+
 App.Views.Autotranslate = Backbone.View.extend({
     el: '#button-autotranslate',
 
@@ -642,9 +650,9 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Add event for key pressing in the search form
         //$('#search-form input[type=text]').keyup(this.autocomplete);
-        $('#search-form input[type=text]').typeahead({
+        $('#form-search').typeahead({
             name: 'terms',
-            local: ['timtrueman', 'JakeHarding', 'vskarich'],
+            local: [],
             remote: {url:'/api/organic/search/typeahead?text=%QUERY'}
         });
     },
@@ -740,7 +748,8 @@ App.Views.DoSearch = Backbone.View.extend({
         vent.trigger('cancel:ajaxs');
 
         // Get text search
-        var formBoxText = $(e.currentTarget).find('input[type=text]').val();
+        var formBoxText = $('#form-search').val();
+
         // If search through submit button, reset
         if ( !e.isTrigger ) {
             if ( formBoxText == Box.get('searchText') ){
@@ -759,16 +768,16 @@ App.Views.DoSearch = Backbone.View.extend({
         }
 
         // Check empty search
-        //if ( formBoxText.trim() == '' ){
-        //    var box = $('#search-form input');
-        //    var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
-        //    box.after(text);
-        //    return;
-        //}
+        if ( formBoxText.trim() == '' ){
+            var box = $('#search-form input');
+            var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
+            box.after(text);
+            return;
+        }
 
         // Check not allowed characters
         if ( formBoxText.match(/[<>]/g) ){
-            var box = $('#search-form input');
+            var box = $('#form-search');
             var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('character_not_allowed')+'</div>'
             box.after(text);
             return;
