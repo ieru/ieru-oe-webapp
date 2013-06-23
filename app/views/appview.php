@@ -32,28 +32,6 @@
                         <li>
                             <p class="navbar-text"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> | <a href="#" id="user-logout"><?php echo Lang::get('website.logout'); ?></a></p>
                         </li>
-                        <!--<li>
-                            <p class="navbar-text">
-                                <a  id="organic-suggest-resource" 
-                                href="
-                                    javascript:(function() {
-                                        WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
-                                        var path_js = '/UGC/ugc-widget-server/';
-                                        try {
-                                            var x = document.createElement('SCRIPT');
-                                            x.type = 'text/javascript';
-                                            x.src = WIDGET_HOST +  path_js + 'loadUGC.js';
-                                            x.setAttribute('Name', '<?php echo  $_user->user_username ?>');
-                                            x.setAttribute('Username', '<?php echo  $_user->user_username ?>');
-                                            x.setAttribute('Email', '<?php echo  $_user->user_email ?>');
-                                            x.setAttribute('Operation', 'add');
-                                            x.setAttribute('id', 'LOMWidget');
-                                            x.setAttribute('URL', window.location.href);
-                                            document.getElementsByTagName('head')[0].appendChild(x);
-                                        } catch (e) {}
-                                    })();
-                                "><?php echo Lang::get('website.suggest_a_new_resource')?></a></p>
-                        </li>-->
                     <?php else: ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.sign_in') ?> <b class="caret"></b></a>
@@ -387,7 +365,34 @@
 
         <footer id="footer">
             <div class="container">
-                <p style="margin-right: 15px; ">&copy; Organic.Edunet 2013</p>
+                <ul class="pull-left list-unstyled">
+                <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
+                    <li>
+                        <a  id="organic-suggest-resource" 
+                        href="
+                            javascript:(function() {
+                                WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
+                                var path_js = '/UGC/ugc-widget-server/';
+                                try {
+                                    var x = document.createElement('SCRIPT');
+                                    x.type = 'text/javascript';
+                                    x.src = WIDGET_HOST +  path_js + 'loadUGC.js';
+                                    x.setAttribute('Name', '<?php echo  $_user->user_username ?>');
+                                    x.setAttribute('Username', '<?php echo  $_user->user_username ?>');
+                                    x.setAttribute('Email', '<?php echo  $_user->user_email ?>');
+                                    x.setAttribute('Operation', 'add');
+                                    x.setAttribute('id', 'LOMWidget');
+                                    x.setAttribute('URL', window.location.href);
+                                    document.getElementsByTagName('head')[0].appendChild(x);
+                                } catch (e) {}
+                            })();
+                        ">
+                        <?php echo Lang::get('website.suggest_a_new_resource')?>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                </ul>
+                <p>&copy; Organic.Edunet 2013</p>
             </div>
         </footer>
 
