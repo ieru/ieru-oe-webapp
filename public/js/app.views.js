@@ -1,5 +1,4 @@
 $('#form-search').bind('typeahead:closed', function(e){
-    console.log(e);
     $('.tt-query').val($(this).next().html());
     Box.set('searchText', $(this).next().html());
 });
