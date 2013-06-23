@@ -58,9 +58,9 @@
                             <legend>Language Tools (current lang: <strong><?php echo @$_GET['to'] ? $_GET['to'] : 'en' ?></strong>)</legend>
                             <?php foreach ( $lang as $key=>$line ): ?>
                             <div class="control-group">
-                                <label class="control-label" for="inputEmail"><?=$key?></label>
+                                <label class="control-label" for="inputEmail"><?php echo $key?></label>
                                 <div class="controls">
-                                    <input class="span5" type="text" id="inputEmail" name="<?=$key?>" value="<?=$line?>">
+                                    <input class="span5" type="text" id="inputEmail" name="<?php echo $key?>" value="<?php echo $line?>">
                                 </div>
                             </div>
                             <?php endforeach; ?>
