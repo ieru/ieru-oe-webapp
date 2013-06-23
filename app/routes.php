@@ -25,5 +25,7 @@ Route::get( '/browser/metadata/(:num)',         array( 'as'=>'metadata',     'us
 
 Route::get( '/register',                        array( 'as'=>'register',     'uses'=>'default@register' ) );
 
-Route::get( '/admin/langfiles',                 array( 'as'=>'changelang',   'uses'=>'admin@langfiles' ) );
-Route::post( '/admin/langfiles',                array( 'as'=>'changelang',   'uses'=>'admin@langfiles' ) );
+
+
+Route::get( '/admin/langfiles',                'AdminController@langfiles' );
+Route::post( '/admin/langfiles',                'AdminController@langfilessend' );

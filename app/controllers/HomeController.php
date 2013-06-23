@@ -42,7 +42,7 @@ class HomeController extends BaseController {
 
     public function index ()
     {
-# Fetch one featured resource to show
+        # Fetch one featured resource to show
         $ch = curl_init();
         $lang['en'] = 'english';
         $lang['fr'] = 'french';
@@ -122,5 +122,4 @@ class HomeController extends BaseController {
                 ->with( 'featured', $featured )
                 ->with( '_user', $this->_user );
     }
-
 }
