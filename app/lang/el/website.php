@@ -103,4 +103,6 @@ return array(
 'none'=>'κανένας',
 'tags'=>'Ετικέτες',
 'suggest_a_new_resource'=>'προτείνει ένα νέο πόρο',
+'change_account_details'=>'Change settings',
+'forgot_password'=>'Forgot your password?',
 );

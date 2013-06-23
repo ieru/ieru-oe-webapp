@@ -105,4 +105,6 @@ return array(
 'suggest_a_new_resource'=>'Die neue Ressource',
 
 'log_in_or_register_for_improving_translation'=> 'Registrieren oder anmelden, um Übersetzung verbessern',
+'change_account_details'=>'Change settings',
+'forgot_password'=>'Forgot your password?',
 );

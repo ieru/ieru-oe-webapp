@@ -44,10 +44,19 @@
                             <ul class="dropdown-menu">
                                 <li>
                                     <form id="login-form" action="">
-                                        <input id="login-form-username" type="text" placeholder="<?php echo Lang::get('website.user') ?>"/>
-                                        <input id="login-form-password" type="password" placeholder="<?php echo Lang::get('website.password') ?>"/>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input class="input-with-feedback" id="login-form-username" type="text" placeholder="<?php echo Lang::get('website.user') ?>"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input class="input-with-feedback" id="login-form-password" type="password" placeholder="<?php echo Lang::get('website.password') ?>"/>
+                                            </div>
+                                        </div>
                                         <button id="submit-login-form" type="submit" class="btn btn-primary"><?php echo Lang::get('website.submit') ?></button>
-                                        <a href="#/user/retrieve"><?php echo Lang::get('website.forgot_password') ?></a>
+                                        <p class="divider" role="presentation"></p>
+                                        <p><a href="#/user/retrieve"><?php echo Lang::get('website.forgot_password') ?></a></p>
                                     </form>
                                 </li>
                             </ul>
@@ -328,44 +337,43 @@
 
         <!-- REGISTER NEW ACCOUNT PAGE -->
         <div id="page-register-user">
-            <div class="container">
-                <div class="row">
-                    <div>
-                        <form id="register-new-user" class="form-horizontal">
-                            <legend><?php echo Lang::get('website.register_a_new_user') ?></legend>
-                            <div class="control-group">
-                                <label class="control-label" for="form-register-username"><?php echo Lang::get('website.username') ?></label>
-                                <div class="controls">
-                                    <input type="text" id="form-register-username" name="form-register-username">
-                                </div>
+            <form id="register-new-user" class="form-horizontal">
+                <div class="container">
+                    <div class="row">
+                        <legend><?php echo Lang::get('website.register_a_new_user') ?></legend>
+                        <div class="control-group">
+                            <label class="col col-lg-2 control-label" for="form-register-username"><?php echo Lang::get('website.username') ?></label>
+                            <div class="col col-lg-4 controls">
+                                <input class="input-with-feedback" type="text" id="form-register-username" name="form-register-username">
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" for="form-register-email"><?php echo Lang::get('website.email') ?></label>
-                                <div class="controls">
-                                    <input type="text" id="form-register-email" name="form-register-email">
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col col-lg-2 control-label" for="form-register-email"><?php echo Lang::get('website.email') ?></label>
+                            <div class="col col-lg-4 controls">
+                                <input class="input-with-feedback" type="text" id="form-register-email" name="form-register-email">
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" for="form-register-password"><?php echo Lang::get('website.password') ?></label>
-                                <div class="controls">
-                                    <input type="password" id="form-register-password" name="form-register-password">
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col col-lg-2 control-label" for="form-register-password"><?php echo Lang::get('website.password') ?></label>
+                            <div class="col col-lg-4 controls">
+                                <input class="input-with-feedback" type="password" id="form-register-password" name="form-register-password">
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" for="form-register-repeat-password"><?php echo Lang::get('website.repeat_password') ?></label>
-                                <div class="controls">
-                                    <input type="password" id="form-register-repeat-password" name="form-register-repeat-password">
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col col-lg-2 control-label" for="form-register-repeat-password"><?php echo Lang::get('website.repeat_password') ?></label>
+                            <div class="col col-lg-4 controls">
+                                <input class="input-with-feedback" type="password" id="form-register-repeat-password" name="form-register-repeat-password">
                             </div>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <button type="submit" class="btn" id="form-register-submit"><?php echo Lang::get('website.register') ?></button>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col col-lg-2 control-label"></label>
+                            <div class="col col-lg-4 controls">
+                                <button type="submit" class="btn" id="form-register-submit"><?php echo Lang::get('website.register') ?></button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
         <!-- END REGISTER NEW ACCOUNT PAGE -->
 
