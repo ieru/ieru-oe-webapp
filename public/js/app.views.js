@@ -759,12 +759,12 @@ App.Views.DoSearch = Backbone.View.extend({
         }
 
         // Check empty search
-        if ( formBoxText.trim() == '' ){
-            var box = $('#search-form input');
-            var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
-            box.after(text);
-            return;
-        }
+        //if ( formBoxText.trim() == '' ){
+        //    var box = $('#search-form input');
+        //    var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
+        //    box.after(text);
+        //    return;
+        //}
 
         // Check not allowed characters
         if ( formBoxText.match(/[<>]/g) ){
