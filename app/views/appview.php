@@ -376,6 +376,7 @@
         </footer>
 
         <!-- MODALS -->
+        <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
         <div class="modal fade" id="suggest-modal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -414,6 +415,7 @@
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <!-- END MODALS -->
 
         <script id="resource-content-full" type="text/template">
