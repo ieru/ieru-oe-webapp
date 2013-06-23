@@ -368,7 +368,7 @@
                         <div class="control-group">
                             <label class="col col-lg-2 control-label"></label>
                             <div class="col col-lg-4 controls">
-                                <button type="submit" class="btn btn-info" id="form-register-submit"><?php echo Lang::get('website.register') ?></button>
+                                <button type="submit" class="btn btn-primary" id="form-register-submit"><?php echo Lang::get('website.register') ?></button>
                             </div>
                         </div>
                     </div>
