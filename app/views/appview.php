@@ -27,13 +27,17 @@
                 <a class="navbar-brand" href="/#">Organic.Edunet</a>
 
                 <div class="nav-collapse collapse">
-                    <ul id="user-login" class="nav navbar-nav">
+                    <ul class="nav navbar-nav">
                     <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
-                        <li>
-                            <p class="navbar-text"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> | <a href="#" id="user-logout"><?php echo Lang::get('website.logout'); ?></a></p>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="user-logout"><?php echo Lang::get('website.logout'); ?></a></li>
+                                <li><a data-toggle="modal" href="#suggest-modal"><?php echo Lang::get('website.suggest_a_new_resource'); ?></a></li>
+                            </ul>
                         </li>
                     <?php else: ?>
-                        <li class="dropdown">
+                        <li id="user-login" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.sign_in') ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -366,35 +370,51 @@
         <footer id="footer">
             <div class="container">
                 <ul class="pull-left list-unstyled">
-                <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
-                    <li>
-                        <a  id="organic-suggest-resource" 
-                        href="
-                            javascript:(function() {
-                                WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
-                                var path_js = '/UGC/ugc-widget-server/';
-                                try {
-                                    var x = document.createElement('SCRIPT');
-                                    x.type = 'text/javascript';
-                                    x.src = WIDGET_HOST +  path_js + 'loadUGC.js';
-                                    x.setAttribute('Name', '<?php echo  $_user->user_username ?>');
-                                    x.setAttribute('Username', '<?php echo  $_user->user_username ?>');
-                                    x.setAttribute('Email', '<?php echo  $_user->user_email ?>');
-                                    x.setAttribute('Operation', 'add');
-                                    x.setAttribute('id', 'LOMWidget');
-                                    x.setAttribute('URL', window.location.href);
-                                    document.getElementsByTagName('head')[0].appendChild(x);
-                                } catch (e) {}
-                            })();
-                        ">
-                        <?php echo Lang::get('website.suggest_a_new_resource')?>
-                        </a>
-                    </li>
-                <?php endif; ?>
                 </ul>
                 <p>&copy; Organic.Edunet 2013</p>
             </div>
         </footer>
+
+        <!-- MODALS -->
+        <div class="modal fade" id="suggest-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><?php echo Lang::get('website.suggest_a_new_resource'); ?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Drag the following Bookmarklet to your bookmarks. To suggest a new resource, just go to the website you want to suggest
+                            as a new resource, and click on the bookmarklet you just added.</p>
+                        <p>
+                            <a class="label label-info" id="organic-suggest-resource" href="
+                                javascript:(function() {
+                                WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
+                                var path_js = '/UGC/ugc-widget-server/';
+                                try {
+                                var x = document.createElement('SCRIPT');
+                                x.type = 'text/javascript';
+                                x.src = WIDGET_HOST +  path_js + 'loadUGC.js';
+                                x.setAttribute('Name', '<?php echo  $_user->user_username ?>');
+                                x.setAttribute('Username', '<?php echo  $_user->user_username ?>');
+                                x.setAttribute('Email', '<?php echo  $_user->user_email ?>');
+                                x.setAttribute('Operation', 'add');
+                                x.setAttribute('id', 'LOMWidget');
+                                x.setAttribute('URL', window.location.href);
+                                document.getElementsByTagName('head')[0].appendChild(x);
+                                } catch (e) {}
+                                })();
+                            ">Bookmarklet</a>
+                        </p>
+                        <p>In the new window that you will see, fill in the fields and click on the "Send Suggestion" button when you are don.</p>
+                    </div>
+                    <!--<div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <!-- END MODALS -->
 
         <script id="resource-content-full" type="text/template">
             <header>
