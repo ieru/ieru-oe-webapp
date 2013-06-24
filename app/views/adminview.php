@@ -51,7 +51,9 @@
             <div class="row">
                 <form class="form-horizontal" method="POST">
                     <div class="col col-lg-4">
-                        <button type="submit" class="btn btn-primary pull-right">Save changes</button>
+                        <div id="save-button">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
                     <div class="col col-lg-8">
                          <fieldset>
@@ -78,6 +80,15 @@
             </div>
         </footer>
 
+        <script src="/js/jquery.js"></script>
+        <script src="/js/vendor/bootstrap/bootstrap.js"></script>
+        <script>
+            var $window = $(window);
+            $('#save-button').affix({
+                offset:{
+                    top: 250,
+                }
+            });
+        </script>
     </body>
-
 </html>
