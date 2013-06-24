@@ -5,6 +5,7 @@ App.Router = Backbone.Router.extend({
 		'search/:id/:page': 'search_page',
 		'resource/:id': 'resource',
 		'user/register': 'register',
+		'user/register/:user/:hash': 'activate',
 		'navigation': 'navigation',
 		'navigation/:id': 'navigation',
 	},
@@ -12,7 +13,7 @@ App.Router = Backbone.Router.extend({
 	index: function(){
 		show_view( 'page-home' );
 
-		vent.trigger( 'cancel:ajaxs' );
+		vent.trigger('cancel:ajaxs');
 
         // Add Ratings
         $('#page-home .grnet-rating').each(function(){
@@ -45,7 +46,7 @@ App.Router = Backbone.Router.extend({
 		show_view( 'page-app' );
 		console.log('search con id');
 
-		vent.trigger( 'cancel:ajaxs' );
+		vent.trigger('cancel:ajaxs');
 		$('#header form input[type=text]').val(text);
 		vent.trigger( 'search:submit', text, page );
 	},
@@ -59,7 +60,14 @@ App.Router = Backbone.Router.extend({
 	register: function(){
 		show_view( 'page-register-user' );
 
-		vent.trigger( 'cancel:ajaxs' );
+		vent.trigger('cancel:ajaxs');
 	},
 
+	activate: function(user,hash){
+		show_view('page-register-user-confirm');
+
+		var register = new App.Views.Register.Activate({model: new App.Models.Register.Activate({username:user,hash:hash})});
+		register.render();
+		vent.trigger('cancel:ajaxs');
+	}
 })

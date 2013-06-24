@@ -110,15 +110,6 @@ App.Models.Login = Backbone.Model.extend({
 	},
 });
 
-App.Models.Register = Backbone.Model.extend({
-
-	urlRoot: '/api/organic/register',
-
-	fetch: function(){
-		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
-	},
-});
-
 App.Models.Typeahead = Backbone.Model.extend({
 
 	urlRoot: '/api/organic/search/typeahead',
@@ -153,4 +144,27 @@ App.Models.App = Backbone.Model.extend({
 		this.set('filters', filters);
 		this.set('interface', $('#lang-selector').find('a').attr('id').split('-')[1] );
 	}
+})
+
+App.Models.Register = {};
+
+App.Models.Register.New = Backbone.Model.extend({
+
+	urlRoot: '/api/organic/register',
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
+	},
+});
+
+App.Models.Register.Activate = Backbone.Model.extend({
+	urlRoot: '/api/organic/users',
+
+	url: function() {
+		return this.urlRoot + '/' + this.get('username') + '/activate';
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
 })

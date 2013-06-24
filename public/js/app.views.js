@@ -108,16 +108,17 @@ App.Views.RegisterNewUser = Backbone.View.extend({
     submit: function(e){
         e.preventDefault();
 
-        var model = new App.Models.Register($('#register-new-user').serializeObject());
+        var model = new App.Models.Register.New($('#register-new-user').serializeObject());
         var that = this;
         model.fetch().then(function(response){
+            var success = response.success ? 'success' : 'danger';
             if ( response.success ){
-                alert(response.message);
-                document.location.href = '/';
+                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+response.message+'</p><p>Check your email for an activation link to finish the registration process.</p></div>');
+                that.$el.find('.control-group').removeClass('has-error');
             }else{
                 that.$el.find('input').tooltip('destroy');
                 that.$el.find('.control-group').addClass('has-error');
-                that.$el.find('input').tooltip({title:response.message, placement:'top'});
+                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+response.message+'</p></div>');
             }
         });
     },
@@ -885,9 +886,9 @@ App.Views.FullResource = Backbone.View.extend({
 
     template: _.template( $('#resource-content-full').html() ),
 
-        events: {
-            'click .organic-dropdown ul a': 'changeLanguage',
-        },
+    events: {
+        'click .organic-dropdown ul a': 'changeLanguage',
+    },
 
     initialize: function(){
         // Cancel any ongoing ajax requests
@@ -1016,3 +1017,19 @@ App.Views.FullResource = Backbone.View.extend({
         return this;
     }
 });
+
+App.Views.Register = {};
+App.Views.Register.Activate = Backbone.View.extend({
+    render: function (){
+        $('#page-register-user-confirm .row').empty();
+        this.model.fetch().done(function(response){
+            var success = response.success ? 'success' : 'danger';
+            $('#page-register-user-confirm .row').html('<div class="alert alert-'+success+'">'+response.message+'</div>');
+        });
+    }
+});
+
+
+
+
+

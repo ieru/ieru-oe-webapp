@@ -31,12 +31,15 @@ class AdminController extends BaseController {
         // The NYT must be the first key of the array
         if ( array_key_exists( 'NYT', $lang ) )
         {
-            array_shift( $lang );
-            foreach ( $lang as &$term )
+            unset( $lang['NYT'] );
+            foreach ( $lang as $key=>&$term )
             {
-                $url = 'http://lingua.dev/api/analytics/translate?text='.str_replace( ' ', '+', $term ).'&to='.$to;
-                $data = json_decode( $this->_curl_get_data( $url ) );
-                $term = $data->data->translation;
+                if ( $term == '' )
+                {
+                    $url = 'http://organic-edunet.eu/api/analytics/translate?text='.str_replace( '_', '+', $key ).'&service=microsoft&to='.$to;
+                    $data = json_decode( $this->_curl_get_data( $url ) );
+                    $term = $data->data->translation;
+                }
             }
         }
 
@@ -45,7 +48,7 @@ class AdminController extends BaseController {
         {
             if ( $term == '' )
             {
-                $url = 'http://lingua.dev/api/analytics/translate';
+                $url = 'http://organic-edunet.eu/api/analytics/translate';
                 $data = json_decode( $this->_curl_get_data( $url, array( 'text'=>str_replace( '_', ' ', $key ), 'to'=>$to ) ) );
                 $term = $data->data->translation;
             }
@@ -119,7 +122,7 @@ class AdminController extends BaseController {
         // The NYT must be the first key of the array
         if ( array_key_exists( 'NYT', $lang ) )
         {
-            array_shift( $lang );
+            unset( $lang['NYT'] );
             foreach ( $lang as &$term )
             {
                 $url = 'http://lingua.dev/api/analytics/translate?text='.str_replace( ' ', '+', $term ).'&service=microsoft&to='.$to;

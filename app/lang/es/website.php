@@ -107,4 +107,5 @@ return array(
 'log_in_or_register_for_improving_translation'=> 'Inicia sesión o regístrate para mejorar la traducción',
 'change_account_details'=>'Cambiar datos de cuenta',
 'forgot_password'=>'¿Olvidaste tu contraseña?',
+'name'=>'Nombre',
 );

@@ -104,6 +104,8 @@ return array(
 'tags'=>'Etiketler',
 'suggest_a_new_resource'=>'yeni bir kaynak önermek',
 'log_in_or_register_for_improving_translation'=>'giriş yap ya da çeviri geliştirmek için kayıt',
-'change_account_details'=>'Change settings',
-'forgot_password'=>'Forgot your password?',
+'change_account_details'=>'',
+'forgot_password'=>'',
+'name'=>'',
+'NYT'=>'1',
 );

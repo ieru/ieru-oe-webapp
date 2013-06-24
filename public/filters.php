@@ -491,6 +491,7 @@ return array(
 	'audio/mpeg'=>array(
 		'en'=>'audio/mpeg',
 		'el'=>'ήχου/mpeg',
+		'es'=>'audio/mpeg',
 	),
 	'image/png'=>array(
 		'en'=>'image/png',

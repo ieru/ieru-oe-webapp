@@ -104,6 +104,7 @@ return array(
 'tags'=>'Tags',
 'suggest_a_new_resource'=>'Suggérer une nouvelle ressource',
 'log_in_or_register_for_improving_translation'=>'Connectez-vous ou inscrivez-vous pour améliorer la traduction',
-'change_account_details'=>'Change settings',
-'forgot_password'=>'Forgot your password?',
+'change_account_details'=>'modifier les détails de compte',
+'forgot_password'=>'mot de passe oublié',
+'name'=>'nom',
 );

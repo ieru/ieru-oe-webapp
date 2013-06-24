@@ -336,21 +336,31 @@
         <!-- END VIEW RESOURCE PAGE -->
 
         <!-- REGISTER NEW ACCOUNT PAGE -->
+        <div id="page-register-user-confirm">
+            <div class="container">
+                <div class="row" style="padding-top: 30px; ">
+
+                </div>
+            </div>
+        </div>
+        <!-- REGISTER NEW ACCOUNT PAGE -->
+
+        <!-- REGISTER NEW ACCOUNT PAGE -->
         <div id="page-register-user">
             <form id="register-new-user" class="form-horizontal">
                 <div class="container">
                     <div class="row">
                         <legend><?php echo Lang::get('website.register_a_new_user') ?></legend>
                         <div class="control-group">
-                            <label class="col col-lg-2 control-label" for="form-register-username"><?php echo Lang::get('website.username') ?></label>
+                            <label class="col col-lg-2 control-label" for="form-register-name"><?php echo Lang::get('website.name') ?></label>
                             <div class="col col-lg-4 controls">
-                                <input class="input-with-feedback" type="text" id="form-register-username" name="form-register-username">
+                                <input type="text" id="form-register-name" name="form-register-name">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="col col-lg-2 control-label" for="form-register-email"><?php echo Lang::get('website.email') ?></label>
+                            <label class="col col-lg-2 control-label" for="form-register-username"><?php echo Lang::get('website.username') ?></label>
                             <div class="col col-lg-4 controls">
-                                <input class="input-with-feedback" type="text" id="form-register-email" name="form-register-email">
+                                <input class="input-with-feedback" type="text" id="form-register-username" name="form-register-username">
                             </div>
                         </div>
                         <div class="control-group">
@@ -363,6 +373,12 @@
                             <label class="col col-lg-2 control-label" for="form-register-repeat-password"><?php echo Lang::get('website.repeat_password') ?></label>
                             <div class="col col-lg-4 controls">
                                 <input class="input-with-feedback" type="password" id="form-register-repeat-password" name="form-register-repeat-password">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col col-lg-2 control-label" for="form-register-email"><?php echo Lang::get('website.email') ?></label>
+                            <div class="col col-lg-4 controls">
+                                <input class="input-with-feedback" type="text" id="form-register-email" name="form-register-email">
                             </div>
                         </div>
                         <div class="control-group">

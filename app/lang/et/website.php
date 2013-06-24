@@ -104,6 +104,8 @@ return array(
 'tags'=>'Sildid',
 'suggest_a_new_resource'=>'soovitan uute ressursside',
 'log_in_or_register_for_improving_translation'=>'Logi sisse või registreeru parandamiseks tõlge',
-'change_account_details'=>'Change settings',
-'forgot_password'=>'Forgot your password?',
+'change_account_details'=>'',
+'forgot_password'=>'',
+'name'=>'',
+'NYT'=>'1',
 );
