@@ -672,7 +672,6 @@ App.Views.DoSearch = Backbone.View.extend({
     },
 
     submitNavigational: function(){
-        $('#app-content-filters').hide();
         this.ajax = $.ajax({
             url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=search&format=raw&offset='+((parseInt(Box.get('page'))-1)*Box.get('perPage'))+'&limit=' + Box.get('perPage') + '&language=null&elevel=null&rtype=null&order=alphabetical&flash=yes&predicate=null&inclusive=yes',
             jsonpCallback: 'jsonCallback',
@@ -684,9 +683,10 @@ App.Views.DoSearch = Backbone.View.extend({
 
                     // Visualization thingies
                     $('#page-app').show();
+                    $('#content-filters-bar').css({visibility:'hidden'});
+                    $('#app-content-filters').css({visibility:'hidden'});
                     $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resources'));
                     $('#app-content-info').hide();
-                    $('#content-filters-bar').hide();
 
                     // If searchText is different, reset filters
                     Box.set('searchText', '');
@@ -716,13 +716,7 @@ App.Views.DoSearch = Backbone.View.extend({
                         }
 
                         // Assign facets and results
-                        var facets = new App.Collections.Facets({});
                         var resources = new App.Collections.Resources(search.get('records'));
-
-                        // Render the facets in the View
-                        var facetsView = new App.Views.Facets({ collection: facets });
-                        $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">'+lang('apply_filters')+':</h4>');
-                        $('#app-content-filters').append(facetsView.render().el);
 
                         // Render the results
                         var resultsView = new App.Views.SearchResults({ collection: resources });
@@ -748,6 +742,8 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Get text search
         var formBoxText = $('#form-search').val();
+        $('#content-filters-bar').css({visibility:'visible'});
+        $('#app-content-filters').css({visibility:'visible'});
 
         // If search through submit button, reset
         if ( !e.isTrigger ) {
