@@ -48,8 +48,9 @@ Import to the local server the ieru_organic_oauth.sql and ieru_organic_analytics
 
 **Success!**
 
-Check that everything is working accessing the following URL (change the server to the localhost or any other you are using):
+Check that everything is working accessing the following URLs:
 
 ```
 http://www.api.dev/api/analytics/translate?text=potato&from=en&to=es
+http://edunet.dev
 ```
