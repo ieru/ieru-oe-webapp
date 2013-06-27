@@ -1,13 +1,55 @@
-## Laravel 4.x
+IERU Organic Edunet Wen App
+---------------------------
 
-### A Framework For Web Artisans
+For installing the Analytics Service, a server with the following tools installed is required:
 
-[Official Documentation](http://four.laravel.com) (Under Active Development)
+* PHP 5.4
+* MySQL 5.5
+* Apache
+* Modules: mod_rewrite
+* Git
+* Composer (http://getcomposer.org)
 
-### Contributing To Laravel
+The file of the virtual hosts of the Apache server should be something like this: 
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+```
+<virtualhost *:80>
+     serveradmin  david@teluria.es
+     documentroot "/users/david/sites/github/api-server"
+     servername   edunet.dev
+     serveralias  www.edunet.dev
 
-### License
+     <directory /users/david/sites/github/api-server>
+         options indexes followsymlinks multiviews
+         allowoverride all
+         order allow,deny
+         allow from all
+     </directory>
+</virtualhost>
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Installation
+------------
+
+**Install the REST engine**
+
+Clone the Github project of the api server to a folder.
+```
+~/Sites/github $> git clone https://github.com/ieru/ieru-api-server
+```
+
+**Install the APIs**
+
+Check the github project for installation instructions of the API server (https://github.com/ieru/ieru-oe-webapp).
+
+**Database installation**
+
+Import to the local server the ieru_organic_oauth.sql and ieru_organic_analytics.sql files.
+
+**Success!**
+
+Check that everything is working accessing the following URL (change the server to the localhost or any other you are using):
+
+```
+http://www.api.dev/api/analytics/translate?text=potato&from=en&to=es
+```
