@@ -50,7 +50,7 @@ var api_server = 'http://api.dev';
 
 **Install the APIs**
 
-Check the github project for installation instructions of the API server (https://github.com/ieru/ieru-oe-webapp).
+Check the github project for installation instructions of the API server (https://github.com/ieru/ieru-api-server).
 
 **Databases installation**
 
