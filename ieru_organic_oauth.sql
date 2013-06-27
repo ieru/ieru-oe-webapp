@@ -9,7 +9,7 @@
  Target Server Version : 50527
  File Encoding         : utf-8
 
- Date: 06/26/2013 15:55:56 PM
+ Date: 06/26/2013 23:58:06 PM
 */
 
 SET NAMES utf8;
@@ -48,13 +48,6 @@ CREATE TABLE `users` (
   UNIQUE KEY `username` (`user_username`) USING BTREE,
   UNIQUE KEY `id` (`user_id`) USING BTREE,
   UNIQUE KEY `user_email` (`user_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
--- ----------------------------
---  Records of `users`
--- ----------------------------
-BEGIN;
-INSERT INTO `users` VALUES ('1', 'David BaÃ±os ExpÃ³sito', 'david', '1', 'b86ea3bcb78a2f226a9349fb1a8244e8:70d8dca44f0b52355f560218fbefef6d', null, 'david@teluria.es', '0000-00-00 00:00:00', '');
-COMMIT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 SET FOREIGN_KEY_CHECKS = 1;
