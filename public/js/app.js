@@ -1,3 +1,5 @@
+var api_server = 'http://api.dev';
+
 (function(){
 	window.App = {
 		Models: {},

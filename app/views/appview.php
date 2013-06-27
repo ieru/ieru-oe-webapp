@@ -179,7 +179,7 @@
         <!-- END HOME PAGE -->
 
         <!-- NAVIGATIONAL SEARCH PAGE -->
-        <div id="page-navigational">
+        <!--<div id="page-navigational">
             <div class="container">
                 <div class="row">
                     <div id="flash"></div>
@@ -245,13 +245,6 @@
 
             function initInterface ( $ )
             {
-                /*var request = $.getJSON('http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw');
-                request.done(function(){
-                   renderAdvancedOptions($);
-                }).fail(function(){
-                   $('#page-navigational .row').html('<div class="alert alert-danger col col-lg-8 col-offset-4">Navigational Search unavailable.</div>');
-                   console.log('fail',arguments);
-                });*/
                 try{
                     $.ajax({
                         url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw',
@@ -273,7 +266,7 @@
         </script>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- NAVIGATIONAL SEARCH PAGE -->
 
         <!-- SEARCH PAGE -->

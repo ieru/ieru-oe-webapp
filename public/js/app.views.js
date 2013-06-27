@@ -653,23 +653,11 @@ App.Views.DoSearch = Backbone.View.extend({
         $('#form-search').typeahead({
             name: 'terms',
             local: [],
-            remote: {url:'/api/organic/search/typeahead?text=%QUERY'}
+            remote: {url:api_server+'/api/organic/search/typeahead?text=%QUERY'}
         });
     },
 
     autocomplete: function(e){
-/*
-        var typeahead = $('#search-form input[type=text]');
-        typeahead.typeahead('setQuery', typeahead.val());
-        var model = new App.Models.Typeahead({text:typeahead.val()});
-        var that = this;
-        model.fetch().then(function(response){
-            if ( response.success ){
-                
-            }else{
-            }
-        });
-*/
     },
 
     submitNavigational: function(){

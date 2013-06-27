@@ -14,11 +14,11 @@ App.Models.Pagination = Backbone.Model.extend({
 });
 
 App.Models.Resources = Backbone.Model.extend({
-	urlRoot: '/api/organic/resources',
+	urlRoot: api_server+'/api/organic/resources',
 });
 
 App.Models.FullResource = Backbone.Model.extend({
-	urlRoot: '/api/organic/resources/',
+	urlRoot: api_server+'/api/organic/resources/',
 
 	default: {
 		lang: 'en',
@@ -27,7 +27,7 @@ App.Models.FullResource = Backbone.Model.extend({
 
 App.Models.Translation = Backbone.Model.extend({
 
-	urlRoot: '/api/analytics/translate',
+	urlRoot: api_server+'/api/analytics/translate',
 
 	fetch: function(){
 		this.set('service','microsoft');
@@ -39,7 +39,7 @@ App.Models.Grnet = {};
 
 App.Models.Grnet.Rating = Backbone.Model.extend({
 
-	urlRoot: '/api/analytics/resources',
+	urlRoot: api_server+'/api/analytics/resources',
 
 	url: function() {
 		return this.urlRoot + '/' + this.id + '/rating';
@@ -52,7 +52,7 @@ App.Models.Grnet.Rating = Backbone.Model.extend({
 
 App.Models.Grnet.AddRating = Backbone.Model.extend({
 
-	urlRoot: '/api/analytics/resources',
+	urlRoot: api_server+'/api/analytics/resources',
 
 	url: function() {
 		return this.urlRoot + '/' + this.get('location') + '/rating';
@@ -66,7 +66,7 @@ App.Models.Grnet.AddRating = Backbone.Model.extend({
 
 App.Models.Grnet.RatingHistory = Backbone.Model.extend({
 
-	urlRoot: '/api/analytics/resources',
+	urlRoot: api_server+'/api/analytics/resources',
 
 	url: function() {
 		return this.urlRoot + '/' + this.id + '/ratings';
@@ -79,7 +79,7 @@ App.Models.Grnet.RatingHistory = Backbone.Model.extend({
 
 App.Models.Search = Backbone.Model.extend({
 
-	urlRoot: '/api/organic/search',
+	urlRoot: api_server+'/api/organic/search',
 
 	defaults: {
 		text: '',
@@ -103,7 +103,7 @@ App.Models.Autocomplete = Backbone.Model.extend({
 
 App.Models.Login = Backbone.Model.extend({
 
-	urlRoot: '/api/organic/login',
+	urlRoot: api_server+'/api/organic/login',
 
 	fetch: function(){
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
@@ -112,7 +112,7 @@ App.Models.Login = Backbone.Model.extend({
 
 App.Models.Typeahead = Backbone.Model.extend({
 
-	urlRoot: '/api/organic/search/typeahead',
+	urlRoot: api_server+'/api/organic/search/typeahead',
 
 	fetch: function(){
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
@@ -121,7 +121,7 @@ App.Models.Typeahead = Backbone.Model.extend({
 
 App.Models.Logout = Backbone.Model.extend({
 
-	urlRoot: '/api/organic/logout',
+	urlRoot: api_server+'/api/organic/logout',
 
 	fetch: function(){
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
@@ -150,7 +150,7 @@ App.Models.Register = {};
 
 App.Models.Register.New = Backbone.Model.extend({
 
-	urlRoot: '/api/organic/register',
+	urlRoot: api_server+'/api/organic/register',
 
 	fetch: function(){
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
@@ -158,7 +158,7 @@ App.Models.Register.New = Backbone.Model.extend({
 });
 
 App.Models.Register.Activate = Backbone.Model.extend({
-	urlRoot: '/api/organic/users',
+	urlRoot: api_server+'/api/organic/users',
 
 	url: function() {
 		return this.urlRoot + '/' + this.get('username') + '/activate';
