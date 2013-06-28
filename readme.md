@@ -91,7 +91,7 @@ Use your Linux or OS X package manager of choice or download and install from th
 Installation
 ------------
 
-For installing it, follow this steps:
+For installing the project, follow these steps:
 
 * Download and unzip to your local server directory the file /_standalone/organic-edunet_0.1.zip.
 * Import the three SQL files you will find in there to your local MySQL database. You will have to create three distinct databases with the names of the .sql files, but removing the .sql extension.
