@@ -1,7 +1,7 @@
-IERU Organic Edunet Wen App
+IERU Organic Edunet Web App
 ---------------------------
 
-For installing the Analytics Service, a server with the following tools installed is required:
+For installing the Organic Edunet web app, a server with the following tools installed is required:
 
 * PHP 5.4
 * MySQL 5.5
