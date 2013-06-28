@@ -12,7 +12,7 @@ Technical requirements
 
 For installing the Organic Edunet web app, a server with the following tools installed is required:
 
-* PHP 5.4
+* PHP 5.3
 * MySQL 5.5
 * Apache
 * Modules: mod_rewrite
@@ -73,3 +73,31 @@ Check that everything is working accessing the following URLs:
 http://www.api.dev/api/analytics/translate?text=potato&from=en&to=es
 http://edunet.dev
 ```
+
+Standalone installation
+=======================
+
+You can find a full version of the Organic.Edunet project (updated from time to time with the latest version) in the folder /_standalone of the project. 
+
+Requisites
+----------
+
+* PHP 5.3 (http://php.net/download)
+* MySQL 5.5 (http://dev.mysql.com/downloads/mysql/)
+* Apache server (must have the mod_rewrite module activated)
+
+Use your Linux or OS X package manager of choice or download and install from the given links. In Windows, use a package like WampServer (http://www.wampserver.com/en/) that includes the php, mysql and apache server applications.
+
+Installation
+------------
+
+For installing it, follow this steps:
+
+* Download and unzip to your local server directory the file /_standalone/organic-edunet_0.1.zip.
+* Import the three SQL files you will find in there to your local MySQL database. You will have to create three distinct databases with the names of the .sql files, but removing the .sql extension.
+* Access the URL of your localhost (usually http://localhost) and you should see the website working.
+
+
+
+
+
