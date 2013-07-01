@@ -905,6 +905,7 @@ App.Views.FullResource = Backbone.View.extend({
         var that = this;
         this.ajax = this.model.fetch();
         this.ajax.then(function(response){
+            that.model = new App.Models.FullResource(response.data);
             // Parse fetch data
             that.model.set('location_rep', that.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' ));
 

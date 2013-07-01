@@ -55,6 +55,16 @@ return array(
 			'charset'  => 'latin1',
 			'collation'=> 'latin1_swedish_ci',
 			'prefix'   => '',
+		),
+		'oauth' => array(
+			'driver'   => 'mysql',
+			'host'     => 'localhost',
+			'database' => 'ieru_organic_oauth',
+			'username' => 'root',
+			'password' => '',
+			'charset'  => 'latin1',
+			'collation'=> 'latin1_swedish_ci',
+			'prefix'   => '',
 		)
 	),
 

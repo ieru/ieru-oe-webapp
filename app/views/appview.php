@@ -463,8 +463,8 @@
                 </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
-            <% for ( var i in napa_langs ){ %>
-                <span class="resourcelang"><img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %></span>
+            <% for ( var i in languages ){ %>
+                <span class="resourcelang"><img src="/images/blank.png" class="flag flag-<%= languages[i] %>" alt="<%= lang(languages[i]) %>" /> <%= lang(languages[i]) %></span>
             <% } %>
                 </small>
             </header>
@@ -472,7 +472,11 @@
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range.trim() != '' ? age_range : lang('none') %></li>
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> 
+                        <% if ( typeof age_range != 'undefined' ) { for ( var i in age_range ) { %>
+                            <%= age_range[i] %>
+                        <% } } else { %><%= lang('none') %><% } %>
+                    </li>
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
@@ -506,7 +510,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="#" data-location="<%= entry %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
+                        <a href="#" data-location="<%= location %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
                 </ul>
             </footer>
@@ -520,8 +524,8 @@
                 </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
-            <% for ( var i in napa_langs ){ %>
-                <span class="resourcelang"><img src="/images/blank.png" class="flag flag-<%= napa_langs[i] %>" alt="<%= lang(napa_langs[i]) %>" /> <%= lang(napa_langs[i]) %></span>
+            <% for ( var i in languages ){ %>
+                <span class="resourcelang"><img src="/images/blank.png" class="flag flag-<%= languages[i] %>" alt="<%= lang(languages[i]) %>" /> <%= lang(languages[i]) %></span>
             <% } %>
                 </small>
             </header>
@@ -529,7 +533,11 @@
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> <%= age_range.trim() ? age_range : lang('none') %></li>
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> 
+                        <% if ( typeof age_range != 'undefined' ) { for ( var i in age_range ) { %>
+                            <%= age_range[i] %>  
+                        <% } } else { %><%= lang('none') %><% } %>
+                    </li>
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
@@ -563,7 +571,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="#" data-location="<%= entry %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
+                        <a href="#" data-location="<%= location %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
                 </ul>
             </footer>
