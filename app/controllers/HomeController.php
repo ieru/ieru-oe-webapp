@@ -44,14 +44,19 @@ class HomeController extends BaseController {
     {
         # Get a featured resource
         $featured = Lom::with('General', 'General.Identifier')
-                        ->whereIn('lom_id',array(10302,940,1004))
+                        ->join('generals', 'generals.lom_id','=','loms.lom_id')
+                        ->join('generals_languages', 'generals_languages.general_id','=','generals.general_id')
                         ->orderBy(DB::raw('RAND()'))
+                        ->where('generals_languages.generals_language_lang','=',LANG)
                         ->take(1)
                         ->get();
 
         # Get the required information for showing the resources at the home page
         $carousel = Lom::with('General', 'General.Identifier')
+                        ->join('generals', 'generals.lom_id','=','loms.lom_id')
+                        ->join('generals_languages', 'generals_languages.general_id','=','generals.general_id')
                         ->orderBy('loms.lom_id', 'DESC')
+                        ->where('generals_languages.generals_language_lang','=',LANG)
                         ->take(5)
                         ->get();
 
