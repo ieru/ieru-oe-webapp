@@ -133,21 +133,21 @@
                         <section class="col col-lg-8">
                             <h2><?php echo Lang::get('website.latest_resources') ?></h2>
                             <?php foreach( $carousel as $resource ): ?>
-                            <article class="resource">
-                                <header>
-                                    <figure class="hidden-sm">
-                                        <a href="<?php echo $resource->url ?>">
-                                            <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
-                                            <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />-->
-                                        </a>
-                                    </figure>
-                                    <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'" class="translation-text"><?php echo$resource->title ?></a></h3>
-                                </header>
-                                <p><span class="translation-text"><?php echo $resource->description ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
-                                <footer>
-                                    <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
-                                </footer>
-                            </article>
+                                <article class="resource">
+                                    <header>
+                                        <figure class="hidden-sm">
+                                            <a href="<?php echo $resource->general->identifier[0]->identifier_entry ?>">
+                                                <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
+                                                <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo $resource->general->identifier[0]->identifier_entry ?>" border="1" alt="Preview by Thumbshots.com" />-->
+                                            </a>
+                                        </figure>
+                                        <h3><a href="<?php echo $resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo $resource->general->generals_title[0]->generals_title_string ?></a></h3>
+                                    </header>
+                                    <p><span class="translation-text"><?php echo $resource->general->generalsdescription[0]->generals_description_string ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo $resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                    <footer>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->general->identifier[0]->identifier_entry ?>"></span></p>
+                                    </footer>
+                                </article>
                             <?php endforeach ?>
                         </section>
                         <aside class="col col-lg-4">
@@ -157,16 +157,16 @@
                                 <article class="resource">
                                     <header>
                                         <figure>
-                                            <a href="<?php echo $resource->url ?>">
+                                            <a href="<?php echo $resource->general->identifier[0]->identifier_entry ?>">
                                                 <img width="100%" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
-                                                <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo $resource->url ?>" border="1" alt="Preview by Thumbshots.com" />-->
+                                                <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo $resource->general->identifier[0]->identifier_entry ?>" border="1" alt="Preview by Thumbshots.com" />-->
                                             </a>
                                         </figure>
-                                        <h3><a href="<?php echo $resource->url ?>" onclick="target='_blank'" class="translation-text"><?php echo $resource->title ?></a></h3>
+                                        <h3><a href="<?php echo $resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo $resource->general->generals_title[0]->generals_title_string ?></a></h3>
                                     </header>
-                                    <p><span class="translation-text"><?php echo $resource->description ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo $resource->FK_general ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                    <p><span class="translation-text"><?php echo $resource->general->generalsdescription[0]->generals_description_string ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo $resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->url ?>"></span></p>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo $resource->general->identifier[0]->identifier_entry ?>"></span></p>
                                     </footer>
                                 </article>
                                 <?php endforeach ?>

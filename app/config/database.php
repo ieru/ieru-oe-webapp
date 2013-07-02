@@ -52,8 +52,8 @@ return array(
 			'database' => 'ieru_organic_resources',
 			'username' => 'root',
 			'password' => '',
-			'charset'  => 'latin1',
-			'collation'=> 'latin1_swedish_ci',
+			'charset'  => 'utf8',
+			'collation'=> 'utf8_general_ci',
 			'prefix'   => '',
 		),
 		'oauth' => array(
@@ -62,8 +62,8 @@ return array(
 			'database' => 'ieru_organic_oauth',
 			'username' => 'root',
 			'password' => '',
-			'charset'  => 'latin1',
-			'collation'=> 'latin1_swedish_ci',
+			'charset'  => 'utf8',
+			'collation'=> 'utf8_general_ci',
 			'prefix'   => '',
 		)
 	),
