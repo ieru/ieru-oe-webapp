@@ -392,6 +392,13 @@
                 <ul class="pull-left list-unstyled">
                 </ul>
                 <p>&copy; Organic.Edunet 2013</p>
+                <p>Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community</p>
+                <p>
+                    <a href="http://ec.europa.eu/ict_psp">
+                        <img width="100" src="http://www.organic-lingua.eu/images/stories/eu_emblem.jpg" alt="eu_emblem" height="67" style="margin-top: 10px; float: right;">
+                        <img width="100" src="http://www.organic-lingua.eu/images/stories/logo_ict_psp.gif" alt="ICT Policy Support Programme (ICT PSP)" height="69" style="float: left; margin-top: 10px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border: medium outset #ffffff;">
+                    </a>
+                </p>
             </div>
         </footer>
 
