@@ -137,11 +137,10 @@
                                     <header>
                                         <figure class="hidden-sm">
                                             <a href="<?php echo @$resource->general->identifier[0]->identifier_entry ?>">
-                                                <img class="img-thumbnail" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
-                                                <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo @$resource->general->identifier[0]->identifier_entry ?>" border="1" alt="Preview by Thumbshots.com" />-->
+                                                <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
                                             </a>
                                         </figure>
-                                        <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generals_title[0]->generals_title_string ?></a></h3>
+                                        <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generalstitle[0]->generals_title_string ?></a></h3>
                                     </header>
                                     <p><span class="translation-text"><?php echo substr(@$resource->general->generalsdescription[0]->generals_description_string, 0, 170) ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
@@ -158,11 +157,10 @@
                                     <header>
                                         <figure>
                                             <a href="<?php echo @$resource->general->identifier[0]->identifier_entry ?>">
-                                                <img width="100%" src="/images/organic-edunet-resource-logo.jpeg" border="1" alt="Preview by Thumbshots.com" />
-                                                <!--<img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo @$resource->general->identifier[0]->identifier_entry ?>" border="1" alt="Preview by Thumbshots.com" />-->
+                                                <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
                                             </a>
                                         </figure>
-                                        <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generals_title[0]->generals_title_string ?></a></h3>
+                                        <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generalstitle[0]->generals_title_string ?></a></h3>
                                     </header>
                                     <p><span class="translation-text"><?php echo substr(@$resource->general->generalsdescription[0]->generals_description_string, 0, 170) ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
