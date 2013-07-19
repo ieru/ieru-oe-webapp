@@ -379,8 +379,6 @@ App.Views.SearchResults = Backbone.View.extend({
                 this.render();
             }, this);
 
-            this.model.set('location_rep', this.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' ));
-
             // Get language to show of those available in the resource
             if ( !!this.model.get('texts')[Box.get('interface')] && this.model.get('texts')[Box.get('interface')].title != '' )
                 this.model.set('metadata_language', Box.get('interface'));
@@ -906,8 +904,6 @@ App.Views.FullResource = Backbone.View.extend({
         this.ajax = this.model.fetch();
         this.ajax.then(function(response){
             that.model = new App.Models.FullResource(response.data);
-            // Parse fetch data
-            that.model.set('location_rep', that.model.get('location').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' ));
 
             // Get language to show of those available in the resource
             if ( !!that.model.get('texts')[Box.get('interface')] && that.model.get('texts')[Box.get('interface')].title != '' )
