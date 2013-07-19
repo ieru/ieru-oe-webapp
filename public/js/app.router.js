@@ -18,7 +18,7 @@ App.Router = Backbone.Router.extend({
         // Add Ratings
         $('#page-home .grnet-rating').each(function(){
         	if ( $(this).html() == '' ){
-	            var request = new App.Models.Grnet.Rating({id:$(this).attr('data-resource').replace( /[:\/]/g, '_' ).replace( /\?/g, '@' )})
+	            var request = new App.Models.Grnet.Rating({id:$(this).attr('data-resource')})
 	            var ratings = new App.Views.Grnet.Rating({model: request});
 	            $(this).empty().append(ratings.el);
         	}

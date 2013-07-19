@@ -144,7 +144,7 @@
                                     </header>
                                     <p><span class="translation-text"><?php echo substr(@$resource->general->generalsdescription[0]->generals_description_string, 0, 170) ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$resource->general->identifier[0]->identifier_entry ?>"></span></p>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$resource->lom_id ?>"></span></p>
                                     </footer>
                                 </article>
                             <?php endforeach ?>
@@ -164,7 +164,7 @@
                                     </header>
                                     <p><span class="translation-text"><?php echo substr(@$resource->general->generalsdescription[0]->generals_description_string, 0, 170) ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$resource->general->identifier[0]->identifier_entry ?>"></span></p>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$resource->lom_id ?>"></span></p>
                                     </footer>
                                 </article>
                                 <?php endforeach ?>
