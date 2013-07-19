@@ -514,7 +514,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="#" data-location="<%= location %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
+                        <a href="#" data-location="<%= xml %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
                 </ul>
             </footer>
@@ -574,7 +574,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="#" data-location="<%= location %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
+                        <a href="#" data-location="<%= xml %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
                 </ul>
             </footer>
@@ -707,7 +707,7 @@
                     x.setAttribute('Operation', action);
                     x.setAttribute('id', 'LOMWidget');
                     x.setAttribute("LOMID", $(this).attr('data-id'));
-                    x.setAttribute("LOMLocation", 'http://oe.dynalias.net/harvested_files/oai_scam_'+$(this).attr('data-location').replace(/oai:scam[.]kmr[.]se:/,'').replace( /[:\/.]/g, '_' ).replace( /\?/g, '@')+'.xml');
+                    x.setAttribute("LOMLocation", 'http://organic-edunet.eu/xml'+$(this).attr('data-location')+'.xml');
                     document.getElementsByTagName("head")[0].appendChild(x);
                 }catch(e){
                     alert(e.getMessage());
