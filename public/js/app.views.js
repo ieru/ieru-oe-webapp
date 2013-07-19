@@ -403,7 +403,7 @@ App.Views.SearchResults = Backbone.View.extend({
             var grnet = this.$el.find('.grnet-rating');
             
             grnet.append('<img src="/images/ajax-loader.gif" />');
-            var request = new App.Models.Grnet.Rating({id:this.model.get('location_rep')})
+            var request = new App.Models.Grnet.Rating({id:this.model.get('id')})
             var ratings = new App.Views.Grnet.Rating({model: request});
             this.model.set('ratingsModel',ratings);
             grnet.find('img').remove();
@@ -997,7 +997,7 @@ App.Views.FullResource = Backbone.View.extend({
         var grnet = this.$el.find('.grnet-rating');
         
         grnet.append('<img src="/images/ajax-loader.gif" />');
-        var request = new App.Models.Grnet.Rating({id:this.model.get('location_rep')})
+        var request = new App.Models.Grnet.Rating({id:this.model.get('id')})
         var ratings = new App.Views.Grnet.Rating({model: request});
         this.model.set('ratingsModel',ratings);
         grnet.find('img').remove();

@@ -707,7 +707,7 @@
                     x.setAttribute('Operation', action);
                     x.setAttribute('id', 'LOMWidget');
                     x.setAttribute("LOMID", $(this).attr('data-id'));
-                    x.setAttribute("LOMLocation", 'http://organic-edunet.eu/xml'+$(this).attr('data-location'));
+                    x.setAttribute("LOMLocation", 'http://organic-edunet.eu/xml/'+$(this).attr('data-location'));
                     document.getElementsByTagName("head")[0].appendChild(x);
                 }catch(e){
                     alert(e.getMessage());

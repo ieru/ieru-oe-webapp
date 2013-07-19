@@ -46,7 +46,7 @@ App.Models.Grnet.Rating = Backbone.Model.extend({
 	},
 
 	fetch: function(){
-		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+		return Backbone.Model.prototype.fetch.call(this, {});
 	},
 });
 
@@ -73,7 +73,7 @@ App.Models.Grnet.RatingHistory = Backbone.Model.extend({
 	},
 
 	fetch: function(){
-		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+		return Backbone.Model.prototype.fetch.call(this, {});
 	},
 });
 
