@@ -1143,15 +1143,9 @@
     }
 
     // Ensure that we have the appropriate request data.
-    if (options.data == null && model && (method === 'update' || method === 'patch')) {
+    if (options.data == null && model && (method === 'create' || method === 'update' || method === 'patch')) {
       params.contentType = 'application/json';
       params.data = JSON.stringify(options.attrs || model.toJSON(options));
-    }
-
-    // POST uses post payload, not JSONs (KISS methodology)
-    if (options.data == null && model && method=='create'){
-    	params.contentType = 'application/x-www-form-urlencoded';
-    	params.data = jQuery.param(model.toJSON(options));
     }
 
     // For older servers, emulate JSON by encoding the request into an HTML-form.
