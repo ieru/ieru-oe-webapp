@@ -7,7 +7,7 @@ About
 Organic.Edunet is, at its core, a multilingual search engine. With this in mind, the architecture has been developed to be platform-independent, and also it has not been developed with any specific programming language in mind. If designed correctly, the entire Organic.Edunet search service can be implemented on any language, and be exploited by any means: website, mobile app, desktop app, etc. All the services involved in the project are standalone, so they can be used by other projects around the world.
 
 
-Technical requirements
+Technical requirements 
 ----------------------
 
 For installing the Organic Edunet web app, a server with the following tools installed is required:
