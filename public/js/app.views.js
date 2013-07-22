@@ -505,7 +505,6 @@ App.Views.Facets = Backbone.View.extend({
                     var filter  = this.$el.find('a').attr('title');
                     var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
 
-                    // New filter, move to the first page of results
                     Box.set('page',1);
                     
                     // Try to add the filter
@@ -519,9 +518,7 @@ App.Views.Facets = Backbone.View.extend({
                     }else{
                         var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
                         filtersBarView.collection.add(filterModel);
-                        console.log('#/search/'+Box.get('searchText')+'/1'+get_filters_formatted());
-                        //Backbone.history.navigate('#/search/'+Box.get('searchText')+'/1'+get_filters_formatted(), false);
-                        //$('#header form').submit();
+                        $('#header form').submit();
                     }
                     Box.set('filters', filtersBarView.collection);
                 }
