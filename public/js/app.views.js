@@ -624,7 +624,6 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Set the filters for the request
             if ( !!filters && !changedFilters ){
-                console.log('filters');
                 var params = filters.split(':');
                 for ( var i in params ){
                     var filterinfo = params[i].split('=');
