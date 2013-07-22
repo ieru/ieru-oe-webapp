@@ -1,13 +1,18 @@
 App.Router = Backbone.Router.extend({
 	routes: {
 		'': 'index',
-		'search/:id': 'search',
-		'search/:id/:page': 'search_page',
-		'resource/:id': 'resource',
-		'user/register': 'register',
+
+		'search/:id': 				 'search',
+		'search/:id/:page':    		 'search_page',
+		'search/:id/:page/:filters': 'search_page',
+
+		'resource/:id': 			 'resource',
+
+		'user/register': 			 'register',
 		'user/register/:user/:hash': 'activate',
-		'navigation': 'navigation',
-		'navigation/:id': 'navigation',
+
+		'navigation': 				 'navigation',
+		'navigation/:id': 			 'navigation',
 	},
 
 	index: function(){
@@ -38,17 +43,14 @@ App.Router = Backbone.Router.extend({
 	},
 
 	search: function(text){
-		console.log('search sin id');
-		Router.navigate('#/search/'+text+'/1');
+		$('#header form').submit();
 	},
 
-	search_page: function(text,page){
+	search_page: function(text,page,filters){
 		show_view( 'page-app' );
-		console.log('search con id');
 
-		vent.trigger('cancel:ajaxs');
 		$('#header form input[type=text]').val(text);
-		vent.trigger( 'search:submit', text, page );
+		vent.trigger( 'search:submit', text, page, filters );
 	},
 
 	resource: function(id){

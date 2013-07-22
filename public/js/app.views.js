@@ -343,7 +343,7 @@ App.Views.SearchResults = Backbone.View.extend({
                 Box.set('filters', filtersBarView.collection);
                 Router.navigate('#/search/'+Box.get('searchText')+'/1');
 
-                $('#header form').submit();
+                //$('#header form').submit();
             }
         },
 
@@ -505,6 +505,9 @@ App.Views.Facets = Backbone.View.extend({
                     var filter  = this.$el.find('a').attr('title');
                     var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
 
+                    // New filter, move to the first page of results
+                    Box.set('page',1);
+                    
                     // Try to add the filter
                     for ( var i in filtersBarView.collection.models )
                         if ( filtersBarView.collection.models[i].get('valor') == filter )
@@ -512,23 +515,15 @@ App.Views.Facets = Backbone.View.extend({
 
                     // If it couldnt add the filter, remove it from the collection
                     if ( found == true ){
-                        // Remove filter from list
-                        for ( var i in filtersBarView.collection.models )
-                            if ( filtersBarView.collection.models[i].get('valor') == filter )
-                                filtersBarView.collection.remove(filtersBarView.collection.models[i]);
-
-                        // Remove filter from filter bar
-                        $('#close-button-'+filter.trim().replace(/ /g, '-')).trigger('click');
-                        vent.trigger('cancel:ajaxs');
+                        $('#close-button-'+filter.replace(/ /g, '-')).trigger('click');
                     }else{
                         var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
                         filtersBarView.collection.add(filterModel);
+                        console.log('#/search/'+Box.get('searchText')+'/1'+get_filters_formatted());
+                        //Backbone.history.navigate('#/search/'+Box.get('searchText')+'/1'+get_filters_formatted(), false);
+                        //$('#header form').submit();
                     }
                     Box.set('filters', filtersBarView.collection);
-                    Box.set('page',1);
-                    Router.navigate('#/search/'+Box.get('searchText')+'/1');
-
-                    $('#header form').submit();
                 }
             })
 
@@ -625,11 +620,47 @@ App.Views.DoSearch = Backbone.View.extend({
 
     initialize: function(){
         // Submit search event
-        vent.on( 'search:submit', function(text,page){
-            vent.trigger('cancel:ajaxs');
+        vent.on( 'search:submit', function(text,page,filters){
             Box.set('searchText', text);
             Box.set('page',page);
-            Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page'));
+
+            // Set the filters for the request
+            if ( !!filters ){
+                var params = filters.split(':');
+                for ( var i in params ){
+                    var filterinfo = params[i].split('=');
+
+                    var found   = false;
+                    var filters = Box.get('filters');
+                    var filter  = filterinfo[1];
+                    var parent  = filterinfo[0];
+
+                    // Try to add the filter
+                    for ( var i in filtersBarView.collection.models )
+                        if ( filtersBarView.collection.models[i].get('valor') == filter )
+                            found = true;
+
+                    Box.set('filters', filtersBarView.collection);
+                    Box.set('page',1);
+
+                    // If it couldnt add the filter, remove it from the collection
+                    if ( found == true ){
+                        // Remove filter from list
+                        for ( var i in filtersBarView.collection.models )
+                            if ( filtersBarView.collection.models[i].get('valor') == filter )
+                                filtersBarView.collection.remove(filtersBarView.collection.models[i]);
+
+                        // Remove filter from filter bar
+                        $('#close-button-'+filter.trim().replace(/ /g, '-')).trigger('click');
+                        vent.trigger('cancel:ajaxs');
+                    }else{
+                        var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
+                        filtersBarView.collection.add(filterModel);
+                    }
+                }
+            }
+
+            //Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page')+get_filters_formatted());
             $('#header form').submit();
         }, this );
 
@@ -729,14 +760,17 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Get text search
         var formBoxText = $('#form-search').val();
+
+        // When showing the navigational search results, we hide the following boxes,
+        // so now we have to show them up
         $('#content-filters-bar').css({visibility:'visible'});
         $('#app-content-filters').css({visibility:'visible'});
 
         // If search through submit button, reset
-        if ( !e.isTrigger ) {
+        /*if ( !e.isTrigger ) {
             if ( formBoxText == Box.get('searchText') ){
                 Router.navigate('#/search/'+formBoxText+'/1');
-                $('#header form').submit();
+                //$('#header form').submit();
             }else{
                 Box.set('searchText', formBoxText);
             }
@@ -747,23 +781,23 @@ App.Views.DoSearch = Backbone.View.extend({
             Box.set('page', 1);
             Box.set('filters', new App.Collections.Filters());
             return;
-        }
+        }*/
 
         // Check empty search
-        if ( formBoxText.trim() == '' ){
+        /*if ( formBoxText.trim() == '' ){
             var box = $('#search-form input');
             var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
             box.after(text);
             return;
-        }
+        }*/
 
         // Check not allowed characters
-        if ( formBoxText.match(/[<>]/g) ){
+        /*if ( formBoxText.match(/[<>]/g) ){
             var box = $('#form-search');
             var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('character_not_allowed')+'</div>'
             box.after(text);
             return;
-        }
+        }*/
         $('#app-content-filters').empty();
 
         // Visualization thingies
@@ -783,70 +817,31 @@ App.Views.DoSearch = Backbone.View.extend({
         search.set('total', 0);
         search.set('filter', Box.get('filters').toJSON());
 
-        // Create hash with request params for not requesting twice same data
-        var hash = hashcode( JSON.stringify(search.toJSON()) );
+        this.ajax = search.fetch();
 
-        // If it is a fresh request
-        if ( !App.Searches[hash] ){
-            this.ajax = search.fetch();
+        // Generate response
+        this.ajax.then(function(response){
+            
+            if ( get_section() != 'search' )
+                return;
 
-            // Generate response
-            this.ajax.then(function(response){
-                
-                if ( get_section() != 'search' )
-                    return;
-
-                // On error
-                if ( !response.success ){
-                    vent.trigger('search:error',response.message);
-                    return;
-                }
-
-                // Cache the request
-                App.Searches[hash] = response;
-
-                // Assign total pages and other data
-                Box.set('totalPages',response.data.pages);
-                Box.set('totalRecords', response.data.total);
-
-                // Assign facets and results
-                var facets = new App.Collections.Facets(search.get('data').facets);
-                var resources = new App.Collections.Resources(search.get('data').resources);
-
-                // Render the facets in the View
-                var facetsView = new App.Views.Facets({ collection: facets });
-                $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">'+lang('apply_filters')+':</h4>');
-                $('#app-content-filters').append(facetsView.render().el);
-                $('#collapse-click-educationalContext').trigger('click');
-
-                // Render the results
-                var resultsView = new App.Views.SearchResults({ collection: resources });
-                $('#app-content-results').html(resultsView.render().el);
-
-                // Render the pagination
-                var paginationView = new App.Views.Pagination({ model: Box });
-                $('.app-content-pagination').html(paginationView.render().el);
-
-                // Remove memory of request object
-                delete App.Ajaxs.search;
-                vent.trigger('search:resolved');
-            });
-
-        // Duplicated request
-        }else{
-            var response = App.Searches[hash];
+            // On error
+            if ( !response.success ){
+                vent.trigger('search:error',response.message);
+                return;
+            }
 
             // Assign total pages and other data
             Box.set('totalPages',response.data.pages);
             Box.set('totalRecords', response.data.total);
 
             // Assign facets and results
-            var facets = new App.Collections.Facets(response.data.facets);
-            var resources = new App.Collections.Resources(response.data.resources);
+            var facets = new App.Collections.Facets(search.get('data').facets);
+            var resources = new App.Collections.Resources(search.get('data').resources);
 
             // Render the facets in the View
             var facetsView = new App.Views.Facets({ collection: facets });
-            $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">Apply filters:</h4>');
+            $('#app-content-filters').html('<h4 style="margin: 0 0 10px 0; ">'+lang('apply_filters')+':</h4>');
             $('#app-content-filters').append(facetsView.render().el);
             $('#collapse-click-educationalContext').trigger('click');
 
@@ -859,9 +854,9 @@ App.Views.DoSearch = Backbone.View.extend({
             $('.app-content-pagination').html(paginationView.render().el);
 
             // Remove memory of request object
-            delete App.Ajaxs.search;
+            //delete App.Ajaxs.search;
             vent.trigger('search:resolved');
-        }
+        });
     }
 });
 
@@ -1016,5 +1011,15 @@ App.Views.Register.Activate = Backbone.View.extend({
 
 
 
-
-
+/**
+ * HELPER FUNCTIONS
+ */
+function get_filters_formatted (){
+    var filters_format = '';
+    filtersBarView.collection.each(function(filter){
+        if ( filters_format != '' )
+            filters_format = filters_format + ':';
+        filters_format = filters_format + filter.get('clave')+'='+filter.get('valor');
+    }, this);
+    return filters_format!='' ? '/'+filters_format : '';
+}
