@@ -52,7 +52,7 @@ function get_filters_formatted (){
     filtersBarView.collection.each(function(filter){
         if ( filters_format != '' )
             filters_format = filters_format + ':';
-        filters_format = filters_format + filter.get('clave')+'='+filter.get('valor');
+        filters_format = filters_format + filter.get('clave')+'='+filter.get('valor').replace(/\//g, '@');
     }, this);
     return filters_format!='' ? '/'+filters_format : '';
 }
