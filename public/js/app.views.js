@@ -1006,18 +1006,3 @@ App.Views.Register.Activate = Backbone.View.extend({
         });
     }
 });
-
-
-
-/**
- * HELPER FUNCTIONS
- */
-function get_filters_formatted (){
-    var filters_format = '';
-    filtersBarView.collection.each(function(filter){
-        if ( filters_format != '' )
-            filters_format = filters_format + ':';
-        filters_format = filters_format + filter.get('clave')+'='+filter.get('valor');
-    }, this);
-    return filters_format!='' ? '/'+filters_format : '';
-}

@@ -46,3 +46,13 @@ function get_section ()
     var i = Backbone.history.fragment.split('/');
     return (Backbone.history.fragment.charAt(0)=='/')?i[1]:i[0];
 }
+
+function get_filters_formatted (){
+    var filters_format = '';
+    filtersBarView.collection.each(function(filter){
+        if ( filters_format != '' )
+            filters_format = filters_format + ':';
+        filters_format = filters_format + filter.get('clave')+'='+filter.get('valor');
+    }, this);
+    return filters_format!='' ? '/'+filters_format : '';
+}
