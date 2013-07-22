@@ -180,8 +180,8 @@
         <div id="page-navigational">
             <div class="container">
                 <div class="row">
-                    <div id="flash">
-                    </div>
+                    <!-- in one line without spaces -->
+                    <div id="flash"></div>
                     <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
                     <script type="text/javascript">
                         var ontResourcesURI;
