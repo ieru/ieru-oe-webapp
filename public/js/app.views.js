@@ -340,10 +340,9 @@ App.Views.SearchResults = Backbone.View.extend({
                 });
                 filtersBarView.collection.add(filterModel);
                 Box.set('page',1);
+                changedFilters = true;
                 Box.set('filters', filtersBarView.collection);
-                Router.navigate('#/search/'+Box.get('searchText')+'/1');
-
-                //$('#header form').submit();
+                Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page')+get_filters_formatted());
             }
         },
 
