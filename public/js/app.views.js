@@ -518,7 +518,8 @@ App.Views.Facets = Backbone.View.extend({
                     }else{
                         var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
                         filtersBarView.collection.add(filterModel);
-                        $('#header form').submit();
+                        changedFilters = true;
+                        Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page')+get_filters_formatted());
                     }
                     Box.set('filters', filtersBarView.collection);
                 }
@@ -573,7 +574,8 @@ App.Views.FiltersBar = Backbone.View.extend({
             var parent = $('#content-filters-bar').find('span');
             if ( $.trim(parent.html()) == '' )
                 parent.html(lang('none'));
-            $('#header form').submit();
+            Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page')+get_filters_formatted());
+            changedFilters = true;
         },
 
         remove: function(){
@@ -622,7 +624,7 @@ App.Views.DoSearch = Backbone.View.extend({
             Box.set('page',page);
 
             // Set the filters for the request
-            if ( !!filters ){
+            if ( !!filters && !changedFilters ){
                 var params = filters.split(':');
                 for ( var i in params ){
                     var filterinfo = params[i].split('=');
@@ -657,7 +659,6 @@ App.Views.DoSearch = Backbone.View.extend({
                 }
             }
 
-            //Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page')+get_filters_formatted());
             $('#header form').submit();
         }, this );
 

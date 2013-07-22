@@ -673,6 +673,7 @@
             var doLogin = new App.Views.LoginForm();
             var doRegister = new App.Views.RegisterNewUser();
             var autoTranslate = new App.Views.Autotranslate();
+            var changedFilters = false;
 
             // Router + History
             Router = new App.Router;
