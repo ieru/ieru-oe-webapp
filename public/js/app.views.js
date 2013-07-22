@@ -765,37 +765,35 @@ App.Views.DoSearch = Backbone.View.extend({
         $('#app-content-filters').css({visibility:'visible'});
 
         // If search through submit button, reset
-        /*if ( !e.isTrigger ) {
+        if ( !e.isTrigger ) {
             if ( formBoxText == Box.get('searchText') ){
                 Router.navigate('#/search/'+formBoxText+'/1');
-                //$('#header form').submit();
             }else{
                 Box.set('searchText', formBoxText);
             }
             if ( Backbone.history.fragment.split('/')[1] != 'search' )
                 Router.navigate('#/search/'+formBoxText+'/1');
-            //alert('#/search/'+formBoxText+'/'+Box.get('page'));
             $('#content-filters-bar').find('span').html(lang('none'));
             Box.set('page', 1);
             Box.set('filters', new App.Collections.Filters());
             return;
-        }*/
+        }
 
         // Check empty search
-        /*if ( formBoxText.trim() == '' ){
+        if ( formBoxText.trim() == '' ){
             var box = $('#search-form input');
             var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
             box.after(text);
             return;
-        }*/
+        }
 
         // Check not allowed characters
-        /*if ( formBoxText.match(/[<>]/g) ){
+        if ( formBoxText.match(/[<>]/g) ){
             var box = $('#form-search');
             var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('character_not_allowed')+'</div>'
             box.after(text);
             return;
-        }*/
+        }
         $('#app-content-filters').empty();
 
         // Visualization thingies
