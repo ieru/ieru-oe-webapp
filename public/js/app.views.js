@@ -224,7 +224,7 @@ App.Views.SearchInfoBar = Backbone.View.extend({
         Box.set('perPage',$(e.currentTarget).find('a').html());
         Box.set('page', 1);
         var stext = Box.get('searchText') == '' ? '' : '/'+Box.get('searchText');
-        Router.navigate('#/'+get_section()+stext+'/1');
+        Router.navigate('#/'+get_section()+stext+'/1'+get_filters_formatted());
         $('#results-per-page').find('> a').html(Box.get('perPage')+'<span class="glyphicon glyphicon-chevron-down"></span>');
         if ( Box.get('searchText') != '' )
             $('#header form').submit();
@@ -624,6 +624,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
             // Set the filters for the request
             if ( !!filters && !changedFilters ){
+                console.log('filters');
                 var params = filters.split(':');
                 for ( var i in params ){
                     var filterinfo = params[i].split('=');
@@ -639,7 +640,6 @@ App.Views.DoSearch = Backbone.View.extend({
                             found = true;
 
                     Box.set('filters', filtersBarView.collection);
-                    Box.set('page',1);
 
                     // If it couldnt add the filter, remove it from the collection
                     if ( found == true ){
@@ -656,6 +656,7 @@ App.Views.DoSearch = Backbone.View.extend({
                         filtersBarView.collection.add(filterModel);
                     }
                 }
+                changedFilters = true;
             }
 
             $('#header form').submit();
@@ -766,12 +767,12 @@ App.Views.DoSearch = Backbone.View.extend({
         // If search through submit button, reset
         if ( !e.isTrigger ) {
             if ( formBoxText == Box.get('searchText') ){
-                Router.navigate('#/search/'+formBoxText+'/1');
+                Router.navigate('#/search/'+formBoxText+'/1'+get_filters_formatted());
             }else{
                 Box.set('searchText', formBoxText);
             }
             if ( Backbone.history.fragment.split('/')[1] != 'search' )
-                Router.navigate('#/search/'+formBoxText+'/1');
+                Router.navigate('#/search/'+formBoxText+'/1'+get_filters_formatted());
             $('#content-filters-bar').find('span').html(lang('none'));
             Box.set('page', 1);
             Box.set('filters', new App.Collections.Filters());

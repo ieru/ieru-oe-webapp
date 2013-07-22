@@ -43,10 +43,12 @@ App.Router = Backbone.Router.extend({
 	},
 
 	search: function(text){
+		console.log('entra en basico');
 		$('#header form').submit();
 	},
 
 	search_page: function(text,page,filters){
+		console.log('entra:'+page)
 		show_view( 'page-app' );
 
 		$('#header form input[type=text]').val(text);

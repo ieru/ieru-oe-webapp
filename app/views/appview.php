@@ -620,23 +620,23 @@
             <ul class="pagination">
 
             <% if ( page > 1 ) { %>
-              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= 1 %>"><%= lang('first') %></a></li>
+              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= 1 %><%=get_filters_formatted()%>"><%= lang('first') %></a></li>
             <% } %>
 
             <% if ( page > 1 ) { %>
-              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page-1 %>">&laquo;</a></li>
+              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page-1 %><%=get_filters_formatted()%>">&laquo;</a></li>
             <% } %>
 
             <% for ( var i = startPage ; i <= page+numPagLinks && i <= totalPages ; i++ ){ %>
-              <li <% if ( i == page ) { %>class="disabled"<% } %>><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= i %>"><%= i %></a></li>
+              <li <% if ( i == page ) { %>class="disabled"<% } %>><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= i %><%=get_filters_formatted()%>"><%= i %></a></li>
             <% } %>
 
             <% if ( page < totalPages ) { %>
-              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page+1 %>">&raquo;</a></li>
+              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page+1 %><%=get_filters_formatted()%>">&raquo;</a></li>
             <% } %>
 
             <% if ( page < totalPages ) { %>
-              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= totalPages %>"><%= lang('last') %></a></li>
+              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= totalPages %><%=get_filters_formatted()%>"><%= lang('last') %></a></li>
             <% } %>
 
             </ul>
