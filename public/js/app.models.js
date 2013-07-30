@@ -30,7 +30,7 @@ App.Models.Translation = Backbone.Model.extend({
 	urlRoot: api_server+'/api/analytics/translate',
 
 	fetch: function(){
-		this.set('service','microsoft');
+		this.set('cache','true');
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
 	},
 });
