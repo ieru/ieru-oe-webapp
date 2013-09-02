@@ -137,7 +137,7 @@
                                     <header>
                                         <figure class="hidden-sm">
                                             <a href="<?php echo @$resource->general->identifier[0]->identifier_entry ?>">
-                                                <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
+                                                <img class="img-thumbnail" src="http://img.bitpixels.com/getthumbnail?code=62413&amp;size=300&amp;url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
                                             </a>
                                         </figure>
                                         <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generalstitle[0]->generals_title_string ?></a></h3>
@@ -157,7 +157,7 @@
                                     <header>
                                         <figure>
                                             <a href="<?php echo @$resource->general->identifier[0]->identifier_entry ?>">
-                                                <img class="img-thumbnail" style="width: 100%; " src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=300&url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
+                                                <img class="img-thumbnail" style="width: 100%; " src="http://img.bitpixels.com/getthumbnail?code=62413&amp;size=500&amp;url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
                                             </a>
                                         </figure>
                                         <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generalstitle[0]->generals_title_string ?></a></h3>
@@ -463,7 +463,7 @@
         <script id="resource-content-full" type="text/template">
             <header>
                 <figure class="hidden-sm">
-                    <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
+                    <img class="img-thumbnail" src="http://img.bitpixels.com/getthumbnail?code=62413&amp;size=300&amp;url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
                 </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
@@ -523,7 +523,7 @@
         <script id="resource-content" type="text/template">
             <header>
                 <figure class="hidden-sm">
-                    <img class="img-thumbnail" src="http://images.thumbshots.com/image.aspx?cid=QtStE4McALo%3d&v=1&w=140&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
+                    <img class="img-thumbnail" src="http://img.bitpixels.com/getthumbnail?code=62413&amp;size=300&amp;url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
                 </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
@@ -653,13 +653,13 @@
         <script src="js/underscore.js"></script>
         <script src="js/backbone.js"></script>
         <!-- App javaScript files -->
-        <script src="js/app.js"></script>
-        <script src="js/app.models.js"></script>
-        <script src="js/app.views.js"></script>
-        <script src="js/app.collections.js"></script>
-        <script src="js/app.router.js"></script>
+        <script src="js/app.js?date=<?=time()?>"></script>
+        <script src="js/app.models.js?date=<?=time()?>"></script>
+        <script src="js/app.views.js?date=<?=time()?>"></script>
+        <script src="js/app.collections.js?date=<?=time()?>"></script>
+        <script src="js/app.router.js?date=<?=time()?>"></script>
         <!--Default language file -->
-        <script src="js/lang/<?php echo LANG ?>.js"></script>
+        <script src="js/lang/<?php echo LANG ?>.js?date=<?=time()?>"></script>
 
         <script>
             //$.ajaxSetup({ cache: false });

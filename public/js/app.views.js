@@ -175,6 +175,12 @@ App.Views.Grnet.Rating = Backbone.View.extend({
         var that = this;
         this.ajax = this.model.fetch();
         this.ajax.then(function(response){
+            // No ratings retrieved for the resource: show null ratings
+            if ( !response.data ){
+                response.data = {};
+                response.data.votes = 0;
+                response.data.rating = 0;
+            }
             that.$el.html( that.template( response.data ) );
         });
         return this;
