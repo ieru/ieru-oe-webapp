@@ -653,13 +653,13 @@
         <script src="js/underscore.js"></script>
         <script src="js/backbone.js"></script>
         <!-- App javaScript files -->
-        <script src="js/app.js?date=<?=time()?>"></script>
-        <script src="js/app.models.js?date=<?=time()?>"></script>
-        <script src="js/app.views.js?date=<?=time()?>"></script>
-        <script src="js/app.collections.js?date=<?=time()?>"></script>
-        <script src="js/app.router.js?date=<?=time()?>"></script>
+        <script src="js/app.js?date=<?php echo time()?>"></script>
+        <script src="js/app.models.js?date=<?php echo time()?>"></script>
+        <script src="js/app.views.js?date=<?php echo time()?>"></script>
+        <script src="js/app.collections.js?date=<?php echo time()?>"></script>
+        <script src="js/app.router.js?date=<?php echo time()?>"></script>
         <!--Default language file -->
-        <script src="js/lang/<?php echo LANG ?>.js?date=<?=time()?>"></script>
+        <script src="js/lang/<?php echo LANG ?>.js?date=<?php echo time()?>"></script>
 
         <script>
             //$.ajaxSetup({ cache: false });
