@@ -31,6 +31,13 @@ App.Router = Backbone.Router.extend({
 
         // Check for need of autotranslation
         vent.trigger('auto:translate');
+
+
+		var url = Backbone.history.getFragment();
+		_gaq.push(['_trackPageview', '/#/'+url]);
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	},
 
 	navigation: function(id){
@@ -40,6 +47,12 @@ App.Router = Backbone.Router.extend({
 	    	swfobject.embedSWF(URL, flashID, width, height, flashVersion, expressInstallURL, flashvars, params, attributes);
 		}
     	initInterface($);
+
+		var url = Backbone.history.getFragment();
+		_gaq.push(['_trackPageview', '/#/'+url]);
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	},
 
 	search: function(text){
@@ -51,18 +64,39 @@ App.Router = Backbone.Router.extend({
 
 		$('#header form input[type=text]').val(text);
 		vent.trigger( 'search:submit', text, page, filters );
+
+
+		var url = Backbone.history.getFragment();
+		_gaq.push(['_trackPageview', '/#/'+url]);
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	},
 
 	resource: function(id){
 		show_view( 'page-resource' );
 
 		var resource = new App.Views.FullResource({ model: new App.Models.FullResource({id:id}) });
+
+
+		var url = Backbone.history.getFragment();
+		_gaq.push(['_trackPageview', '/#/'+url]);
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	},
 
 	register: function(){
 		show_view( 'page-register-user' );
 
 		vent.trigger('cancel:ajaxs');
+
+
+		var url = Backbone.history.getFragment();
+		_gaq.push(['_trackPageview', '/#/'+url]);
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	},
 
 	activate: function(user,hash){
@@ -71,5 +105,12 @@ App.Router = Backbone.Router.extend({
 		var register = new App.Views.Register.Activate({model: new App.Models.Register.Activate({username:user,hash:hash})});
 		register.render();
 		vent.trigger('cancel:ajaxs');
+
+
+		var url = Backbone.history.getFragment();
+		_gaq.push(['_trackPageview', '/#/'+url]);
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	}
 })

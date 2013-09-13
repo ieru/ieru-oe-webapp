@@ -15,12 +15,6 @@ var api_server = 'http://api.dev';
 })();
 
 function show_view ( view ){
-	var url = Backbone.history.getFragment();
-	_gaq.push(['_trackPageview', '/#/'+url]);
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-
 	window.scrollTo(0,0);
 
 	$('#page-home').hide();
