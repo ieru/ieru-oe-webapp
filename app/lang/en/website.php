@@ -108,4 +108,11 @@ return array(
 'change_account_details'=>'Change settings',
 'forgot_password'=>'Forgot your password?',
 'name'=>'Name',
+
+'resource_type'=>'Resource Type',
+'media_format'=>'Media Format',
+'educational_context'=>'Educational Context',
+'intended_audience'=>'Intended Audience',
+'copyright'=>'Rights',
+'collection'=>'Collection',
 );

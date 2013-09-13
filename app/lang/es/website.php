@@ -103,9 +103,14 @@ return array(
 'none'=>'ninguno',
 'tags'=>'Etiquetas',
 'suggest_a_new_resource'=>'Sugerir nuevo recurso',
-
-'log_in_or_register_for_improving_translation'=> 'Inicia sesión o regístrate para mejorar la traducción',
+'log_in_or_register_for_improving_translation'=>'Inicia sesión o regístrate para mejorar la traducción',
 'change_account_details'=>'Cambiar datos de cuenta',
 'forgot_password'=>'¿Olvidaste tu contraseña?',
 'name'=>'Nombre',
+'resource_type'=>'Tipo',
+'media_format'=>'Formato',
+'educational_context'=>'Contexto educativo',
+'intended_audience'=>'Audiencia',
+'copyright'=>'Derechos',
+'collection'=>'Colección',
 );

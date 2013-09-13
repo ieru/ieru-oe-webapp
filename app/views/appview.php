@@ -516,6 +516,52 @@
                         </ul>
                         <a href="#" data-location="<%= xml %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
+                    <li><hr/></li>
+                    <li>
+                        <strong><?php echo Lang::get('website.resource_type') ?>:</strong>
+                        <% if ( !!types && types.length > 0 ){ %>
+                            <% for ( var i in types ){ %>
+                            <%= types[i] %>,
+                            <% } %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.media_format') ?>:</strong> <%= format %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.educational_context') ?>:</strong>
+                        <% if ( !!educational && educational.length > 0 ){ %>
+                            <% for ( var i in educational ){ %>
+                            <%= educational[i] %>,
+                            <% } %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.intended_audience') ?>:</strong>
+                        <% if ( !!audience && audience.length > 0 ){ %>
+                            <% for ( var i in audience ){ %>
+                            <%= audience[i] %>,
+                            <% } %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.copyright') ?>:</strong>
+                        <% if ( !!audience ){ %>
+                            <%= copyright.description %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.collection') ?>:</strong>
+                            <%= xml.split('/')[0] %>
+                    </li>
                 </ul>
             </footer>
         </script>

@@ -107,4 +107,10 @@ return array(
 'change_account_details'=>'modifier les détails de compte',
 'forgot_password'=>'mot de passe oublié',
 'name'=>'nom',
+'resource_type'=>'Type de ressource',
+'media_format'=>'Format de médias',
+'educational_context'=>'Contexte éducatif',
+'intended_audience'=>'Public visé',
+'copyright'=>'Droit d\'auteur',
+'collection'=>'Collection',
 );
