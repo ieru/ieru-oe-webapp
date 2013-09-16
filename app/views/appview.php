@@ -137,7 +137,7 @@
                                     <header>
                                         <figure class="hidden-sm">
                                             <a href="<?php echo @$resource->general->identifier[0]->identifier_entry ?>">
-                                                <img class="img-thumbnail" src="http://img.bitpixels.com/getthumbnail?code=62413&amp;size=300&amp;url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
+                                                <img class="img-thumbnail" src="http://api.pagepeeker.com/v2/thumbs.php?size=m&url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
                                             </a>
                                         </figure>
                                         <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generalstitle[0]->generals_title_string ?></a></h3>
@@ -157,7 +157,7 @@
                                     <header>
                                         <figure>
                                             <a href="<?php echo @$resource->general->identifier[0]->identifier_entry ?>">
-                                                <img class="img-thumbnail" style="width: 100%; " src="http://img.bitpixels.com/getthumbnail?code=62413&amp;size=500&amp;url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
+                                                <img class="img-thumbnail" style="width: 100%; " src="http://api.pagepeeker.com/v2/thumbs.php?size=x&url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview by Thumbshots.com" />
                                             </a>
                                         </figure>
                                         <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generalstitle[0]->generals_title_string ?></a></h3>
@@ -463,7 +463,7 @@
         <script id="resource-content-full" type="text/template">
             <header>
                 <figure class="hidden-sm">
-                    <img class="img-thumbnail" src="http://img.bitpixels.com/getthumbnail?code=62413&amp;size=300&amp;url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
+                    <img class="img-thumbnail" src="http://api.pagepeeker.com/v2/thumbs.php?size=m&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
                 </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
@@ -569,7 +569,7 @@
         <script id="resource-content" type="text/template">
             <header>
                 <figure class="hidden-sm">
-                    <img class="img-thumbnail" src="http://img.bitpixels.com/getthumbnail?code=62413&amp;size=300&amp;url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
+                    <img class="img-thumbnail" src="http://api.pagepeeker.com/v2/thumbs.php?size=m&url=<%= location %>" border="1" alt="Preview by Thumbshots.com" />
                 </figure>
                 <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
                 <small><?php echo Lang::get('website.resource_language') ?>
