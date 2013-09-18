@@ -122,7 +122,43 @@
             <!-- Banner section -->
             <div id="home-banner">
                 <div class="container">
-                    <a href="http://greenideasproject.org/" target="_blank"><img alt="green ideas 2013" src="/images/home-green-ideas.jpg"></a>
+                    <div id="carousel-example-generic" class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <a href="http://www.forestfoundation.org/stuff/contentmgr/files/1/c7c1a640537d942961a0ec5b1096c43c/pdf/walk_in_the_forest.pdf">
+                                    <img src="/images/carousel/Walk-in-the-forest.png" alt="Walk in the forest">
+                                </a>
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="http://www.daff.qld.gov.au/27_122.htm">
+                                    <img src="/images/carousel/PigIndustry.png" alt="Pig Industry">
+                                </a>
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="http://greenideasproject.org/">
+                                    <img src="/images/carousel/GreenIdea2013.png" alt="Green Ideas">
+                                </a>
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+                    </div>
                 </div>
             </div>
 
@@ -797,7 +833,8 @@
                 });
                 return o;
             };
-        </script>
+            $('.carousel').carousel();
+         </script>
 
     </body>
 </html>
