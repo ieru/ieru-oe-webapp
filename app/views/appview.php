@@ -188,22 +188,20 @@
                         <aside class="col col-lg-4">
                             <h2><?php echo Lang::get('website.featured_resource') ?></h2>
                             <div class="well">
-                                <?php foreach( $featured as $resource ): ?>
                                 <article class="resource">
                                     <header>
                                         <figure>
-                                            <a href="<?php echo @$resource->general->identifier[0]->identifier_entry ?>">
-                                                <img class="img-thumbnail" style="width: 100%; " src="http://api.pagepeeker.com/v2/thumbs.php?size=x&url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview" />
+                                            <a href="<?php echo @$featured->general->identifier[0]->identifier_entry ?>">
+                                                <img class="img-thumbnail" style="width: 100%; " src="http://api.pagepeeker.com/v2/thumbs.php?size=x&url=<?php echo @$featured->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview" />
                                             </a>
                                         </figure>
-                                        <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generalstitle[0]->generals_title_string ?></a></h3>
+                                        <h3><a href="<?php echo @$featured->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$featured->general->generalstitle[0]->generals_title_string ?></a></h3>
                                     </header>
-                                    <p><span class="translation-text"><?php echo substr(@$resource->general->generalsdescription[0]->generals_description_string, 0, 170) ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                    <p><span class="translation-text"><?php echo substr(@$featured->general->generalsdescription[0]->generals_description_string, 0, 170) ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$featured->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$resource->lom_id ?>"></span></p>
+                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$featured->lom_id ?>"></span></p>
                                     </footer>
                                 </article>
-                                <?php endforeach ?>
                             </div>
                         </aside>
                     </div>
