@@ -130,4 +130,5 @@ lang_file = {
 'loading_resources':'Αναζήτηση, παρακαλώ περιμένετε...',
 'character_not_allowed':'Αναζήτηση σας περιέχει έναν μη έγκυρο χαρακτήρα',
 'apply_filters':'Εφαρμόστε φίλτρα',
+'collection':'συλλογή'
 }

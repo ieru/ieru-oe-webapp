@@ -130,4 +130,5 @@ lang_file = {
 'loading_resources':'Aranıyor, lütfen bekleyin...',
 'character_not_allowed':'Aramanızı geçersiz bir karakter içeriyor',
 'apply_filters':'Filtre uygulama',
+'collection':'Koleksiyonu'
 }

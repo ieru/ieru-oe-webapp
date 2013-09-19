@@ -130,4 +130,5 @@ lang_file = {
 'loading_resources':'Meklēšanu, lūdzu uzgaidiet...',
 'character_not_allowed':'Meklējamajā virknē ir iekļauti nederīgu rakstzīmi',
 'apply_filters':'Lietot filtrus',
+'collection':'Kolekcijas'
 }
