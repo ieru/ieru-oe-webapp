@@ -16,10 +16,46 @@ class AdminController extends BaseController {
     |
     */
 
+
     private $_user = null;
 
+    public function __construct ()
+    {
+        define( 'PERMISSION_ACCESS_ADMIN_ZONE', 100 );
+
+        // Get user data
+        if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] )
+        {
+            $this->_user = User::join( 'tokens', 'users.user_id', '=', 'tokens.user_id')
+                               ->where( 'tokens.token_chars', '=', $_COOKIE['usertoken'] )
+                               ->where( 'tokens.token_active', '=', 1 )
+                               ->first();
+
+            if ( !$this->_user->check_permission( PERMISSION_ACCESS_ADMIN_ZONE ) )
+            {
+                die( '403 Unauthorized Access' );
+            }
+        }
+        else
+        {
+            die( '403 Unauthorized Access' );
+        }
+    }
+
     /**
-     * Generate Home page
+     * Home page
+     *
+     * @return View
+     */
+    public function home ()
+    {
+        return View::make( 'adminhome' )
+                   ->with( 'title', 'Organic Lingua' );
+    }
+
+    /**
+     * Administration of language files
+     *
      * @return View
      */
     public function langfiles ()

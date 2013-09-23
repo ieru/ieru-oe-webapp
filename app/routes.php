@@ -27,5 +27,7 @@ Route::get( '/register',                        array( 'as'=>'register',     'us
 
 
 
-Route::get( '/admin/langfiles',                'AdminController@langfiles' );
+Route::get( '/admin/', 'AdminController@home' );
+
+Route::get(  '/admin/langfiles',                'AdminController@langfiles' );
 Route::post( '/admin/langfiles',                'AdminController@langfilessend' );

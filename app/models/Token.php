@@ -1,16 +1,13 @@
 <?php
 
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
-
-class Token extends Eloquent implements UserInterface, RemindableInterface {
-
+class Token extends Eloquent 
+{
 	protected $table = 'tokens';
-
+	protected $primaryKey='token_id';
 	protected $connection = 'oauth';
 
 	public function user ()
 	{
-	    return $this->belongs_to( 'User', 'user_id' );
+	    return $this->belongsTo( 'User' );
 	}
 }
