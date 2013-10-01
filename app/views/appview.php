@@ -423,7 +423,6 @@
             <div class="container">
                 <ul class="pull-left list-unstyled">
                 </ul>
-                <p>&copy; Organic.Edunet 2013</p>
                 <p>Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community</p>
                 <p>
                     <a href="http://ec.europa.eu/ict_psp">
