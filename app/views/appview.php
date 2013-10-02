@@ -421,15 +421,25 @@
 
         <footer id="footer">
             <div class="container">
-                <ul class="pull-left list-unstyled">
-                </ul>
-                <p>Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community</p>
-                <p>
-                    <a href="http://ec.europa.eu/ict_psp">
-                        <img width="100" src="http://www.organic-lingua.eu/images/stories/eu_emblem.jpg" alt="eu_emblem" height="67" style="margin-top: 10px; float: right;">
-                        <img width="100" src="http://www.organic-lingua.eu/images/stories/logo_ict_psp.gif" alt="ICT Policy Support Programme (ICT PSP)" height="69" style="float: left; margin-top: 10px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border: medium outset #ffffff;">
-                    </a>
-                </p>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <ul>
+                            <li><a href="#"><?php echo Lang::get('website.home') ?></a></li>
+                            <li><a href="#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <p>
+                            <a href="http://ec.europa.eu/ict_psp">
+                                <img width="100" src="http://www.organic-lingua.eu/images/stories/eu_emblem.jpg" alt="eu_emblem" height="67" style="margin-top: 10px; float: right;">
+                                <img width="100" src="http://www.organic-lingua.eu/images/stories/logo_ict_psp.gif" alt="ICT Policy Support Programme (ICT PSP)" height="69" style="float: left; margin-top: 10px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border: medium outset #ffffff;">
+                            </a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </footer>
 
