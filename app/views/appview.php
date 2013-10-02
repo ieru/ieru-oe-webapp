@@ -178,7 +178,7 @@
                                         </figure>
                                         <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->general->generalstitle[0]->generals_title_string ?></a></h3>
                                     </header>
-                                    <p><span class="translation-text"><?php echo substr(@$resource->general->generalsdescription[0]->generals_description_string, 0, 170) ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                                    <p><span class="translation-text"><?php echo substr(@$resource->general->generalsdescription[0]->generals_description_string, 0, 170); if (@$resource->general->generalsdescription[0]->generals_description_string) { echo '...'; } ?></span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
                                     <footer>
                                         <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$resource->lom_id ?>"></span></p>
                                     </footer>
@@ -621,7 +621,7 @@
             <% } %>
                 </small>
             </header>
-                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %></span>... <a class="label label-primary moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %>...</span> <a class="label label-primary moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
