@@ -107,7 +107,7 @@ App.Views.RegisterNewUser = Backbone.View.extend({
 
     submit: function(e){
         e.preventDefault();
-
+        $('.close').trigger('click');
         var model = new App.Models.Register.New($('#register-new-user').serializeObject());
         var that = this;
         model.fetch().then(function(response){
