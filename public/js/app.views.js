@@ -519,7 +519,7 @@ App.Views.Facets = Backbone.View.extend({
 
                     // If it couldnt add the filter, remove it from the collection
                     if ( found == true ){
-                        $('#close-button-'+filter.replace(/ /g, '-')).trigger('click');
+                        $('#close-button-'+filter.replace(/ /g, '-').replace('/', '--')).trigger('click');
                     }else{
                         var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
                         filtersBarView.collection.add(filterModel);
@@ -574,7 +574,7 @@ App.Views.FiltersBar = Backbone.View.extend({
         destroy: function(e){
             vent.trigger( 'cancel:ajaxs' );
             this.model.destroy();
-            var filterName = $(e.currentTarget).parent().find('span').html().trim().replace(/ /g, '-');
+            var filterName = $(e.currentTarget).parent().find('span').html().trim().replace(/ /g, '-').replace('/', '--');
             $('#checkbox-'+filterName).attr('checked',false);
             var parent = $('#content-filters-bar').find('span');
             if ( $.trim(parent.html()) == '' )
@@ -590,7 +590,7 @@ App.Views.FiltersBar = Backbone.View.extend({
         render: function(){
             if ( this.model.get('clave') == 'keyword' )
                 this.$el.addClass('label-info').removeClass('label-success');
-            this.$el.html( '<button id="close-button-'+this.model.get('valor').trim().replace(/ /g, '-')+'" class="close" style="float: none;">&times;</button> <span>'+this.model.get('valor').replace(/@/g, '-')+'</span>' );
+            this.$el.html( '<button id="close-button-'+this.model.get('valor').trim().replace(/ /g, '-').replace('/', '--')+'" class="close" style="float: none;">&times;</button> <span>'+this.model.get('valor').replace(/@/g, '-').replace('--', '/')+'</span>' );
             return this;
         },
     })
@@ -654,7 +654,7 @@ App.Views.DoSearch = Backbone.View.extend({
                                 filtersBarView.collection.remove(filtersBarView.collection.models[i]);
 
                         // Remove filter from filter bar
-                        $('#close-button-'+filter.trim().replace(/ /g, '-')).trigger('click');
+                        $('#close-button-'+filter.trim().replace(/ /g, '-').replace('/', '--')).trigger('click');
                         vent.trigger('cancel:ajaxs');
                     }else{
                         var filterModel = new App.Models.Filter({clave:parent, valor:filter, indice:filters.length});
