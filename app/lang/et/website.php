@@ -113,4 +113,6 @@ return array(
 'intended_audience'=>'sihtrühma',
 'copyright'=>'Autoriõigus',
 'collection'=>'kogumine',
+
+'featured_sections'=>'',
 );

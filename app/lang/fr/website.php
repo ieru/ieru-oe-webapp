@@ -113,4 +113,6 @@ return array(
 'intended_audience'=>'Public visé',
 'copyright'=>'Droit d\'auteur',
 'collection'=>'Collection',
+
+'featured_sections'=>'',
 );

@@ -4,7 +4,58 @@ $('#form-search').bind('typeahead:closed', function(e){
 });
 
 
+/*
+ * Sections content
+ */
+App.Views.SectionHome = Backbone.View.extend({
+    el: '#page-home',
 
+    initialize: function(model){
+        this.model.set( model );
+        var that = this;
+        sections.fetch().done(function(response){
+            var carousel = new App.Views.SectionCarousel({ model: new App.Models.SectionsCarousel({carousel:that.model.get('home').carousel})});
+            carousel.$el.parent().append(new App.Views.SectionCategories({ model: new App.Models.SectionsCarousel({sections:that.model.get('home').sections})}));
+        });
+    }
+})
+
+    App.Views.SectionCarousel = Backbone.View.extend({
+        el: '.carousel',
+
+        template: _.template( $('#section-carousel').html() ),
+
+        initialize: function(model){
+            this.model.set( model );
+            this.render();
+        },
+
+        render: function(){
+            this.$el.html( this.template( this.model.toJSON() ) );
+            return this;
+        }
+    })
+
+    App.Views.SectionCategories = Backbone.View.extend({
+        el: '.sections-categories',
+
+        template: _.template( $('#sections-categories').html() ),
+
+        initialize: function(model){
+            this.model.set( model );
+            this.render();
+        },
+
+        render: function(){
+            this.$el.html( this.template( this.model.toJSON() ) );
+            return this;
+        }
+    })
+
+
+/*
+ * Autotranslation button
+ */
 App.Views.Autotranslate = Backbone.View.extend({
     el: '#button-autotranslate',
 

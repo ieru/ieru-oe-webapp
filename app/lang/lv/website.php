@@ -113,4 +113,6 @@ return array(
 'intended_audience'=>'paredzētā auditorija',
 'copyright'=>'autortiesības',
 'collection'=>'kolekcijas',
+
+'featured_sections'=>'',
 );

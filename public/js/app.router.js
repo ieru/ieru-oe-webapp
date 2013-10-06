@@ -15,7 +15,9 @@ App.Router = Backbone.Router.extend({
 		'navigation/:id': 			 'navigation',
 
 		'listing': 					 'listing',
-		'listing/:id': 				 'listing'
+		'listing/:id': 				 'listing',
+
+		'section/:section':          'section'
 	},
 
 	index: function(){
@@ -35,7 +37,10 @@ App.Router = Backbone.Router.extend({
         // Check for need of autotranslation
         vent.trigger('auto:translate');
 
+        // Show sections
+        var section = new App.Views.SectionHome({ model: sections });
 
+        // Google Analytics
 		var url = Backbone.history.getFragment();
 		_gaq.push(['_trackPageview', '/#/'+url]);
 	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -51,6 +56,7 @@ App.Router = Backbone.Router.extend({
 		}
     	initInterface($);
 
+    	// Google Analytics
 		var url = Backbone.history.getFragment();
 		_gaq.push(['_trackPageview', '/#/'+url]);
 	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -72,7 +78,7 @@ App.Router = Backbone.Router.extend({
 		$('#header form input[type=text]').val(text);
 		vent.trigger( 'search:submit', text, page, filters );
 
-
+		// Google Analytics
 		var url = Backbone.history.getFragment();
 		_gaq.push(['_trackPageview', '/#/'+url]);
 	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -85,7 +91,7 @@ App.Router = Backbone.Router.extend({
 
 		var resource = new App.Views.FullResource({ model: new App.Models.FullResource({id:id}) });
 
-
+		// Google Analytics
 		var url = Backbone.history.getFragment();
 		_gaq.push(['_trackPageview', '/#/'+url]);
 	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -98,7 +104,7 @@ App.Router = Backbone.Router.extend({
 
 		vent.trigger('cancel:ajaxs');
 
-
+		// Google Analytics
 		var url = Backbone.history.getFragment();
 		_gaq.push(['_trackPageview', '/#/'+url]);
 	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -113,11 +119,16 @@ App.Router = Backbone.Router.extend({
 		register.render();
 		vent.trigger('cancel:ajaxs');
 
-
+		// Google Analytics
 		var url = Backbone.history.getFragment();
 		_gaq.push(['_trackPageview', '/#/'+url]);
 	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	},
+
+	section: function(section){
+		show_view( 'page-section' );
+		vent.trigger('cancel:ajaxs');
 	}
 })

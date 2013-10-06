@@ -168,3 +168,10 @@ App.Models.Register.Activate = Backbone.Model.extend({
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
 	},
 })
+
+App.Models.Sections = Backbone.Model.extend({
+	urlRoot: '/js/sections.json',
+})
+
+App.Models.SectionsCarousel = Backbone.Model.extend({
+})

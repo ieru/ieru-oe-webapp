@@ -113,4 +113,6 @@ return array(
 'intended_audience'=>'hedef kitlesi',
 'copyright'=>'telif hakkı',
 'collection'=>'koleksiyonu',
+
+'featured_sections'=>'',
 );

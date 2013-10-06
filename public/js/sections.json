@@ -1,0 +1,93 @@
+{
+	"home":
+	{
+		"sections":
+		[
+			{
+				"section": "School",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s0.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s0h.png",
+				"link":    "/#/section/school"
+			},
+			{
+				"section": "Academic",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s1.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s1h.png",
+				"link":    "/#/section/academic"
+			},
+			{
+				"section": "Professional",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s2.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s2.png",
+				"link":    "/#/section/professional"
+			},
+			{
+				"section": "Casual",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
+				"link":    "/#/section/casual"
+			}
+		],
+		"carousel":
+		[
+			{
+				"image": "/images/carousel/Walk-in-the-forest.png",
+				"alt":   "Walk in the forest",
+				"link":  "http://www.forestfoundation.org/stuff/contentmgr/files/1/c7c1a640537d942961a0ec5b1096c43c/pdf/walk_in_the_forest.pdf"
+			},
+			{
+				"image": "/images/carousel/PigIndustry.png",
+				"alt":   "Pig Industry",
+				"link":  "http://www.daff.qld.gov.au/27_122.htm"
+			},
+			{
+				"image": "/images/carousel/GreenIdea2013.png",
+				"alt":   "Green Ideas",
+				"link":  "http://greenideasproject.org/"
+			}
+		]
+	},
+	"school":
+	{
+		"sections":
+		[
+			{
+				"section": "Courses",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+				"link":    "/#/search/courses/1"
+			},
+			{
+				"section": "Simulations",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+				"link":    "/#/search/simulations/1"
+			},
+			{
+				"section": "Images",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+				"link":    "/#/search/images/1"
+			},
+			{
+				"section": "Explorations",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+				"link":    "/#/search/explorations/1"
+			}
+		],
+		"carousel":
+		[
+			{
+				"image": "/images/carousel/images/UnglySaysWho.png",
+				"alt":   "Ugly? Says Who?",
+				"link":  "http://www.pbs.org/wnet/nature/lessons/ugly-says-who/lesson/422/"
+			},
+			{
+				"image": "/images/carousel/GardenPollinators.png",
+				"alt":   "Garden Pollinators",
+				"link":  "http://www.lifelab.org/wp-content/uploads/2010/02/3rdGardenPollinators2012.pdf"
+			}
+		]
+	}
+}

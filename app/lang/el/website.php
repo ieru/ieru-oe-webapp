@@ -75,8 +75,8 @@ return array(
 'reviewed'=>'Επανεξετάζονται',
 'home'=>'Κεντρική Σελίδα',
 'navigational_search'=>'Πλοήγηση',
-'featured_resource'=>'Επιλεγμένα πόρων',
-'latest_resources'=>'Τελευταία πόρων',
+'featured_resource'=>'Επιλεγμένοι πόροι',
+'latest_resources'=>'Πρόσφατοι πόροι',
 'search'=>'Αναζήτηση...',
 'reset_tree'=>'Επαναφορά δέντρο',
 'loading_resource'=>'Φόρτωση πόρων, παρακαλώ περιμένετε...',
@@ -112,4 +112,6 @@ return array(
 'intended_audience'=>'κοινό στο οποίο απευθύνεται',
 'copyright'=>'Πνευματικά δικαιώματα',
 'collection'=>'συλλογή',
+
+'featured_sections'=>'',
 );

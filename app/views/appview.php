@@ -123,42 +123,13 @@
             <div id="home-banner">
                 <div class="container">
                     <div id="carousel-example-generic" class="carousel slide">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <a href="http://www.forestfoundation.org/stuff/contentmgr/files/1/c7c1a640537d942961a0ec5b1096c43c/pdf/walk_in_the_forest.pdf">
-                                    <img src="/images/carousel/Walk-in-the-forest.png" alt="Walk in the forest">
-                                </a>
-                                <div class="carousel-caption">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <a href="http://www.daff.qld.gov.au/27_122.htm">
-                                    <img src="/images/carousel/PigIndustry.png" alt="Pig Industry">
-                                </a>
-                                <div class="carousel-caption">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <a href="http://greenideasproject.org/">
-                                    <img src="/images/carousel/GreenIdea2013.png" alt="Green Ideas">
-                                </a>
-                                <div class="carousel-caption">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
                     </div>
+                </div>
+            </div>
+
+            <!-- Sections -->
+            <div class="container">
+                <div class="row sections-categories">
                 </div>
             </div>
 
@@ -738,6 +709,45 @@
 
         </script>
 
+        <script id="section-carousel" type="text/template">
+            <ol class="carousel-indicators">
+            <% for ( var i in carousel ) { %>
+                <li data-target="#carousel-example-generic" data-slide-to="<%=i%>" <% if ( i==0 ) { %>class="active"<% } %>></li>
+            <% } %>
+            </ol>
+
+            <div class="carousel-inner">
+            <% for ( var i in carousel ) { %>
+                <div class="item <% if ( i==0 ) { %>active<% } %>">
+                    <a href="<%=carousel[i].link%>">
+                        <img src="<%=carousel[i].image%>" alt="<%=carousel[i].alt%>">
+                    </a>
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            <% } %>
+            </div>
+
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+        </script>
+
+        <script id="sections-categories" type="text/template">
+            <div class="col col-lg-12">
+                <h2><?php echo Lang::get('website.featured_sections') ?></h2>
+            </div>
+            <ul class="list-unstyled list-inline">
+            <% for ( var i in sections ) { %>
+                <li class="col col-lg-3 section-image-hover">
+                    <a class="school" href="<%=sections[i].link%>">
+                        <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section%>" />
+                        <%=sections[i].section%>
+                    </a>
+                </li>
+            <% } %>
+            </ul>
+        </script>
+
 
         <!-- jQuery + Bootstrap -->
         <script src="js/jquery.js"></script>
@@ -763,6 +773,7 @@
 
             // Wait for search request
             var Box = new App.Models.App();
+            var sections = new App.Models.Sections();
             var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
             var searchBarInfo = new App.Views.SearchInfoBar();
             Box.set('langFile', lang_file);
@@ -847,7 +858,16 @@
                 return o;
             };
             $('.carousel').carousel();
-         </script>
+
+            $('.sections-categories').on('mouseover', 'li', function(){
+                var img = $(this).find('img');
+                img.attr('src', img.attr('data-hover'));
+            });
+            $('.sections-categories').on('mouseout', 'li', function(){
+                var img = $(this).find('img');
+                img.attr('src', img.attr('data-leave'));
+            });
+        </script>
 
     </body>
 </html>
