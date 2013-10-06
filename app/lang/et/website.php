@@ -115,4 +115,5 @@ return array(
 'collection'=>'kogumine',
 
 'featured_sections'=>'',
+'hot_themes'=>'',
 );

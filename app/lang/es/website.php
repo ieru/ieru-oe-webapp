@@ -114,5 +114,6 @@ return array(
 'copyright'=>'Derechos',
 'collection'=>'Colección',
 
-'featured_sections'=>'',
+'featured_sections'=>'Secciones destacadas',
+'hot_themes'=>'Temas de actualidad',
 );

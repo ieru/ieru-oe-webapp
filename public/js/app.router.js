@@ -130,5 +130,8 @@ App.Router = Backbone.Router.extend({
 	section: function(section){
 		show_view( 'page-section' );
 		vent.trigger('cancel:ajaxs');
+
+		// Show sections
+        var section = new App.Views.Sections({ model: sections, section: section });
 	}
 })

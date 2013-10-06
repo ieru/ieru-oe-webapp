@@ -114,4 +114,5 @@ return array(
 'collection'=>'συλλογή',
 
 'featured_sections'=>'',
+'hot_themes'=>'',
 );

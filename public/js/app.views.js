@@ -8,14 +8,24 @@ $('#form-search').bind('typeahead:closed', function(e){
  * Sections content
  */
 App.Views.SectionHome = Backbone.View.extend({
-    el: '#page-home',
-
     initialize: function(model){
         this.model.set( model );
         var that = this;
         sections.fetch().done(function(response){
             var carousel = new App.Views.SectionCarousel({ model: new App.Models.SectionsCarousel({carousel:that.model.get('home').carousel})});
             carousel.$el.parent().append(new App.Views.SectionCategories({ model: new App.Models.SectionsCarousel({sections:that.model.get('home').sections})}));
+        });
+    }
+})
+
+App.Views.Sections = Backbone.View.extend({
+    initialize: function(options){
+        this.model.set( options.model );
+        var that = this;
+        sections.fetch().done(function(response){
+            var carousel = new App.Views.SectionCarousel({ model: new App.Models.SectionsCarousel({carousel:that.model.get(options.section).carousel})});
+            carousel.$el.parent().append(new App.Views.SectionCategories({ model: new App.Models.SectionsCarousel({sections:that.model.get(options.section).sections})}));
+            carousel.$el.parent().append(new App.Views.SectionThemes({ model: new App.Models.SectionsCarousel({sections:that.model.get(options.section).themes})}));
         });
     }
 })
@@ -40,6 +50,22 @@ App.Views.SectionHome = Backbone.View.extend({
         el: '.sections-categories',
 
         template: _.template( $('#sections-categories').html() ),
+
+        initialize: function(model){
+            this.model.set( model );
+            this.render();
+        },
+
+        render: function(){
+            this.$el.html( this.template( this.model.toJSON() ) );
+            return this;
+        }
+    })
+
+    App.Views.SectionThemes = Backbone.View.extend({
+        el: '.sections-themes',
+
+        template: _.template( $('#sections-themes').html() ),
 
         initialize: function(model){
             this.model.set( model );

@@ -18,6 +18,7 @@ function show_view ( view ){
 	window.scrollTo(0,0);
 
 	$('#page-home').hide();
+	$('#page-section').hide();
 	$('#page-app').hide();
 	$('#page-resource').hide();
 	$('#page-register-user').hide();

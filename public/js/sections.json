@@ -76,10 +76,37 @@
 				"link":    "/#/search/explorations/1"
 			}
 		],
+		"themes":
+		[
+			{
+				"section": "School Gardens",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+				"link":    "/#/search/school-gardens/1"
+			},
+			{
+				"section": "Climate Change",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
+				"link":    "/#/search/climate-change/1"
+			},
+			{
+				"section": "Healthy Food",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
+				"link":    "/#/search/healthy-food/1"
+			},
+			{
+				"section": "Biodiversity",
+				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
+				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
+				"link":    "/#/search/explorations/1"
+			}
+		],
 		"carousel":
 		[
 			{
-				"image": "/images/carousel/images/UnglySaysWho.png",
+				"image": "/images/carousel/UnglySaysWho.png",
 				"alt":   "Ugly? Says Who?",
 				"link":  "http://www.pbs.org/wnet/nature/lessons/ugly-says-who/lesson/422/"
 			},

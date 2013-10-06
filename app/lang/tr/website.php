@@ -115,4 +115,5 @@ return array(
 'collection'=>'koleksiyonu',
 
 'featured_sections'=>'',
+'hot_themes'=>'',
 );

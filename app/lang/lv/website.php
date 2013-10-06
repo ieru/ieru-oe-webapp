@@ -115,4 +115,5 @@ return array(
 'collection'=>'kolekcijas',
 
 'featured_sections'=>'',
+'hot_themes'=>'',
 );

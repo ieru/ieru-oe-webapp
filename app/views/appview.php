@@ -181,6 +181,32 @@
         </div>
         <!-- END HOME PAGE -->
 
+        <!-- SECTION PAGE -->
+        <div id="page-section">
+
+            <!-- Banner section -->
+            <div id="home-banner">
+                <div class="container">
+                    <div id="carousel-example-generic" class="carousel slide">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sections -->
+            <div class="container">
+                <div class="row sections-categories">
+                </div>
+            </div>
+
+            <!-- Themes -->
+            <div class="container">
+                <div class="row sections-themes">
+                </div>
+            </div>
+
+        </div>
+        <!-- END SECTION PAGE -->
+
         <!-- NAVIGATIONAL SEARCH PAGE -->
         <div id="page-navigational">
             <div class="container">
@@ -735,6 +761,22 @@
         <script id="sections-categories" type="text/template">
             <div class="col col-lg-12">
                 <h2><?php echo Lang::get('website.featured_sections') ?></h2>
+            </div>
+            <ul class="list-unstyled list-inline">
+            <% for ( var i in sections ) { %>
+                <li class="col col-lg-3 section-image-hover">
+                    <a class="school" href="<%=sections[i].link%>">
+                        <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section%>" />
+                        <%=sections[i].section%>
+                    </a>
+                </li>
+            <% } %>
+            </ul>
+        </script>
+
+        <script id="sections-themes" type="text/template">
+            <div class="col col-lg-12">
+                <h2><?php echo Lang::get('website.hot_themes') ?></h2>
             </div>
             <ul class="list-unstyled list-inline">
             <% for ( var i in sections ) { %>
