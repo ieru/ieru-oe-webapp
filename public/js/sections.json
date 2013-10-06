@@ -52,52 +52,52 @@
 		"sections":
 		[
 			{
-				"section": "Courses",
+				"section": "Open Air Classroom",
 				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
 				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-				"link":    "/#/search/courses/1"
+				"link":    "/#/search/*/1/learningResourceType=exploration:collection=AGLRGSG|:collection=GREENOER"
 			},
 			{
-				"section": "Simulations",
+				"section": "Game-based Learning",
 				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
 				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-				"link":    "/#/search/simulations/1"
+				"link":    "/#/search/*/1/learningResourceType=ed:collection=AGLRGSG:collection=GREENOER"
 			},
 			{
-				"section": "Images",
+				"section": "Green Your Lesson Plan",
 				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
 				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-				"link":    "/#/search/images/1"
+				"link":    "/#/search/*/1/learningResourceType=exploration:collection=AGLRGSG:collection=GREENOER"
 			},
 			{
-				"section": "Explorations",
+				"section": "Broadcasts",
 				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
 				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-				"link":    "/#/search/explorations/1"
+				"link":    "/#/search/*/1/learningResourceType=exploration:collection=AGLRGSG:collection=GREENOER"
 			}
 		],
 		"themes":
 		[
 			{
-				"section": "School Gardens",
+				"section": "Polar Stories",
 				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
 				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
 				"link":    "/#/search/school-gardens/1"
 			},
 			{
-				"section": "Climate Change",
+				"section": "Insects and Plants",
 				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
 				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
 				"link":    "/#/search/climate-change/1"
 			},
 			{
-				"section": "Healthy Food",
+				"section": "School Gardens",
 				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
 				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
 				"link":    "/#/search/healthy-food/1"
 			},
 			{
-				"section": "Biodiversity",
+				"section": "Recycling Guru",
 				"image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
 				"imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
 				"link":    "/#/search/explorations/1"
