@@ -766,8 +766,8 @@
             <% for ( var i in sections ) { %>
                 <li class="col col-lg-3 section-image-hover">
                     <a class="school" href="<%=sections[i].link%>">
-                        <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section%>" />
-                        <%=sections[i].section%>
+                        <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>" />
+                        <%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>
                     </a>
                 </li>
             <% } %>
@@ -782,8 +782,8 @@
             <% for ( var i in sections ) { %>
                 <li class="col col-lg-3 section-image-hover">
                     <a class="school" href="<%=sections[i].link%>">
-                        <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section%>" />
-                        <%=sections[i].section%>
+                        <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>" />
+                        <%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>
                     </a>
                 </li>
             <% } %>

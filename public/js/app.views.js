@@ -57,6 +57,7 @@ App.Views.Sections = Backbone.View.extend({
         },
 
         render: function(){
+            this.model.set('default_lang',Box.get('interface'));
             this.$el.html( this.template( this.model.toJSON() ) );
             return this;
         }
@@ -73,6 +74,7 @@ App.Views.Sections = Backbone.View.extend({
         },
 
         render: function(){
+            this.model.set('default_lang',Box.get('interface'));
             this.$el.html( this.template( this.model.toJSON() ) );
             return this;
         }
