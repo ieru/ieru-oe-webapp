@@ -669,7 +669,7 @@ App.Views.FiltersBar = Backbone.View.extend({
         render: function(){
             if ( this.model.get('clave') == 'keyword' )
                 this.$el.addClass('label-info').removeClass('label-success');
-            this.$el.html( '<button id="close-button-'+this.model.get('valor').trim().replace(/ /g, '-').replace('/', '--')+'" class="close" style="float: none;">&times;</button> <span>'+this.model.get('valor').replace(/@/g, '-').replace('--', '/').replace('|', '')+'</span>' );
+            this.$el.html( '<button id="close-button-'+this.model.get('valor').trim().replace(/ /g, '-').replace('/', '--')+'" class="close" style="float: none;">&times;</button> <span>'+this.model.get('valor').replace(/@/g, '-').replace('--', '/').replace(/\|/g, ' or ')+'</span>' );
             return this;
         },
     })
