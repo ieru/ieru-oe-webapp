@@ -130,5 +130,6 @@ lang_file = {
 'loading_resources':'La recherche, veuillez patienter...',
 'character_not_allowed':'Votre recherche contient un caractère non valide',
 'apply_filters':'Appliquer des filtres',
-'collection':'Collection'
+'collection':'Collection',
+'educationalLearningResourceType':'Type'
 }

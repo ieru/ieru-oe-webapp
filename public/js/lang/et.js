@@ -130,5 +130,6 @@ lang_file = {
 'loading_resources':'Otsin, palun oodake...',
 'character_not_allowed':'Teie otsing sisaldab sobimatut märki',
 'apply_filters':'Rakenda filtrid',
-'collection':'Kogumine'
+'collection':'Kogumine',
+'educationalLearningResourceType':'Type'
 }
