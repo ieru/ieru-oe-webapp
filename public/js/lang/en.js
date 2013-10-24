@@ -133,4 +133,9 @@ lang_file = {
 'apply_filters': 'Apply Filters',
 'collection':'Collection',
 'educationalLearningResourceType':'Type'
+
+'errcode':{
+	200: 'error',
+	300: 'error',
+}
 }
