@@ -211,6 +211,7 @@
         <div id="page-navigational">
             <div class="container">
                 <div class="row">
+                    <?php if ( $_SERVER['SERVER_ADDR'] != '127.0.0.1' ): ?>
                     <!-- in one line without spaces -->
                     <div id="flash"></div>
                     <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
@@ -294,6 +295,7 @@
                             }
                         }
                     </script>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
