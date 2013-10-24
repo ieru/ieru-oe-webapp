@@ -11,7 +11,7 @@ return array(
 'pl'=>'Polski',
 'tr'=>'Türkçe',
 'resource_language'=>'Dane źródłowe znajdują się w',
-'age_range_context'=>'Właściwy limit wiekowy',
+'age_rage_context'=>'Właściwy limit wiekowy',
 'comments'=>'Uwagi',
 'keywords'=>'Słowa kluczowe',
 'rate'=>'Skala',
