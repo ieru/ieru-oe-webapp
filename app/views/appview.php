@@ -801,7 +801,7 @@
         <!-- Activate IE8 responsive features -->
         <!--<script src="js/respond.js"></script>-->
         <!-- Libraries for using Backbone.js -->
-        <script src="js/require.js"></script>
+        <!--<script data-main="js/app/main"  src="js/require.js"></script>-->
         <script src="js/underscore.js"></script>
         <script src="js/backbone.js"></script>
         <!-- App javaScript files -->
