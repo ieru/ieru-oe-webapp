@@ -67,16 +67,16 @@ class AdminController extends BaseController {
         // The NYT must be the first key of the array
         if ( array_key_exists( 'NYT', $lang ) )
         {
-            unset( $lang['NYT'] );
             foreach ( $lang as $key=>&$term )
             {
-                if ( $term == '' )
+                if ( $term == '' OR $lang['NYT'] == 'ALL' AND $key != 'NYT' )
                 {
                     $url = 'http://organic-edunet.eu/api/analytics/translate?text='.str_replace( '_', '+', $key ).'&service=microsoft&to='.$to;
                     $data = json_decode( $this->_curl_get_data( $url ) );
                     $term = $data->data->translation;
                 }
             }
+            unset( $lang['NYT'] );
         }
 
         // Check for empty fields (newly added lang keys)
