@@ -426,6 +426,7 @@
                         <ul>
                             <li><a href="#"><?php echo Lang::get('website.home') ?></a></li>
                             <li><a href="#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                            <li><a href="#/user/register"><?php echo Lang::get('website.register') ?></a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
