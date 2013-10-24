@@ -8,6 +8,7 @@ return array(
 'it'=>'Italiano',
 'et'=>'Eesti keel',
 'es'=>'Español',
+'pl'=>'Polski',
 'tr'=>'Türkçe',
 'resource_language'=>'Diese Ressource ist in',
 'age_rage_context'=>'Typische Alter Bereich Kontext',

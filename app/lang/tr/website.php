@@ -8,6 +8,7 @@ return array(
 'it'=>'Italiano',
 'et'=>'Eesti keel',
 'es'=>'Español',
+'pl'=>'Polski',
 'tr'=>'Türkçe',
 'resource_language'=>'Bu kaynak olduğunu',
 'age_rage_context'=>'Tipik yaş aralığı içerik',

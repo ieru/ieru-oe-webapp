@@ -8,6 +8,7 @@ return array(
 'it'=>'Italiano',
 'et'=>'Eesti keel',
 'es'=>'Español',
+'pl'=>'Polski',
 'tr'=>'Türkçe',
 'resource_language'=>'Šis resurss ir',
 'age_rage_context'=>'Tipisks vecuma diapazons kontekstā',

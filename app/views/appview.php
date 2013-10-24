@@ -89,6 +89,7 @@
                                 <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=it" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-it" alt="Italiano" /> Italiano</a></li>
                                 <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=lv" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-lv" alt="Latviešu valoda" /> Latviešu valoda</a></li>
                                 <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=tr" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-tr" alt="Türkçe" /> Türkçe</a></li>
+                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=pl" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-pl" alt="Polski" /> Polski</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -211,7 +212,7 @@
         <div id="page-navigational">
             <div class="container">
                 <div class="row">
-                    <?php if ( $_SERVER['SERVER_ADDR'] != '127.0.0.1' ): ?>
+                    <?php if ( $_SERVER['HTTP_HOST'] != 'edunet.dev' AND $_SERVER['HTTP_HOST'] != 'edunet.teluria.es' ): ?>
                     <!-- in one line without spaces -->
                     <div id="flash"></div>
                     <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>

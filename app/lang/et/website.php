@@ -8,6 +8,7 @@ return array(
 'it'=>'Italiano',
 'et'=>'Eesti keel',
 'es'=>'Español',
+'pl'=>'Polski',
 'tr'=>'Türkçe',
 'resource_language'=>'See ressurss on',
 'age_rage_context'=>'Tüüpiline vanuse vahemik kontekstis',

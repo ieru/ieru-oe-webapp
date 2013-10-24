@@ -56,6 +56,7 @@
                             | <a href="?to=el">Greek</a>
                             | <a href="?to=tr">Turk</a>
                             | <a href="?to=it">Italian</a>
+                            | <a href="?to=pl">Polish</a>
                         </div>
                         <form class="form-horizontal" method="POST">
                             <div class="col col-lg-2">

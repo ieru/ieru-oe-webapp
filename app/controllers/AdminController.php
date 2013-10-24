@@ -109,7 +109,7 @@ class AdminController extends BaseController {
             fwrite( $fp, "<?php\n" );
             fwrite( $fp, "return array(\n" );
             foreach ( $_POST as $key=>$value )
-                fwrite( $fp, "'$key'=>'". addslashes($value)."',\n" );
+                fwrite( $fp, "'".strtolower($key)."'=>'". addslashes($value)."',\n" );
             fwrite( $fp, ");" );
             fclose( $fp );
         }

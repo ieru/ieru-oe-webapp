@@ -8,6 +8,7 @@ return array(
 'it'=>'Italiano',
 'et'=>'Eesti keel',
 'es'=>'Español',
+'pl'=>'Polski',
 'tr'=>'Türkçe',
 'resource_language'=>'Αυτός ο πόρος είναι σε',
 'age_rage_context'=>'Τυπικό ηλικία φάσμα πλαίσιο',
