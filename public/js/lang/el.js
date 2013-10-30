@@ -131,5 +131,10 @@ lang_file = {
 'character_not_allowed':'Αναζήτηση σας περιέχει έναν μη έγκυρο χαρακτήρα',
 'apply_filters':'Εφαρμόστε φίλτρα',
 'collection':'συλλογή',
-'educationalLearningResourceType':'Type'
+'educationalLearningResourceType':'Type',
+
+	'errcode':{
+		200: 'error',
+		300: 'error',
+	}
 }

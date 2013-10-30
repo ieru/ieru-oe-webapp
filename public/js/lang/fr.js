@@ -131,5 +131,10 @@ lang_file = {
 'character_not_allowed':'Votre recherche contient un caractère non valide',
 'apply_filters':'Appliquer des filtres',
 'collection':'Collection',
-'educationalLearningResourceType':'Type'
+'educationalLearningResourceType':'Type',
+
+	'errcode':{
+		200: 'error',
+		300: 'error',
+	}
 }

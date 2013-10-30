@@ -131,5 +131,10 @@ lang_file = {
 'character_not_allowed':'Teie otsing sisaldab sobimatut märki',
 'apply_filters':'Rakenda filtrid',
 'collection':'Kogumine',
-'educationalLearningResourceType':'Type'
+'educationalLearningResourceType':'Type',
+
+	'errcode':{
+		200: 'error',
+		300: 'error',
+	}
 }

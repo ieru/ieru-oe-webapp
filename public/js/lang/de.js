@@ -131,5 +131,10 @@ lang_file = {
 'character_not_allowed':'Die Suche enthält ein ungültiges Zeichen',
 'apply_filters':'Filter anwenden',
 'collection':'Sammlung',
-'educationalLearningResourceType':'Type'
+'educationalLearningResourceType':'Type',
+
+	'errcode':{
+		200: 'error',
+		300: 'error',
+	}
 }

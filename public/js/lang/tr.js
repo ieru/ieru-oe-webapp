@@ -131,5 +131,10 @@ lang_file = {
 'character_not_allowed':'Aramanızı geçersiz bir karakter içeriyor',
 'apply_filters':'Filtre uygulama',
 'collection':'Koleksiyonu',
-'educationalLearningResourceType':'Type'
+'educationalLearningResourceType':'Type',
+
+	'errcode':{
+		200: 'error',
+		300: 'error',
+	}
 }

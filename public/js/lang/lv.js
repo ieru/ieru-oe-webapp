@@ -131,5 +131,10 @@ lang_file = {
 'character_not_allowed':'Meklējamajā virknē ir iekļauti nederīgu rakstzīmi',
 'apply_filters':'Lietot filtrus',
 'collection':'Kolekcijas',
-'educationalLearningResourceType':'Type'
+'educationalLearningResourceType':'Type',
+
+	'errcode':{
+		200: 'error',
+		300: 'error',
+	}
 }
