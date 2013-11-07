@@ -175,3 +175,23 @@ App.Models.Sections = Backbone.Model.extend({
 
 App.Models.SectionsCarousel = Backbone.Model.extend({
 })
+
+App.Models.TranslationRating = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/analytics/resources',
+
+	url: function() {
+		return this.urlRoot + '/' + this.get('id') + '/translation/' + this.get('hash') + '/ratings';
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
+
+	save: function(){
+		var data = {};
+		data.usertoken = this.get('usertoken');
+		data.rating = this.get('rating');
+		return Backbone.Model.prototype.fetch.call(this, { data: data, type: 'POST' });
+	}
+})

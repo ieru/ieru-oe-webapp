@@ -949,6 +949,23 @@ App.Views.FullResource = Backbone.View.extend({
 
     events: {
         'click .organic-dropdown ul a': 'changeLanguage',
+        'click .translation-rating': 'rateTranslation',
+    },
+
+    rateTranslation: function(e){
+        // Translation Rating Model Save
+        e.preventDefault();
+        if ( _.cookie('usertoken')){
+            var rating = 5;
+            var addRating = new App.Models.TranslationRating({id:this.model.get('id'), rating:parseInt(rating)+1, usertoken:_.cookie('usertoken'), hash: this.model.get('hash')});
+            var that = this;
+            addRating.save().then(function(response){
+                alert(response.success);
+                //if ( response.success )
+                //    that.$el.html( that.template( response.data ) );
+            });
+        }
+        
     },
 
     initialize: function(){
@@ -992,6 +1009,9 @@ App.Views.FullResource = Backbone.View.extend({
                         break;
                     }
             that.render();
+
+            // Set default hash string
+            that.model.set('hash',Sha1.hash(that.model.get('texts')[that.model.get('metadata_language')].title+that.model.get('texts')[that.model.get('metadata_language')]));
 
             // Add recommendations
             $('#ugc-dialog-form').remove();
@@ -1068,6 +1088,7 @@ App.Views.FullResource = Backbone.View.extend({
                 }
             });
         }
+        this.model.set('hash',Sha1.hash(this.model.get('texts')[this.model.get('metadata_language')].title+this.model.get('texts')[this.model.get('metadata_language')]));
     },
 
     render: function(){

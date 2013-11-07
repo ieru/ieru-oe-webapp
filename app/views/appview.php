@@ -613,6 +613,7 @@
                     </li>
                 </ul>
             </footer>
+            <div class="translation-rating">asd</div>
         </script>
 
         <script id="resource-content" type="text/template">
