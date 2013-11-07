@@ -349,13 +349,18 @@
         <div id="page-resource">
             <div class="container">
                 <div class="row">
-                    <div class="col col-lg-9 col-offset-3" style="margin-top: 15px; ">
+                    <div class="col-lg-9 col-offset-3" style="margin-top: 15px; ">
                         <span class="glyphicon glyphicon-arrow-left"></span> <a href="#" onclick="window.history.back(); return false;"><?php echo Lang::get('website.back') ?></a>
                     </div>
-                    <aside class="col col-lg-3 hidden-sm">
+                    <aside class="col-lg-3 hidden-sm">
                     </aside>
-                    <article id="resource-viewport" class="col col-lg-9">
+                    <article id="resource-viewport" class="col-lg-9">
                     </article>
+                    <div id="resource-recommendations" class="col-offset-3 col-lg-9">
+                        <header>
+                            <h2>Recommended resources</h2>
+                        </header>
+                    </div>
                 </div>
             </div>
         </div>

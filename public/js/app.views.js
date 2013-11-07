@@ -992,6 +992,15 @@ App.Views.FullResource = Backbone.View.extend({
                         break;
                     }
             that.render();
+
+            // Add recommendations
+            $('#ugc-dialog-form').remove();
+            var script = document.createElement('script');
+            script.id = 'resource-related-resources';
+            script.type = 'text/javascript';
+            script.src = '/js/_other/recommendations.js';
+            $('#page-resource > .container > .row').append(script);
+
             vent.trigger('resource:loaded');
         });
     },
