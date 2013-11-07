@@ -133,6 +133,7 @@ lang_file = {
 'apply_filters': 'Apply Filters',
 'collection':'Collection',
 'educationalLearningResourceType':'Type',
+'rate_translation':'Rate translation',
 
 	'errcode':{
 		200: 'error',

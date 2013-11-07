@@ -114,6 +114,7 @@ return array(
 'intended_audience'=>'paredzētā auditorija',
 'copyright'=>'autortiesības',
 'collection'=>'kolekcijas',
+'rate_translation'=>'Rate automatic translation',
 
 'featured_sections'=>'',
 'hot_themes'=>'',

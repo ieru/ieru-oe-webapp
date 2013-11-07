@@ -25,16 +25,6 @@ App.Models.FullResource = Backbone.Model.extend({
 	}
 });
 
-App.Models.Translation = Backbone.Model.extend({
-
-	urlRoot: api_server+'/api/analytics/translate',
-
-	fetch: function(){
-		this.set('cache','true');
-		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
-	},
-});
-
 App.Models.Grnet = {};
 
 App.Models.Grnet.Rating = Backbone.Model.extend({
@@ -176,16 +166,21 @@ App.Models.Sections = Backbone.Model.extend({
 App.Models.SectionsCarousel = Backbone.Model.extend({
 })
 
-App.Models.TranslationRating = Backbone.Model.extend({
+/**
+ * Rating of automatic translations of the resources
+ */
+App.Models.Translation = {};
+
+App.Models.Translation.Rating = Backbone.Model.extend({
 
 	urlRoot: api_server+'/api/analytics/resources',
 
 	url: function() {
-		return this.urlRoot + '/' + this.get('id') + '/translation/' + this.get('hash') + '/ratings';
+		return this.urlRoot + '/' + this.get('id') + '/translation/' + this.get('hash') + '/rating';
 	},
 
 	fetch: function(){
-		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+		return Backbone.Model.prototype.fetch.call(this, {});
 	},
 
 	save: function(){
@@ -195,3 +190,26 @@ App.Models.TranslationRating = Backbone.Model.extend({
 		return Backbone.Model.prototype.fetch.call(this, { data: data, type: 'POST' });
 	}
 })
+
+App.Models.Translation.RatingHistory = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/analytics/resources',
+
+	url: function() {
+		return this.urlRoot + '/' + this.get('id') + '/translation/' + this.get('hash') + '/ratings';
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, {});
+	},
+});
+
+App.Models.Translation.Language = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/analytics/translate',
+
+	fetch: function(){
+		this.set('cache','true');
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
+});

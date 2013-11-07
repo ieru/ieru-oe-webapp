@@ -114,6 +114,7 @@ return array(
 'intended_audience'=>'sihtrühma',
 'copyright'=>'Autoriõigus',
 'collection'=>'kogumine',
+'rate_translation'=>'Rate automatic translation',
 
 'featured_sections'=>'',
 'hot_themes'=>'',

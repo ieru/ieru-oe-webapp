@@ -100,7 +100,7 @@ App.Views.Autotranslate = Backbone.View.extend({
                     var that = $(this);
                     var text = $(this).html();
                     that.html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                    var request = new App.Models.Translation({text: text, from:'en', to:$('#user-selected-language').attr('alt')});
+                    var request = new App.Models.Translation.Language({text: text, from:'en', to:$('#user-selected-language').attr('alt')});
                     request.fetch().done(function(response){
                         that.html(response.data.translation);
                         home_translation = true;
@@ -277,6 +277,82 @@ App.Views.Grnet.Rating = Backbone.View.extend({
             });
         }
     }
+});
+
+App.Views.Translation = {};
+
+App.Views.Translation.Rating = Backbone.View.extend({
+    tagName: 'span',
+
+    template: _.template( $('#translation-rating').html() ),
+
+    templateStars: _.template( $('#translation-rating-stars').html() ),
+
+    events: {
+        'click .translation-rating-star': 'addRating',
+        'click .rating-history a': 'getHistory',
+    },
+
+    getHistory: function(e){
+        //e.preventDefault();
+        var that = this;
+        var request = new App.Models.Translation.RatingHistory({id:this.model.get('id'), hash:this.model.get('hash')});
+        var box = this.$el.find('.rating-history > ul');
+        if ( box.html() == '' ){
+            box.append('<img src="/images/ajax-loader.gif" />');
+            this.ajax = request.fetch();
+            this.ajax.then(function(response){
+                box.empty();
+                if ( response.data.length ){
+                    for ( var i in response.data ){
+                        box.append( that.templateStars( response.data[i] ) );
+                    }
+                }else{
+                    box.append( lang('no_ratings_yet') );
+                }
+            })
+        }
+    },
+
+    initialize: function(){
+        // Cancel any ongoing ajax requests
+        vent.on( 'cancel:ajaxs', function(){
+            if ( !!this.ajax ){
+                this.ajax.abort();
+                delete this.ajax;
+            }
+        }, this );
+
+        this.render();
+    },
+
+    render: function(){
+        var that = this;
+        this.ajax = this.model.fetch();
+        this.ajax.then(function(response){
+            // No ratings retrieved for the resource: show null ratings
+            if ( !response.data ){
+                response.data = {};
+                response.data.votes = 0;
+                response.data.rating = 0;
+            }
+            that.$el.html( that.template( response.data ) );
+        });
+        return this;
+    },
+
+    addRating: function(e){
+        // Translation Rating Model Save
+        e.preventDefault();
+        if ( _.cookie('usertoken')){
+            this.model.set('rating', parseInt($(e.currentTarget).attr('class').split(' ')[1].split('-')[2])+1);
+            var that = this;
+            this.model.save().then(function(response){
+                if ( response.success )
+                    that.$el.html( that.template( response.data ) );
+            });
+        }
+    }
 })
 
 App.Views.SearchInfoBar = Backbone.View.extend({
@@ -376,7 +452,7 @@ App.Views.SearchResults = Backbone.View.extend({
                             break;
 
                 // Translate title
-                var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
+                var title = new App.Models.Translation.Language({text: texts[from].title.substr(0,200), from:from, to:to});
                 this.ajaxTitle = title.fetch({timeout:10000});
                 this.ajaxTitle.done(function(response){
                     texts[to].title = response.data.translation;
@@ -384,7 +460,7 @@ App.Views.SearchResults = Backbone.View.extend({
                     // Translate description
                     if ( !!texts[from].description ){
                         that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                        var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
+                        var description = new App.Models.Translation.Language({text: texts[from].description.substr(0,200), from:from, to:to});
                         this.ajaxDescription = description.fetch({timeout:10000});
                         this.ajaxDescription.done(function(response){
                             texts[to].description = response.data.translation;
@@ -393,7 +469,7 @@ App.Views.SearchResults = Backbone.View.extend({
                             // translate keywords
                             if ( !!texts[from].keywords ){
                                 that.find('.search-result-keywords').html('<strong>'+lang('keywords')+':</strong> <img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                                var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
+                                var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
                                 this.ajaxKeywords = keywords.fetch({timeout:10000});
                                 this.ajaxKeywords.done(function(response){
                                     texts[to].keywords = response.data.translation.split(',');
@@ -403,7 +479,7 @@ App.Views.SearchResults = Backbone.View.extend({
                         }); 
                     // Translate keywords
                     }else if ( !!texts[from].keywords ){
-                        var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
+                        var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
                         this.ajaxKeywords = keywords.fetch({timeout:10000});
                         this.ajaxKeywords.done(function(response){
                             texts[to].keywords = response.data.translation.split(',');
@@ -949,23 +1025,6 @@ App.Views.FullResource = Backbone.View.extend({
 
     events: {
         'click .organic-dropdown ul a': 'changeLanguage',
-        'click .translation-rating': 'rateTranslation',
-    },
-
-    rateTranslation: function(e){
-        // Translation Rating Model Save
-        e.preventDefault();
-        if ( _.cookie('usertoken')){
-            var rating = 5;
-            var addRating = new App.Models.TranslationRating({id:this.model.get('id'), rating:parseInt(rating)+1, usertoken:_.cookie('usertoken'), hash: this.model.get('hash')});
-            var that = this;
-            addRating.save().then(function(response){
-                alert(response.success);
-                //if ( response.success )
-                //    that.$el.html( that.template( response.data ) );
-            });
-        }
-        
     },
 
     initialize: function(){
@@ -1008,10 +1067,12 @@ App.Views.FullResource = Backbone.View.extend({
                         that.model.set('metadata_language', lang);
                         break;
                     }
-            that.render();
 
             // Set default hash string
-            that.model.set('hash',Sha1.hash(that.model.get('texts')[that.model.get('metadata_language')].title+that.model.get('texts')[that.model.get('metadata_language')]));
+            that.model.set('hash',Sha1.hash(that.model.get('texts')[that.model.get('metadata_language')].title+that.model.get('texts')[that.model.get('metadata_language')].description));
+
+            // Render
+            that.render();
 
             // Add recommendations
             $('#ugc-dialog-form').remove();
@@ -1035,6 +1096,7 @@ App.Views.FullResource = Backbone.View.extend({
         var to = ( !!e ) ? $(e.currentTarget).attr('class').split('-')[2] : $('#user-selected-language').attr('alt');
         var from = 'en';
         var that = this.$el;
+        var thot = this;
         var box = this;
 
         that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
@@ -1042,6 +1104,7 @@ App.Views.FullResource = Backbone.View.extend({
 
         // Change to the desired language if there is a translation set for it
         if ( texts[to].title != '' ){
+            this.model.set('hash',Sha1.hash(this.model.get('texts')[to].title+this.model.get('texts')[to].description));
             this.render();
         // If the texts are not in the desired language, request translation
         }else{
@@ -1052,7 +1115,7 @@ App.Views.FullResource = Backbone.View.extend({
                         break;
 
             // Translate title
-            var title = new App.Models.Translation({text: texts[from].title, from:from, to:to});
+            var title = new App.Models.Translation.Language({text: texts[from].title, from:from, to:to});
             this.ajaxTitle = title.fetch({timeout:10000});
             this.ajaxTitle.done(function(response){
                 texts[to].title = response.data.translation;
@@ -1060,16 +1123,17 @@ App.Views.FullResource = Backbone.View.extend({
                 // Translate description
                 if ( !!texts[from].description ){
                     that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                    var description = new App.Models.Translation({text: texts[from].description, from:from, to:to});
+                    var description = new App.Models.Translation.Language({text: texts[from].description, from:from, to:to});
                     this.ajaxDescription = description.fetch({timeout:10000});
                     this.ajaxDescription.done(function(response){
                         texts[to].description = response.data.translation;
+                        thot.model.set('hash',Sha1.hash(texts[to].title+texts[to].description));
                         that.find('> p > span').html(response.data.translation);
 
                         // translate keywords
                         if ( !!texts[from].keywords ){
                             that.find('.search-result-keywords').html('<strong>'+lang('keywords')+':</strong> <img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                            var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
+                            var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
                             this.ajaxKeywords = keywords.fetch({timeout:10000});
                             this.ajaxKeywords.done(function(response){
                                 texts[to].keywords = response.data.translation.split(',');
@@ -1079,7 +1143,7 @@ App.Views.FullResource = Backbone.View.extend({
                     }); 
                 // Translate keywords
                 }else if ( !!texts[from].keywords ){
-                    var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
+                    var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
                     this.ajaxKeywords = keywords.fetch({timeout:10000});
                     this.ajaxKeywords.done(function(response){
                         texts[to].keywords = response.data.translation.split(',');
@@ -1088,21 +1152,27 @@ App.Views.FullResource = Backbone.View.extend({
                 }
             });
         }
-        this.model.set('hash',Sha1.hash(this.model.get('texts')[this.model.get('metadata_language')].title+this.model.get('texts')[this.model.get('metadata_language')]));
     },
 
     render: function(){
         this.$el.html( this.template( this.model.toJSON() ) );
         
-        // Add Ratings
+        // Add resource ratings
         var grnet = this.$el.find('.grnet-rating');
-        
         grnet.append('<img src="/images/ajax-loader.gif" />');
         var request = new App.Models.Grnet.Rating({id:this.model.get('id')})
         var ratings = new App.Views.Grnet.Rating({model: request});
         this.model.set('ratingsModel',ratings);
         grnet.find('img').remove();
         grnet.append(this.model.get('ratingsModel').el);
+
+        // Add translation ratings
+        var translation = this.$el.find('.translation-rating');
+        var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash')});
+        var ratings = new App.Views.Translation.Rating({model: request});
+        this.model.set('tratingsModel',ratings);
+        translation.find('img').remove();
+        translation.append(this.model.get('tratingsModel').el);
 
         return this;
     }

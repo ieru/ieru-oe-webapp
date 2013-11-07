@@ -114,6 +114,7 @@ return array(
 'intended_audience'=>'hedef kitlesi',
 'copyright'=>'telif hakkı',
 'collection'=>'koleksiyonu',
+'rate_translation'=>'Rate automatic translation',
 
 'featured_sections'=>'',
 'hot_themes'=>'',

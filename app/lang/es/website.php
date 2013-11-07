@@ -114,6 +114,7 @@ return array(
 'intended_audience'=>'Audiencia',
 'copyright'=>'Derechos',
 'collection'=>'Colección',
+'rate_translation'=>'Puntúa la traducción automática',
 
 'featured_sections'=>'Secciones destacadas',
 'hot_themes'=>'Temas de actualidad',

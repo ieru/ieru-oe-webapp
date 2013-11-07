@@ -542,6 +542,7 @@
                             <%= lang('none') %>
                         <% } %>
                     </li>
+                    <li><hr/></li>
                     <li class="clearfix">
                         <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
                         <ul class="resource-change-lang organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
@@ -565,6 +566,11 @@
                         </ul>
                         <a href="#" data-location="<%= xml %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
+                    <% if ( texts[metadata_language].type != 'human' ) { %>
+                    <li class="translation-rating">
+                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong> 
+                    </li>
+                    <% } %>
                     <li><hr/></li>
                     <li>
                         <strong><?php echo Lang::get('website.resource_type') ?>:</strong>
@@ -613,7 +619,6 @@
                     </li>
                 </ul>
             </footer>
-            <div class="translation-rating">asd</div>
         </script>
 
         <script id="resource-content" type="text/template">
@@ -694,6 +699,27 @@
         <script id="grnet-rating-stars" type="text/template">
             <li role="presentation">
                 <% for ( var i = 0 ; i < ratingMean ; i++ ){ %><img src="/images/full_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %><% for ( var i = ratingMean ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="grnet-rating-star star-value-<%= i %>"><% } %>
+            </li>
+        </script>
+
+        <script id="translation-rating" type="text/template">
+            <a onclick="return false;" data-toggle="tooltip" class="translation-rating-tooltip" href="#"><% for ( var i = 0 ; i < rating ; i++ ){ %><img src="/images/full_star.png" class="translation-rating-star star-value-<%= i %>"><% } %><% for ( var i = rating ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="translation-rating-star star-value-<%= i %>"><% } %></a>
+               <%= lang('of') %>
+            <span class="translation-rating-num-votes"><%= votes %></span> <%= lang('votes') %>
+            <!--<a  onclick="return false;" data-toggle="popover" class="translation-rating-info" href="#"><span class="glyphicon glyphicon-expand"> </span></a></span>-->
+            <% if ( rating > 0 ) { %>
+            <span class="rating-history dropdown" style="position: relative; max-height: 50px; ">
+                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                    <?php echo Lang::get('website.view_rating_history'); ?> <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="drop5" role="menu" style="padding: 5px; font-size: 11px; max-height: 100px; overflow: auto; "></ul>
+            </span>
+            <% } %>
+        </script>
+
+        <script id="translation-rating-stars" type="text/template">
+            <li role="presentation">
+                <% for ( var i = 0 ; i < ratingMean ; i++ ){ %><img src="/images/full_star.png" class="translation-rating-star star-value-<%= i %>"><% } %><% for ( var i = ratingMean ; i < 5 ; i++ ){ %><img src="/images/empty_star.png" class="translation-rating-star star-value-<%= i %>"><% } %>
             </li>
         </script>
 

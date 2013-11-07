@@ -115,6 +115,7 @@ return array(
 'intended_audience'=>'Intended Audience',
 'copyright'=>'Rights',
 'collection'=>'Collection',
+'rate_translation'=>'Rate automatic translation',
 
 'featured_sections'=>'Featured Sections',
 'hot_themes'=>'Hot Topics',
