@@ -914,7 +914,6 @@ App.Views.DoSearch = Backbone.View.extend({
     submit: function(e){
         // Abort any current ajax requests
         e.preventDefault();
-        vent.trigger('cancel:ajaxs');
 
         // Get text search
         var formBoxText = $('#form-search').val();
@@ -954,6 +953,8 @@ App.Views.DoSearch = Backbone.View.extend({
             box.after(text);
             return;
         }
+
+        vent.trigger('cancel:ajaxs');
         $('#app-content-filters').empty();
 
         // Visualization thingies
@@ -962,7 +963,7 @@ App.Views.DoSearch = Backbone.View.extend({
         $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resources'));
         $('#app-content-info').hide();
         $('#content-filters-bar').hide();
-        $('#app-content-filters').show();;
+        $('#app-content-filters').show();
 
         // Create search request
         var search = new App.Models.Search();
