@@ -972,6 +972,9 @@ App.Views.DoSearch = Backbone.View.extend({
         search.set('limit', Box.get('perPage'));
         search.set('total', 0);
         search.set('filter', Box.get('filters').toJSON());
+        search.set('monolingual', $('#search-checkbox-monolingual').is(':checked') ? 'true' : 'false' );
+        search.set('prfexpansion', $('#search-checkbox-prfexpansion').is(':checked') ? 'true' : 'false' );
+        search.set('semanticexpansion', $('#search-checkbox-semanticexpansion').is(':checked') ? 'true' : 'false' );
 
         this.ajax = search.fetch();
 

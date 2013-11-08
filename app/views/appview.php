@@ -111,8 +111,8 @@
                     </div>
                     <div style="margin-top: 5px; ">
                         <input id="search-checkbox-monolingual" type="checkbox" /><label for="search-checkbox-monolingual" style="margin-right: 15px; font-weight: normal; font-weight: normal; "><span></span>Monolingual</label>
-                        <input id="search-checkbox-pseudofeedback" type="checkbox" /><label for="search-checkbox-pseudofeedback" style="margin-right: 15px; font-weight: normal; "><span></span>Pseudo Feedback</label>
-                        <input id="search-checkbox-automidentification" type="checkbox" /><label for="search-checkbox-automidentification" style="margin-right: 15px; font-weight: normal; "><span></span>Automatic language identification</label>
+                        <input id="search-checkbox-prfexpansion" type="checkbox" /><label for="search-checkbox-prfexpansion" style="margin-right: 15px; font-weight: normal; "><span></span>Pseudo Feedback</label>
+                        <input id="search-checkbox-semanticexpansion" type="checkbox" /><label for="search-checkbox-semanticexpansion" style="margin-right: 15px; font-weight: normal; "><span></span>Automatic language identification</label>
                     </div>
                 </form>
                 <nav class="hidden-sm">
