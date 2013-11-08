@@ -1,6 +1,10 @@
 $('#form-search').bind('typeahead:closed', function(e){
+    $('.tt-dropdown-menu').hide();
     $('.tt-query').val($(this).next().html());
     Box.set('searchText', $(this).next().html());
+    var stext = Box.get('searchText') == '' ? '' : '/'+Box.get('searchText');
+    Router.navigate('#/'+get_section()+stext+'/1'+get_filters_formatted());
+    $('#header form').submit();
 });
 
 
@@ -914,6 +918,7 @@ App.Views.DoSearch = Backbone.View.extend({
     submit: function(e){
         // Abort any current ajax requests
         e.preventDefault();
+        $('.tt-dropdown-menu').hide();
 
         // Get text search
         var formBoxText = $('#form-search').val();
