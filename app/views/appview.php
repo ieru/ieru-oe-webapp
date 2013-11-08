@@ -101,11 +101,18 @@
             <div class="container">
                 <a href="/#"><h1 class="pull-left hidden-sm">Organic.Edunet</h1></a>
                 <form id="search-form" action="" class="pull-right">
-                    <div class="input-group">
-                        <input id="form-search" autocomplete="off" type="text" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
-                        <span class="input-group-btn">
-                            <button class="btn" type="submit">Go!</button>
-                        </span>
+                    <div id="search-form-div">
+                        <div class="input-group">
+                            <input id="form-search" autocomplete="off" type="text" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
+                            <span class="input-group-btn">
+                                <button class="btn" type="submit">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 5px; ">
+                        <input id="search-checkbox-monolingual" type="checkbox" /><label for="search-checkbox-monolingual" style="margin-right: 15px; font-weight: normal; font-weight: normal; "><span></span>Monolingual</label>
+                        <input id="search-checkbox-pseudofeedback" type="checkbox" /><label for="search-checkbox-pseudofeedback" style="margin-right: 15px; font-weight: normal; "><span></span>Pseudo Feedback</label>
+                        <input id="search-checkbox-automidentification" type="checkbox" /><label for="search-checkbox-automidentification" style="margin-right: 15px; font-weight: normal; "><span></span>Automatic language identification</label>
                     </div>
                 </form>
                 <nav class="hidden-sm">
