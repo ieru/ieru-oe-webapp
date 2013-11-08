@@ -1,4 +1,4 @@
-$('#form-search').bind('typeahead:closed', function(e){
+$('#form-search').bind('typeahead:selected', function(e){
     $('.tt-dropdown-menu').hide();
     $('.tt-query').val($(this).next().html());
     Box.set('searchText', $(this).next().html());
