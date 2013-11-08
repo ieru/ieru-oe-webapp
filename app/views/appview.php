@@ -919,7 +919,7 @@
                 title: '<?php echo Lang::get('website.log_in_or_register_for_improving_translation') ?>'
             });
             $('body').tooltip({
-                selector: '.grnet-rating-tooltip',
+                selector: '.grnet-rating-tooltip, .translation-rating-tooltip',
                 title:'<?php echo Lang::get('website.log_in_or_register_for_rating') ?>'
             });
         <?php endif; ?>
