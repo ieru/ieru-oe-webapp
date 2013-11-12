@@ -187,6 +187,9 @@ App.Models.Translation.Rating = Backbone.Model.extend({
 		var data = {};
 		data.usertoken = this.get('usertoken');
 		data.rating = this.get('rating');
+		data.from = this.get('from');
+		data.to = this.get('to');
+		data.service = this.get('service');
 		return Backbone.Model.prototype.fetch.call(this, { data: data, type: 'POST' });
 	}
 })

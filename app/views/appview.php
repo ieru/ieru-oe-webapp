@@ -55,8 +55,8 @@
                                             </div>
                                         </div>
                                         <button id="submit-login-form" type="submit" class="btn btn-primary"><?php echo Lang::get('website.submit') ?></button>
-                                        <p class="divider" role="presentation"></p>
-                                        <p><a href="#/user/retrieve"><?php echo Lang::get('website.forgot_password') ?></a></p>
+                                        <!--<p class="divider" role="presentation"></p>
+                                        <p><a href="#/user/retrieve"><?php echo Lang::get('website.forgot_password') ?></a></p>-->
                                     </form>
                                 </li>
                             </ul>
@@ -67,15 +67,15 @@
                     <ul class="nav navbar-nav pull-right">
                         <li style="margin-right: 15px; ">
                             <div style="margin-left: 10px; float: right; padding-top: 9px; ">
-                                <div id="button-autotranslate" class="onoffswitch">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" autocomplete="off">
-                                    <label class="onoffswitch-label" for="myonoffswitch">
+                                <div class="onoffswitch" id="button-autotranslate">
+                                    <input type="checkbox" autocomplete="off" id="myonoffswitch" class="onoffswitch-checkbox" name="onoffswitch">
+                                    <label for="myonoffswitch" class="onoffswitch-label">
                                         <div class="onoffswitch-inner"></div>
                                         <div class="onoffswitch-switch"></div>
                                     </label>
                                 </div> 
                             </div>
-                            <div style="float: right; padding-top: 9px; color: #eee; "><?php echo Lang::get('website.auto-translate') ?></div>
+                            <div style="float: right; padding-top: 9px; color: #eee; ">Auto-translate</div>
                         </li>
                         <li class="dropdown pull-right" id="lang-selector">
                             <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle"><span class="flag <?php echo Session::get( 'language' ) ?>flag"></span> <img id="user-selected-language" src="/images/blank.png" class="flag flag-<?php echo LANG ?>" alt="<?php echo LANG ?>" /> <?php echo Lang::get('website.'.LANG ) ?> <b class="caret"></b></a>
@@ -109,10 +109,19 @@
                             </span>
                         </div>
                     </div>
-                    <div style="margin-top: 5px; ">
-                        <input id="search-checkbox-monolingual" type="checkbox" /><label for="search-checkbox-monolingual" style="margin-right: 15px; font-weight: normal; font-weight: normal; "><span></span>Monolingual</label>
-                        <input id="search-checkbox-prfexpansion" type="checkbox" /><label for="search-checkbox-prfexpansion" style="margin-right: 15px; font-weight: normal; "><span></span>Pseudo Feedback</label>
-                        <input id="search-checkbox-semanticexpansion" type="checkbox" /><label for="search-checkbox-semanticexpansion" style="margin-right: 15px; font-weight: normal; "><span></span>Automatic language identification</label>
+                    <div style="margin-top: 5px; position: relative; " class="pull-right">
+                        <a href="#" id="dropdownMenu2" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.advanced_options') ?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2" style="min-width: 300px; ">
+                            <li>
+                                <input role="menuitem" id="search-checkbox-monolingual" type="checkbox" /><label for="search-checkbox-monolingual"> Monolingual</label>
+                            </li>
+                            <li>
+                                <input id="search-checkbox-prfexpansion" type="checkbox" /><label for="search-checkbox-prfexpansion"> Pseudo Feedback</label>
+                            </li>
+                            <li>
+                                <input id="search-checkbox-semanticexpansion" type="checkbox" /><label for="search-checkbox-semanticexpansion"> Automatic language identification</label>
+                            </li>
+                        </ul>
                     </div>
                 </form>
                 <nav class="hidden-sm">

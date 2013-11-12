@@ -1113,6 +1113,7 @@ App.Views.FullResource = Backbone.View.extend({
 
         // Change to the desired language if there is a translation set for it
         if ( texts[to].title != '' ){
+            this.model.set('metadata_language_from', from);
             this.model.set('hash',Sha1.hash(this.model.get('texts')[to].title+this.model.get('texts')[to].description));
             this.render();
         // If the texts are not in the desired language, request translation
@@ -1122,6 +1123,7 @@ App.Views.FullResource = Backbone.View.extend({
                 for ( from in texts )
                     if ( texts[from].title )
                         break;
+            this.model.set('metadata_language_from', from);
 
             // Translate title
             var title = new App.Models.Translation.Language({text: texts[from].title, from:from, to:to});
@@ -1129,6 +1131,7 @@ App.Views.FullResource = Backbone.View.extend({
             this.ajaxTitle.done(function(response){
                 texts[to].title = response.data.translation;
                 that.find('header h2 a').html(response.data.translation);
+                thot.model.set('service', response.data.service_used);
                 // Translate description
                 if ( !!texts[from].description ){
                     that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
@@ -1177,7 +1180,7 @@ App.Views.FullResource = Backbone.View.extend({
 
         // Add translation ratings
         var translation = this.$el.find('.translation-rating');
-        var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash')});
+        var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
         var ratings = new App.Views.Translation.Rating({model: request});
         this.model.set('tratingsModel',ratings);
         translation.find('img').remove();
