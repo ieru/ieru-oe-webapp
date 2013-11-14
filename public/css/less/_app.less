@@ -53,10 +53,11 @@
     .navbar #user-login .tooltip-inner { min-width: 100px; top: 10px; }
 
     /* Jumbotron */
-    #header { padding-bottom: 0; padding-top: 15px; margin-bottom: 0; border-bottom: 3px solid #00b19e; background: #ececec url('http://organic.teluria.es/css/images/header_bg.png') bottom center no-repeat; border-radius: 0; }
-    #header > .container { position: relative; height: 175px; }  
-    #header h1 { margin-top: 5px; color: rgba(0,0,0,0); background: url('http://organic.teluria.es/css/images/logo.png') no-repeat; width: 50%; height: 94px; }
+    #header { padding-bottom: 0; padding-top: 15px; margin-bottom: 0; border-bottom: 3px solid #00b19e; background: #ececec url('/images/header_bg.png') bottom center no-repeat; border-radius: 0; }
+    #header > .container { position: relative; height: 150px; }  
+    #header h1 { margin-top: 5px; color: rgba(0,0,0,0); background: url('/images/logo.png') no-repeat; width: 50%; height: 94px; }
     #header form {  width: 50%; }
+    #header #search-form .dropdown { position: relative; }
     #header #search-form-div { margin-top: 25px; width: 100%; padding: 8px; background: #ddd; box-shadow: inset 0 0 3px rgba(0,0,0,0.3); border-radius: 5px; }
     #header #search-form-div input[type=text] { font-size: 25px; padding: 5px 0 6px 10px; }
     #header #search-form-div button[type=submit] { background: url('../images/search-magnifying-glass.png') 50% 50% no-repeat; color: rgba(0,0,0,0); }
@@ -65,7 +66,7 @@
     #header nav ul li { margin: 8px 10px; }
  
     /* Banner */
-    #home-banner { background: url("http://organic.teluria.es/images/slideshow_bg_patter.png") repeat scroll 0 0 transparent; }
+    #home-banner { background: url("/images/slideshow_bg_pattern.png") repeat scroll 0 0 transparent; }
     #home-banner > div { text-align: center; }
 
     /* Footer */
@@ -141,7 +142,8 @@
     #search-content article > footer li:last-child { margin-bottom: 0; }
     #search-content article figure { float: right; margin-left: 15px; margin-bottom: 15px; }
 
-    #resource-viewport { margin-top: 25px; margin-bottom: 15px; padding: 10px 15px; border: 1px solid #ddd; box-shadow: 0 1px 2px rgba(0,0,0,0.3); border-radius: 4px; }
+    #resource-full-content { margin-top: 25px; padding: 10px 15px 0 15px; border: 1px solid #ddd; box-shadow: 0 1px 2px rgba(0,0,0,0.3); border-radius: 4px; } 
+
     #resource-viewport > header { margin-bottom: 10px; }
     #resource-viewport > header h2 { font-size: 22px; line-height: 30px; margin-top: 0; margin-bottom: 0; }
     #resource-viewport hr { margin: 5px 0 10px 0; background: #bbb; }
@@ -151,6 +153,10 @@
     #resource-viewport > footer li.search-result-keywords .label { font-size: 82%; }
     #resource-viewport > footer li:last-child { margin-bottom: 0; }
     #resource-viewport figure { float: right; margin-left: 15px; margin-bottom: 15px; }
+
+    #resource-recommendations > header { margin-bottom: 10px; }
+    #resource-recommendations > header h2 { font-size: 22px; line-height: 30px; margin-top: 0; margin-bottom: 0; }
+    #resource-recommendations hr { margin: 5px 0 10px 0; background: #bbb; }
 
     #app-content-filters-accordion ul { max-height: 200px; overflow: auto; }
 
@@ -374,10 +380,9 @@
 .sections-themes ul li img,
 .sections-categories ul li img { margin: 0 auto; display: block; }
 
-
-
-
-#resource-recommendations { margin-bottom: 15px; padding: 10px 15px; border: 1px solid #ddd; box-shadow: 0 1px 2px rgba(0,0,0,0.3); border-radius: 4px; }
-#resource-recommendations > header { margin-bottom: 10px; }
-#resource-recommendations > header h2 { font-size: 22px; line-height: 30px; margin-top: 0; margin-bottom: 0; }
-#resource-recommendations hr { margin: 5px 0 10px 0; background: #bbb; }
+#search-form ul { padding: 5px; }
+#search-form ul label { font-weight: normal; }
+#search-form .dropdown { text-align: right; }
+#search-form .dropdown > a { color: #aaa; }
+#search-form .dropdown > a .caret { opacity: 0.3; }
+#search-form .dropdown-menu { right: 0; left: auto; text-align: left; }

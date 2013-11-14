@@ -109,18 +109,12 @@
                             </span>
                         </div>
                     </div>
-                    <div style="margin-top: 5px; position: relative; " class="pull-right">
-                        <a href="#" id="dropdownMenu2" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.advanced_options') ?> <b class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2" style="min-width: 300px; ">
-                            <li>
-                                <input role="menuitem" id="search-checkbox-monolingual" type="checkbox" /><label for="search-checkbox-monolingual"> Monolingual</label>
-                            </li>
-                            <li>
-                                <input id="search-checkbox-prfexpansion" type="checkbox" /><label for="search-checkbox-prfexpansion"> Pseudo Feedback</label>
-                            </li>
-                            <li>
-                                <input id="search-checkbox-semanticexpansion" type="checkbox" /><label for="search-checkbox-semanticexpansion"> Automatic language identification</label>
-                            </li>
+                    <div class="dropdown">
+                        <a href="#" id="dropdownMenu2" class="dropdown-toggle" role="button" data-toggle="dropdown"><?php echo Lang::get('website.advanced_options') ?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                            <li><input role="menuitem" id="search-checkbox-monolingual" type="checkbox" /> <label for="search-checkbox-monolingual"> Monolingual</label></li>
+                            <li><input id="search-checkbox-prfexpansion" type="checkbox" /> <label for="search-checkbox-prfexpansion"> Pseudo Feedback</label></li>
+                            <li><input id="search-checkbox-semanticexpansion" type="checkbox" /> <label for="search-checkbox-semanticexpansion"> Automatic language identification</label></li>
                         </ul>
                     </div>
                 </form>
@@ -370,13 +364,16 @@
                     </div>
                     <aside class="col-lg-3 hidden-sm">
                     </aside>
-                    <article id="resource-viewport" class="col-lg-9">
-                    </article>
-                    <div id="resource-recommendations" class="col-offset-3 col-lg-9">
-                        <header>
-                            <h2>Recommended resources</h2>
-                        </header>
-                    </div>
+                    <section id="resource-full-content" class="col-lg-9">
+                        <article id="resource-viewport" >
+                        </article>
+                        <hr/>
+                        <div id="resource-recommendations">
+                            <header>
+                                <h2>Recommended resources</h2>
+                            </header>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -886,6 +883,9 @@
                 window.location = $(this).attr('href')+'#'+Backbone.history.getFragment();
                 return false;
             })
+
+            // 
+            $('#search-form input[type=checkbox], #search-form label').bind('click', function (e) { e.stopPropagation() })
         </script>
 
         <script>
