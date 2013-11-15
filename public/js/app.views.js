@@ -1200,3 +1200,16 @@ App.Views.Register.Activate = Backbone.View.extend({
         });
     }
 });
+
+
+App.Views.Recommended = Backbone.View.extend({
+    initialize: function(){
+        // Browse recommendations
+        //$('#recom-dialog-form').remove();
+        var script = document.createElement('script');
+        script.id = 'recommended-resources-widget';
+        script.type = 'text/javascript';
+        script.src = '/js/_other/recommended.js';
+        $('#page-recommended > .container > .row').append(script);
+    }
+})

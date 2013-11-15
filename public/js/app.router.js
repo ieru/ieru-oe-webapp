@@ -17,7 +17,9 @@ App.Router = Backbone.Router.extend({
 		'listing': 					 'listing',
 		'listing/:id': 				 'listing',
 
-		'section/:section':          'section'
+		'section/:section':          'section',
+
+		'recommended':               'recommended'
 	},
 
 	index: function(){
@@ -133,5 +135,11 @@ App.Router = Backbone.Router.extend({
 
 		// Show sections
         var section = new App.Views.Sections({ model: sections, section: section });
+	},
+
+	recommended: function(){
+		show_view( 'page-recommended' );
+
+		var section = new App.Views.Recommended();
 	}
 })

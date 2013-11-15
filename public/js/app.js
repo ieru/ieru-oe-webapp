@@ -23,6 +23,7 @@ function show_view ( view ){
 	$('#page-resource').hide();
 	$('#page-register-user').hide();
 	$('#page-navigational').hide();
+  $('#page-recommended').hide();
 	$('#page-register-user-confirm').hide();
 
 	$('#'+view).show();

@@ -116,6 +116,7 @@ return array(
 'collection'=>'Colección',
 'rate_translation'=>'Puntúa la traducción automática',
 'advanced_options'=>'Opciones avanzadas',
+'menu_recommendations'=>'Recomendados',
 
 'featured_sections'=>'Secciones destacadas',
 'hot_themes'=>'Temas de actualidad',

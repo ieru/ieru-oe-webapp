@@ -122,6 +122,9 @@
                     <ul class="list-inline">
                         <li><a href="#"><?php echo Lang::get('website.home') ?></a></li>
                         <li><a href="#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
+                        <li><a href="#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
+                    <?php endif; ?>
                     </ul>
                 </nav>
             </div>
@@ -377,7 +380,6 @@
                 </div>
             </div>
         </div>
-        <!-- END VIEW RESOURCE PAGE -->
 
         <!-- REGISTER NEW ACCOUNT PAGE -->
         <div id="page-register-user-confirm">
@@ -387,7 +389,14 @@
                 </div>
             </div>
         </div>
-        <!-- REGISTER NEW ACCOUNT PAGE -->
+
+        <!-- RECOMMENDATIONS -->
+        <div id="page-recommended">
+            <div class="container">
+                <div class="row" style="padding-top: 30px; " id="page-recommended-div">
+                </div>
+            </div>
+        </div>
 
         <!-- REGISTER NEW ACCOUNT PAGE -->
         <div id="page-register-user">
@@ -435,8 +444,8 @@
                 </div>
             </form>
         </div>
-        <!-- END REGISTER NEW ACCOUNT PAGE -->
 
+        <!-- PAGE FOOTER -->
         <footer id="footer">
             <div class="container">
                 <div class="row">
@@ -444,7 +453,9 @@
                         <ul>
                             <li><a href="#"><?php echo Lang::get('website.home') ?></a></li>
                             <li><a href="#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                        <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
                             <li><a href="#/user/register"><?php echo Lang::get('website.register') ?></a></li>
+                        <?php endif; ?>
                         </ul>
                     </div>
                     <div class="col-lg-6">
