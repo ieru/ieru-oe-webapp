@@ -1207,7 +1207,7 @@ App.Views.Recommended = Backbone.View.extend({
         // Browse recommendations
         //$('#recom-dialog-form').remove();
         var script = document.createElement('script');
-        script.id = 'recommended-resources-widget';
+        script.id = 'recommended-resources';
         script.type = 'text/javascript';
         script.src = '/js/_other/recommended.js';
         $('#page-recommended > .container > .row').append(script);

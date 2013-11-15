@@ -393,7 +393,7 @@
         <!-- RECOMMENDATIONS -->
         <div id="page-recommended">
             <div class="container">
-                <div class="row" style="padding-top: 30px; " id="page-recommended-div">
+                <div class="row clearfix" style="padding-top: 30px; " id="page-recommended-div">
                 </div>
             </div>
         </div>

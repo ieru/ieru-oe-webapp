@@ -32,5 +32,5 @@ try {
 	x.setAttribute("ShowTop", "true");
 	x.setAttribute("WidgetTitle", "");
 	x.setAttribute('id', ID);
-	$('#page-recommended-div').appendChild(x);
+	document.getElementsByTagName("head")[0].appendChild(x);
 } catch (e) {}
