@@ -1205,7 +1205,7 @@ App.Views.Register.Activate = Backbone.View.extend({
 App.Views.Recommended = Backbone.View.extend({
     initialize: function(){
         // Browse recommendations
-        //$('#recom-dialog-form').remove();
+        $('#ugc-dialog-form').remove();
         var script = document.createElement('script');
         script.id = 'recommended-resources';
         script.type = 'text/javascript';
