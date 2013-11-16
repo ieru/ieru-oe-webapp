@@ -103,12 +103,10 @@ return array(
 'none'=>'None',
 'tags'=>'Tags',
 'suggest_a_new_resource'=>'Suggest resource',
-
-'log_in_or_register_for_improving_translation'=> 'Register or login to improve translation',
+'log_in_or_register_for_improving_translation'=>'Register or login to improve translation',
 'change_account_details'=>'Change settings',
 'forgot_password'=>'Forgot your password?',
 'name'=>'Name',
-
 'resource_type'=>'Resource Type',
 'media_format'=>'Media Format',
 'educational_context'=>'Educational Context',
