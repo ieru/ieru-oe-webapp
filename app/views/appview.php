@@ -994,31 +994,31 @@
                         <div class="col-lg-6 col-md-6">
                             <legend><?php echo Lang::get('website.register_a_new_user') ?></legend>
                             <div class="control-group">
-                                <label class="col col-lg-4 control-label" for="form-register-name"><?php echo Lang::get('website.name') ?></label>
+                                <label style="padding-top: 0 !important; " class="col col-lg-4 control-label" for="form-register-name"><?php echo Lang::get('website.name') ?></label>
                                 <div class="col col-lg-8 controls">
                                     <input type="text" id="form-register-name" name="form-register-name">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="col col-lg-4 control-label" for="form-register-username"><?php echo Lang::get('website.username') ?></label>
+                                <label style="padding-top: 0 !important; " class="col col-lg-4 control-label" for="form-register-username"><?php echo Lang::get('website.username') ?></label>
                                 <div class="col col-lg-8 controls">
                                     <input class="input-with-feedback" type="text" id="form-register-username" name="form-register-username">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="col col-lg-4 control-label" for="form-register-password"><?php echo Lang::get('website.password') ?></label>
+                                <label style="padding-top: 0 !important; " class="col col-lg-4 control-label" for="form-register-password"><?php echo Lang::get('website.password') ?></label>
                                 <div class="col col-lg-8 controls">
                                     <input class="input-with-feedback" type="password" id="form-register-password" name="form-register-password">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="col col-lg-4 control-label" for="form-register-repeat-password"><?php echo Lang::get('website.repeat_password') ?></label>
+                                <label style="padding-top: 0 !important; " class="col col-lg-4 control-label" for="form-register-repeat-password"><?php echo Lang::get('website.repeat_password') ?></label>
                                 <div class="col col-lg-8 controls">
                                     <input class="input-with-feedback" type="password" id="form-register-repeat-password" name="form-register-repeat-password">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="col col-lg-4 control-label" for="form-register-email"><?php echo Lang::get('website.email') ?></label>
+                                <label style="padding-top: 0 !important; " class="col col-lg-4 control-label" for="form-register-email"><?php echo Lang::get('website.email') ?></label>
                                 <div class="col col-lg-8 controls">
                                     <input class="input-with-feedback" type="text" id="form-register-email" name="form-register-email">
                                 </div>
@@ -1027,11 +1027,11 @@
                                 <div class="col col-lg-4 control-label">
                                 </div>
                                 <div class="col col-lg-8 controls" style="margin-bottom: 10px; ">
-                                    <input type="checkbox" name="form-register-accept" class="btn btn-primary" id="form-register-submit"/> <a href="/#/privacy" target="_blank"><?php echo Lang::get('website.accept_use_terms_and_conditions') ?></a></button>
+                                    <input type="checkbox" name="form-register-accept" class="input-with-feedback" id="form-register-accept"/> <a href="/#/privacy" target="_blank"><?php echo Lang::get('website.accept_use_terms_and_conditions') ?></a></button>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="col col-lg-4 control-label"></label>
+                                <label style="padding-top: 0 !important; " class="col col-lg-4 control-label"></label>
                                 <div class="col col-lg-8 controls">
                                     <button type="submit" class="btn btn-primary" id="form-register-submit"><?php echo Lang::get('website.register') ?></button>
                                 </div>
