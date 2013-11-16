@@ -42,22 +42,38 @@ class HomeController extends BaseController {
 
     public function index ()
     {
-        # Get a featured resource
+        // Get a featured resource
         $f = Lom::with('General', 'General.Identifier')
-                        ->join('generals', 'generals.lom_id','=','loms.lom_id')
-                        ->join('generals_languages',    'generals_languages.general_id',    '=', 'generals.general_id')
-                        ->join('generals_titles',       'generals_titles.general_id',       '=', 'generals.general_id')
-                        ->join('generals_descriptions', 'generals_descriptions.general_id', '=', 'generals.general_id')
-                        //->orderBy(DB::raw('RAND()'))
-                        ->where('generals_languages.generals_language_lang','=',LANG)
-                        ->where('generals_titles.generals_title_lang','=',LANG)
-                        ->where('generals_descriptions.generals_description_lang','=',LANG)
-                        ->take(10)
-                        ->orderBy('generals.lom_id')
-                        ->get();
+                ->join('generals', 'generals.lom_id','=','loms.lom_id')
+                ->join('generals_languages',    'generals_languages.general_id',    '=', 'generals.general_id')
+                ->join('generals_titles',       'generals_titles.general_id',       '=', 'generals.general_id')
+                ->join('generals_descriptions', 'generals_descriptions.general_id', '=', 'generals.general_id')
+                //->orderBy(DB::raw('RAND()'))
+                ->where('generals_languages.generals_language_lang','=',LANG)
+                ->where('generals_titles.generals_title_lang','=',LANG)
+                ->where('generals_descriptions.generals_description_lang','=',LANG)
+                ->take(10)
+                ->orderBy('generals.lom_id')
+                ->get();
+        // If no resources in that language, use default language (en)
+        if ( !$f->count() )
+        {
+            $f = Lom::with('General', 'General.Identifier')
+                    ->join('generals', 'generals.lom_id','=','loms.lom_id')
+                    ->join('generals_languages',    'generals_languages.general_id',    '=', 'generals.general_id')
+                    ->join('generals_titles',       'generals_titles.general_id',       '=', 'generals.general_id')
+                    ->join('generals_descriptions', 'generals_descriptions.general_id', '=', 'generals.general_id')
+                    //->orderBy(DB::raw('RAND()'))
+                    ->where('generals_languages.generals_language_lang','=','en')
+                    ->where('generals_titles.generals_title_lang','=','en')
+                    ->where('generals_descriptions.generals_description_lang','=','en')
+                    ->take(10)
+                    ->orderBy('generals.lom_id')
+                    ->get();
+        }
         $featured = $f[rand( 0, 9 )];
 
-        # Get the required information for showing the resources at the home page
+        // Get the required information for showing the resources at the home page
         $carousel = Lom::with('General', 'General.Identifier')
                         ->join('generals', 'generals.lom_id','=','loms.lom_id')
                         ->join('generals_languages',    'generals_languages.general_id',    '=', 'generals.general_id')
@@ -69,6 +85,20 @@ class HomeController extends BaseController {
                         ->where('generals_descriptions.generals_description_lang','=',LANG)
                         ->take(5)
                         ->get();
+        if ( !$carousel->count() )
+        {
+            $carousel = Lom::with('General', 'General.Identifier')
+                            ->join('generals', 'generals.lom_id','=','loms.lom_id')
+                            ->join('generals_languages',    'generals_languages.general_id',    '=', 'generals.general_id')
+                            ->join('generals_titles',       'generals_titles.general_id',       '=', 'generals.general_id')
+                            ->join('generals_descriptions', 'generals_descriptions.general_id', '=', 'generals.general_id')
+                            ->orderBy('loms.lom_id', 'DESC')
+                            ->where('generals_languages.generals_language_lang','=','en')
+                            ->where('generals_titles.generals_title_lang','=','en')
+                            ->where('generals_descriptions.generals_description_lang','=','en')
+                            ->take(5)
+                            ->get();
+        }
 
         return View::make('appview')
                 ->with( 'carousel', $carousel )

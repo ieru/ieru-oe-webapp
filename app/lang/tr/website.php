@@ -118,4 +118,8 @@ return array(
 'menu_recommendations'=>'önerileri',
 'featured_sections'=>'Seçme bölümler',
 'hot_themes'=>'sıcak Temalar',
+'monolingual'=>'monolingual',
+'pseudo-feedback'=>'sahte geribildirim',
+'automatic_language_identification'=>'Otomatik dil kimliği',
+'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 );

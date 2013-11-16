@@ -24,15 +24,23 @@ function show_view ( view ){
 	$('#page-register-user').hide();
 	$('#page-navigational').hide();
   $('#page-recommended').hide();
+  $('#page-privacy').hide();
 	$('#page-register-user-confirm').hide();
 
 	$('#'+view).show();
 }
 
-function lang ( text )
+function lang ( text, errcode )
 {
 	var langFile = Box.get('langFile');
-	return !!langFile[text] ? langFile[text] : '[['+text+']]';
+  if ( !errcode )
+  {
+  	return !!langFile[text] ? langFile[text] : '[['+text+']]';
+  }
+  else
+  {
+    return langFile.errcode[text];
+  }
 }
 
 function hashcode ( s )

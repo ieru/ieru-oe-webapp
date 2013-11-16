@@ -119,4 +119,8 @@ return array(
 'menu_recommendations'=>'Raccomandazioni',
 'featured_sections'=>'sezioni in primo piano',
 'hot_themes'=>'temi caldi',
+'monolingual'=>'monolingui',
+'pseudo-feedback'=>'pseudo-feedback',
+'automatic_language_identification'=>'identificazione automatica della lingua',
+'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 );

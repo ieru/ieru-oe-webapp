@@ -119,4 +119,8 @@ return array(
 'menu_recommendations'=>'izvēlne ieteikumi',
 'featured_sections'=>'ieteicamās sadaļas',
 'hot_themes'=>'karstā tēmām',
+'monolingual'=>'vienvalodīgos iedzīvotājus',
+'pseudo-feedback'=>'pseido-atsauksmes',
+'automatic_language_identification'=>'automātisko valodas identifikators',
+'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 );

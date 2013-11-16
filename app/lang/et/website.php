@@ -119,4 +119,8 @@ return array(
 'menu_recommendations'=>'Soovitused',
 'featured_sections'=>'Eelistatuimad lõigud',
 'hot_themes'=>'Kuumad teemad',
+'monolingual'=>'ükskeelne',
+'pseudo-feedback'=>'pseudo tagasiside',
+'automatic_language_identification'=>'keele automaatne tuvastamine',
+'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 );

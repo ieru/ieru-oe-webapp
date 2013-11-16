@@ -196,12 +196,12 @@ App.Views.RegisterNewUser = Backbone.View.extend({
         model.fetch().then(function(response){
             var success = response.success ? 'success' : 'danger';
             if ( response.success ){
-                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+response.message+'</p><p>Check your email for an activation link to finish the registration process.</p></div>');
+                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+lang(response.message, true)+'</p><p>Check your email for an activation link to finish the registration process.</p></div>');
                 that.$el.find('.control-group').removeClass('has-error');
             }else{
                 that.$el.find('input').tooltip('destroy');
                 that.$el.find('.control-group').addClass('has-error');
-                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+response.message+'</p></div>');
+                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+lang(response.message, true)+'</p></div>');
             }
         });
     },
@@ -933,6 +933,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // If search through submit button, reset
         if ( !e.isTrigger ) {
+            console.log(e);
             if ( formBoxText == Box.get('searchText') ){
                 Router.navigate('#/search/'+formBoxText+'/1'+get_filters_formatted());
             }else{
@@ -942,7 +943,9 @@ App.Views.DoSearch = Backbone.View.extend({
                 Router.navigate('#/search/'+formBoxText+'/1'+get_filters_formatted());
             $('#content-filters-bar').find('span').html(lang('none'));
             Box.set('page', 1);
-            Box.set('filters', new App.Collections.Filters());
+            filtersBarView = new App.Views.FiltersBar({ collection: new App.Collections.Filters() });
+            Box.set('filters', filtersBarView.collection);
+            Router.navigate('#/search/'+formBoxText+'/1');
             return;
         }
 

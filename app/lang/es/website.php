@@ -114,10 +114,14 @@ return array(
 'intended_audience'=>'Audiencia',
 'copyright'=>'Derechos',
 'collection'=>'Colección',
-
 'rate_translation'=>'Puntuar traducción automática',
 'advanced_options'=>'Opciones avanzadas',
 'menu_recommendations'=>'Recomendaciones',
 'featured_sections'=>'Secciones destacadas',
 'hot_themes'=>'Temas de actualidad',
+'monolingual'=>'Monolingüe',
+'pseudo-feedback'=>'Pseudo-feedback',
+'automatic_language_identification'=>'Identificación automática del idioma',
+'footer_copyright_notice'=>'Organic.Edunet está parcialmente subvencionado de acuerdo con la <em>ICT Policy Support Programme (ICT PSP)</em> como parte del programa <em>Competitiveness and Innovation Framework Programme</em> de la Unión Europea',
+'accept_use_terms_and_conditions'=>'Acepto los términos de uso',
 );

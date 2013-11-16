@@ -19,7 +19,9 @@ App.Router = Backbone.Router.extend({
 
 		'section/:section':          'section',
 
-		'recommended':               'recommended'
+		'recommended':               'recommended',
+
+		'privacy': 					 'privacy',
 	},
 
 	index: function(){
@@ -141,5 +143,9 @@ App.Router = Backbone.Router.extend({
 		show_view( 'page-recommended' );
 
 		var section = new App.Views.Recommended();
+	},
+
+	privacy: function(){
+		show_view( 'page-privacy' );
 	}
 })

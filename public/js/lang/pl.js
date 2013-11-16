@@ -137,5 +137,21 @@ lang_file = {
 	'errcode':{
 		200: 'error',
 		300: 'error',
+		900: 'You must accept the terms of use.',
+		901: 'Wrong parameters count for registering user.',
+		902: 'The parameters can not be empty.',
+		903: 'The username can not contain special characters.',
+		904: 'The passwords does not match.',
+		905: 'User created.',
+		906: 'There is already an user with that username or email.',
+		907: 'Wrong parameter count for activating user.',
+		908: 'Wrong parameters for activating user.',
+		909: 'User activated.',
+		910: 'User not found or already active.',
+		911: 'An error ocurred activating the account.',
+		920: 'User token for logging out not specified.',
+		921: 'Correct credentials.',
+		922: 'Wrong username or password',
+		923: 'Wrong parameters count for log in.',
 	}
 }
