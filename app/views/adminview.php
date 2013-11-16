@@ -34,8 +34,8 @@
         </header>
 
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
+            <div id="admin-view" class="row">
+                <div id="admin-view-aside" class="col-lg-4">
                     <div class="well" style="padding: 0">
                         <ul class="nav bs-sidenav">
                             <li><a href="/admin/">Administration</a></li>
@@ -43,7 +43,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div id="admin-view-main" class="col-lg-8">
                     <div class="row">
                         <div class="col col-lg-12">
                             Available languages: 

@@ -113,8 +113,10 @@ return array(
 'intended_audience'=>'κοινό στο οποίο απευθύνεται',
 'copyright'=>'Πνευματικά δικαιώματα',
 'collection'=>'συλλογή',
-'rate_translation'=>'Rate automatic translation',
 
+'rate_translation'=>'',
+'advanced_options'=>'',
+'menu_recommendations'=>'',
 'featured_sections'=>'',
 'hot_themes'=>'',
 );

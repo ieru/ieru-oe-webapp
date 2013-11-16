@@ -114,8 +114,9 @@ return array(
 'intended_audience'=>'Zielgruppe',
 'copyright'=>'Copyright',
 'collection'=>'Sammlung',
-'rate_translation'=>'Rate automatic translation',
-
-'featured_sections'=>'',
-'hot_themes'=>'',
+'rate_translation'=>'Preise-Übersetzung',
+'advanced_options'=>'Erweiterte Optionen',
+'menu_recommendations'=>'Empfehlungen',
+'featured_sections'=>'Empfohlene Abschnitte',
+'hot_themes'=>'heiße Themen',
 );

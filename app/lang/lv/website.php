@@ -114,8 +114,9 @@ return array(
 'intended_audience'=>'paredzētā auditorija',
 'copyright'=>'autortiesības',
 'collection'=>'kolekcijas',
-'rate_translation'=>'Rate automatic translation',
-
-'featured_sections'=>'',
-'hot_themes'=>'',
+'rate_translation'=>'kursa tulkojumu',
+'advanced_options'=>'papildu opcijas',
+'menu_recommendations'=>'izvēlne ieteikumi',
+'featured_sections'=>'ieteicamās sadaļas',
+'hot_themes'=>'karstā tēmām',
 );

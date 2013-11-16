@@ -1,6 +1,4 @@
 <?php
-error_reporting( E_ALL );
-ini_set( 'display_errors', '1' );
 class AdminController extends BaseController {
 
     /*
@@ -21,7 +19,13 @@ class AdminController extends BaseController {
 
     public function __construct ()
     {
+        // Report all errors
+        error_reporting( E_ALL );
+        ini_set( 'display_errors', '1' );
+
+        // Constants
         define( 'PERMISSION_ACCESS_ADMIN_ZONE', 100 );
+        define( 'API_SERVER', 'organic-edunet.eu' );
 
         // Get user data
         if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] )
@@ -64,28 +68,13 @@ class AdminController extends BaseController {
 
         $lang = require( app_path().'/lang/'.$to.'/website.php' );
 
-        // The NYT must be the first key of the array
-        if ( array_key_exists( 'NYT', $lang ) )
-        {
-            foreach ( $lang as $key=>&$term )
-            {
-                if ( $term == '' OR $lang['NYT'] == 'ALL' AND $key != 'NYT' )
-                {
-                    $url = 'http://organic-edunet.eu/api/analytics/translate?text='.str_replace( '_', '+', $key ).'&service=microsoft&to='.$to;
-                    $data = json_decode( $this->_curl_get_data( $url ) );
-                    $term = $data->data->translation;
-                }
-            }
-            unset( $lang['NYT'] );
-        }
-
-        // Check for empty fields (newly added lang keys)
+        // Check to translate empty tags
         foreach ( $lang as $key=>&$term )
         {
             if ( $term == '' )
             {
-                $url = 'http://organic-edunet.eu/api/analytics/translate';
-                $data = json_decode( $this->_curl_get_data( $url, array( 'text'=>str_replace( '_', ' ', $key ), 'to'=>$to ) ) );
+                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.str_replace( '_', '+', $key ).'&service=microsoft&to='.$to;
+                $data = json_decode( $this->_curl_get_data( $url ) );
                 $term = $data->data->translation;
             }
         }
@@ -95,6 +84,9 @@ class AdminController extends BaseController {
                 ->with( 'lang', $lang );
     }
 
+    /**
+     * Save the information changed in the language file form
+     */
     public function langfilessend ()
     {
         // Language to translate to
@@ -133,10 +125,7 @@ class AdminController extends BaseController {
     private function & _curl_get_data ( $url, $data = null ) 
     {
         $ch = curl_init();
-        if ( $data )
-            curl_setopt( $ch, CURLOPT_URL, $url.'?'.http_build_query( $data ) );
-        else
-            curl_setopt( $ch, CURLOPT_URL, $url );
+        curl_setopt( $ch, CURLOPT_URL, $url );
         curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
         curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT, 2 );
         curl_setopt( $ch, CURLOPT_TIMEOUT, 7 );
@@ -149,11 +138,11 @@ class AdminController extends BaseController {
      * Para los archivos JavaScript
      * @return View
      */
-    public function get_langfilesjs ()
+    public function langfilesjs ()
     {
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
-        $lang = require( path('app').'/language/lang/'.$to.'.js' );
+        $lang = require( app_path().'/lang/'.$to.'/website.php' );
 
         // The NYT must be the first key of the array
         if ( array_key_exists( 'NYT', $lang ) )
@@ -178,12 +167,12 @@ class AdminController extends BaseController {
             }
         }
 
-        return View::make( 'admin.langfiles' )
+        return View::make( 'adminview' )
                 ->with( 'title', 'Organic Lingua' )
                 ->with( 'lang', $lang );
     }
 
-    public function post_langfilesjs ()
+    public function langfilessendjs ()
     {
         // Language to translate to
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';

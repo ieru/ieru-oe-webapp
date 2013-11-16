@@ -117,7 +117,6 @@ return array(
 'rate_translation'=>'Rate automatic translation',
 'advanced_options'=>'Advanced Options',
 'menu_recommendations'=>'Recommendations',
-
 'featured_sections'=>'Featured Sections',
 'hot_themes'=>'Hot Topics',
 );

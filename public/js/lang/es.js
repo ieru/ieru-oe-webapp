@@ -131,7 +131,7 @@ lang_file = {
 'loading_resources':'Realizando búsqueda, por favor espere...',
 'character_not_allowed': 'La búsqueda contiene un caracter no permitido',
 'apply_filters': 'Añadir filtros',
-'collection':'Collección',
+'collection':'Colección',
 'educationalLearningResourceType':'Tipo',
 
 	'errcode':{

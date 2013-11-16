@@ -8,7 +8,6 @@ return array(
 'it'=>'Italiano',
 'et'=>'Eesti keel',
 'es'=>'Español',
-'pl'=>'Polski',
 'tr'=>'Türkçe',
 'resource_language'=>'Bu kaynak olduğunu',
 'age_rage_context'=>'Tipik yaş aralığı içerik',
@@ -114,8 +113,9 @@ return array(
 'intended_audience'=>'hedef kitlesi',
 'copyright'=>'telif hakkı',
 'collection'=>'koleksiyonu',
-'rate_translation'=>'Rate automatic translation',
-
-'featured_sections'=>'',
-'hot_themes'=>'',
+'rate_translation'=>'hızı çeviri',
+'advanced_options'=>'Gelişmiş Seçenekler',
+'menu_recommendations'=>'önerileri',
+'featured_sections'=>'Seçme bölümler',
+'hot_themes'=>'sıcak Temalar',
 );

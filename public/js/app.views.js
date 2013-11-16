@@ -647,7 +647,7 @@ App.Views.Facets = Backbone.View.extend({
 
                 render: function(){
                     // Take the last part in technical format filters
-                    if ( typeof this.model.get('translation') !== 'undefined' )
+                    if ( typeof this.model.get('translation') !== 'undefined' && !!this.model.get('translation') )
                         var translation = this.model.get('translation').split('/');
                     else
                         var translation = '';

@@ -114,8 +114,9 @@ return array(
 'intended_audience'=>'sihtrühma',
 'copyright'=>'Autoriõigus',
 'collection'=>'kogumine',
-'rate_translation'=>'Rate automatic translation',
-
-'featured_sections'=>'',
-'hot_themes'=>'',
+'rate_translation'=>'Määra tõlge',
+'advanced_options'=>'Täpsemad suvandid',
+'menu_recommendations'=>'Soovitused',
+'featured_sections'=>'Eelistatuimad lõigud',
+'hot_themes'=>'Kuumad teemad',
 );
