@@ -126,4 +126,5 @@ return array(
 'abstracts_language_expanation'=>'Ver traducción automática o hecha por un humano del título, descripción y palabras clave',
 'accept_use_terms_and_conditions'=>'Acepto los términos de uso',
 'view_own_resources'=>'Ver recursos sugeridos',
+'adminzone'=>'Administración',
 );

@@ -19,6 +19,9 @@ class HomeController extends BaseController {
 
     public function __construct ()
     {
+        // Constants
+        define( 'PERMISSION_ACCESS_ADMIN_ZONE', 100 );
+
         // Check if the user is trying to change the website language
         if ( Input::has( 'lang-selector' ) )
             Session::put( 'language', Input::get( 'lang-selector' ) );

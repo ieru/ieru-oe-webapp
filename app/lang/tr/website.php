@@ -126,4 +126,5 @@ return array(
 'abstracts_language_expanation'=>'Bu sırada soyut dil expanation',
 'accept_use_terms_and_conditions'=>'Kullanım Şartları ve koşulları kabul et',
 'view_own_resources'=>'kendi kaynakları görüntüle',
+'adminzone'=>'Yönetim bölgesi',
 );

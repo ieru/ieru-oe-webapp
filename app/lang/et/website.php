@@ -126,4 +126,5 @@ return array(
 'abstracts_language_expanation'=>'referaate keel expanation',
 'accept_use_terms_and_conditions'=>'Nõustun kasutamise tingimustega ja',
 'view_own_resources'=>'Vaade omavahendite',
+'adminzone'=>'Admin tsoon',
 );

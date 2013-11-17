@@ -126,4 +126,5 @@ return array(
 'abstracts_language_expanation'=>'rezumējumus valodu expanation',
 'accept_use_terms_and_conditions'=>'piekrītu lietošanas noteikumiem un nosacījumiem',
 'view_own_resources'=>'skatīt pašu resursi',
+'adminzone'=>'Admin zonā',
 );

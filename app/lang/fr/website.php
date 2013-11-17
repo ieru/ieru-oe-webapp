@@ -126,4 +126,5 @@ return array(
 'abstracts_language_expanation'=>'résumés langue peuvent',
 'accept_use_terms_and_conditions'=>'accepter les conditions d\'utilisation générales',
 'view_own_resources'=>'afficher les ressources propres',
+'adminzone'=>'Zone d\'administration',
 );

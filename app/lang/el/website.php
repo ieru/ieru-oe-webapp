@@ -126,4 +126,5 @@ return array(
 'abstracts_language_expanation'=>'περιλήψεις γλώσσα expanation',
 'accept_use_terms_and_conditions'=>'αποδοχή χρήση όρων και προϋποθέσεων',
 'view_own_resources'=>'Προβολή ιδίων πόρων',
+'adminzone'=>'Admin ζώνη',
 );
