@@ -1,0 +1,20 @@
+error_file = {
+	"200": "error",
+	"300": "error",
+	"900": "Debes aceptar las condiciones de uso.",
+	"901": "Número de parámetros erróneo para registrar un usuario nuevo.",
+	"902": "Los parámetros no pueden estar vacíos.",
+	"903": "El nombre de usuario no puede contener caracteres especiales.",
+	"904": "Las contraseñas no coinciden.",
+	"905": "Usuario creado con éxito.",
+	"906": "Ya existe un usuario con ese correo o contraseña.",
+	"907": "Número de parámetros incorrectos para activar al usuario.",
+	"908": "Parámetros incorrectos para activar un usurio.",
+	"909": "Usuario activado.",
+	"910": "Usuario no encontrado o no ha sido activado todavía.",
+	"911": "Ha ocurrido un error activando la cuenta.",
+	"920": "No se ha especificado el token de usuario para conectarse.",
+	"921": "Credenciales correctas.",
+	"922": "Nombre de usuario o contraseña incorrectas",
+	"923": "Número de parámetros erróneos para conectarse."
+}

@@ -1,22 +1,14 @@
 <?php
-class AdminController extends BaseController {
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Home Controller
-    |--------------------------------------------------------------------------
-    |
-    | You may wish to use controllers instead of, or in addition to, Closure
-    | based routes. That's great! Here is an example controller method to
-    | get you started. To route to this controller, just add the route:
-    |
-    |   Route::get('/', 'HomeController@showWelcome');
-    |
-    */
-
-
+class AdminController extends BaseController 
+{
+    /** 
+     * @var Logged user information 
+     */
     private $_user = null;
 
+    /**
+     * Constructor
+     */
     public function __construct ()
     {
         // Report all errors
@@ -116,6 +108,129 @@ class AdminController extends BaseController {
     }
 
     /**
+     * Para los archivos JavaScript
+     * @return View
+     */
+    public function langfilesjs ()
+    {
+        // Fetch the file that the user wants to edit translation
+        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+
+        // Retrieve file
+        $lang = file_get_contents( base_path().'/public/js/lang/'.$to.'.js' );
+        $lang = str_replace( 'lang_file = ', '', $lang );
+        $lang = json_decode( json_encode( json_decode( $lang ) ), true );
+
+        // Check to translate empty tags
+        foreach ( $lang as $key=>&$term )
+        {
+            if ( $term == '' and !is_array( $term ) )
+            {
+                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.str_replace( '_', '+', $key ).'&service=microsoft&to='.$to;
+                $data = json_decode( $this->_curl_get_data( $url ) );
+                $term = $data->data->translation;
+            }
+        }
+
+        return View::make( 'admin_lang_js' )
+                ->with( 'title', 'Organic Lingua' )
+                ->with( 'lang', $lang );
+    }
+
+    public function langfilessendjs ()
+    {
+        // Language to translate to
+        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+
+        // Path to the file that stores the variables
+        $file = base_path().'/public/js/lang/'.$to.'.js';
+
+        // Write the file
+        if ( $fp = fopen( $file, 'w+' ) )
+        {
+            fwrite( $fp, "lang_file = " );
+            fwrite( $fp, json_encode( $_POST ) );
+            fclose( $fp );
+        }
+
+        // Request to build the view
+        return View::make( 'admin_lang_js' )
+                ->with( 'title', 'Organic Lingua' )
+                ->with( 'lang', $_POST );
+    }
+
+    /**
+     *
+     */
+    /**
+     * Para los archivos JavaScript
+     * @return View
+     */
+    public function langerror ()
+    {
+        // Fetch the file that the user wants to edit translation
+        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+
+        // Retrieve file
+        $lang = file_get_contents( base_path().'/public/js/lang/error/'.$to.'.js' );
+        $lang = str_replace( 'error_file = ', '', $lang );
+        $lang = json_decode( json_encode( json_decode( $lang ) ), true );
+
+        // Load helpers
+        $helpers = file_get_contents( base_path().'/public/js/lang/error/en.js' );
+        $helpers = str_replace( 'error_file = ', '', $helpers );
+        $helpers = json_decode( json_encode( json_decode( $helpers ) ), true );
+
+        // Check to translate empty tags
+        foreach ( $lang as $key=>&$term )
+        {
+            if ( $term == '' and !is_array( $term ) )
+            {
+                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode($helpers[$key]).'&service=microsoft&to='.$to;
+                $data = json_decode( $this->_curl_get_data( $url ) );
+                $term = $data->data->translation;
+            }
+        }
+
+        return View::make( 'admin_error_js' )
+                ->with( 'title', 'Organic Lingua' )
+                ->with( 'lang', $lang )
+                ->with( 'helpers', $helpers );
+    }
+
+    /**
+     * Save the information changed in the language file form
+     */
+    public function langerrorsend ()
+    {
+        // Language to translate to
+        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+
+        // Path to the file that stores the variables
+        $file = base_path().'/public/js/lang/error/'.$to.'.js';
+
+        // Write the file
+        if ( $fp = fopen( $file, 'w+' ) )
+        {
+            fwrite( $fp, "error_file = " );
+            fwrite( $fp, json_encode( $_POST ) );
+            fclose( $fp );
+        }
+
+        // Load helpers
+        $helpers = file_get_contents( base_path().'/public/js/lang/error/en.js' );
+        $helpers = str_replace( 'error_file = ', '', $helpers );
+        $helpers = json_decode( json_encode( json_decode( $helpers ) ), true );
+
+        // Request to build the view
+        return View::make( 'admin_error_js' )
+                ->with( 'title', 'Organic Lingua' )
+                ->with( 'lang', $_POST )
+                ->with( 'helpers', $helpers );
+    }
+
+
+    /**
      * Connects with the remote services. Sets a timeout for connecting the 
      * service and a timeout for receiving the data.
      *
@@ -132,71 +247,5 @@ class AdminController extends BaseController {
         $data = curl_exec( $ch );
         curl_close( $ch );
         return $data;
-    }
-
-    /**
-     * Para los archivos JavaScript
-     * @return View
-     */
-    public function langfilesjs ()
-    {
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
-
-        $lang = require( app_path().'/lang/'.$to.'/website.php' );
-
-        // The NYT must be the first key of the array
-        if ( array_key_exists( 'NYT', $lang ) )
-        {
-            unset( $lang['NYT'] );
-            foreach ( $lang as &$term )
-            {
-                $url = 'http://lingua.dev/api/analytics/translate?text='.str_replace( ' ', '+', $term ).'&service=microsoft&to='.$to;
-                $data = json_decode( $this->_curl_get_data( $url ) );
-                $term = @$data->data->translation;
-            }
-        }
-
-        // Check for empty fields (newly added lang keys)
-        foreach ( $lang as $key=>&$term )
-        {
-            if ( $term == '' )
-            {
-                $url = 'http://lingua.dev/api/analytics/translate';
-                $data = json_decode( $this->_curl_get_data( $url, array( 'text'=>str_replace( '_', ' ', $key ), 'to'=>$to ) ) );
-                $term = $data->data->translation;
-            }
-        }
-
-        return View::make( 'adminview' )
-                ->with( 'title', 'Organic Lingua' )
-                ->with( 'lang', $lang );
-    }
-
-    public function langfilessendjs ()
-    {
-        // Language to translate to
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
-
-        // Path to the file that stores the variables
-        $file = path('app').'/language/lang/'.$to.'.js';
-
-        // Write the file
-        if ( $fp = fopen( $file, 'w+' ) )
-        {
-            fwrite( $fp, "<?php\n" );
-            fwrite( $fp, "return array(\n" );
-            foreach ( $_POST as $key=>$value )
-                fwrite( $fp, "'$key'=>'". addslashes($value)."',\n" );
-            fwrite( $fp, ");" );
-            fclose( $fp );
-        }
-
-        // Load the language file
-        $lang = lang::file( null, $to, 'website' );
-
-        // Request to build the view
-        return View::make( 'admin.langfiles' )
-                ->with( 'title', 'Organic Lingua' )
-                ->with( 'lang', $lang );
     }
 }

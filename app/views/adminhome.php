@@ -28,18 +28,21 @@
                     <ul class="list-inline">
                         <li><a href="/"><?php echo Lang::get('website.home') ?></a></li>
                         <li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                        <li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
                     </ul>
                 </nav>
             </div>
         </header>
 
         <div class="container">
-            <div class="row">
+            <div id="admin-view" class="row">
                 <div class="col-lg-4">
                     <div class="well" style="padding: 0">
-                        <ul class="nav bs-sidenav">
+                        <ul class="nav">
                             <li><a href="/admin/">Administration</a></li>
-                            <li><a href="/admin/langfiles">Language files</a></li>
+                            <li><a href="/admin/langfiles">Language files (php)</a></li>
+                            <li><a href="/admin/langfilesjs">Language files (js)</a></li>
+                            <li><a href="/admin/langerror">Language files (error codes)</a></li>
                         </ul>
                     </div>
                 </div>

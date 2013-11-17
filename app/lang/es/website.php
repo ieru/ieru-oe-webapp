@@ -124,4 +124,5 @@ return array(
 'automatic_language_identification'=>'Identificación automática del idioma',
 'footer_copyright_notice'=>'Organic.Edunet está parcialmente subvencionado de acuerdo con la <em>ICT Policy Support Programme (ICT PSP)</em> como parte del programa <em>Competitiveness and Innovation Framework Programme</em> de la Unión Europea',
 'accept_use_terms_and_conditions'=>'Acepto los términos de uso',
+'view_own_resources'=>'Ver recursos sugeridos',
 );

@@ -30,17 +30,16 @@ function show_view ( view ){
 	$('#'+view).show();
 }
 
-function lang ( text, errcode )
+function lang ( text )
 {
 	var langFile = Box.get('langFile');
-  if ( !errcode )
-  {
-  	return !!langFile[text] ? langFile[text] : '[['+text+']]';
-  }
-  else
-  {
-    return langFile.errcode[text];
-  }
+  return !!langFile[text] ? langFile[text] : '[['+text+']]';
+}
+
+function err ( errcode )
+{
+  var langFile = Box.get('errFile');
+  return langFile[errcode];
 }
 
 function hashcode ( s )

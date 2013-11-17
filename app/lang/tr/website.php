@@ -8,6 +8,7 @@ return array(
 'it'=>'Italiano',
 'et'=>'Eesti keel',
 'es'=>'Español',
+'pl'=>'Polski',
 'tr'=>'Türkçe',
 'resource_language'=>'Bu kaynak olduğunu',
 'age_rage_context'=>'Tipik yaş aralığı içerik',
@@ -122,4 +123,5 @@ return array(
 'pseudo-feedback'=>'sahte geribildirim',
 'automatic_language_identification'=>'Otomatik dil kimliği',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
+'view_own_resources'=>'kendi kaynakları görüntüle',
 );

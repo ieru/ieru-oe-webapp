@@ -33,7 +33,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <!--<li role="presentation">< data-toggle="modal" href="#change-account"><span class="glyphicon glyphicon-wrench"></span> <?php echo Lang::get('website.change_account_details'); ?></a></li>-->
-                                <li role="presentation"><a dat a-toggle="modal" href="#suggest-modal"><span class="glyphicon glyphicon-pencil"></span> <?php echo Lang::get('website.suggest_a_new_resource'); ?></a></li>
+                                <li role="presentation"><a data-toggle="modal" href="#suggest-modal"><span class="glyphicon glyphicon-leaf"></span> <?php echo Lang::get('website.suggest_a_new_resource'); ?></a></li>
+                                <li role="presentation"><a data-toggle="modal" href="#" class="ugc-widget-own"><span class="glyphicon glyphicon-pencil"></span> <?php echo Lang::get('website.view_own_resources'); ?></a></li>
                                 <li class="divider" role="presentation"></li>
                                 <li role="presentation"><a href="#" id="user-logout"><span class="glyphicon glyphicon-off"></span> <?php echo Lang::get('website.logout'); ?></a></li>
                             </ul>
@@ -1477,6 +1478,7 @@
             var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
             var searchBarInfo = new App.Views.SearchInfoBar();
             Box.set('langFile', lang_file);
+            Box.set('langFile', error_file);
             var doSearch = new App.Views.DoSearch();
             var doLogin = new App.Views.LoginForm();
             var doRegister = new App.Views.RegisterNewUser();
@@ -1499,6 +1501,7 @@
 
         <script>
         <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
+            // Suggest new resources
             $('html').on('click', '.ugc-widget', function(event){
                 event.preventDefault();
                 var WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
@@ -1530,6 +1533,26 @@
                 }catch(e){
                     alert(e.getMessage());
                 }
+            })
+            
+            // View own resources
+            $('html').on('click', '.ugc-widget-own', function(event){
+                javascript:(function() {
+                    WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
+                    var path_js = '/UGC/ugc-widget-server/';
+                    try {
+                        var x = document.createElement('SCRIPT');
+                        x.type = 'text/javascript';
+                        x.src = WIDGET_HOST +  path_js + 'loadUGC.js';
+                        x.setAttribute('Name', '<?php echo $_user->user_username ?>');
+                        x.setAttribute('Username', '<?php echo $_user->user_username ?>');
+                        x.setAttribute('Email', '<?php echo $_user->user_email ?>');
+                        x.setAttribute('Operation', 'index');
+                        x.setAttribute('id', 'LOMWidget');
+                        x.setAttribute('URL', window.location.href);
+                        document.getElementsByTagName('head')[0].appendChild(x);
+                    } catch (e) {}
+                })();
             })
         <?php else: ?>
             $('#app-content-results, #resource-viewport').tooltip({

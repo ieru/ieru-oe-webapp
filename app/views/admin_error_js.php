@@ -74,6 +74,7 @@
                                         <label class="control-label" for="inputEmail"><?php echo $key?></label>
                                         <div class="controls">
                                             <input class="span5" type="text" id="inputEmail" name="<?php echo $key?>" value="<?php echo $line?>">
+                                            <span class="help-block"><?php echo $helpers[$key]?></span>
                                         </div>
                                     </div>
                                     <?php endforeach; ?>
