@@ -127,4 +127,5 @@ return array(
 'accept_use_terms_and_conditions'=>'Kullanım Şartları ve koşulları kabul et',
 'view_own_resources'=>'kendi kaynakları görüntüle',
 'adminzone'=>'Yönetim bölgesi',
+'website_motto'=>'Arama tarımsal kaynakları',
 );

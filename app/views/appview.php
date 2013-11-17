@@ -104,7 +104,12 @@
 
         <header id="header">
             <div class="container">
-                <a href="/#"><h1 class="pull-left hidden-sm">Organic.Edunet</h1></a>
+                <a href="/#">
+                    <h1 class="pull-left hidden-sm" style="position: relative; ">
+                        Organic.Edunet
+                        <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px"><?php echo Lang::get('website.website_motto') ?></small>
+                    </h1>
+                </a>
                 <form id="search-form" action="" class="pull-right">
                     <div id="search-form-div">
                         <div class="input-group">

@@ -127,4 +127,5 @@ return array(
 'accept_use_terms_and_conditions'=>'Einsatz-Bedingungen akzeptieren',
 'view_own_resources'=>'eigenen Ressourcen anzeigen',
 'adminzone'=>'Admin zone',
+'website_motto'=>'Suche landwirtschaftlichen Ressourcen',
 );

@@ -127,4 +127,5 @@ return array(
 'accept_use_terms_and_conditions'=>'Nõustun kasutamise tingimustega ja',
 'view_own_resources'=>'Vaade omavahendite',
 'adminzone'=>'Admin tsoon',
+'website_motto'=>'Otsi põllumajanduse ressursid',
 );

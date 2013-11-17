@@ -127,4 +127,5 @@ return array(
 'accept_use_terms_and_conditions'=>'piekrītu lietošanas noteikumiem un nosacījumiem',
 'view_own_resources'=>'skatīt pašu resursi',
 'adminzone'=>'Admin zonā',
+'website_motto'=>'Meklēšana lauksaimniecības resursi',
 );

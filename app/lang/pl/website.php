@@ -127,4 +127,5 @@ return array(
 'accept_use_terms_and_conditions'=>'akceptuje warunki korzystania',
 'view_own_resources'=>'Widok zasobów własnych',
 'adminzone'=>'Admin strefa',
+'website_motto'=>'Przeszukiwanie zasobów rolnych',
 );
