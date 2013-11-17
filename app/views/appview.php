@@ -1468,6 +1468,7 @@
         <script src="js/app.router.js?date=<?php echo time()?>"></script>
         <!--Default language file -->
         <script src="js/lang/<?php echo LANG ?>.js?date=<?php echo time()?>"></script>
+        <script src="js/lang/error/<?php echo LANG ?>.js?date=<?php echo time()?>"></script>
 
         <script>
             //$.ajaxSetup({ cache: false });
@@ -1478,7 +1479,7 @@
             var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
             var searchBarInfo = new App.Views.SearchInfoBar();
             Box.set('langFile', lang_file);
-            Box.set('langFile', error_file);
+            Box.set('errFile', error_file);
             var doSearch = new App.Views.DoSearch();
             var doLogin = new App.Views.LoginForm();
             var doRegister = new App.Views.RegisterNewUser();

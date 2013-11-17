@@ -104,6 +104,7 @@ return array(
 'none'=>'κανένας',
 'tags'=>'Ετικέτες',
 'suggest_a_new_resource'=>'προτείνει ένα νέο πόρο',
+'log_in_or_register_for_improving_translation'=>'συνδεθείτε ή μητρώο για τη βελτίωση της μετάφρασης',
 'change_account_details'=>'αλλαγή στοιχείων λογαριασμού',
 'forgot_password'=>'Ξεχάσατε τον κωδικό πρόσβασης',
 'name'=>'Όνομα',
@@ -122,5 +123,7 @@ return array(
 'pseudo-feedback'=>'ψευδο-ανατροφοδότηση',
 'automatic_language_identification'=>'Αυτόματη γλώσσα αναγνώρισης',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
+'abstracts_language_expanation'=>'περιλήψεις γλώσσα expanation',
+'accept_use_terms_and_conditions'=>'αποδοχή χρήση όρων και προϋποθέσεων',
 'view_own_resources'=>'Προβολή ιδίων πόρων',
 );

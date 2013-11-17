@@ -37,11 +37,11 @@
             <div id="admin-view" class="row">
                 <div id="admin-view-aside" class="col-lg-4">
                     <div class="well" style="padding: 0">
-                        <ul class="nav bs-sidenav">
-                            <li><a href="/admin/">Administration</a></li>
-                            <li><a href="/admin/langfiles">Language files (php)</a></li>
-                            <li><a href="/admin/langfilesjs">Language files (js)</a></li>
-                            <li><a href="/admin/langerror">Language files (error codes)</a></li>
+                        <ul class="nav nav-list">
+                            <li class="nav-header">Edit language files</li>
+                            <li><a href="/admin/langfiles">Web app skeleton (php)</a></li>
+                            <li><a href="/admin/langfilesjs">Loaded with javascript</a></li>
+                            <li><a href="/admin/langerror">Error codes</a></li>
                         </ul>
                     </div>
                 </div>

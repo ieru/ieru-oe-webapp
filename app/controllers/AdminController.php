@@ -59,13 +59,14 @@ class AdminController extends BaseController
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
         $lang = require( app_path().'/lang/'.$to.'/website.php' );
+        $helpers = require( app_path().'/lang/en/website.php' );
 
         // Check to translate empty tags
         foreach ( $lang as $key=>&$term )
         {
             if ( $term == '' )
             {
-                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.str_replace( '_', '+', $key ).'&service=microsoft&to='.$to;
+                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode( $helpers[$key] ).'&service=microsoft&to='.$to;
                 $data = json_decode( $this->_curl_get_data( $url ) );
                 $term = $data->data->translation;
             }
@@ -73,7 +74,8 @@ class AdminController extends BaseController
 
         return View::make( 'adminview' )
                 ->with( 'title', 'Organic Lingua' )
-                ->with( 'lang', $lang );
+                ->with( 'lang', $lang )
+                ->with( 'helpers', $helpers );
     }
 
     /**
@@ -86,6 +88,7 @@ class AdminController extends BaseController
 
         // Path to the file that stores the variables
         $file = app_path().'/lang/'.$to.'/website.php';
+        $helpers = require( app_path().'/lang/en/website.php' );
 
         // Write the file
         if ( $fp = fopen( $file, 'w+' ) )
@@ -104,7 +107,8 @@ class AdminController extends BaseController
         // Request to build the view
         return View::make( 'adminview' )
                 ->with( 'title', 'Organic Lingua' )
-                ->with( 'lang', $lang );
+                ->with( 'lang', $lang )
+                ->with( 'helpers', $helpers );
     }
 
     /**
@@ -121,12 +125,17 @@ class AdminController extends BaseController
         $lang = str_replace( 'lang_file = ', '', $lang );
         $lang = json_decode( json_encode( json_decode( $lang ) ), true );
 
+        // Load helpers
+        $helpers = file_get_contents( base_path().'/public/js/lang/en.js' );
+        $helpers = str_replace( 'lang_file = ', '', $helpers );
+        $helpers = json_decode( json_encode( json_decode( $helpers ) ), true );
+
         // Check to translate empty tags
         foreach ( $lang as $key=>&$term )
         {
             if ( $term == '' and !is_array( $term ) )
             {
-                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.str_replace( '_', '+', $key ).'&service=microsoft&to='.$to;
+                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode($helpers[$key]).'&service=microsoft&to='.$to;
                 $data = json_decode( $this->_curl_get_data( $url ) );
                 $term = $data->data->translation;
             }
@@ -134,7 +143,8 @@ class AdminController extends BaseController
 
         return View::make( 'admin_lang_js' )
                 ->with( 'title', 'Organic Lingua' )
-                ->with( 'lang', $lang );
+                ->with( 'lang', $lang )
+                ->with( 'helpers', $helpers );
     }
 
     public function langfilessendjs ()
@@ -153,10 +163,16 @@ class AdminController extends BaseController
             fclose( $fp );
         }
 
+        // Load helpers
+        $helpers = file_get_contents( base_path().'/public/js/lang/en.js' );
+        $helpers = str_replace( 'lang_file = ', '', $helpers );
+        $helpers = json_decode( json_encode( json_decode( $helpers ) ), true );
+
         // Request to build the view
         return View::make( 'admin_lang_js' )
                 ->with( 'title', 'Organic Lingua' )
-                ->with( 'lang', $_POST );
+                ->with( 'lang', $_POST )
+                ->with( 'helpers', $helpers );
     }
 
     /**

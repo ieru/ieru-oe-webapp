@@ -123,5 +123,7 @@ return array(
 'pseudo-feedback'=>'sahte geribildirim',
 'automatic_language_identification'=>'Otomatik dil kimliği',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
+'abstracts_language_expanation'=>'Bu sırada soyut dil expanation',
+'accept_use_terms_and_conditions'=>'Kullanım Şartları ve koşulları kabul et',
 'view_own_resources'=>'kendi kaynakları görüntüle',
 );

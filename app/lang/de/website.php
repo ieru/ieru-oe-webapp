@@ -123,5 +123,7 @@ return array(
 'pseudo-feedback'=>'Pseudo-feedback',
 'automatic_language_identification'=>'Automatische Sprachidentifikation',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
+'abstracts_language_expanation'=>'Abstracts Sprache expanation',
+'accept_use_terms_and_conditions'=>'Einsatz-Bedingungen akzeptieren',
 'view_own_resources'=>'eigenen Ressourcen anzeigen',
 );

@@ -122,6 +122,8 @@ return array(
 'monolingual'=>'monolingue',
 'pseudo-feedback'=>'Pseudo-rétroaction',
 'automatic_language_identification'=>'identification automatique de la langue',
-'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
+'footer_copyright_notice'=>'Organic.Edunet est partiellement financé par le Programme d\'appui stratégique TIC (ICT PSP) dans le cadre du Programme cadre pour l\'Innovation et compétitivité de la Communauté européenne',
+'abstracts_language_expanation'=>'résumés langue peuvent',
+'accept_use_terms_and_conditions'=>'accepter les conditions d\'utilisation générales',
 'view_own_resources'=>'afficher les ressources propres',
 );

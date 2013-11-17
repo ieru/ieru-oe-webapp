@@ -196,12 +196,12 @@ App.Views.RegisterNewUser = Backbone.View.extend({
         model.fetch().then(function(response){
             var success = response.success ? 'success' : 'danger';
             if ( response.success ){
-                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+lang(response.message, true)+'</p><p>Check your email for an activation link to finish the registration process.</p></div>');
+                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.message, true)+'</p><p>Check your email for an activation link to finish the registration process.</p></div>');
                 that.$el.find('.control-group').removeClass('has-error');
             }else{
                 that.$el.find('input').tooltip('destroy');
                 that.$el.find('.control-group').addClass('has-error');
-                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+lang(response.message, true)+'</p></div>');
+                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.message, true)+'</p></div>');
             }
         });
     },

@@ -123,5 +123,7 @@ return array(
 'pseudo-feedback'=>'pseudo tagasiside',
 'automatic_language_identification'=>'keele automaatne tuvastamine',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
+'abstracts_language_expanation'=>'referaate keel expanation',
+'accept_use_terms_and_conditions'=>'Nõustun kasutamise tingimustega ja',
 'view_own_resources'=>'Vaade omavahendite',
 );
