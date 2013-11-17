@@ -107,7 +107,7 @@
                 <a href="/#">
                     <h1 class="pull-left hidden-sm" style="position: relative; ">
                         Organic.Edunet
-                        <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px"><?php echo Lang::get('website.website_motto') ?></small>
+                        <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px; "><?php echo Lang::get('website.website_motto') ?></small>
                     </h1>
                 </a>
                 <form id="search-form" action="" class="pull-right">
