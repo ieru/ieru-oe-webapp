@@ -128,4 +128,5 @@ return array(
 'view_own_resources'=>'Vaade omavahendite',
 'adminzone'=>'Admin tsoon',
 'website_motto'=>'Otsi põllumajanduse ressursid',
+'privacy_policy'=>'Privaatsus',
 );

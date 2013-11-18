@@ -128,4 +128,5 @@ return array(
 'view_own_resources'=>'skatīt pašu resursi',
 'adminzone'=>'Admin zonā',
 'website_motto'=>'Meklēšana lauksaimniecības resursi',
+'privacy_policy'=>'Privātuma politika',
 );

@@ -128,4 +128,5 @@ return array(
 'view_own_resources'=>'kendi kaynakları görüntüle',
 'adminzone'=>'Yönetim bölgesi',
 'website_motto'=>'Arama tarımsal kaynakları',
+'privacy_policy'=>'Gizlilik Politikası',
 );

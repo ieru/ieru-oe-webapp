@@ -128,4 +128,5 @@ return array(
 'view_own_resources'=>'View suggested content',
 'adminzone'=>'Admin zone',
 'website_motto'=>'Search agricultural resources',
+'privacy_policy'=>'Privacy policy',
 );

@@ -128,4 +128,5 @@ return array(
 'view_own_resources'=>'Προβολή ιδίων πόρων',
 'adminzone'=>'Admin ζώνη',
 'website_motto'=>'Οι γεωργικοί πόροι αναζήτησης',
+'privacy_policy'=>'Πολιτική προστασίας προσωπικών δεδομένων',
 );

@@ -128,4 +128,5 @@ return array(
 'view_own_resources'=>'Widok zasobów własnych',
 'adminzone'=>'Admin strefa',
 'website_motto'=>'Przeszukiwanie zasobów rolnych',
+'privacy_policy'=>'Polityka prywatności',
 );
