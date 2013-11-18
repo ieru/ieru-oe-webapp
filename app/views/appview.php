@@ -16,7 +16,7 @@
 
     <body>
 
-        <div class="navbar navbar-inverse">
+        <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
