@@ -1286,6 +1286,7 @@
                             <%= lang('none') %>
                         <% } %>
                     </li>
+                    <li><hr/></li>
                     <li class="clearfix">
                         <strong><abbr title="<?php echo Lang::get('website.abstracts_language_expanation') ?>"><?php echo Lang::get('website.abstracts_language') ?></abbr>:</strong>
                         <ul class="resource-change-lang organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
@@ -1309,6 +1310,11 @@
                         </ul>
                         <a href="#" data-location="<%= xml %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
                     </li>
+                    <% if ( texts[metadata_language].type != 'human' ) { %>
+                    <li class="translation-rating">
+                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong> 
+                    </li>
+                    <% } %>
                 </ul>
             </footer>
         </script>

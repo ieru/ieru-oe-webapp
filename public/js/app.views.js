@@ -427,6 +427,7 @@ App.Views.SearchResults = Backbone.View.extend({
         events: {
             'click .search-result-keywords a': 'addKeywordFilter',
             'click .organic-dropdown ul a': 'changeLanguage',
+            'click .translation-rating-star': 'addRating',
         },
 
         changeLanguage: function(e){
@@ -571,7 +572,28 @@ App.Views.SearchResults = Backbone.View.extend({
             grnet.find('img').remove();
             grnet.append(this.model.get('ratingsModel').el);
 
+            // Add translation ratings
+            var translation = this.$el.find('.translation-rating');
+            var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
+            var ratings = new App.Views.Translation.Rating({model: request});
+            this.model.set('tratingsModel',ratings);
+            translation.find('img').remove();
+            translation.append(this.model.get('tratingsModel').el);
+
             return this;
+        },
+
+        addRating: function(e){
+            // Translation Rating Model Save
+            e.preventDefault();
+            if ( _.cookie('usertoken')){
+                this.model.set('rating', parseInt($(e.currentTarget).attr('class').split(' ')[1].split('-')[2])+1);
+                var that = this;
+                this.model.save().then(function(response){
+                    if ( response.success )
+                        that.$el.html( that.template( response.data ) );
+                });
+            }
         }
     });
 
