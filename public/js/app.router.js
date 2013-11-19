@@ -73,7 +73,8 @@ App.Router = Backbone.Router.extend({
 	},
 
 	search: function(text){
-		$('#header form').submit();
+		//$('#header form').submit();
+		Router.navigate('#/search/'+text+'/1');
 	},
 
 	search_page: function(text,page,filters){
