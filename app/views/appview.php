@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html>
     <head>
+        <?php define( 'VERSION', '0.9' );?>
         <title>Organic.Edunet</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1497,14 +1499,14 @@
         <script src="js/underscore.js"></script>
         <script src="js/backbone.js"></script>
         <!-- App javaScript files -->
-        <script src="js/app.js?date=<?php echo time()?>"></script>
-        <script src="js/app.models.js?date=<?php echo time()?>"></script>
-        <script src="js/app.views.js?date=<?php echo time()?>"></script>
-        <script src="js/app.collections.js?date=<?php echo time()?>"></script>
-        <script src="js/app.router.js?date=<?php echo time()?>"></script>
+        <script src="js/app.js?date=<?php echo VERSION?>"></script>
+        <script src="js/app.models.js?date=<?php echo VERSION?>"></script>
+        <script src="js/app.views.js?date=<?php echo VERSION?>"></script>
+        <script src="js/app.collections.js?date=<?php echo VERSION?>"></script>
+        <script src="js/app.router.js?date=<?php echo VERSION?>"></script>
         <!--Default language file -->
-        <script src="js/lang/<?php echo LANG ?>.js?date=<?php echo time()?>"></script>
-        <script src="js/lang/error/<?php echo LANG ?>.js?date=<?php echo time()?>"></script>
+        <script src="js/lang/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
+        <script src="js/lang/error/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
 
         <script>
             //$.ajaxSetup({ cache: false });

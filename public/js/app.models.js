@@ -160,7 +160,8 @@ App.Models.Register.Activate = Backbone.Model.extend({
 })
 
 App.Models.Sections = Backbone.Model.extend({
-	urlRoot: '/js/sections.json?time='+new Date().getTime(),
+	//urlRoot: '/js/sections.json?time='+new Date().getTime(),
+	urlRoot: '/js/sections.json?version=0.9',
 })
 
 App.Models.SectionsCarousel = Backbone.Model.extend({
