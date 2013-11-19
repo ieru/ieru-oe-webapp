@@ -420,7 +420,7 @@ return array(
 		'lv'=>'ENOAT',
 		'pl'=>'ENOAT',
 		),
-	' oebioagro'=>array(
+	'oebiagro'=>array(
 		'en'=>'Bio@gro',
 		'es'=>'Bio@gro',
 		'de'=>'Bio@gro',
