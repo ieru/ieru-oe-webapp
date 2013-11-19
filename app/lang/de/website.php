@@ -119,8 +119,9 @@ return array(
 'menu_recommendations'=>'Empfehlungen',
 'featured_sections'=>'Empfohlene Abschnitte',
 'hot_themes'=>'heiße Themen',
-'monolingual'=>'einsprachig',
-'pseudo-feedback'=>'Pseudo-feedback',
+'monolingual'=>'Mehrsprachige Suche deaktivieren',
+'pseudo-feedback'=>'Erweitern Sie Suchergebnisse basierend auf Ontologie Begriffe Frequenz',
+'semantic_expansion'=>'Erweitern Sie die Suche mit Ontologie',
 'automatic_language_identification'=>'Automatische Sprachidentifikation',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 'abstracts_language_expanation'=>'Abstracts Sprache expanation',
@@ -129,4 +130,5 @@ return array(
 'adminzone'=>'Admin zone',
 'website_motto'=>'Suche landwirtschaftlichen Ressourcen',
 'privacy_policy'=>'Datenschutzerklärung',
+'guess_language'=>'Schätze',
 );

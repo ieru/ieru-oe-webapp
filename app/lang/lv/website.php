@@ -119,8 +119,9 @@ return array(
 'menu_recommendations'=>'izvēlne ieteikumi',
 'featured_sections'=>'ieteicamās sadaļas',
 'hot_themes'=>'karstā tēmām',
-'monolingual'=>'vienvalodīgos iedzīvotājus',
-'pseudo-feedback'=>'pseido-atsauksmes',
+'monolingual'=>'Daudzvalodu meklēšanas atspējošana',
+'pseudo-feedback'=>'Paplašinātu meklēšanas rezultātus, balstoties uz ontoloģiju termini biežums',
+'semantic_expansion'=>'Izvērstu meklēsanu, izmantojot Ontoloģija',
 'automatic_language_identification'=>'automātisko valodas identifikators',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 'abstracts_language_expanation'=>'rezumējumus valodu expanation',
@@ -129,4 +130,5 @@ return array(
 'adminzone'=>'Admin zonā',
 'website_motto'=>'Meklēšana lauksaimniecības resursi',
 'privacy_policy'=>'Privātuma politika',
+'guess_language'=>'Minējums',
 );

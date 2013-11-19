@@ -119,8 +119,9 @@ return array(
 'menu_recommendations'=>'Recommendations',
 'featured_sections'=>'Featured Sections',
 'hot_themes'=>'Hot Topics',
-'monolingual'=>'Monolingual',
-'pseudo-feedback'=>'Pseudo-feedback',
+'monolingual'=>'Disable multilingual search',
+'pseudo-feedback'=>'Expand search results based on ontology terms frequency',
+'semantic_expansion'=>'Expand search using ontology',
 'automatic_language_identification'=>'Automatic language identification',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 'abstracts_language_expanation'=>'View the title and description of the resource in a different language',
@@ -129,4 +130,5 @@ return array(
 'adminzone'=>'Admin zone',
 'website_motto'=>'Search agricultural resources',
 'privacy_policy'=>'Privacy policy',
+'guess_language'=>'Guess',
 );

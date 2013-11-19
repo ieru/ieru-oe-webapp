@@ -119,8 +119,9 @@ return array(
 'menu_recommendations'=>'önerileri',
 'featured_sections'=>'Seçme bölümler',
 'hot_themes'=>'sıcak Temalar',
-'monolingual'=>'monolingual',
-'pseudo-feedback'=>'sahte geribildirim',
+'monolingual'=>'Çok dilde aramayı devre dışı bırakma',
+'pseudo-feedback'=>'Ontoloji açısından sıklığı temel alarak arama sonuçları Genişlet',
+'semantic_expansion'=>'Ontoloji kullanarak aramayı genişletmek',
 'automatic_language_identification'=>'Otomatik dil kimliği',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 'abstracts_language_expanation'=>'Bu sırada soyut dil expanation',
@@ -129,4 +130,5 @@ return array(
 'adminzone'=>'Yönetim bölgesi',
 'website_motto'=>'Arama tarımsal kaynakları',
 'privacy_policy'=>'Gizlilik Politikası',
+'guess_language'=>'Tahmin et',
 );

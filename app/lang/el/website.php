@@ -119,8 +119,9 @@ return array(
 'menu_recommendations'=>'μενού συστάσεις',
 'featured_sections'=>'Επιλεγμένα τμήματα',
 'hot_themes'=>'καυτά θέματα',
-'monolingual'=>'Μονόγλωσσες πηγές στα',
-'pseudo-feedback'=>'ψευδο-ανατροφοδότηση',
+'monolingual'=>'Απενεργοποιήσετε την πολυγλωσσική Αναζήτηση',
+'pseudo-feedback'=>'Επεκτείνετε τα αποτελέσματα αναζήτησης που βασίζονται οντολογία όρους συχνότητα',
+'semantic_expansion'=>'Επεκτείνετε την αναζήτηση χρησιμοποιώντας οντολογία',
 'automatic_language_identification'=>'Αυτόματη γλώσσα αναγνώρισης',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 'abstracts_language_expanation'=>'περιλήψεις γλώσσα expanation',
@@ -129,4 +130,5 @@ return array(
 'adminzone'=>'Admin ζώνη',
 'website_motto'=>'Οι γεωργικοί πόροι αναζήτησης',
 'privacy_policy'=>'Πολιτική προστασίας προσωπικών δεδομένων',
+'guess_language'=>'Εικασία',
 );

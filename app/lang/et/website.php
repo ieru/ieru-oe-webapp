@@ -119,8 +119,9 @@ return array(
 'menu_recommendations'=>'Soovitused',
 'featured_sections'=>'Eelistatuimad lõigud',
 'hot_themes'=>'Kuumad teemad',
-'monolingual'=>'ükskeelne',
-'pseudo-feedback'=>'pseudo tagasiside',
+'monolingual'=>'Keela mitmekeelne otsing',
+'pseudo-feedback'=>'Laiendage Otsingu tulemused põhinevad ontoloogia mõisted sagedus',
+'semantic_expansion'=>'Laiendage otsingut kasutades ontoloogia',
 'automatic_language_identification'=>'keele automaatne tuvastamine',
 'footer_copyright_notice'=>'Organic.Edunet is partially funded under the ICT Policy Support Programme (ICT PSP) as part of the Competitiveness and Innovation Framework Programme by the European Community',
 'abstracts_language_expanation'=>'referaate keel expanation',
@@ -129,4 +130,5 @@ return array(
 'adminzone'=>'Admin tsoon',
 'website_motto'=>'Otsi põllumajanduse ressursid',
 'privacy_policy'=>'Privaatsus',
+'guess_language'=>'Arvan, et',
 );

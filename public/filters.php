@@ -456,7 +456,7 @@ return array(
 		'lv'=>'Intute',
 		'pl'=>'Intute',
 		),
-	' oeaua'=>array(
+	'oeaua'=>array(
 		'en'=>'AUA',
 		'es'=>'AUA',
 		'de'=>'AUA',

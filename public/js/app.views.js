@@ -1,3 +1,15 @@
+$('#search-form .dropdown-menu').click(function(event){
+    event.stopPropagation();
+});
+$('#autolangidentification-dropdown .dropdown-menu li').click(function(){
+    var href = $(this).find('a').attr('href').substr(1);
+    var text = $(this).find('a').html();
+    var parent = $(this).parent().parent().find('> a');
+    parent.html(text+' <span class="glyphicon glyphicon-chevron-down"></span>');
+    parent.attr('data-lang', href);
+    $(this).parent().parent().removeClass('open');
+})
+
 $('#form-search').bind('typeahead:selected', function(e){
     $('.tt-query').val($(this).next().html());
     Box.set('searchText', $(this).next().html());
@@ -943,10 +955,19 @@ App.Views.DoSearch = Backbone.View.extend({
     submit: function(e){
         // Abort any current ajax requests
         e.preventDefault();
-        $('.tt-dropdown-menu').hide();
 
         // Get text search
         var formBoxText = $('#form-search').val();
+
+        // Check empty search
+        if ( formBoxText.trim() == '' ){
+            var box = $('#search-form .twitter-typeahead');
+            var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
+            box.append(text);
+            return;
+        }
+
+        $('.tt-dropdown-menu').hide();
 
         // When showing the navigational search results, we hide the following boxes,
         // so now we have to show them up
@@ -955,27 +976,14 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // If search through submit button, reset
         if ( !e.isTrigger ) {
-            console.log(e);
-            if ( formBoxText == Box.get('searchText') ){
-                Router.navigate('#/search/'+formBoxText+'/1'+get_filters_formatted());
-            }else{
-                Box.set('searchText', formBoxText);
-            }
+            Box.set('searchText', formBoxText);
             if ( Backbone.history.fragment.split('/')[1] != 'search' )
                 Router.navigate('#/search/'+formBoxText+'/1'+get_filters_formatted());
             $('#content-filters-bar').find('span').html(lang('none'));
             Box.set('page', 1);
             filtersBarView = new App.Views.FiltersBar({ collection: new App.Collections.Filters() });
             Box.set('filters', filtersBarView.collection);
-            Router.navigate('#/search/'+formBoxText+'/1');
-            return;
-        }
-
-        // Check empty search
-        if ( formBoxText.trim() == '' ){
-            var box = $('#search-form input');
-            var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
-            box.after(text);
+            Router.navigate('#/search/'+formBoxText);
             return;
         }
 
@@ -1009,6 +1017,8 @@ App.Views.DoSearch = Backbone.View.extend({
         search.set('monolingual', $('#search-checkbox-monolingual').is(':checked') ? 'true' : 'false' );
         search.set('prfexpansion', $('#search-checkbox-prfexpansion').is(':checked') ? 'true' : 'false' );
         search.set('semanticexpansion', $('#search-checkbox-semanticexpansion').is(':checked') ? 'true' : 'false' );
+        if ( $('#autolangidentifier').attr('data-lang') != 'guess' )
+            search.set('guesslanguage', $('#autolangidentifier').attr('data-lang'))
 
         this.ajax = search.fetch();
 

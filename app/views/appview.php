@@ -122,9 +122,30 @@
                     <div class="dropdown">
                         <a href="#" id="dropdownMenu2" class="dropdown-toggle" role="button" data-toggle="dropdown"><?php echo Lang::get('website.advanced_options') ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-                            <li><input role="menuitem" id="search-checkbox-monolingual" type="checkbox" /> <label for="search-checkbox-monolingual"> <?php echo Lang::get('website.monolingual'); ?></label></li>
+                            <li><input id="search-checkbox-monolingual" type="checkbox" /> <label for="search-checkbox-monolingual"> <?php echo Lang::get('website.monolingual'); ?></label></li>
                             <li><input id="search-checkbox-prfexpansion" type="checkbox" /> <label for="search-checkbox-prfexpansion"> <?php echo Lang::get('website.pseudo-feedback'); ?></label></li>
-                            <li><input id="search-checkbox-semanticexpansion" type="checkbox" /> <label for="search-checkbox-semanticexpansion"> <?php echo Lang::get('website.automatic_language_identification'); ?></label></li>
+                            <li><input id="search-checkbox-semanticexpansion" type="checkbox" /> <label for="search-checkbox-semanticexpansion"> <?php echo Lang::get('website.semantic_expansion'); ?></label></li>
+                            <li>
+                                <label for="search-checkbox-autolangidentification" style="margin-left: 16px; "> <?php echo Lang::get('website.automatic_language_identification'); ?></label>
+                                <ul id="autolangidentification-dropdown" class="organic-dropdown list-unstyled">
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" id="autolangidentifier" role="button" data-toggle="dropdown" href="javascript:;" data-lang="guess" onclick="$(this).parent().toggleClass('open');"><?php echo Lang::get('website.guess_language'); ?> <span class="glyphicon glyphicon-chevron-down"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#guess">Guess</a></li>
+                                            <li><a href="#de"><img src="/images/blank.png" class="flag flag-de" alt="Deutsch" /> Deutsch</a></li>
+                                            <li><a href="#et"><img src="/images/blank.png" class="flag flag-et" alt="Eesti keel" /> Eesti keel</a></li>
+                                            <li><a href="#en"><img src="/images/blank.png" class="flag flag-en" alt="English" /> English</a></li>
+                                            <li><a href="#es"><img src="/images/blank.png" class="flag flag-es" alt="Español" /> Español</a></li>
+                                            <li><a href="#el"><img src="/images/blank.png" class="flag flag-el" alt="Eλληνικά" /> Eλληνικά</a></li>
+                                            <li><a href="#fr"><img src="/images/blank.png" class="flag flag-fr" alt="Français" /> Français</a></li>
+                                            <li><a href="#it"><img src="/images/blank.png" class="flag flag-it" alt="Italiano" /> Italiano</a></li>
+                                            <li><a href="#lv"><img src="/images/blank.png" class="flag flag-lv" alt="Latviešu valoda" /> Latviešu valoda</a></li>
+                                            <li><a href="#tr"><img src="/images/blank.png" class="flag flag-tr" alt="Türkçe" /> Türkçe</a></li>
+                                            <li><a href="#pl"><img src="/images/blank.png" class="flag flag-pl" alt="Polski" /> Polski</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </form>
