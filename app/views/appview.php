@@ -131,7 +131,7 @@
                                     <li class="dropdown">
                                         <a class="dropdown-toggle" id="autolangidentifier" role="button" data-toggle="dropdown" href="javascript:;" data-lang="guess" onclick="$(this).parent().toggleClass('open');"><?php echo Lang::get('website.guess_language'); ?> <span class="glyphicon glyphicon-chevron-down"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#guess">Guess</a></li>
+                                            <li><a href="#guess"><?php echo Lang::get('website.guess_language'); ?></a></li>
                                             <li><a href="#de"><img src="/images/blank.png" class="flag flag-de" alt="Deutsch" /> Deutsch</a></li>
                                             <li><a href="#et"><img src="/images/blank.png" class="flag flag-et" alt="Eesti keel" /> Eesti keel</a></li>
                                             <li><a href="#en"><img src="/images/blank.png" class="flag flag-en" alt="English" /> English</a></li>

@@ -130,5 +130,5 @@ return array(
 'adminzone'=>'Administración',
 'website_motto'=>'Buscador de recursos de agricultura',
 'privacy_policy'=>'Política de privacidad',
-'guess_language'=>'Supongo que',
+'guess_language'=>'adivinar',
 );
