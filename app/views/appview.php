@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <a class="navbar-brand" href="/#">Organic.Edunet</a>
+                <a class="navbar-brand" href="/#/">Organic.Edunet</a>
 
                 <div class="nav-collapse collapse">
                     <ul id="user-zone" class="nav navbar-nav">
@@ -68,7 +68,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="#/user/register"><?php echo Lang::get('website.register'); ?></a></li>
+                        <li><a href="/#/user/register"><?php echo Lang::get('website.register'); ?></a></li>
                     <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
@@ -106,7 +106,7 @@
 
         <header id="header">
             <div class="container">
-                <a href="/#">
+                <a href="/#/">
                     <h1 class="pull-left hidden-sm" style="position: relative; ">
                         Organic.Edunet
                         <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px; "><?php echo Lang::get('website.website_motto') ?></small>
@@ -153,10 +153,10 @@
                 </form>
                 <nav class="hidden-sm">
                     <ul class="list-inline">
-                        <li><a href="#"><?php echo Lang::get('website.home') ?></a></li>
-                        <li><a href="#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                        <li><a href="/#/"><?php echo Lang::get('website.home') ?></a></li>
+                        <li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
                     <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
-                        <li><a href="#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
+                        <li><a href="/#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
                     <?php endif; ?>
                     </ul>
                 </nav>
@@ -209,7 +209,7 @@
                                 <article class="resource">
                                     <header>
                                         <figure>
-                                            <a href="#/resource/<?php echo @$featured->general->identifier[0]->identifier_entry ?>">
+                                            <a href="/#/resource/<?php echo @$featured->general->identifier[0]->identifier_entry ?>">
                                                 <img class="img-thumbnail" style="width: 100%; " src="http://api.pagepeeker.com/v2/thumbs.php?size=x&url=<?php echo @$featured->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview" />
                                             </a>
                                         </figure>
@@ -258,7 +258,6 @@
         <div id="page-navigational">
             <div class="container">
                 <div class="row">
-                    <?php if ( $_SERVER['HTTP_HOST'] != 'edunet.dev' AND $_SERVER['HTTP_HOST'] != 'edunet.teluria.es' ): ?>
                     <!-- in one line without spaces -->
                     <div id="flash"></div>
                     <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
@@ -342,7 +341,6 @@
                             }
                         }
                     </script>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -1081,12 +1079,12 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <ul>
-                            <li><a href="#"><?php echo Lang::get('website.home') ?></a></li>
-                            <li><a href="#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                            <li><a href="/#/"><?php echo Lang::get('website.home') ?></a></li>
+                            <li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
                         <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
-                            <li><a href="#/user/register"><?php echo Lang::get('website.register') ?></a></li>
+                            <li><a href="/#/user/register"><?php echo Lang::get('website.register') ?></a></li>
                         <?php endif; ?>
-                            <li><a href="#/privacy"><?php echo Lang::get('website.privacy_policy') ?></a></li>
+                            <li><a href="/#/privacy"><?php echo Lang::get('website.privacy_policy') ?></a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
