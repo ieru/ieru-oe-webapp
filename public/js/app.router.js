@@ -21,6 +21,8 @@ App.Router = Backbone.Router.extend({
 
 		'recommended':               'recommended',
 
+		'about':                     'about',
+
 		'privacy': 					 'privacy',
 	},
 
@@ -148,5 +150,9 @@ App.Router = Backbone.Router.extend({
 
 	privacy: function(){
 		show_view( 'page-privacy' );
+	},
+
+	about: function(){
+		show_view( 'page-about' );
 	}
 })

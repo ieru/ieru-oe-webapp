@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Ricerca di risorse agricole',
 'privacy_policy'=>'Informativa sulla privacy',
 'guess_language'=>'Indovinare',
+'recommended_resources'=>'',
+'about'=>'',
 );

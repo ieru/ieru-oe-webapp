@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Meklēšana lauksaimniecības resursi',
 'privacy_policy'=>'Privātuma politika',
 'guess_language'=>'Minējums',
+'recommended_resources'=>'',
+'about'=>'',
 );

@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Arama tarımsal kaynakları',
 'privacy_policy'=>'Gizlilik Politikası',
 'guess_language'=>'Tahmin et',
+'recommended_resources'=>'',
+'about'=>'',
 );

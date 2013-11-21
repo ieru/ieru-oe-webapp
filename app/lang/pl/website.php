@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Przeszukiwanie zasobów rolnych',
 'privacy_policy'=>'Polityka prywatności',
 'guess_language'=>'Chyba',
+'recommended_resources'=>'',
+'about'=>'',
 );

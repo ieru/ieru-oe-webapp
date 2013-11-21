@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Rechercher les ressources agricoles',
 'privacy_policy'=>'Politique de confidentialité',
 'guess_language'=>'Guess',
+'recommended_resources'=>'',
+'about'=>'',
 );

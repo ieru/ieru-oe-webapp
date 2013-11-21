@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Search agricultural resources',
 'privacy_policy'=>'Privacy policy',
 'guess_language'=>'Guess',
+'recommended_resources'=>'Recommended resources',
+'about'=>'About',
 );

@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Suche landwirtschaftlichen Ressourcen',
 'privacy_policy'=>'Datenschutzerklärung',
 'guess_language'=>'Schätze',
+'recommended_resources'=>'',
+'about'=>'',
 );

@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Οι γεωργικοί πόροι αναζήτησης',
 'privacy_policy'=>'Πολιτική προστασίας προσωπικών δεδομένων',
 'guess_language'=>'Εικασία',
+'recommended_resources'=>'',
+'about'=>'',
 );

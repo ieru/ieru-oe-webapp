@@ -26,6 +26,7 @@ function show_view ( view ){
   $('#page-recommended').hide();
   $('#page-privacy').hide();
 	$('#page-register-user-confirm').hide();
+  $('#page-about').hide();
 
 	$('#'+view).show();
 }

@@ -154,7 +154,9 @@
                 <nav class="hidden-sm">
                     <ul class="list-inline">
                         <li><a href="/#/"><?php echo Lang::get('website.home') ?></a></li>
-                        <li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                        <li><a href="/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
+                        <li><a href="/#/about"><?php echo Lang::get('website.about') ?></a></li>
+                        <!--<li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
                     <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
                         <li><a href="/#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
                     <?php endif; ?>
@@ -260,7 +262,7 @@
                 <div class="row">
                     <!-- in one line without spaces -->
                     <div id="flash"></div>
-                    <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
+<!--                    <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
                     <script type="text/javascript">
                         var ontResourcesURI;
                         var ontResources;
@@ -341,6 +343,7 @@
                             }
                         }
                     </script>
+-->
                 </div>
             </div>
         </div>
@@ -404,9 +407,20 @@
                         <hr/>
                         <div id="resource-recommendations">
                             <header>
-                                <h2>Recommended resources</h2>
+                                <h2><?php echo Lang::get('website.recommended_resources') ?></h2>
                             </header>
                         </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="page-about">
+            <div class="container">
+                <div class="row">
+                    <section class="col-lg-12">
+                        <?php echo Lang::get('about.about') ?>
                     </section>
                 </div>
             </div>
@@ -1080,7 +1094,9 @@
                     <div class="col-lg-3">
                         <ul>
                             <li><a href="/#/"><?php echo Lang::get('website.home') ?></a></li>
-                            <li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                            <li><a href="/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
+                            <li><a href="/#/about"><?php echo Lang::get('website.about') ?></a></li>
+                            <!--<li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
                         <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
                             <li><a href="/#/user/register"><?php echo Lang::get('website.register') ?></a></li>
                         <?php endif; ?>

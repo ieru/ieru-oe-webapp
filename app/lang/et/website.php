@@ -131,4 +131,6 @@ return array(
 'website_motto'=>'Otsi põllumajanduse ressursid',
 'privacy_policy'=>'Privaatsus',
 'guess_language'=>'Arvan, et',
+'recommended_resources'=>'',
+'about'=>'',
 );
