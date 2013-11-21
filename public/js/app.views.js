@@ -933,7 +933,7 @@ App.Views.DoSearch = Backbone.View.extend({
                         }
 
                         // Assign facets and results
-                        var resources = new App.Collections.Resources(search.get('records'));
+                        var resources = new App.Collections.Resources(search.get('data').resources);
 
                         // Render the results
                         var resultsView = new App.Views.SearchResults({ collection: resources });
