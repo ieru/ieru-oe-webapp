@@ -133,4 +133,5 @@ return array(
 'guess_language'=>'adivinar',
 'recommended_resources'=>'Recursos recomendados',
 'about'=>'Quiénes somos',
+'feedback'=>'Feedback',
 );

@@ -133,4 +133,13 @@ return array(
 'guess_language'=>'Guess',
 'recommended_resources'=>'Recommended resources',
 'about'=>'About',
+'feedback'=>'Feedback',
+'feedback_type'=>'Feedback type',
+'bug'=>'Bug',
+'feature_request'=>'Feature request',
+'general_comment'=>'General comment',
+'subject'=>'Subject',
+'title'=>'Title',
+'body'=>'Body',
+'send_feedback'=>'Send feedback',
 );

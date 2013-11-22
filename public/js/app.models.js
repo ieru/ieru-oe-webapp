@@ -217,3 +217,12 @@ App.Models.Translation.Language = Backbone.Model.extend({
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
 	},
 });
+
+App.Models.Feedback = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/organic/feedback',
+
+	save: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
+	},
+});

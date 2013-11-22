@@ -27,6 +27,7 @@ function show_view ( view ){
   $('#page-privacy').hide();
 	$('#page-register-user-confirm').hide();
   $('#page-about').hide();
+  $('#page-feedback').hide();
 
 	$('#'+view).show();
 }

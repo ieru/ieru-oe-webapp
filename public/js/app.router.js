@@ -23,6 +23,8 @@ App.Router = Backbone.Router.extend({
 
 		'about':                     'about',
 
+		'feedback':                  'feedback',
+
 		'privacy': 					 'privacy',
 	},
 
@@ -154,5 +156,9 @@ App.Router = Backbone.Router.extend({
 
 	about: function(){
 		show_view( 'page-about' );
+	},
+
+	feedback: function(){
+		show_view( 'page-feedback' );
 	}
 })

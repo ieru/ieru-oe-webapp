@@ -160,6 +160,7 @@
                     <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
                         <li><a href="/#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
                     <?php endif; ?>
+                        <li><a href="/#/feedback"><?php echo Lang::get('website.feedback') ?></a></li>
                     </ul>
                 </nav>
             </div>
@@ -425,6 +426,59 @@
                 </div>
             </div>
         </div>
+
+        <!-- FEEDBACK PAGE -->
+        <div id="page-feedback">
+            <form id="send-feedback" method="post" style="margin-top: 15px; ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <legend><?php echo Lang::get('website.send_feedback') ?></legend>
+                            <div class="control-group">
+                                <label class="control-label"><?php echo Lang::get('website.name') ?></label>
+                                <div class="controls">
+                                    <input type="text" name="form-feedback-name">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label  class="control-label"><?php echo Lang::get('website.email') ?></label>
+                                <div>
+                                    <input type="text" name="form-feedback-email">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label  class="control-label"><?php echo Lang::get('website.feedback_type') ?></label>
+                                <div>
+                                    <select name="form-feedback-type">
+                                        <option value="<?php echo Lang::get('website.bug') ?>"><?php echo Lang::get('website.bug') ?></option>
+                                        <option value="<?php echo Lang::get('website.feature_request') ?>"><?php echo Lang::get('website.feature_request') ?></option>
+                                        <option value="<?php echo Lang::get('website.general_comment') ?>"><?php echo Lang::get('website.general_comment') ?></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label  class="control-label"><?php echo Lang::get('website.subject') ?></label>
+                                <div>
+                                    <input type="text" name="form-feedback-subject">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label  class="control-label"><?php echo Lang::get('website.body') ?></label>
+                                <div>
+                                    <textarea name="form-feedback-body" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div>
+                                    <button type="submit" class="btn btn-default" type="submit"><?php echo Lang::get('website.send_feedback') ?></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
 
         <!-- REGISTER NEW ACCOUNT PAGE -->
         <div id="page-register-user-confirm">
