@@ -1525,9 +1525,9 @@
         </script>
 
         <script id="sections-categories" type="text/template">
-            <!--<div class="col col-lg-12">
+            <div class="col col-lg-12">
                 <h2><?php echo Lang::get('website.featured_sections') ?></h2>
-            </div>-->
+            </div>
             <ul class="list-unstyled list-inline clearfix" style="margin-top: 25px; ">
             <% for ( var i in sections ) { %>
                 <li class="col col-lg-3 section-image-hover">
