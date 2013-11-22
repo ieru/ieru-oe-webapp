@@ -450,9 +450,9 @@
                                 <label  class="control-label"><?php echo Lang::get('website.feedback_type') ?></label>
                                 <div>
                                     <select name="form-feedback-type">
-                                        <option value="<?php echo Lang::get('website.bug') ?>"><?php echo Lang::get('website.bug') ?></option>
-                                        <option value="<?php echo Lang::get('website.feature_request') ?>"><?php echo Lang::get('website.feature_request') ?></option>
-                                        <option value="<?php echo Lang::get('website.general_comment') ?>"><?php echo Lang::get('website.general_comment') ?></option>
+                                        <option value="Bug"><?php echo Lang::get('website.bug') ?></option>
+                                        <option value="Feature request"><?php echo Lang::get('website.feature_request') ?></option>
+                                        <option value="General comment"><?php echo Lang::get('website.general_comment') ?></option>
                                     </select>
                                 </div>
                             </div>
