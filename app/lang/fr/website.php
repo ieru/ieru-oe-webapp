@@ -133,6 +133,8 @@ return array(
 'guess_language'=>'Guess',
 'recommended_resources'=>'Ressources recommandées',
 'about'=>'Sur',
+'feedback'=>'Vos commentaires',
+'send_feedback'=>'Envoyez vos commentaires',
 'feedback_type'=>'Type de commentaire',
 'bug'=>'Bug',
 'feature_request'=>'Demande de fonctionnalité',
@@ -140,6 +142,5 @@ return array(
 'subject'=>'Objet',
 'title'=>'Titre',
 'body'=>'Corps',
-'send_feedback'=>'Envoyez vos commentaires',
 'reset_form'=>'Réinitialiser le formulaire',
 );

@@ -132,6 +132,9 @@ return array(
 'privacy_policy'=>'Πολιτική προστασίας προσωπικών δεδομένων',
 'guess_language'=>'Εικασία',
 'recommended_resources'=>'Πρόγραμμα χαρακτηριστικών γνωρισμάτων:',
+'about'=>'Σχετικά με',
+'feedback'=>'Ανατροφοδότηση',
+'send_feedback'=>'Αποστολή σχολίων',
 'feedback_type'=>'Ανατροφοδότηση τύπου',
 'bug'=>'Bug',
 'feature_request'=>'Αίτημα χαρακτηριστικό',
@@ -139,6 +142,5 @@ return array(
 'subject'=>'Θέμα',
 'title'=>'Τίτλος',
 'body'=>'Σώμα',
-'send_feedback'=>'Αποστολή σχολίων',
 'reset_form'=>'Καθαρισμός φόρμας',
 );
