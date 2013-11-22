@@ -184,10 +184,10 @@
             </div>
 
             <!-- Main content section -->
-            <!--<div class="container">
+            <div class="container">
                 <div class="row">
                     <div id="home-content">
-                        <section class="col col-lg-8">
+                        <!--<section class="col col-lg-8">
                             <h2><?php echo Lang::get('website.latest_resources') ?></h2>
                             <?php foreach( $carousel as $resource ): ?>
                                 <article class="resource">
@@ -224,11 +224,11 @@
                                     </footer>
                                 </article>
                             </div>
-                        </aside>
+                        </aside>-->
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
         <!-- END HOME PAGE -->
 
         <!-- SECTION PAGE -->
