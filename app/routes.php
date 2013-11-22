@@ -33,3 +33,13 @@ Route::get(  '/admin/langfiles',                'AdminController@langfiles' );
 Route::get(  '/admin/langfiles/',               'AdminController@langfiles' );
 Route::post( '/admin/langfiles',                'AdminController@langfilessend' );
 Route::post( '/admin/langfiles/',               'AdminController@langfilessend' );
+
+Route::get(  '/admin/langfilesjs',                'AdminController@langfilesjs' );
+Route::get(  '/admin/langfilesjs/',               'AdminController@langfilesjs' );
+Route::post( '/admin/langfilesjs',                'AdminController@langfilessendjs' );
+Route::post( '/admin/langfilesjs/',               'AdminController@langfilessendjs' );
+
+Route::get(  '/admin/langerror',                'AdminController@langerror' );
+Route::get(  '/admin/langerror/',               'AdminController@langerror' );
+Route::post( '/admin/langerror',                'AdminController@langerrorsend' );
+Route::post( '/admin/langerror/',               'AdminController@langerrorsend' );

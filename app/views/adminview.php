@@ -34,16 +34,18 @@
         </header>
 
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
+            <div id="admin-view" class="row">
+                <div id="admin-view-aside" class="col-lg-4">
                     <div class="well" style="padding: 0">
-                        <ul class="nav bs-sidenav">
-                            <li><a href="/admin/">Administration</a></li>
-                            <li><a href="/admin/langfiles">Language files</a></li>
+                        <ul class="nav nav-list">
+                            <li class="nav-header">Edit language files</li>
+                            <li><a href="/admin/langfiles">Web app skeleton (php)</a></li>
+                            <li><a href="/admin/langfilesjs">Loaded with javascript</a></li>
+                            <li><a href="/admin/langerror">Error codes</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div id="admin-view-main" class="col-lg-8">
                     <div class="row">
                         <div class="col col-lg-12">
                             Available languages: 
@@ -56,6 +58,7 @@
                             | <a href="?to=el">Greek</a>
                             | <a href="?to=tr">Turk</a>
                             | <a href="?to=it">Italian</a>
+                            | <a href="?to=pl">Polish</a>
                         </div>
                         <form class="form-horizontal" method="POST">
                             <div class="col col-lg-2">
@@ -71,6 +74,7 @@
                                         <label class="control-label" for="inputEmail"><?php echo $key?></label>
                                         <div class="controls">
                                             <input class="span5" type="text" id="inputEmail" name="<?php echo $key?>" value="<?php echo $line?>">
+                                            <span class="help-block"><?php echo $helpers[$key]?></span>
                                         </div>
                                     </div>
                                     <?php endforeach; ?>

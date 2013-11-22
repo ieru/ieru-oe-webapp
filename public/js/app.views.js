@@ -1,10 +1,125 @@
-$('#form-search').bind('typeahead:closed', function(e){
+$('#search-form .dropdown-menu').click(function(event){
+    event.stopPropagation();
+});
+$('#autolangidentification-dropdown .dropdown-menu li').click(function(){
+    var href = $(this).find('a').attr('href').substr(1);
+    var text = $(this).find('a').html();
+    var parent = $(this).parent().parent().find('> a');
+    parent.html(text+' <span class="glyphicon glyphicon-chevron-down"></span>');
+    parent.attr('data-lang', href);
+    $(this).parent().parent().removeClass('open');
+})
+
+$('#form-search').bind('typeahead:selected', function(e){
     $('.tt-query').val($(this).next().html());
     Box.set('searchText', $(this).next().html());
+    var stext = Box.get('searchText') == '' ? '' : '/'+Box.get('searchText');
+    Router.navigate('#/'+get_section()+stext+'/1'+get_filters_formatted());
+    $('#header form').submit();
+    $('.tt-dropdown-menu').hide();
 });
 
+$('#page-feedback button[type=submit]').on('click', function(e){
+    e.preventDefault();
+    $('.close').trigger('click');
+    var data = $('#send-feedback').serializeObject();
+    var model = new App.Models.Feedback(data);
+    var that = $(this).closest('form');
+    model.save().then(function(response){
+        var success = response.success ? 'success' : 'danger';
+        $('#send-feedback .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.errcode)+'</p></div>');
+        if ( response.success ){
+            that.find('.control-group').removeClass('has-error');
+            $('#page-feedback button[type=reset]').trigger('click').scrollTop();
+
+        }else{
+            that.find('input').tooltip('destroy');
+            that.find('.control-group').addClass('has-error');
+        }
+    });
+})
 
 
+/*
+ * Sections content
+ */
+App.Views.SectionHome = Backbone.View.extend({
+    initialize: function(model){
+        this.model.set( model );
+        var that = this;
+        sections.fetch().done(function(response){
+            var carousel = new App.Views.SectionCarousel({ model: new App.Models.SectionsCarousel({carousel:that.model.get('home').carousel})});
+            carousel.$el.parent().append(new App.Views.SectionCategories({ model: new App.Models.SectionsCarousel({sections:that.model.get('home').sections})}));
+        });
+    }
+})
+
+App.Views.Sections = Backbone.View.extend({
+    initialize: function(options){
+        this.model.set( options.model );
+        var that = this;
+        sections.fetch().done(function(response){
+            var carousel = new App.Views.SectionCarousel({ model: new App.Models.SectionsCarousel({carousel:that.model.get(options.section).carousel})});
+            carousel.$el.parent().append(new App.Views.SectionCategories({ model: new App.Models.SectionsCarousel({sections:that.model.get(options.section).sections})}));
+            carousel.$el.parent().append(new App.Views.SectionThemes({ model: new App.Models.SectionsCarousel({sections:that.model.get(options.section).themes})}));
+        });
+    }
+})
+
+    App.Views.SectionCarousel = Backbone.View.extend({
+        el: '.carousel',
+
+        template: _.template( $('#section-carousel').html() ),
+
+        initialize: function(model){
+            this.model.set( model );
+            this.render();
+        },
+
+        render: function(){
+            this.$el.html( this.template( this.model.toJSON() ) );
+            return this;
+        }
+    })
+
+    App.Views.SectionCategories = Backbone.View.extend({
+        el: '.sections-categories',
+
+        template: _.template( $('#sections-categories').html() ),
+
+        initialize: function(model){
+            this.model.set( model );
+            this.render();
+        },
+
+        render: function(){
+            this.model.set('default_lang',Box.get('interface'));
+            this.$el.html( this.template( this.model.toJSON() ) );
+            return this;
+        }
+    })
+
+    App.Views.SectionThemes = Backbone.View.extend({
+        el: '.sections-themes',
+
+        template: _.template( $('#sections-themes').html() ),
+
+        initialize: function(model){
+            this.model.set( model );
+            this.render();
+        },
+
+        render: function(){
+            this.model.set('default_lang',Box.get('interface'));
+            this.$el.html( this.template( this.model.toJSON() ) );
+            return this;
+        }
+    })
+
+
+/*
+ * Autotranslation button
+ */
 App.Views.Autotranslate = Backbone.View.extend({
     el: '#button-autotranslate',
 
@@ -21,7 +136,7 @@ App.Views.Autotranslate = Backbone.View.extend({
                     var that = $(this);
                     var text = $(this).html();
                     that.html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                    var request = new App.Models.Translation({text: text, from:'en', to:$('#user-selected-language').attr('alt')});
+                    var request = new App.Models.Translation.Language({text: text, from:'en', to:$('#user-selected-language').attr('alt')});
                     request.fetch().done(function(response){
                         that.html(response.data.translation);
                         home_translation = true;
@@ -113,12 +228,12 @@ App.Views.RegisterNewUser = Backbone.View.extend({
         model.fetch().then(function(response){
             var success = response.success ? 'success' : 'danger';
             if ( response.success ){
-                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+response.message+'</p><p>Check your email for an activation link to finish the registration process.</p></div>');
+                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.message, true)+'</p><p>Check your email for an activation link to finish the registration process.</p></div>');
                 that.$el.find('.control-group').removeClass('has-error');
             }else{
                 that.$el.find('input').tooltip('destroy');
                 that.$el.find('.control-group').addClass('has-error');
-                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+response.message+'</p></div>');
+                $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.message, true)+'</p></div>');
             }
         });
     },
@@ -198,6 +313,82 @@ App.Views.Grnet.Rating = Backbone.View.extend({
             });
         }
     }
+});
+
+App.Views.Translation = {};
+
+App.Views.Translation.Rating = Backbone.View.extend({
+    tagName: 'span',
+
+    template: _.template( $('#translation-rating').html() ),
+
+    templateStars: _.template( $('#translation-rating-stars').html() ),
+
+    events: {
+        'click .translation-rating-star': 'addRating',
+        'click .rating-history a': 'getHistory',
+    },
+
+    getHistory: function(e){
+        //e.preventDefault();
+        var that = this;
+        var request = new App.Models.Translation.RatingHistory({id:this.model.get('id'), hash:this.model.get('hash')});
+        var box = this.$el.find('.rating-history > ul');
+        if ( box.html() == '' ){
+            box.append('<img src="/images/ajax-loader.gif" />');
+            this.ajax = request.fetch();
+            this.ajax.then(function(response){
+                box.empty();
+                if ( response.data.length ){
+                    for ( var i in response.data ){
+                        box.append( that.templateStars( response.data[i] ) );
+                    }
+                }else{
+                    box.append( lang('no_ratings_yet') );
+                }
+            })
+        }
+    },
+
+    initialize: function(){
+        // Cancel any ongoing ajax requests
+        vent.on( 'cancel:ajaxs', function(){
+            if ( !!this.ajax ){
+                this.ajax.abort();
+                delete this.ajax;
+            }
+        }, this );
+
+        this.render();
+    },
+
+    render: function(){
+        var that = this;
+        this.ajax = this.model.fetch();
+        this.ajax.then(function(response){
+            // No ratings retrieved for the resource: show null ratings
+            if ( !response.data ){
+                response.data = {};
+                response.data.votes = 0;
+                response.data.rating = 0;
+            }
+            that.$el.html( that.template( response.data ) );
+        });
+        return this;
+    },
+
+    addRating: function(e){
+        // Translation Rating Model Save
+        e.preventDefault();
+        if ( _.cookie('usertoken')){
+            this.model.set('rating', parseInt($(e.currentTarget).attr('class').split(' ')[1].split('-')[2])+1);
+            var that = this;
+            this.model.save().then(function(response){
+                if ( response.success )
+                    that.$el.html( that.template( response.data ) );
+            });
+        }
+    }
 })
 
 App.Views.SearchInfoBar = Backbone.View.extend({
@@ -268,6 +459,7 @@ App.Views.SearchResults = Backbone.View.extend({
         events: {
             'click .search-result-keywords a': 'addKeywordFilter',
             'click .organic-dropdown ul a': 'changeLanguage',
+            'click .translation-rating-star': 'addRating',
         },
 
         changeLanguage: function(e){
@@ -297,7 +489,7 @@ App.Views.SearchResults = Backbone.View.extend({
                             break;
 
                 // Translate title
-                var title = new App.Models.Translation({text: texts[from].title.substr(0,200), from:from, to:to});
+                var title = new App.Models.Translation.Language({text: texts[from].title.substr(0,200), from:from, to:to});
                 this.ajaxTitle = title.fetch({timeout:10000});
                 this.ajaxTitle.done(function(response){
                     texts[to].title = response.data.translation;
@@ -305,7 +497,7 @@ App.Views.SearchResults = Backbone.View.extend({
                     // Translate description
                     if ( !!texts[from].description ){
                         that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                        var description = new App.Models.Translation({text: texts[from].description.substr(0,200), from:from, to:to});
+                        var description = new App.Models.Translation.Language({text: texts[from].description.substr(0,200), from:from, to:to});
                         this.ajaxDescription = description.fetch({timeout:10000});
                         this.ajaxDescription.done(function(response){
                             texts[to].description = response.data.translation;
@@ -314,7 +506,7 @@ App.Views.SearchResults = Backbone.View.extend({
                             // translate keywords
                             if ( !!texts[from].keywords ){
                                 that.find('.search-result-keywords').html('<strong>'+lang('keywords')+':</strong> <img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                                var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
+                                var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
                                 this.ajaxKeywords = keywords.fetch({timeout:10000});
                                 this.ajaxKeywords.done(function(response){
                                     texts[to].keywords = response.data.translation.split(',');
@@ -324,7 +516,7 @@ App.Views.SearchResults = Backbone.View.extend({
                         }); 
                     // Translate keywords
                     }else if ( !!texts[from].keywords ){
-                        var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
+                        var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
                         this.ajaxKeywords = keywords.fetch({timeout:10000});
                         this.ajaxKeywords.done(function(response){
                             texts[to].keywords = response.data.translation.split(',');
@@ -412,7 +604,28 @@ App.Views.SearchResults = Backbone.View.extend({
             grnet.find('img').remove();
             grnet.append(this.model.get('ratingsModel').el);
 
+            // Add translation ratings
+            var translation = this.$el.find('.translation-rating');
+            var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
+            var ratings = new App.Views.Translation.Rating({model: request});
+            this.model.set('tratingsModel',ratings);
+            translation.find('img').remove();
+            translation.append(this.model.get('tratingsModel').el);
+
             return this;
+        },
+
+        addRating: function(e){
+            // Translation Rating Model Save
+            e.preventDefault();
+            if ( _.cookie('usertoken')){
+                this.model.set('rating', parseInt($(e.currentTarget).attr('class').split(' ')[1].split('-')[2])+1);
+                var that = this;
+                this.model.save().then(function(response){
+                    if ( response.success )
+                        that.$el.html( that.template( response.data ) );
+                });
+            }
         }
     });
 
@@ -488,7 +701,10 @@ App.Views.Facets = Backbone.View.extend({
 
                 render: function(){
                     // Take the last part in technical format filters
-                    var translation = this.model.get('translation').split('/');
+                    if ( typeof this.model.get('translation') !== 'undefined' && !!this.model.get('translation') )
+                        var translation = this.model.get('translation').split('/');
+                    else
+                        var translation = '';
                     this.model.set('translation', translation[translation.length-1]);
 
                     // Check if the filter has been already set, remove if so
@@ -590,7 +806,7 @@ App.Views.FiltersBar = Backbone.View.extend({
         render: function(){
             if ( this.model.get('clave') == 'keyword' )
                 this.$el.addClass('label-info').removeClass('label-success');
-            this.$el.html( '<button id="close-button-'+this.model.get('valor').trim().replace(/ /g, '-').replace('/', '--')+'" class="close" style="float: none;">&times;</button> <span>'+this.model.get('valor').replace(/@/g, '-').replace('--', '/')+'</span>' );
+            this.$el.html( '<button id="close-button-'+this.model.get('valor').trim().replace(/ /g, '-').replace('/', '--')+'" class="close" style="float: none;">&times;</button> <span>'+this.model.get('valor').replace(/@/g, '-').replace('--', '/').replace(/\|/g, ' or ')+'</span>' );
             return this;
         },
     })
@@ -737,7 +953,7 @@ App.Views.DoSearch = Backbone.View.extend({
                         }
 
                         // Assign facets and results
-                        var resources = new App.Collections.Resources(search.get('records'));
+                        var resources = new App.Collections.Resources(search.get('data').resources);
 
                         // Render the results
                         var resultsView = new App.Views.SearchResults({ collection: resources });
@@ -759,10 +975,19 @@ App.Views.DoSearch = Backbone.View.extend({
     submit: function(e){
         // Abort any current ajax requests
         e.preventDefault();
-        vent.trigger('cancel:ajaxs');
 
         // Get text search
         var formBoxText = $('#form-search').val();
+
+        // Check empty search
+        if ( formBoxText.trim() == '' ){
+            var box = $('#search-form .twitter-typeahead');
+            var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
+            box.append(text);
+            return;
+        }
+
+        $('.tt-dropdown-menu').hide();
 
         // When showing the navigational search results, we hide the following boxes,
         // so now we have to show them up
@@ -771,24 +996,14 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // If search through submit button, reset
         if ( !e.isTrigger ) {
-            if ( formBoxText == Box.get('searchText') ){
-                Router.navigate('#/search/'+formBoxText+'/1'+get_filters_formatted());
-            }else{
-                Box.set('searchText', formBoxText);
-            }
+            Box.set('searchText', formBoxText);
             if ( Backbone.history.fragment.split('/')[1] != 'search' )
                 Router.navigate('#/search/'+formBoxText+'/1'+get_filters_formatted());
             $('#content-filters-bar').find('span').html(lang('none'));
             Box.set('page', 1);
-            Box.set('filters', new App.Collections.Filters());
-            return;
-        }
-
-        // Check empty search
-        if ( formBoxText.trim() == '' ){
-            var box = $('#search-form input');
-            var text = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'+lang('empty_search_not_allowed')+'</div>'
-            box.after(text);
+            filtersBarView = new App.Views.FiltersBar({ collection: new App.Collections.Filters() });
+            Box.set('filters', filtersBarView.collection);
+            Router.navigate('#/search/'+formBoxText);
             return;
         }
 
@@ -799,6 +1014,8 @@ App.Views.DoSearch = Backbone.View.extend({
             box.after(text);
             return;
         }
+
+        vent.trigger('cancel:ajaxs');
         $('#app-content-filters').empty();
 
         // Visualization thingies
@@ -807,7 +1024,7 @@ App.Views.DoSearch = Backbone.View.extend({
         $('#app-content-results').empty().html('<img src="/images/loading_edu.gif" /> '+lang('loading_resources'));
         $('#app-content-info').hide();
         $('#content-filters-bar').hide();
-        $('#app-content-filters').show();;
+        $('#app-content-filters').show();
 
         // Create search request
         var search = new App.Models.Search();
@@ -817,6 +1034,11 @@ App.Views.DoSearch = Backbone.View.extend({
         search.set('limit', Box.get('perPage'));
         search.set('total', 0);
         search.set('filter', Box.get('filters').toJSON());
+        search.set('monolingual', $('#search-checkbox-monolingual').is(':checked') ? 'true' : 'false' );
+        search.set('prfexpansion', $('#search-checkbox-prfexpansion').is(':checked') ? 'true' : 'false' );
+        search.set('semanticexpansion', $('#search-checkbox-semanticexpansion').is(':checked') ? 'true' : 'false' );
+        if ( $('#autolangidentifier').attr('data-lang') != 'guess' )
+            search.set('guesslanguage', $('#autolangidentifier').attr('data-lang'))
 
         this.ajax = search.fetch();
 
@@ -912,7 +1134,21 @@ App.Views.FullResource = Backbone.View.extend({
                         that.model.set('metadata_language', lang);
                         break;
                     }
+
+            // Set default hash string
+            that.model.set('hash',Sha1.hash(that.model.get('texts')[that.model.get('metadata_language')].title+that.model.get('texts')[that.model.get('metadata_language')].description));
+
+            // Render
             that.render();
+
+            // Add recommendations
+            $('#ugc-dialog-form').remove();
+            var script = document.createElement('script');
+            script.id = 'resource-related-resources';
+            script.type = 'text/javascript';
+            script.src = '/js/_other/recommendations.js';
+            $('#page-resource > .container > .row').append(script);
+
             vent.trigger('resource:loaded');
         });
     },
@@ -927,6 +1163,7 @@ App.Views.FullResource = Backbone.View.extend({
         var to = ( !!e ) ? $(e.currentTarget).attr('class').split('-')[2] : $('#user-selected-language').attr('alt');
         var from = 'en';
         var that = this.$el;
+        var thot = this;
         var box = this;
 
         that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
@@ -934,6 +1171,8 @@ App.Views.FullResource = Backbone.View.extend({
 
         // Change to the desired language if there is a translation set for it
         if ( texts[to].title != '' ){
+            this.model.set('metadata_language_from', from);
+            this.model.set('hash',Sha1.hash(this.model.get('texts')[to].title+this.model.get('texts')[to].description));
             this.render();
         // If the texts are not in the desired language, request translation
         }else{
@@ -942,26 +1181,29 @@ App.Views.FullResource = Backbone.View.extend({
                 for ( from in texts )
                     if ( texts[from].title )
                         break;
+            this.model.set('metadata_language_from', from);
 
             // Translate title
-            var title = new App.Models.Translation({text: texts[from].title, from:from, to:to});
+            var title = new App.Models.Translation.Language({text: texts[from].title, from:from, to:to});
             this.ajaxTitle = title.fetch({timeout:10000});
             this.ajaxTitle.done(function(response){
                 texts[to].title = response.data.translation;
                 that.find('header h2 a').html(response.data.translation);
+                thot.model.set('service', response.data.service_used);
                 // Translate description
                 if ( !!texts[from].description ){
                     that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                    var description = new App.Models.Translation({text: texts[from].description, from:from, to:to});
+                    var description = new App.Models.Translation.Language({text: texts[from].description, from:from, to:to});
                     this.ajaxDescription = description.fetch({timeout:10000});
                     this.ajaxDescription.done(function(response){
                         texts[to].description = response.data.translation;
+                        thot.model.set('hash',Sha1.hash(texts[to].title+texts[to].description));
                         that.find('> p > span').html(response.data.translation);
 
                         // translate keywords
                         if ( !!texts[from].keywords ){
                             that.find('.search-result-keywords').html('<strong>'+lang('keywords')+':</strong> <img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
-                            var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
+                            var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
                             this.ajaxKeywords = keywords.fetch({timeout:10000});
                             this.ajaxKeywords.done(function(response){
                                 texts[to].keywords = response.data.translation.split(',');
@@ -971,7 +1213,7 @@ App.Views.FullResource = Backbone.View.extend({
                     }); 
                 // Translate keywords
                 }else if ( !!texts[from].keywords ){
-                    var keywords = new App.Models.Translation({text: texts[from].keywords.join(','), from:from, to:to});
+                    var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
                     this.ajaxKeywords = keywords.fetch({timeout:10000});
                     this.ajaxKeywords.done(function(response){
                         texts[to].keywords = response.data.translation.split(',');
@@ -985,15 +1227,22 @@ App.Views.FullResource = Backbone.View.extend({
     render: function(){
         this.$el.html( this.template( this.model.toJSON() ) );
         
-        // Add Ratings
+        // Add resource ratings
         var grnet = this.$el.find('.grnet-rating');
-        
         grnet.append('<img src="/images/ajax-loader.gif" />');
         var request = new App.Models.Grnet.Rating({id:this.model.get('id')})
         var ratings = new App.Views.Grnet.Rating({model: request});
         this.model.set('ratingsModel',ratings);
         grnet.find('img').remove();
         grnet.append(this.model.get('ratingsModel').el);
+
+        // Add translation ratings
+        var translation = this.$el.find('.translation-rating');
+        var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
+        var ratings = new App.Views.Translation.Rating({model: request});
+        this.model.set('tratingsModel',ratings);
+        translation.find('img').remove();
+        translation.append(this.model.get('tratingsModel').el);
 
         return this;
     }
@@ -1009,3 +1258,16 @@ App.Views.Register.Activate = Backbone.View.extend({
         });
     }
 });
+
+
+App.Views.Recommended = Backbone.View.extend({
+    initialize: function(){
+        // Browse recommendations
+        $('#ugc-dialog-form').remove();
+        var script = document.createElement('script');
+        script.id = 'recommended-resources';
+        script.type = 'text/javascript';
+        script.src = '/js/_other/recommended.js';
+        $('#page-recommended > .container > .row').append(script);
+    }
+})

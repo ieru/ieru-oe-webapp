@@ -25,16 +25,6 @@ App.Models.FullResource = Backbone.Model.extend({
 	}
 });
 
-App.Models.Translation = Backbone.Model.extend({
-
-	urlRoot: api_server+'/api/analytics/translate',
-
-	fetch: function(){
-		this.set('cache','true');
-		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
-	},
-});
-
 App.Models.Grnet = {};
 
 App.Models.Grnet.Rating = Backbone.Model.extend({
@@ -168,3 +158,71 @@ App.Models.Register.Activate = Backbone.Model.extend({
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
 	},
 })
+
+App.Models.Sections = Backbone.Model.extend({
+	//urlRoot: '/js/sections.json?time='+new Date().getTime(),
+	urlRoot: '/js/sections.json?version=0.9',
+})
+
+App.Models.SectionsCarousel = Backbone.Model.extend({
+})
+
+/**
+ * Rating of automatic translations of the resources
+ */
+App.Models.Translation = {};
+
+App.Models.Translation.Rating = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/analytics/resources',
+
+	url: function() {
+		return this.urlRoot + '/' + this.get('id') + '/translation/' + this.get('hash') + '/rating';
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, {});
+	},
+
+	save: function(){
+		var data = {};
+		data.usertoken = this.get('usertoken');
+		data.rating = this.get('rating');
+		data.from = this.get('from');
+		data.to = this.get('to');
+		data.service = this.get('service');
+		return Backbone.Model.prototype.fetch.call(this, { data: data, type: 'POST' });
+	}
+})
+
+App.Models.Translation.RatingHistory = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/analytics/resources',
+
+	url: function() {
+		return this.urlRoot + '/' + this.get('id') + '/translation/' + this.get('hash') + '/ratings';
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, {});
+	},
+});
+
+App.Models.Translation.Language = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/analytics/translate',
+
+	fetch: function(){
+		this.set('cache','true');
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
+});
+
+App.Models.Feedback = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/organic/feedback',
+
+	save: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
+	},
+});

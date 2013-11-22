@@ -1,0 +1,192 @@
+{
+    "home":
+    {
+        "sections":
+        [
+            {
+                "section":
+                {
+                    "en":"School",
+                    "es":"Escuela"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s0.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s0h.png",
+                "link":    "/#/section/school"
+            },
+            {
+                "section":
+                {
+                    "en":"Academic",
+                    "es":"Académico"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s1.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s1h.png",
+                "link":    "/#/section/academic"
+            },
+            {
+                "section":
+                {
+                    "en":"Professional",
+                    "es":"Profesional"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s2.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s2.png",
+                "link":    "/#/section/professional"
+            },
+            {
+                "section":
+                {
+                    "en":"Casual",
+                    "es":"Casual"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
+                "link":    "/#/section/casual"
+            }
+        ],
+        "carousel":
+        [
+            {
+                "image": "/images/carousel/Walk-in-the-forest.png",
+                "alt":   "Walk in the forest",
+                "link":  "http://www.forestfoundation.org/stuff/contentmgr/files/1/c7c1a640537d942961a0ec5b1096c43c/pdf/walk_in_the_forest.pdf"
+            },
+            {
+                "image": "/images/carousel/PigIndustry.png",
+                "alt":   "Pig Industry",
+                "link":  "http://www.daff.qld.gov.au/27_122.htm"
+            },
+            {
+                "image": "/images/carousel/GreenIdea2013.png",
+                "alt":   "Green Ideas",
+                "link":  "http://greenideasproject.org/"
+            }
+        ]
+    },
+    "school":
+    {
+        "sections":
+        [
+            {
+                "section":
+                {
+                    "en":"Open Air Classroom",
+                    "es":"Al aire libre"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+                "link":    "/#/search/*/1/educationalLearningResourceType=exploration:collection=aglrgsg|greenoer"
+            },
+            {
+                "section":
+                {
+                    "en":"Game-based Learning",
+                    "es":"Aprendizaje basado en juego"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+                "link":    "/#/search/*/1/educationalLearningResourceType=educational game:collection=greenoer|oeellinogermaniki|aglroel|aglrrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
+            },
+            {
+                "section":
+                {
+                    "en":"Green Your Lesson Plan",
+                    "es":"Planifícate en verde"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "link":    "/#/search/*/1/educationalLearningResourceType=lesson plan:collection=greenoer|oeellinogermaniki|aglroel|aglrrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
+            },
+            {
+                "section":
+                {
+                    "en":"Broadcasts",
+                    "es":"Retransmisiones"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "link":    "/#/search/*/1/educationalLearningResourceType=broadcast|video|audio:collection=greenoer|oeellinogermaniki|aglroel|aglrrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
+            }
+        ],
+        "themes":
+        [
+            {
+                "section":
+                {
+                    "en":"Polar Stories",
+                    "es":"Historias polares"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+                "link":    "/#/search/polar/1/educationalLearningResourceType=reference:collection=nsdlbeyond:educationalContext=compulsory education"
+            },
+            {
+                "section":
+                {
+                    "en":"Insects and Plants",
+                    "es":"Insectos y plantas"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
+                "link":    "/#/search/plants insects/1/collection=greenoer|aglroel|nsdlbeyond|greenoer:educationalContext=pre-school|compulsory education"
+            },
+            {
+                "section":
+                {
+                    "en":"School Gardens",
+                    "es":"Jardines en la escuela"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
+                "link":    "/#/search/school garden, organic garden, organic gardening/1/collection=greenoer|oeellinogermaniki|aglroel|aglrrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety:educationalContext=pre-school|compulsory education"
+            },
+            {
+                "section":
+                {
+                    "en":"Recycling Guru",
+                    "es":"Maestro del reciclaje"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
+                "link":    "/#/search/recycling/1/collection=greenoer|aglrnb|aglrgsg:educationalContext=pre-school|compulsory education"
+            }
+        ],
+        "carousel":
+        [
+            {
+                "image": "/images/carousel/UnglySaysWho.png",
+                "alt":   "Ugly? Says Who?",
+                "link":  "http://www.pbs.org/wnet/nature/lessons/ugly-says-who/lesson/422/"
+            },
+            {
+                "image": "/images/carousel/GardenPollinators.png",
+                "alt":   "Garden Pollinators",
+                "link":  "http://www.lifelab.org/wp-content/uploads/2010/02/3rdGardenPollinators2012.pdf"
+            }
+        ],
+        "latest":
+        [
+            {
+                "id": 100
+            },
+            {
+                "id": 100
+            },
+            {
+                "id": 100
+            },
+            {
+                "id": 100
+            },
+            {
+                "id": 100
+            }
+        ],
+        "featured":
+        [
+            {
+                "id": 100
+            }
+        ]
+    }
+}
