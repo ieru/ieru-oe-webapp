@@ -134,4 +134,13 @@ return array(
 'recommended_resources'=>'Recursos recomendados',
 'about'=>'Quiénes somos',
 'feedback'=>'Feedback',
+'feedback_type'=>'Tipo de feedback',
+'bug'=>'Bug',
+'feature_request'=>'Petición de característica',
+'general_comment'=>'Comentario general',
+'subject'=>'Asunto',
+'title'=>'Título',
+'body'=>'Cuerpo',
+'send_feedback'=>'Enviar comentarios',
+'reset_form'=>'Restablecer formulario',
 );

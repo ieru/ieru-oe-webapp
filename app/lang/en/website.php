@@ -142,4 +142,13 @@ return array(
 'title'=>'Title',
 'body'=>'Body',
 'send_feedback'=>'Send feedback',
+'feedback_type'=>'Feedback type',
+'bug'=>'Bug',
+'feature_request'=>'Feature request',
+'general_comment'=>'General comment',
+'subject'=>'Subject',
+'title'=>'Title',
+'body'=>'Body',
+'send_feedback'=>'Send feedback',
+'reset_form'=>'Reset form',
 );

@@ -21,19 +21,21 @@ $('#form-search').bind('typeahead:selected', function(e){
 
 $('#page-feedback button[type=submit]').on('click', function(e){
     e.preventDefault();
+    $('.close').trigger('click');
     var data = $('#send-feedback').serializeObject();
     var model = new App.Models.Feedback(data);
+    var that = $(this).closest('form');
     model.save().then(function(response){
-        alert(JSON.stringify(response))
-        /*var success = response.success ? 'success' : 'danger';
+        var success = response.success ? 'success' : 'danger';
+        $('#send-feedback .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.errcode)+'</p></div>');
         if ( response.success ){
-            $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.message, true)+'</p><p>Check your email for an activation link to finish the registration process.</p></div>');
-            that.$el.find('.control-group').removeClass('has-error');
+            that.find('.control-group').removeClass('has-error');
+            $('#page-feedback button[type=reset]').trigger('click').scrollTop();
+
         }else{
-            that.$el.find('input').tooltip('destroy');
-            that.$el.find('.control-group').addClass('has-error');
-            $('#register-new-user .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.message, true)+'</p></div>');
-        }*/
+            that.find('input').tooltip('destroy');
+            that.find('.control-group').addClass('has-error');
+        }
     });
 })
 

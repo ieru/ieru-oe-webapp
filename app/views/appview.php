@@ -470,7 +470,8 @@
                             </div>
                             <div class="control-group">
                                 <div>
-                                    <button type="submit" class="btn btn-default" type="submit"><?php echo Lang::get('website.send_feedback') ?></button>
+                                    <button type="submit" class="btn btn-default"><?php echo Lang::get('website.send_feedback') ?></button>
+                                    <button type="reset" class="btn btn-default"><?php echo Lang::get('website.reset_form') ?></button>
                                 </div>
                             </div>
                         </div>
