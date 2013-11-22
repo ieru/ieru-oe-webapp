@@ -141,5 +141,6 @@ return array(
 'title'=>'Başlık',
 'body'=>'Vücut',
 'send_feedback'=>'Görüş Gönder',
+'feedback'=>'Geri bildirim',
 'reset_form'=>'Formu Sıfırla',
 );

@@ -142,4 +142,5 @@ return array(
 'body'=>'Ķermeņa',
 'send_feedback'=>'Nosūtīt atsauksmi',
 'reset_form'=>'Atiestatīt veidlapas',
+'feedback'=>'Atsauksmes',
 );

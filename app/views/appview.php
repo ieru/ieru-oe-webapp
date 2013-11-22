@@ -184,7 +184,7 @@
             </div>
 
             <!-- Main content section -->
-            <div class="container">
+            <!--<div class="container">
                 <div class="row">
                     <div id="home-content">
                         <section class="col col-lg-8">
@@ -228,7 +228,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- END HOME PAGE -->
 
         <!-- SECTION PAGE -->
@@ -1525,10 +1525,10 @@
         </script>
 
         <script id="sections-categories" type="text/template">
-            <div class="col col-lg-12">
+            <!--<div class="col col-lg-12">
                 <h2><?php echo Lang::get('website.featured_sections') ?></h2>
-            </div>
-            <ul class="list-unstyled list-inline">
+            </div>-->
+            <ul class="list-unstyled list-inline clearfix" style="margin-top: 25px; ">
             <% for ( var i in sections ) { %>
                 <li class="col col-lg-3 section-image-hover">
                     <a class="school" href="<%=sections[i].link%>">

@@ -142,4 +142,5 @@ return array(
 'body'=>'Keha',
 'send_feedback'=>'Saada tagasiside',
 'reset_form'=>'Lähtesta vorm',
+'feedback'=>'Tagasiside',
 );

@@ -142,4 +142,5 @@ return array(
 'body'=>'Ciało',
 'send_feedback'=>'Prześlij opinię',
 'reset_form'=>'Reset postaci',
+'feedback'=>'Sprzężenie zwrotne',
 );

@@ -142,4 +142,5 @@ return array(
 'body'=>'Corpo',
 'send_feedback'=>'Invia un commento',
 'reset_form'=>'Reimpostare la forma',
+'feedback'=>'Feedback',
 );
