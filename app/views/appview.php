@@ -1556,7 +1556,6 @@
             </ul>
         </script>
 
-
         <!-- jQuery + Bootstrap -->
         <script src="js/jquery.js"></script>
         <script src="js/vendor/bootstrap/bootstrap.js"></script>

@@ -462,6 +462,78 @@ App.Views.SearchResults = Backbone.View.extend({
             'click .translation-rating-star': 'addRating',
         },
 
+        initialize: function(){
+            // Cancel any ongoing ajax requests
+            vent.on( 'cancel:ajaxs', function(){
+                if ( !!this.ajaxTitle ){
+                    this.ajaxTitle.abort();
+                    delete this.ajaxTitle;
+                }
+                if ( !!this.ajaxDescription ){
+                    this.ajaxDescription.abort();
+                    delete this.ajaxDescription;
+                }
+            }, this );
+
+            vent.on( 'auto:translate', function(){
+                this.changeLanguage();
+            }, this );
+
+            vent.on('auto:rollback', function(){
+                // Get language to show of those available in the resource
+                if ( !!this.model.get('texts')[Box.get('interface')] && this.model.get('texts')[Box.get('interface')].title != '' )
+                    this.model.set('metadata_language', Box.get('interface'));
+                else if ( !!this.model.get('texts').en && this.model.get('texts').en.title != '' )
+                    this.model.set('metadata_language', 'en');
+                else
+                    for ( var lang in this.model.get('texts') )
+                        if ( this.model.get('texts')[lang].title ){
+                            this.model.set('metadata_language', lang);
+                            break;
+                        }
+                this.render();
+            }, this);
+
+            // Get language to show of those available in the resource
+            if ( !!this.model.get('texts')[Box.get('interface')] && this.model.get('texts')[Box.get('interface')].title != '' )
+                this.model.set('metadata_language', Box.get('interface'));
+            else if ( !!this.model.get('texts').en && this.model.get('texts').en.title != '' )
+                this.model.set('metadata_language', 'en');
+            else
+                for ( var lang in this.model.get('texts') )
+                {
+                    if ( this.model.get('texts')[lang].title ){
+                        this.model.set('metadata_language', lang);
+                        break;
+                    }
+                }
+
+            this.render();
+        },
+
+        render: function(){
+            this.$el.html( this.template( this.model.toJSON() ) );
+            
+            // Add Ratings
+            var grnet = this.$el.find('.grnet-rating');
+            grnet.append('<img src="/images/ajax-loader.gif" />');
+            var request = new App.Models.Grnet.Rating({id:this.model.get('id')})
+            var ratings = new App.Views.Grnet.Rating({model: request});
+            this.model.set('ratingsModel',ratings);
+            grnet.find('img').remove();
+            grnet.append(this.model.get('ratingsModel').el);
+
+            // Add translation ratings
+            var translation = this.$el.find('.translation-rating');
+            var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
+            var ratings = new App.Views.Translation.Rating({model: request});
+            this.model.set('tratingsModel',ratings);
+            translation.find('img').remove();
+            translation.append(this.model.get('tratingsModel').el);
+
+            return this;
+        },
+
         changeLanguage: function(e){
             if ( !!e ) {
                 e.preventDefault();
@@ -542,77 +614,6 @@ App.Views.SearchResults = Backbone.View.extend({
                 Box.set('filters', filtersBarView.collection);
                 Router.navigate('#/search/'+Box.get('searchText')+'/'+Box.get('page')+get_filters_formatted());
             }
-        },
-
-        initialize: function(){
-            // Cancel any ongoing ajax requests
-            vent.on( 'cancel:ajaxs', function(){
-                if ( !!this.ajaxTitle ){
-                    this.ajaxTitle.abort();
-                    delete this.ajaxTitle;
-                }
-                if ( !!this.ajaxDescription ){
-                    this.ajaxDescription.abort();
-                    delete this.ajaxDescription;
-                }
-            }, this );
-
-            vent.on( 'auto:translate', function(){
-                this.changeLanguage();
-            }, this );
-
-            vent.on('auto:rollback', function(){
-                // Get language to show of those available in the resource
-                if ( !!this.model.get('texts')[Box.get('interface')] && this.model.get('texts')[Box.get('interface')].title != '' )
-                    this.model.set('metadata_language', Box.get('interface'));
-                else if ( !!this.model.get('texts').en && this.model.get('texts').en.title != '' )
-                    this.model.set('metadata_language', 'en');
-                else
-                    for ( var lang in this.model.get('texts') )
-                        if ( this.model.get('texts')[lang].title ){
-                            this.model.set('metadata_language', lang);
-                            break;
-                        }
-                this.render();
-            }, this);
-
-            // Get language to show of those available in the resource
-            if ( !!this.model.get('texts')[Box.get('interface')] && this.model.get('texts')[Box.get('interface')].title != '' )
-                this.model.set('metadata_language', Box.get('interface'));
-            else if ( !!this.model.get('texts').en && this.model.get('texts').en.title != '' )
-                this.model.set('metadata_language', 'en');
-            else
-                for ( var lang in this.model.get('texts') )
-                    if ( this.model.get('texts')[lang].title ){
-                        this.model.set('metadata_language', lang);
-                        break;
-                    }
-
-            this.render();
-        },
-
-        render: function(){
-            this.$el.html( this.template( this.model.toJSON() ) );
-            
-            // Add Ratings
-            var grnet = this.$el.find('.grnet-rating');
-            
-            grnet.append('<img src="/images/ajax-loader.gif" />');
-            var request = new App.Models.Grnet.Rating({id:this.model.get('id')})
-            var ratings = new App.Views.Grnet.Rating({model: request});
-            this.model.set('ratingsModel',ratings);
-            grnet.find('img').remove();
-            grnet.append(this.model.get('ratingsModel').el);
-
-            // Add translation ratings
-            var translation = this.$el.find('.translation-rating');
-            var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
-            var ratings = new App.Views.Translation.Rating({model: request});
-            this.model.set('tratingsModel',ratings);
-            translation.find('img').remove();
-            translation.append(this.model.get('tratingsModel').el);
-
-            return this;
         },
 
         addRating: function(e){
