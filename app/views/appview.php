@@ -1,13 +1,16 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="<?php echo LANG ?>">
     <head>
-        <?php define( 'VERSION', '0.9' );?>
+        <?php define( 'VERSION', '0.10' );?>
         <title>Organic.Edunet</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="css/_app.css" rel="stylesheet" media="screen">
+
+        <!-- ajax parsing activation for google -->
+        <meta name="fragment" content="!">
 
         <!-- iOS web app configuration -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -422,6 +425,42 @@
                 <div class="row">
                     <section class="col-lg-12">
                         <?php echo Lang::get('about.about') ?>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUGGEST PAGE -->
+        <div id="page-suggest">
+            <div class="container">
+                <div class="row">
+                    <section class="col-lg-12">
+                        <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
+                        <div class="row" style="padding-top: 30px; ">
+                            <p><?php echo Lang::get('suggest.line1') ?></p>
+                            <p>
+                                <a class="label label-info" id="organic-suggest-resource" href="
+                                    javascript:(function() {
+                                    WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
+                                    var path_js = '/UGC/ugc-widget-server/';
+                                    try {
+                                    var x = document.createElement('SCRIPT');
+                                    x.type = 'text/javascript';
+                                    x.src = WIDGET_HOST +  path_js + 'loadUGC.js';
+                                    x.setAttribute('Name', '<?php echo  $_user->user_username ?>');
+                                    x.setAttribute('Username', '<?php echo  $_user->user_username ?>');
+                                    x.setAttribute('Email', '<?php echo  $_user->user_email ?>');
+                                    x.setAttribute('Operation', 'add');
+                                    x.setAttribute('id', 'LOMWidget');
+                                    x.setAttribute('URL', window.location.href);
+                                    document.getElementsByTagName('head')[0].appendChild(x);
+                                    } catch (e) {}
+                                    })();
+                                ">Bookmarklet</a>
+                            </p>
+                            <p><?php echo Lang::get('suggest.line2') ?></p>
+                        </div>
+                        <?php endif; ?>
                     </section>
                 </div>
             </div>

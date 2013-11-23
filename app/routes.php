@@ -34,6 +34,11 @@ Route::get(  '/admin/langfiles/',               'AdminController@langfiles' );
 Route::post( '/admin/langfiles',                'AdminController@langfilessend' );
 Route::post( '/admin/langfiles/',               'AdminController@langfilessend' );
 
+Route::get(  '/admin/langfilessuggest',                'AdminController@langfilessuggest' );
+Route::get(  '/admin/langfilessuggest/',               'AdminController@langfilessuggest' );
+Route::post( '/admin/langfilessuggest',                'AdminController@langfilessuggestsend' );
+Route::post( '/admin/langfilessuggest/',               'AdminController@langfilessuggestsend' );
+
 Route::get(  '/admin/langfilesjs',                'AdminController@langfilesjs' );
 Route::get(  '/admin/langfilesjs/',               'AdminController@langfilesjs' );
 Route::post( '/admin/langfilesjs',                'AdminController@langfilessendjs' );
