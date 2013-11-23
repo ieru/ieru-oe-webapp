@@ -245,6 +245,67 @@ class AdminController extends BaseController
                 ->with( 'helpers', $helpers );
     }
 
+    /**
+     * Administration of language files
+     *
+     * @return View
+     */
+    public function langfilessuggest ()
+    {
+        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+
+        $lang = require( app_path().'/lang/'.$to.'/suggest.php' );
+        $helpers = require( app_path().'/lang/en/suggest.php' );
+
+        // Check to translate empty tags
+        foreach ( $lang as $key=>&$term )
+        {
+            if ( $term == '' )
+            {
+                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode( $helpers[$key] ).'&service=microsoft&to='.$to;
+                $data = json_decode( $this->_curl_get_data( $url ) );
+                $term = $data->data->translation;
+            }
+        }
+
+        return View::make( 'adminviewtextarea' )
+                ->with( 'title', 'Organic Lingua' )
+                ->with( 'lang', $lang )
+                ->with( 'helpers', $helpers );
+    }
+
+    /**
+     * Save the information changed in the language file form
+     */
+    public function langfilessuggestsend ()
+    {
+        // Language to translate to
+        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+
+        // Path to the file that stores the variables
+        $file = app_path().'/lang/'.$to.'/suggest.php';
+        $helpers = require( app_path().'/lang/en/suggest.php' );
+
+        // Write the file
+        if ( $fp = fopen( $file, 'w+' ) )
+        {
+            fwrite( $fp, "<?php\n" );
+            fwrite( $fp, "return array(\n" );
+            foreach ( $_POST as $key=>$value )
+                fwrite( $fp, "'".strtolower($key)."'=>'". addslashes($value)."',\n" );
+            fwrite( $fp, ");" );
+            fclose( $fp );
+        }
+
+        // Load the language file
+        $lang = require( app_path().'/lang/'.$to.'/suggest.php' );
+
+        // Request to build the view
+        return View::make( 'adminviewtextarea' )
+                ->with( 'title', 'Organic Lingua' )
+                ->with( 'lang', $lang )
+                ->with( 'helpers', $helpers );
+    }
 
     /**
      * Connects with the remote services. Sets a timeout for connecting the 
