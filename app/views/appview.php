@@ -1188,12 +1188,12 @@
                     <div class="col-lg-3">
                         <ul>
                             <li><a href="/#/"><?php echo Lang::get('website.home') ?></a></li>
-                            <li><a href="/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
-                            <li><a href="/#/about"><?php echo Lang::get('website.about') ?></a></li>
                             <!--<li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
                         <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
+                            <li><a href="/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
                             <li><a href="/#/user/register"><?php echo Lang::get('website.register') ?></a></li>
                         <?php endif; ?>
+                            <li><a href="/#/about"><?php echo Lang::get('website.about') ?></a></li>
                             <li><a href="/#/privacy"><?php echo Lang::get('website.privacy_policy') ?></a></li>
                         </ul>
                     </div>
