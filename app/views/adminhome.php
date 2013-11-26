@@ -43,7 +43,6 @@
                             <li><a href="/admin/langfiles">Web app skeleton (php)</a></li>
                             <li><a href="/admin/langfilesjs">Loaded with javascript</a></li>
                             <li><a href="/admin/langfilessuggest">Suggest section</a></li>
-                            <li><a href="/admin/langfilesabout">About section</a></li>
                             <li><a href="/admin/langerror">Error codes</a></li>
                         </ul>
                     </div>
