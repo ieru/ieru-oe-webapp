@@ -11,40 +11,47 @@
 |
 */
 
-Route::get( '/',                                'HomeController@index' );
+Route::get(  '/',                               'HomeController@index' );
 Route::post( '/',                               array( 'as'=>'home',         'uses'=>'default@index' ) );
 
-Route::get( '/textual-search',                  array( 'as'=>'search',       'uses'=>'default@search' ) );
+Route::get(  '/textual-search',                 array( 'as'=>'search',       'uses'=>'default@search' ) );
 Route::post( '/textual-search',                 array( 'as'=>'search',       'uses'=>'default@search' ) );
 
-Route::get( '/navigational-search',             array( 'as'=>'navigational', 'uses'=>'default@navigational' ) );
+Route::get(  '/navigational-search',            array( 'as'=>'navigational', 'uses'=>'default@navigational' ) );
 
-Route::get( '/browser/resource/(:num)',         array( 'as'=>'resource',     'uses'=>'default@browser' ) );
-Route::get( '/browser/resource/(:num)/(\w\w)',  array( 'as'=>'resource',     'uses'=>'default@browser' ) );
-Route::get( '/browser/metadata/(:num)',         array( 'as'=>'metadata',     'uses'=>'default@metadata' ) );
+Route::get(  '/browser/resource/(:num)',        array( 'as'=>'resource',     'uses'=>'default@browser' ) );
+Route::get(  '/browser/resource/(:num)/(\w\w)', array( 'as'=>'resource',     'uses'=>'default@browser' ) );
+Route::get(  '/browser/metadata/(:num)',        array( 'as'=>'metadata',     'uses'=>'default@metadata' ) );
 
-Route::get( '/register',                        array( 'as'=>'register',     'uses'=>'default@register' ) );
+Route::get(  '/register',                       array( 'as'=>'register',     'uses'=>'default@register' ) );
 
 
 
-Route::get( '/admin/', 'AdminController@home' );
+Route::get(  '/admin/', 'AdminController@home' );
 
 Route::get(  '/admin/langfiles',                'AdminController@langfiles' );
 Route::get(  '/admin/langfiles/',               'AdminController@langfiles' );
 Route::post( '/admin/langfiles',                'AdminController@langfilessend' );
 Route::post( '/admin/langfiles/',               'AdminController@langfilessend' );
 
-Route::get(  '/admin/langfilessuggest',                'AdminController@langfilessuggest' );
-Route::get(  '/admin/langfilessuggest/',               'AdminController@langfilessuggest' );
-Route::post( '/admin/langfilessuggest',                'AdminController@langfilessuggestsend' );
-Route::post( '/admin/langfilessuggest/',               'AdminController@langfilessuggestsend' );
+Route::get(  '/admin/langfilessuggest',         'AdminController@langfilessuggest' );
+Route::get(  '/admin/langfilessuggest/',        'AdminController@langfilessuggest' );
+Route::post( '/admin/langfilessuggest',         'AdminController@langfilessuggestsend' );
+Route::post( '/admin/langfilessuggest/',        'AdminController@langfilessuggestsend' );
 
-Route::get(  '/admin/langfilesjs',                'AdminController@langfilesjs' );
-Route::get(  '/admin/langfilesjs/',               'AdminController@langfilesjs' );
-Route::post( '/admin/langfilesjs',                'AdminController@langfilessendjs' );
-Route::post( '/admin/langfilesjs/',               'AdminController@langfilessendjs' );
+Route::get(  '/admin/langfilesjs',              'AdminController@langfilesjs' );
+Route::get(  '/admin/langfilesjs/',             'AdminController@langfilesjs' );
+Route::post( '/admin/langfilesjs',              'AdminController@langfilessendjs' );
+Route::post( '/admin/langfilesjs/',             'AdminController@langfilessendjs' );
 
 Route::get(  '/admin/langerror',                'AdminController@langerror' );
 Route::get(  '/admin/langerror/',               'AdminController@langerror' );
 Route::post( '/admin/langerror',                'AdminController@langerrorsend' );
 Route::post( '/admin/langerror/',               'AdminController@langerrorsend' );
+
+Route::get(  '/admin/term-trends',              'AdminController@termtrends' );
+Route::get(  '/admin/term-trends/',             'AdminController@termtrends' );
+Route::get(  '/admin/metadata-statistics',      'AdminController@metadatastatistics' );
+Route::get(  '/admin/metadata-statistics/',     'AdminController@metadatastatistics' );
+Route::get(  '/admin/other-services',           'AdminController@otherservices' );
+Route::get(  '/admin/other-services/',          'AdminController@otherservices' );

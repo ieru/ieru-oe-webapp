@@ -346,4 +346,28 @@ class AdminController extends BaseController
         curl_close( $ch );
         return $data;
     }
+
+    /**
+     *
+     */
+    public function termtrends ()
+    {
+        $this->layout->content = View::make('admin.termtrends');
+    }
+
+    /**
+     *
+     */
+    public function metadatastatistics ()
+    {
+        $this->layout->content = View::make('admin.metadatastatistics');
+    }
+
+    /**
+     *
+     */
+    public function otherservices ()
+    {
+        $this->layout->content = View::make('admin.otherservices');
+    }
 }
