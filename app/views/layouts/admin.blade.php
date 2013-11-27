@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title><?php echo $title ?></title>
+        <title>Organic Edunet Admin Zone</title>
         <link href="/css/_app.css" rel="stylesheet" media="screen">
     </head>
 
@@ -35,18 +35,33 @@
 
         <div class="container">
             <div id="admin-view" class="row">
-                <div class="col-lg-4">
+
+                <div id="admin-view-aside" class="col-lg-4">
                     <div class="well" style="padding: 0">
                         <ul class="nav nav-list">
+                        <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) ): ?>
                             <li class="nav-header">Edit language files</li>
                             <li><a href="/admin/langfiles">Web app skeleton (php)</a></li>
                             <li><a href="/admin/langfilesjs">Loaded with javascript</a></li>
                             <li><a href="/admin/langfilessuggest">Suggest section</a></li>
                             <li><a href="/admin/langerror">Error codes</a></li>
+                        <?php endif; ?>
+                        <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_AGINFRA_DATA ) ): ?>
+                            <li class="nav-header">Statistics</li>
+                            <li><a href="/admin/term-trends">Term Trends</a></li>
+                            <li><a href="/admin/metadata-statistics">Metadata Statistics</a></li>
+                            <li><a href="/admin/other-services">Other Services</a></li>
+                        <?php endif; ?>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-8">
+
+                <div id="admin-view-main" class="col-lg-8">
+                    <div class="row">
+
+                        @yield('content')
+                        
+                    </div>
                 </div>
             </div>
         </div>

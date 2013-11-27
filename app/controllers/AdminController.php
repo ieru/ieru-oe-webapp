@@ -1,33 +1,38 @@
 <?php
 class AdminController extends BaseController 
 {
+    /**
+     * @var layout controller
+     */
+    protected $layout = 'layouts.admin';
+
     /** 
      * @var Logged user information 
      */
-    private $_user = null;
+    public static $_user = null;
 
     /**
      * Constructor
      */
     public function __construct ()
     {
-        // Report all errors
-        error_reporting( E_ALL );
-        ini_set( 'display_errors', '1' );
+        // Permissions
+        define( 'PERMISSION_ACCESS_ADMIN_ZONE',   100 );
+        define( 'PERMISSION_ACCESS_LANG_FILES',   200 );
+        define( 'PERMISSION_ACCESS_AGINFRA_DATA', 300 );
 
         // Constants
-        define( 'PERMISSION_ACCESS_ADMIN_ZONE', 100 );
         define( 'API_SERVER', 'organic-edunet.eu' );
 
         // Get user data
         if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] )
         {
-            $this->_user = User::join( 'tokens', 'users.user_id', '=', 'tokens.user_id')
+            static::$_user = User::join( 'tokens', 'users.user_id', '=', 'tokens.user_id')
                                ->where( 'tokens.token_chars', '=', $_COOKIE['usertoken'] )
                                ->where( 'tokens.token_active', '=', 1 )
                                ->first();
 
-            if ( !$this->_user->check_permission( PERMISSION_ACCESS_ADMIN_ZONE ) )
+            if ( !static::$_user->check_permission( PERMISSION_ACCESS_ADMIN_ZONE ) )
             {
                 die( '403 Unauthorized Access' );
             }
@@ -41,23 +46,25 @@ class AdminController extends BaseController
     /**
      * Home page
      *
-     * @return View
+     * @return void
      */
     public function home ()
     {
-        return View::make( 'adminhome' )
-                   ->with( 'title', 'Organic Lingua' );
+        $this->layout->content = View::make('admin.home');
     }
 
     /**
-     * Administration of language files
+     * Administration of language file stored in a website.php file
      *
-     * @return View
+     * @param   string  to      The ISO code of the language file to be edited
+     * @return void
      */
     public function langfiles ()
     {
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
 
+        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
         $lang = require( app_path().'/lang/'.$to.'/website.php' );
         $helpers = require( app_path().'/lang/en/website.php' );
 
@@ -72,17 +79,17 @@ class AdminController extends BaseController
             }
         }
 
-        return View::make( 'adminview' )
-                ->with( 'title', 'Organic Lingua' )
-                ->with( 'lang', $lang )
-                ->with( 'helpers', $helpers );
+        // Make view
+        $this->layout->content = View::make('admin.langfile')
+             ->with( 'lang', $lang )
+             ->with( 'helpers', $helpers );
     }
 
-    /**
-     * Save the information changed in the language file form
-     */
     public function langfilessend ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
+
         // Language to translate to
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
@@ -112,11 +119,16 @@ class AdminController extends BaseController
     }
 
     /**
-     * Para los archivos JavaScript
-     * @return View
+     * Edit javascript language files
+     *
+     * @param   string  to      The ISO code of the language file to be edited
+     * @return void
      */
     public function langfilesjs ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
+
         // Fetch the file that the user wants to edit translation
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
@@ -149,6 +161,9 @@ class AdminController extends BaseController
 
     public function langfilessendjs ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
+
         // Language to translate to
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
@@ -176,14 +191,16 @@ class AdminController extends BaseController
     }
 
     /**
+     * Edit language files of error thrown by the interface
      *
-     */
-    /**
-     * Para los archivos JavaScript
+     * @param   string  to      The ISO code of the language file to be edited
      * @return View
      */
     public function langerror ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
+
         // Fetch the file that the user wants to edit translation
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
@@ -214,11 +231,11 @@ class AdminController extends BaseController
                 ->with( 'helpers', $helpers );
     }
 
-    /**
-     * Save the information changed in the language file form
-     */
     public function langerrorsend ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
+
         // Language to translate to
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
@@ -246,12 +263,16 @@ class AdminController extends BaseController
     }
 
     /**
-     * Administration of language files
+     * Edit suggest resources language files
      *
+     * @param   string  to      The ISO code of the language file to be edited
      * @return View
      */
     public function langfilessuggest ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
+
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
         $lang = require( app_path().'/lang/'.$to.'/suggest.php' );
@@ -274,11 +295,11 @@ class AdminController extends BaseController
                 ->with( 'helpers', $helpers );
     }
 
-    /**
-     * Save the information changed in the language file form
-     */
     public function langfilessuggestsend ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
+            
         // Language to translate to
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
 
@@ -314,7 +335,7 @@ class AdminController extends BaseController
      * @param   String  $url        The url to retrieve, it must return a json.
      * @return  String  json returned by remote service
      */
-    private function & _curl_get_data ( $url, $data = null ) 
+    private function & _curl_get_data ( $url ) 
     {
         $ch = curl_init();
         curl_setopt( $ch, CURLOPT_URL, $url );
