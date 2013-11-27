@@ -123,8 +123,7 @@ class AdminController extends BaseController
         $lang = require( app_path().'/lang/'.$to.'/website.php' );
 
         // Request to build the view
-        return View::make( 'adminview' )
-                ->with( 'title', 'Organic Lingua' )
+        $this->layout->content = View::make('admin.langfile')
                 ->with( 'lang', $lang )
                 ->with( 'helpers', $helpers );
     }
@@ -164,8 +163,7 @@ class AdminController extends BaseController
             }
         }
 
-        return View::make( 'admin_lang_js' )
-                ->with( 'title', 'Organic Lingua' )
+        $this->layout->content = View::make('admin.langfile')
                 ->with( 'lang', $lang )
                 ->with( 'helpers', $helpers );
     }
@@ -195,8 +193,7 @@ class AdminController extends BaseController
         $helpers = json_decode( json_encode( json_decode( $helpers ) ), true );
 
         // Request to build the view
-        return View::make( 'admin_lang_js' )
-                ->with( 'title', 'Organic Lingua' )
+        $this->layout->content = View::make('admin.langfile')
                 ->with( 'lang', $_POST )
                 ->with( 'helpers', $helpers );
     }
@@ -236,8 +233,7 @@ class AdminController extends BaseController
             }
         }
 
-        return View::make( 'admin_error_js' )
-                ->with( 'title', 'Organic Lingua' )
+        $this->layout->content = View::make('admin.langfileerrorjs')
                 ->with( 'lang', $lang )
                 ->with( 'helpers', $helpers );
     }
@@ -267,8 +263,7 @@ class AdminController extends BaseController
         $helpers = json_decode( json_encode( json_decode( $helpers ) ), true );
 
         // Request to build the view
-        return View::make( 'admin_error_js' )
-                ->with( 'title', 'Organic Lingua' )
+        $this->layout->content = View::make('admin.langfileerrorjs')
                 ->with( 'lang', $_POST )
                 ->with( 'helpers', $helpers );
     }
@@ -300,8 +295,7 @@ class AdminController extends BaseController
             }
         }
 
-        return View::make( 'adminviewtextarea' )
-                ->with( 'title', 'Organic Lingua' )
+        $this->layout->content = View::make('admin.viewtextarea')
                 ->with( 'lang', $lang )
                 ->with( 'helpers', $helpers );
     }
@@ -333,7 +327,7 @@ class AdminController extends BaseController
         $lang = require( app_path().'/lang/'.$to.'/suggest.php' );
 
         // Request to build the view
-        return View::make( 'adminviewtextarea' )
+        $this->layout->content = View::make('admin.viewtextarea')
                 ->with( 'title', 'Organic Lingua' )
                 ->with( 'lang', $lang )
                 ->with( 'helpers', $helpers );
