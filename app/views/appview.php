@@ -190,44 +190,6 @@
             <div class="container">
                 <div class="row">
                     <div id="home-content">
-                        <!--<section class="col col-lg-8">
-                            <h2><?php echo Lang::get('website.latest_resources') ?></h2>
-                            <?php foreach( $carousel as $resource ): ?>
-                                <article class="resource">
-                                    <header>
-                                        <figure class="hidden-sm">
-                                            <a href="#/resource/<?php echo @$resource->general->identifier[0]->identifier_entry ?>">
-                                                <img class="img-thumbnail" src="http://api.pagepeeker.com/v2/thumbs.php?size=m&url=<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview" />
-                                            </a>
-                                        </figure>
-                                        <h3><a href="<?php echo @$resource->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$resource->generals_title_string ?></a></h3>
-                                    </header>
-                                    <p><span class="translation-text"><?php echo substr(@$resource->generals_description_string, 0, 170); if (@$resource->general->generalsdescription[0]->generals_description_string) { echo '...'; } ?></span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$resource->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
-                                    <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$resource->lom_id ?>"></span></p>
-                                    </footer>
-                                </article>
-                            <?php endforeach ?>
-                        </section>
-                        <aside class="col col-lg-4">
-                            <h2><?php echo Lang::get('website.featured_resource') ?></h2>
-                            <div class="well">
-                                <article class="resource">
-                                    <header>
-                                        <figure>
-                                            <a href="/#/resource/<?php echo @$featured->general->identifier[0]->identifier_entry ?>">
-                                                <img class="img-thumbnail" style="width: 100%; " src="http://api.pagepeeker.com/v2/thumbs.php?size=x&url=<?php echo @$featured->technical->technicalslocation[0]->technicals_location_text ?>" border="1" alt="Preview" />
-                                            </a>
-                                        </figure>
-                                        <h3><a href="<?php echo @$featured->technical->technicalslocation[0]->technicals_location_text ?>" onclick="target='_blank'" class="translation-text"><?php echo @$featured->generals_title_string ?></a></h3>
-                                    </header>
-                                    <p><span class="translation-text"><?php echo substr(@$featured->generals_description_string, 0, 170) ?>...</span> <a class="label label-primary moreinfo" href="/#/resource/<?php echo @$featured->lom_id ?>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
-                                    <footer>
-                                        <p><?php echo Lang::get('website.rate') ?>: <span class="grnet-rating" data-resource="<?php echo @$featured->lom_id ?>"></span></p>
-                                    </footer>
-                                </article>
-                            </div>
-                        </aside>-->
                     </div>
                 </div>
             </div>
@@ -264,90 +226,6 @@
         <div id="page-navigational">
             <div class="container">
                 <div class="row">
-                    <!-- in one line without spaces -->
-                    <div id="flash"></div>
-<!--                    <script type="text/javascript" src="http://oe.dynalias.net/components/com_navigational/moritz/swfobject.js"></script>
-                    <script type="text/javascript">
-                        var ontResourcesURI;
-                        var ontResources;
-                        var labels;
-                        var predicate = 'null';
-                        var ipCounter = 0;
-                        var advancedOptionsOpened = false;
-                        var inclusiveSearch = true;
-                        var descriptionLimit = 300;
-                        var titleLimit = 68;
-
-                        ///////////////////
-                        // MORITZ STUFF //
-                        /////////////////
-                        var URL='/semanticsearch.swf?treelang=<?php echo LANG ?>';
-                        var flashID = 'flash';          
-                        var width = '100%';
-                        var height = '500';
-                        var flashVersion = '10.0.0';
-                        var expressInstallURL = 'http://oe.dynalias.net/components/com_navigational/moritz/expressInstall.swf';            
-                        var params = {};
-                        var attributes = {};
-
-                        var flashvars = 
-                        {
-                            baseURL: 'http://oe.dynalias.net/', 
-                            locale: 'en',
-                            JSCallBack_selectionChange: 'onSelectionChange',
-                            JSCallBack_searchPointUpdate: 'onSearchPointUpdate'
-                        };
-
-                        function onSelectionChange(selectedNodes){
-                            Box.set('page', 1);
-                            Router.navigate('#/navigation/1');
-                            renderAdvancedOptions($);
-                        }
-
-                        function getFlashMovie(movieName) {
-                               var isIE = navigator.appName.indexOf('Microsoft') != -1;
-                               return (isIE) ? window[movieName] : document[movieName];
-                        }
-
-                        function renderAdvancedOptions($)
-                        {     
-                            $.ajax({
-                                url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=getState&format=raw',
-                                async: false,
-                                jsonpCallback: 'jsonCallback',
-                                contentType: "application/json",
-                                dataType: 'jsonp',
-                                success: function(data) 
-                                {
-                                    doSearch.submitNavigational();
-                                },
-                                error: function(e) {
-                                }
-                            });
-                        }
-
-                        function initInterface ( $ )
-                        {
-                            try{
-                                $.ajax({
-                                    url: 'http://oe.dynalias.net/indexa.php?option=com_navigational&tmpl=component&task=listOntResourcesTranslated&format=raw',
-                                    async: false,
-                                    jsonpCallback: 'jsonCallback',
-                                    contentType: "application/json",
-                                    dataType: 'jsonp',
-                                    success: function(data) 
-                                    {
-                                        renderAdvancedOptions($);
-                                    },
-                                    error: function(e) 
-                                    {
-                                    }
-                                });
-                            }catch(e){
-                            }
-                        }
-                    </script>
--->
                 </div>
             </div>
         </div>
@@ -532,7 +410,7 @@
         <!-- RECOMMENDATIONS -->
         <div id="page-recommended">
             <div class="container">
-                <div class="row clearfix" style="padding-top: 30px; " id="page-recommended-div">
+                <div class="row clearfix" style="padding-top: 30px; height: 700px; " id="page-recommended-div">
                 </div>
             </div>
         </div>
