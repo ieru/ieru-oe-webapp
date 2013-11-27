@@ -24,6 +24,17 @@ class AdminController extends BaseController
         // Constants
         define( 'API_SERVER', 'organic-edunet.eu' );
 
+        // Check if the user is trying to change the website language
+        if ( Input::has( 'lang-selector' ) )
+            Session::put( 'language', Input::get( 'lang-selector' ) );
+        // Set default language
+        elseif ( !Session::has( 'language' ) )
+            Session::put( 'language', 'en' );
+
+        // Define language as constant and change locale
+        define( 'LANG', Session::get( 'language' ) );
+        App::setLocale(LANG);
+
         // Get user data
         if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] )
         {
