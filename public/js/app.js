@@ -1,4 +1,4 @@
-var api_server = 'http://api.dev';
+var api_server = 'http://organic-edunet.eu';
 
 (function(){
 	window.App = {
