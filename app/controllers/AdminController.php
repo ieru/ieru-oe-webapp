@@ -17,9 +17,21 @@ class AdminController extends BaseController
     public function __construct ()
     {
         // Permissions
-        define( 'PERMISSION_ACCESS_ADMIN_ZONE',   100 );
-        define( 'PERMISSION_ACCESS_LANG_FILES',   200 );
-        define( 'PERMISSION_ACCESS_AGINFRA_DATA', 300 );
+        define( 'PERMISSION_ACCESS_ADMIN_ZONE',    100 );
+
+        define( 'PERMISSION_ACCESS_LANG_FILES',    200 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_EN', 201 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_ES', 202 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_FR', 203 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_DE', 204 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_LV', 205 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_ET', 206 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_EL', 207 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_TR', 208 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_IT', 209 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_PL', 210 );
+
+        define( 'PERMISSION_ACCESS_AGINFRA_DATA',  300 );
 
         // Constants
         define( 'API_SERVER', 'organic-edunet.eu' );
@@ -72,10 +84,8 @@ class AdminController extends BaseController
      */
     public function langfiles ()
     {
-        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
-            die( '403 Unauthorized Access' );
+        $to = $this->_check_language_moderation();
 
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
         $lang = require( app_path().'/lang/'.$to.'/website.php' );
         $helpers = require( app_path().'/lang/en/website.php' );
 
@@ -98,11 +108,7 @@ class AdminController extends BaseController
 
     public function langfilessend ()
     {
-        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
-            die( '403 Unauthorized Access' );
-
-        // Language to translate to
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        $to = $this->_check_language_moderation();
 
         // Path to the file that stores the variables
         $file = app_path().'/lang/'.$to.'/website.php';
@@ -136,11 +142,7 @@ class AdminController extends BaseController
      */
     public function langfilesjs ()
     {
-        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
-            die( '403 Unauthorized Access' );
-
-        // Fetch the file that the user wants to edit translation
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        $to = $this->_check_language_moderation();
 
         // Retrieve file
         $lang = file_get_contents( base_path().'/public/js/lang/'.$to.'.js' );
@@ -170,11 +172,7 @@ class AdminController extends BaseController
 
     public function langfilessendjs ()
     {
-        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
-            die( '403 Unauthorized Access' );
-
-        // Language to translate to
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        $to = $this->_check_language_moderation();
 
         // Path to the file that stores the variables
         $file = base_path().'/public/js/lang/'.$to.'.js';
@@ -206,11 +204,7 @@ class AdminController extends BaseController
      */
     public function langerror ()
     {
-        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
-            die( '403 Unauthorized Access' );
-
-        // Fetch the file that the user wants to edit translation
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        $to = $this->_check_language_moderation();
 
         // Retrieve file
         $lang = file_get_contents( base_path().'/public/js/lang/error/'.$to.'.js' );
@@ -240,11 +234,7 @@ class AdminController extends BaseController
 
     public function langerrorsend ()
     {
-        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
-            die( '403 Unauthorized Access' );
-
-        // Language to translate to
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        $to = $this->_check_language_moderation();
 
         // Path to the file that stores the variables
         $file = base_path().'/public/js/lang/error/'.$to.'.js';
@@ -276,10 +266,7 @@ class AdminController extends BaseController
      */
     public function langfilessuggest ()
     {
-        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
-            die( '403 Unauthorized Access' );
-
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        $to = $this->_check_language_moderation();
 
         $lang = require( app_path().'/lang/'.$to.'/suggest.php' );
         $helpers = require( app_path().'/lang/en/suggest.php' );
@@ -302,11 +289,7 @@ class AdminController extends BaseController
 
     public function langfilessuggestsend ()
     {
-        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
-            die( '403 Unauthorized Access' );
-            
-        // Language to translate to
-        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        $to = $this->_check_language_moderation();
 
         // Path to the file that stores the variables
         $file = app_path().'/lang/'.$to.'/suggest.php';
@@ -352,11 +335,27 @@ class AdminController extends BaseController
         return $data;
     }
 
+    private function _check_language_moderation ()
+    {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
+            die( '403 Unauthorized Access' );
+
+        $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+
+        if ( !static::$_user->check_permission( constant( 'PERMISSION_ACCESS_LANG_FILES_'.strtoupper( $to ) ) ) )
+            die( '403 Unauthorized Access' );
+
+        return $to;
+    }
+
     /**
      *
      */
     public function termtrends ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_AGINFRA_DATA ) )
+            die( '403 Unauthorized Access' );
+        
         $this->layout->content = View::make('admin.termtrends');
     }
 
@@ -365,6 +364,9 @@ class AdminController extends BaseController
      */
     public function metadatastatistics ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_AGINFRA_DATA ) )
+            die( '403 Unauthorized Access' );
+
         $this->layout->content = View::make('admin.metadatastatistics');
     }
 
@@ -373,6 +375,9 @@ class AdminController extends BaseController
      */
     public function otherservices ()
     {
+        if ( !static::$_user->check_permission( PERMISSION_ACCESS_AGINFRA_DATA ) )
+            die( '403 Unauthorized Access' );
+
         $this->layout->content = View::make('admin.otherservices');
     }
 }

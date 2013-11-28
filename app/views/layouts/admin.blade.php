@@ -197,9 +197,6 @@
         <script>
             var $window = $(window);
             $('#save-button').affix({
-                offset:{
-                    top: 250,
-                }
             });
         </script>
     </body>
