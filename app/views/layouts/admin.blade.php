@@ -20,15 +20,11 @@
 
                 <div class="nav-collapse collapse">
                     <ul id="user-zone" class="nav navbar-nav">
-                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
+                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( AdminController::$_user ) ): ?>
                         <li role="menu" class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, Admin <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <!--<li role="presentation">< data-toggle="modal" href="#change-account"><span class="glyphicon glyphicon-wrench"></span> <?php echo Lang::get('website.change_account_details'); ?></a></li>-->
-                                <li role="presentation"><a data-toggle="modal" href="#suggest-modal"><span class="glyphicon glyphicon-leaf"></span> <?php echo Lang::get('website.suggest_a_new_resource'); ?></a></li>
-                                <li role="presentation"><a data-toggle="modal" href="#" class="ugc-widget-own"><span class="glyphicon glyphicon-pencil"></span> <?php echo Lang::get('website.view_own_resources'); ?></a></li>
-                                <?php if ( $_user->check_permission( PERMISSION_ACCESS_ADMIN_ZONE ) ): ?>
-                                <li class="divider" role="presentation"></li>
+                                <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_ADMIN_ZONE ) ): ?>
                                 <li role="presentation"><a href="/admin/"><span class="glyphicon glyphicon-cog"></span> <?php echo Lang::get('website.adminzone'); ?></a></li>
                                 <?php endif; ?>
                                 <li class="divider" role="presentation"></li>
@@ -145,7 +141,7 @@
                     <ul class="list-inline">
                         <li><a href="/#/"><?php echo Lang::get('website.home') ?></a></li>
                         <!--<li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
-                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
+                    <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( AdminController::$_user ) ): ?>
                         <li><a href="/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
                         <li><a href="/#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
                     <?php endif; ?>
