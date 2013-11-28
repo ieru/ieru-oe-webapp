@@ -1,15 +1,14 @@
 <?php
 return array(
 'about'=>'<h1>About Organic.Edunet</h1>
-<p>Το Organic.Edunet είναι μια μαθησιακή πύλη που παρέχει πρόσβαση σε ψηφιακό εκαπιδευτικό υλικό στους τομείς της Βιολογικής Γεωργίας και της Αγροοικολογίας με σκοπό την διευκόλυνση της πρόσβασης, χρήσης και εκμετάλευσης αυττού του είδους του υλικού. Τα εκπαιδευτικά αντικείμενα στα οποία παρέχεται πρόσβαση είναι κατάλληλα για σχολικό και πανεπιστημιακό επίπεδο, και κατά συνέπεια απευθύνονται σε μαθητές, φοιτητές, δασκάλους και ερευνητές, καθώς και σε όσους έχουν γενικό ενδιαφέρον για σχετικά θέματα.</p>
-<p>Για οποιαδήποτε πληροφορία παρακαλούμε επικοινωνήστε μαζί μας στο: info [at] organicedunet [dot] eu</p>
-<p>Σε περίπτωση που έχετε οποιοδήποτε τεχνικής φύσεως πρόβλημα κατά τη χρήση της σελίδας, παρακαλούμε επικοινωνήστε μαζί μας στο: webmaster [at] organicedunet [dot] eu</p>
-<p>Αν επιθυμείτε να η συλλογή σας να είναι διαθέσιμη μέσω του Organic.Edunet, παρακαλούμε επικοινωνήστε μαζί μας στο: collections [at] organicedunet [dot] eu</p>
-<p><b>Χρηματοδότηση</b></p>
-<p>Το Organic.Edunet Web portal αρχικά αναπτύχθηκε στα πλαίσια του έργου "Organic.Edunet: A Multilingual Federation of Learning Repositories with Quality Content for the Awareness and Education of European Youth about Organic Agriculture and Agroecology" ως μέρος του προγράμματος eContentplus. (<a href="http://ec.europa.eu/information_society/activities/econtentplus/index_en.htm#">http://ec.europa.eu/information_society/activities/econtentplus/index_en.htm#</a>)</p>
-<p>Το portal έχει αναπτυχθεί και εξελιχθεί περαιτέρω στο πλαίσιο μιας σειράς έργων:</p>
-<ul class="knowmore">
-    <li><a href="http://www.organic-lingua.eu" target="_blank">"Organic.Lingua: Demonstrating the potential of a multilingual Web portal for sustainable agricultural and environmental education", με συγχρηματοδότηση του CIP ICT Policy Support Programme</a></li>
-    <li><a href="http://www.organic-balkanet.eu" target="_blank">"Organic.Balkanet: Developing the skills of Organic Agriculture Trainers for the Balkans" με συγχρηματοδότηση του προγράμματος  Leonardo da Vinci</a></li>
-</ul>'
+<p>Organic.Edunet (www.organic-edunet.eu) is a learning portal which provides access to thousands of quality digital learning resources on organic agriculture, agroecology and other green topics, such as ecology, sustainability, biodiversity, environment and energy. It aims to facilitate access, usage and exploitation of such educational content. Learning resources available through the Organic.Edunet Web portal are appropriate for school and university level, as well as for vocational training and adult/lifelong learning thus targeting pupils, students, teachers, researchers, and general learners.</p>
+<p>The Organic.Edunet portal focuses on multilinguality in order to facilitate its usage by users all over the world. It features a user interface currently available in nine (9) languages and offers automatic metadata translation tools supporting eleven (11) languages. The resources available through the portal are available in eleven (11) languages (mainly English but also Estonian, French, German, Greek, Hungarian, Norwegian, Romanian, Russian, Spanish and Turkish), while the metadata for each resource are manually translated in up to eight (8) languages and additional translations can be automatically provided by the portal’s components. </p>
+<p>For any information please contact us at: info [at] organic-edunet [dot] eu.</p>
+
+<h2>Funding</h2>
+<p>The Organic.Edunet Web portal was initially developed in the context of "Organic.Edunet: A Multilingual Federation of Learning Repositories with Quality Content for the Awareness and Education of European Youth about Organic Agriculture and Agroecology" targeted project of the eContentplus programme. (http://ec.europa.eu/information_society/activities/econtentplus/index_en.htm#)</p>
+
+<p>The portal has been further developed and populated in the context of several other initiatives, including the following:</p>
+<p>"Organic.Lingua: Demonstrating the potential of a multilingual Web portal for sustainable agricultural and environmental education", co-funded by the CIP ICT Policy Support Programme (www.organic-lingua.eu)</p>
+<p>"Organic.Balkanet: Developing the skills of Organic Agriculture Trainers for the Balkans" co-funded by the Leonardo da Vinci Programme (www.organic-balkanet.eu).</p>'
 );
