@@ -11,47 +11,41 @@
 |
 */
 
-Route::get(  '/',                               'HomeController@index' );
-Route::post( '/',                               array( 'as'=>'home',         'uses'=>'default@index' ) );
+/**
+ * Main routes
+ */
+Route::get( '/',        	function(){ return Redirect::to('/en/'); } );
+Route::get( '/{lang}',  	'HomeController@index' );
+Route::get( '/{lang}/', 	'HomeController@index' );
 
-Route::get(  '/textual-search',                 array( 'as'=>'search',       'uses'=>'default@search' ) );
-Route::post( '/textual-search',                 array( 'as'=>'search',       'uses'=>'default@search' ) );
+/**
+ * Admin zone router
+ */
+Route::get(  '/{lang}/admin/',						   'AdminController@home' );
 
-Route::get(  '/navigational-search',            array( 'as'=>'navigational', 'uses'=>'default@navigational' ) );
+Route::get(  '/{lang}/admin/langfiles',                'AdminController@langfiles' );
+Route::get(  '/{lang}/admin/langfiles/',               'AdminController@langfiles' );
+Route::post( '/{lang}/admin/langfiles',                'AdminController@langfilessend' );
+Route::post( '/{lang}/admin/langfiles/',               'AdminController@langfilessend' );
 
-Route::get(  '/browser/resource/(:num)',        array( 'as'=>'resource',     'uses'=>'default@browser' ) );
-Route::get(  '/browser/resource/(:num)/(\w\w)', array( 'as'=>'resource',     'uses'=>'default@browser' ) );
-Route::get(  '/browser/metadata/(:num)',        array( 'as'=>'metadata',     'uses'=>'default@metadata' ) );
+Route::get(  '/{lang}/admin/langfilessuggest',         'AdminController@langfilessuggest' );
+Route::get(  '/{lang}/admin/langfilessuggest/',        'AdminController@langfilessuggest' );
+Route::post( '/{lang}/admin/langfilessuggest',         'AdminController@langfilessuggestsend' );
+Route::post( '/{lang}/admin/langfilessuggest/',        'AdminController@langfilessuggestsend' );
 
-Route::get(  '/register',                       array( 'as'=>'register',     'uses'=>'default@register' ) );
+Route::get(  '/{lang}/admin/langfilesjs',              'AdminController@langfilesjs' );
+Route::get(  '/{lang}/admin/langfilesjs/',             'AdminController@langfilesjs' );
+Route::post( '/{lang}/admin/langfilesjs',              'AdminController@langfilessendjs' );
+Route::post( '/{lang}/admin/langfilesjs/',             'AdminController@langfilessendjs' );
 
+Route::get(  '/{lang}/admin/langerror',                'AdminController@langerror' );
+Route::get(  '/{lang}/admin/langerror/',               'AdminController@langerror' );
+Route::post( '/{lang}/admin/langerror',                'AdminController@langerrorsend' );
+Route::post( '/{lang}/admin/langerror/',               'AdminController@langerrorsend' );
 
-
-Route::get(  '/admin/', 'AdminController@home' );
-
-Route::get(  '/admin/langfiles',                'AdminController@langfiles' );
-Route::get(  '/admin/langfiles/',               'AdminController@langfiles' );
-Route::post( '/admin/langfiles',                'AdminController@langfilessend' );
-Route::post( '/admin/langfiles/',               'AdminController@langfilessend' );
-
-Route::get(  '/admin/langfilessuggest',         'AdminController@langfilessuggest' );
-Route::get(  '/admin/langfilessuggest/',        'AdminController@langfilessuggest' );
-Route::post( '/admin/langfilessuggest',         'AdminController@langfilessuggestsend' );
-Route::post( '/admin/langfilessuggest/',        'AdminController@langfilessuggestsend' );
-
-Route::get(  '/admin/langfilesjs',              'AdminController@langfilesjs' );
-Route::get(  '/admin/langfilesjs/',             'AdminController@langfilesjs' );
-Route::post( '/admin/langfilesjs',              'AdminController@langfilessendjs' );
-Route::post( '/admin/langfilesjs/',             'AdminController@langfilessendjs' );
-
-Route::get(  '/admin/langerror',                'AdminController@langerror' );
-Route::get(  '/admin/langerror/',               'AdminController@langerror' );
-Route::post( '/admin/langerror',                'AdminController@langerrorsend' );
-Route::post( '/admin/langerror/',               'AdminController@langerrorsend' );
-
-Route::get(  '/admin/term-trends',              'AdminController@termtrends' );
-Route::get(  '/admin/term-trends/',             'AdminController@termtrends' );
-Route::get(  '/admin/metadata-statistics',      'AdminController@metadatastatistics' );
-Route::get(  '/admin/metadata-statistics/',     'AdminController@metadatastatistics' );
-Route::get(  '/admin/other-services',           'AdminController@otherservices' );
-Route::get(  '/admin/other-services/',          'AdminController@otherservices' );
+Route::get(  '/{lang}/admin/term-trends',              'AdminController@termtrends' );
+Route::get(  '/{lang}/admin/term-trends/',             'AdminController@termtrends' );
+Route::get(  '/{lang}/admin/metadata-statistics',      'AdminController@metadatastatistics' );
+Route::get(  '/{lang}/admin/metadata-statistics/',     'AdminController@metadatastatistics' );
+Route::get(  '/{lang}/admin/other-services',           'AdminController@otherservices' );
+Route::get(  '/{lang}/admin/other-services/',          'AdminController@otherservices' );

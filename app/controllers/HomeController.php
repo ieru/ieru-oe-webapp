@@ -23,14 +23,12 @@ class HomeController extends BaseController {
         define( 'PERMISSION_ACCESS_ADMIN_ZONE', 100 );
 
         // Check if the user is trying to change the website language
-        if ( Input::has( 'lang-selector' ) )
-            Session::put( 'language', Input::get( 'lang-selector' ) );
-        // Set default language
-        elseif ( !Session::has( 'language' ) )
-            Session::put( 'language', 'en' );
+        $route = explode( '/', $_SERVER['REQUEST_URI'] );
+        if ( !isset( $route[1] ) OR $route[1] == '' OR strlen( $route[1] ) != 2 )
+            header( 'Location: /en' );           
 
         // Define language as constant and change locale
-        define( 'LANG', Session::get( 'language' ) );
+        define( 'LANG', $route[1] );
         App::setLocale(LANG);
 
         // Get user data

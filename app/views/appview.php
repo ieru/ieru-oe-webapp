@@ -7,7 +7,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="css/_app.css" rel="stylesheet" media="screen">
+        <link href="/css/_app.css" rel="stylesheet" media="screen">
 
         <!-- ajax parsing activation for google -->
         <meta name="fragment" content="!">
@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <a class="navbar-brand" href="/#/">Organic.Edunet</a>
+                <a class="navbar-brand" href="/<?php echo LANG ?>/#/">Organic.Edunet</a>
 
                 <div class="nav-collapse collapse">
                     <ul id="user-zone" class="nav navbar-nav">
@@ -71,7 +71,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/#/user/register"><?php echo Lang::get('website.register'); ?></a></li>
+                        <li><a href="/<?php echo LANG ?>/#/user/register"><?php echo Lang::get('website.register'); ?></a></li>
                     <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
@@ -90,16 +90,16 @@
                         <li class="dropdown pull-right" id="lang-selector">
                             <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle"><span class="flag <?php echo Session::get( 'language' ) ?>flag"></span> <img id="user-selected-language" src="/images/blank.png" class="flag flag-<?php echo LANG ?>" alt="<?php echo LANG ?>" /> <?php echo Lang::get('website.'.LANG ) ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=de" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-de" alt="Deutsch" /> Deutsch</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=et" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-et" alt="Eesti keel" /> Eesti keel</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=en" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-en" alt="English" /> English</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=es" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-es" alt="Español" /> Español</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=el" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-el" alt="Eλληνικά" /> Eλληνικά</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=fr" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-fr" alt="Français" /> Français</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=it" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-it" alt="Italiano" /> Italiano</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=lv" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-lv" alt="Latviešu valoda" /> Latviešu valoda</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=tr" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-tr" alt="Türkçe" /> Türkçe</a></li>
-                                <li role="presentation"><a href="<?php echo @$_SERVER['REDIRECT_URL'] ?>?lang-selector=pl" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-pl" alt="Polski" /> Polski</a></li>
+                                <li role="presentation"><a href="/de/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-de" alt="Deutsch" /> Deutsch</a></li>
+                                <li role="presentation"><a href="/et/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-et" alt="Eesti keel" /> Eesti keel</a></li>
+                                <li role="presentation"><a href="/en/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-en" alt="English" /> English</a></li>
+                                <li role="presentation"><a href="/es/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-es" alt="Español" /> Español</a></li>
+                                <li role="presentation"><a href="/el/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-el" alt="Eλληνικά" /> Eλληνικά</a></li>
+                                <li role="presentation"><a href="/fr/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-fr" alt="Français" /> Français</a></li>
+                                <li role="presentation"><a href="/it/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-it" alt="Italiano" /> Italiano</a></li>
+                                <li role="presentation"><a href="/lv/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-lv" alt="Latviešu valoda" /> Latviešu valoda</a></li>
+                                <li role="presentation"><a href="/tr/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-tr" alt="Türkçe" /> Türkçe</a></li>
+                                <li role="presentation"><a href="/pl/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-pl" alt="Polski" /> Polski</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -109,7 +109,7 @@
 
         <header id="header">
             <div class="container">
-                <a href="/#/">
+                <a href="/<?php echo LANG ?>/#/">
                     <h1 class="pull-left hidden-sm" style="position: relative; ">
                         Organic.Edunet
                         <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px; "><?php echo Lang::get('website.website_motto') ?></small>
@@ -156,14 +156,14 @@
                 </form>
                 <nav class="hidden-sm">
                     <ul class="list-inline">
-                        <li><a href="/#/"><?php echo Lang::get('website.home') ?></a></li>
-                        <!--<li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
+                        <li><a href="/<?php echo LANG ?>/#/"><?php echo Lang::get('website.home') ?></a></li>
+                        <!--<li><a href="/<?php echo LANG ?>/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
                     <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
-                        <li><a href="/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
-                        <li><a href="/#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
+                        <li><a href="/<?php echo LANG ?>/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
+                        <li><a href="/<?php echo LANG ?>/#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
                     <?php endif; ?>
-                        <li><a href="/#/about"><?php echo Lang::get('website.about') ?></a></li>
-                        <li><a href="/#/feedback"><?php echo Lang::get('website.feedback') ?></a></li>
+                        <li><a href="/<?php echo LANG ?>/#/about"><?php echo Lang::get('website.about') ?></a></li>
+                        <li><a href="/<?php echo LANG ?>/#/feedback"><?php echo Lang::get('website.feedback') ?></a></li>
                     </ul>
                 </nav>
             </div>
@@ -1044,7 +1044,7 @@
                                 <div class="col col-lg-4 control-label">
                                 </div>
                                 <div class="col col-lg-8 controls" style="margin-bottom: 10px; ">
-                                    <input type="checkbox" name="form-register-accept" class="input-with-feedback" id="form-register-accept"/> <a href="/#/privacy" target="_blank"><?php echo Lang::get('website.accept_use_terms_and_conditions') ?></a></button>
+                                    <input type="checkbox" name="form-register-accept" class="input-with-feedback" id="form-register-accept"/> <a href="/<?php echo LANG ?>/#/privacy" target="_blank"><?php echo Lang::get('website.accept_use_terms_and_conditions') ?></a></button>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -1065,14 +1065,14 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <ul>
-                            <li><a href="/#/"><?php echo Lang::get('website.home') ?></a></li>
-                            <!--<li><a href="/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
+                            <li><a href="/<?php echo LANG ?>/#/"><?php echo Lang::get('website.home') ?></a></li>
+                            <!--<li><a href="/<?php echo LANG ?>/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
                         <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
-                            <li><a href="/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
-                            <li><a href="/#/user/register"><?php echo Lang::get('website.register') ?></a></li>
+                            <li><a href="/<?php echo LANG ?>/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
+                            <li><a href="/<?php echo LANG ?>/#/user/register"><?php echo Lang::get('website.register') ?></a></li>
                         <?php endif; ?>
-                            <li><a href="/#/about"><?php echo Lang::get('website.about') ?></a></li>
-                            <li><a href="/#/privacy"><?php echo Lang::get('website.privacy_policy') ?></a></li>
+                            <li><a href="/<?php echo LANG ?>/#/about"><?php echo Lang::get('website.about') ?></a></li>
+                            <li><a href="/<?php echo LANG ?>/#/privacy"><?php echo Lang::get('website.privacy_policy') ?></a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -1274,7 +1274,7 @@
             <% } %>
                 </small>
             </header>
-                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %>...</span> <a class="label label-primary moreinfo" href="/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %>...</span> <a class="label label-primary moreinfo" href="/<?php echo LANG ?>/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
@@ -1389,23 +1389,23 @@
             <ul class="pagination">
 
             <% if ( page > 1 ) { %>
-              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= 1 %><%=get_filters_formatted()%>"><%= lang('first') %></a></li>
+              <li><a href="/<?php echo LANG ?>/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= 1 %><%=get_filters_formatted()%>"><%= lang('first') %></a></li>
             <% } %>
 
             <% if ( page > 1 ) { %>
-              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page-1 %><%=get_filters_formatted()%>">&laquo;</a></li>
+              <li><a href="/<?php echo LANG ?>/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page-1 %><%=get_filters_formatted()%>">&laquo;</a></li>
             <% } %>
 
             <% for ( var i = startPage ; i <= page+numPagLinks && i <= totalPages ; i++ ){ %>
-              <li <% if ( i == page ) { %>class="disabled"<% } %>><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= i %><%=get_filters_formatted()%>"><%= i %></a></li>
+              <li <% if ( i == page ) { %>class="disabled"<% } %>><a href="/<?php echo LANG ?>/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= i %><%=get_filters_formatted()%>"><%= i %></a></li>
             <% } %>
 
             <% if ( page < totalPages ) { %>
-              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page+1 %><%=get_filters_formatted()%>">&raquo;</a></li>
+              <li><a href="/<?php echo LANG ?>/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= page+1 %><%=get_filters_formatted()%>">&raquo;</a></li>
             <% } %>
 
             <% if ( page < totalPages ) { %>
-              <li><a href="/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= totalPages %><%=get_filters_formatted()%>"><%= lang('last') %></a></li>
+              <li><a href="/<?php echo LANG ?>/#/<%= route %><% if ( searchText != '' ) { %>/<%= searchText %><% } %>/<%= totalPages %><%=get_filters_formatted()%>"><%= lang('last') %></a></li>
             <% } %>
 
             </ul>
@@ -1474,24 +1474,24 @@
         </script>
 
         <!-- jQuery + Bootstrap -->
-        <script src="js/jquery.js"></script>
-        <script src="js/vendor/bootstrap/bootstrap.js"></script>
-        <script src="js/vendor/twitter/typeahead.js"></script>
+        <script src="/js/jquery.js"></script>
+        <script src="/js/vendor/bootstrap/bootstrap.js"></script>
+        <script src="/js/vendor/twitter/typeahead.js"></script>
         <!-- Activate IE8 responsive features -->
-        <!--<script src="js/respond.js"></script>-->
+        <!--<script src="/js/respond.js"></script>-->
         <!-- Libraries for using Backbone.js -->
-        <!--<script data-main="js/app/main"  src="js/require.js"></script>-->
-        <script src="js/underscore.js"></script>
-        <script src="js/backbone.js"></script>
+        <!--<script data-main="/js/app/main"  src="/js/require.js"></script>-->
+        <script src="/js/underscore.js"></script>
+        <script src="/js/backbone.js"></script>
         <!-- App javaScript files -->
-        <script src="js/app.js?date=<?php echo VERSION?>"></script>
-        <script src="js/app.models.js?date=<?php echo VERSION?>"></script>
-        <script src="js/app.views.js?date=<?php echo VERSION?>"></script>
-        <script src="js/app.collections.js?date=<?php echo VERSION?>"></script>
-        <script src="js/app.router.js?date=<?php echo VERSION?>"></script>
+        <script src="/js/app.js?date=<?php echo VERSION?>"></script>
+        <script src="/js/app.models.js?date=<?php echo VERSION?>"></script>
+        <script src="/js/app.views.js?date=<?php echo VERSION?>"></script>
+        <script src="/js/app.collections.js?date=<?php echo VERSION?>"></script>
+        <script src="/js/app.router.js?date=<?php echo VERSION?>"></script>
         <!--Default language file -->
-        <script src="js/lang/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
-        <script src="js/lang/error/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
+        <script src="/js/lang/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
+        <script src="/js/lang/error/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
 
         <script>
             //$.ajaxSetup({ cache: false });
