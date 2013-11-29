@@ -335,12 +335,22 @@ class AdminController extends BaseController
         return $data;
     }
 
+    /**
+     * Check if the user can change a language file.
+     *
+     * @return string
+     */
     private function _check_language_moderation ()
     {
         if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
             die( '403 Unauthorized Access' );
-
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
+        $langs = array( 'es', 'en', 'fr', 'el', 'et', 'lv', 'it', 'tr', 'pl', 'de' );
+
+        if ( $to == 'en' AND !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_EN ) )
+            foreach ( $langs as $lang )
+                if ( static::$_user->check_permission( constant( 'PERMISSION_ACCESS_LANG_FILES_'.strtoupper( $lang ) ) ) )
+                    header( 'Location: '.$_SERVER['REDIRECT_URL'].'?to='.$lang, true, 301 );
 
         if ( !static::$_user->check_permission( constant( 'PERMISSION_ACCESS_LANG_FILES_'.strtoupper( $to ) ) ) )
             die( '403 Unauthorized Access' );
@@ -349,7 +359,7 @@ class AdminController extends BaseController
     }
 
     /**
-     *
+     * @return void
      */
     public function termtrends ()
     {
@@ -360,7 +370,7 @@ class AdminController extends BaseController
     }
 
     /**
-     *
+     * @return void
      */
     public function metadatastatistics ()
     {
@@ -371,7 +381,7 @@ class AdminController extends BaseController
     }
 
     /**
-     *
+     * @return void
      */
     public function otherservices ()
     {
