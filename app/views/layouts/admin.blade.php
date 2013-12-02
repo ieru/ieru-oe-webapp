@@ -25,7 +25,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, Admin <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_ADMIN_ZONE ) ): ?>
-                                <li role="presentation"><a href="/admin/"><span class="glyphicon glyphicon-cog"></span> <?php echo Lang::get('website.adminzone'); ?></a></li>
+                                <li role="presentation"><a href="/<?php echo LANG ?>/admin/"><span class="glyphicon glyphicon-cog"></span> <?php echo Lang::get('website.adminzone'); ?></a></li>
                                 <?php endif; ?>
                                 <li class="divider" role="presentation"></li>
                                 <li role="presentation"><a href="#" id="user-logout"><span class="glyphicon glyphicon-off"></span> <?php echo Lang::get('website.logout'); ?></a></li>
@@ -159,16 +159,16 @@
                         <ul class="nav nav-list">
                         <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) ): ?>
                             <li class="nav-header">Edit language files</li>
-                            <li><a href="/admin/langfiles">Web app skeleton (php)</a></li>
-                            <li><a href="/admin/langfilesjs">Loaded with javascript</a></li>
-                            <li><a href="/admin/langfilessuggest">Suggest section</a></li>
-                            <li><a href="/admin/langerror">Error codes</a></li>
+                            <li><a href="/<?php echo LANG ?>/admin/langfiles">Web app skeleton (php)</a></li>
+                            <li><a href="/<?php echo LANG ?>/admin/langfilesjs">Loaded with javascript</a></li>
+                            <li><a href="/<?php echo LANG ?>/admin/langfilessuggest">Suggest section</a></li>
+                            <li><a href="/<?php echo LANG ?>/admin/langerror">Error codes</a></li>
                         <?php endif; ?>
                         <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_AGINFRA_DATA ) ): ?>
                             <li class="nav-header">Statistics</li>
-                            <li><a href="/admin/term-trends">Term Trends</a></li>
-                            <li><a href="/admin/metadata-statistics">Metadata Statistics</a></li>
-                            <li><a href="/admin/other-services">Other Services</a></li>
+                            <li><a href="/<?php echo LANG ?>/admin/term-trends">Term Trends</a></li>
+                            <li><a href="/<?php echo LANG ?>/admin/metadata-statistics">Metadata Statistics</a></li>
+                            <li><a href="/<?php echo LANG ?>/admin/other-services">Other Services</a></li>
                         <?php endif; ?>
                         </ul>
                     </div>

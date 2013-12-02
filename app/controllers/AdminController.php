@@ -46,7 +46,7 @@ class AdminController extends BaseController
         // Define language as constant and change locale
         define( 'LANG', Session::get( 'language' ) );
         App::setLocale(LANG);
-
+        
         // Get user data
         if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] )
         {
