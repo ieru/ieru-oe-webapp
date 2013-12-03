@@ -5,34 +5,34 @@
 <div class="col col-lg-12">
     Available languages: 
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_EN ) ): ?>
-    <a href="/<?php echo LANG ?>/admin/?to=en">English</a>
+    <a href="langfilesjs?to=en">English</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_FR ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=fr">French</a>
+    | <a href="langfilesjs?to=fr">French</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_ES ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=es">Spanish</a>
+    | <a href="langfilesjs?to=es">Spanish</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_DE ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=de">German</a>
+    | <a href="langfilesjs?to=de">German</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_LV ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=lv">Latvian</a>
+    | <a href="langfilesjs?to=lv">Latvian</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_ET ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=et">Estonian</a>
+    | <a href="langfilesjs?to=et">Estonian</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_EL ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=el">Greek</a>
+    | <a href="langfilesjs?to=el">Greek</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_TR ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=tr">Turk</a>
+    | <a href="langfilesjs?to=tr">Turk</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_IT ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=it">Italian</a>
+    | <a href="langfilesjs?to=it">Italian</a>
     <?php endif; ?>
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_PL ) ): ?>
-    | <a href="/<?php echo LANG ?>/admin/?to=pl">Polish</a>
+    | <a href="langfilesjs?to=pl">Polish</a>
     <?php endif; ?>
 </div>
 <form class="form-horizontal" method="POST">
