@@ -1628,6 +1628,7 @@
                 //Box.set('page', 1);
                 //Router.navigate('#/navigation/1');
                 //renderAdvancedOptions($);
+                return 'xxx';
             }
         </script>
 
