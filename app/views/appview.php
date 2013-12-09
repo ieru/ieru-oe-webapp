@@ -1622,5 +1622,14 @@
             });
         </script>
 
+        <script>
+            function onSelectionChange(selectedNodes){
+                console.log( 'llama a onSelectionChange' );
+                //Box.set('page', 1);
+                //Router.navigate('#/navigation/1');
+                //renderAdvancedOptions($);
+            }
+        </script>
+
     </body>
 </html>
