@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="<?php echo LANG ?>">
     <head>
@@ -228,7 +227,7 @@
         <div id="page-navigational">
             <div class="container">
                 <div class="row">
-                    <iframe width="100%" height="800" src="http://kos.appgee.net" style="border: 0; "></iframe>
+                    <iframe width="100%" height="800" src="/navigational.html" style="border: 0; "></iframe>
                 </div>
             </div>
         </div>
@@ -1623,12 +1622,13 @@
         </script>
 
         <script>
-            function onSelectionChange(selectedNodes){
-                console.log( 'llama a onSelectionChange' );
+            function onSelectionChange ( node )
+            {
+                console.log( 'Llama a onSelectionChange.' );
+                return 'xxx';
                 //Box.set('page', 1);
                 //Router.navigate('#/navigation/1');
                 //renderAdvancedOptions($);
-                return 'xxx';
             }
         </script>
 
