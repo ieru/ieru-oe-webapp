@@ -100,6 +100,7 @@
                                 <li role="presentation"><a href="/lv/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-lv" alt="Latviešu valoda" /> Latviešu valoda</a></li>
                                 <li role="presentation"><a href="/tr/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-tr" alt="Türkçe" /> Türkçe</a></li>
                                 <li role="presentation"><a href="/pl/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-pl" alt="Polski" /> Polski</a></li>
+                                <li role="presentation"><a href="/ar/" tabindex="-1" role="menuitem"><img src="/images/blank.png" class="flag flag-ir" alt="Arabic" /> العربية</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -147,6 +148,7 @@
                                             <li><a href="#lv"><img src="/images/blank.png" class="flag flag-lv" alt="Latviešu valoda" /> Latviešu valoda</a></li>
                                             <li><a href="#tr"><img src="/images/blank.png" class="flag flag-tr" alt="Türkçe" /> Türkçe</a></li>
                                             <li><a href="#pl"><img src="/images/blank.png" class="flag flag-pl" alt="Polski" /> Polski</a></li>
+                                            <li><a href="#ar"><img src="/images/blank.png" class="flag flag-ir" alt="Arabic" /> العربية</a></li>
                                         </ul>
                                     </li>
                                 </ul>

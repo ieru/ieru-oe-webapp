@@ -30,6 +30,7 @@ class AdminController extends BaseController
         define( 'PERMISSION_ACCESS_LANG_FILES_TR', 208 );
         define( 'PERMISSION_ACCESS_LANG_FILES_IT', 209 );
         define( 'PERMISSION_ACCESS_LANG_FILES_PL', 210 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_AR', 211 );
 
         define( 'PERMISSION_ACCESS_AGINFRA_DATA',  300 );
 
@@ -343,7 +344,7 @@ class AdminController extends BaseController
         if ( !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES ) )
             die( '403 Unauthorized Access' );
         $to = Input::has( 'to' ) ? Input::get( 'to' ) : 'en';
-        $langs = array( 'es', 'en', 'fr', 'el', 'et', 'lv', 'it', 'tr', 'pl', 'de' );
+        $langs = array( 'es', 'en', 'fr', 'el', 'et', 'lv', 'it', 'tr', 'pl', 'de', 'ar' );
 
         if ( $to == 'en' AND !static::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_EN ) )
             foreach ( $langs as $lang )

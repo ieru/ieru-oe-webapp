@@ -34,6 +34,9 @@
     <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_PL ) ): ?>
     | <a href="langfilesjs?to=pl">Polish</a>
     <?php endif; ?>
+    <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_LANG_FILES_AR ) ): ?>
+    | <a href="?to=ar">Arabic</a>
+    <?php endif; ?>
 </div>
 <form class="form-horizontal" method="POST">
     <div class="col col-lg-3">
