@@ -14,6 +14,7 @@ lang_file = {
 "filter_educational_level":"Livello di istruzione",
 "filter_resource_type":"Tipo di risorsa",
 "any":"Qualsiasi",
+"ar":"Arabic",
 "de":"Tedesco",
 "el":"Greco",
 "en":"Inglese",

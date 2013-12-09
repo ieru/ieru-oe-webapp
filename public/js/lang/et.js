@@ -14,6 +14,7 @@ lang_file = {
 "filter_educational_level":"Haridustase",
 "filter_resource_type":"Ressursi tüüp",
 "any":"Mis tahes",
+"ar":"Arabic",
 "de":"Saksa",
 "el":"Kreeka",
 "en":"Inglise",

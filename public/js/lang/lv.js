@@ -14,6 +14,7 @@ lang_file = {
 "filter_educational_level":"Izglītības līmenis",
 "filter_resource_type":"Resursa tips",
 "any":"Jebkuru",
+"ar":"Arabic",
 "de":"Vācu",
 "el":"Grieķu",
 "en":"Angļu",
