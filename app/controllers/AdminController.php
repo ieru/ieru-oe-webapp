@@ -76,9 +76,49 @@ class AdminController extends BaseController
     }
 
     /**
+     * Translate filters to new languages
+     *
+     * @return void
+     */
+    public function filters ()
+    {
+        $file = public_path().'/filters.php';
+        $filters = require( $file );
+
+        // Check to translate empty tags
+        foreach ( $filters as $filter=>&$langs )
+        {
+            foreach ( $langs as $lang=>&$translation )
+            {
+                if ( $translation == '' )
+                {
+                    $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode( $filter ).'&service=microsoft&to='.$lang;
+                    $data = json_decode( $this->_curl_get_data( $url ) );
+                    $translation = @$data->data->translation;
+                }
+            }
+        }
+        
+        // Write the file
+        if ( $fp = fopen( $file, 'w+' ) )
+        {
+            fwrite( $fp, "<?php\n" );
+            fwrite( $fp, 'return ' );
+            fwrite( $fp, var_export( $filters, true ) );
+            fwrite( $fp, ';' );
+            fclose( $fp );
+        }
+
+        var_dump( $filters ); die();
+
+        // Make view
+        $this->layout->content = View::make('admin.filters')
+             ->with( 'lang', $lang );
+    }
+
+    /**
      * Administration of language file stored in a website.php file
      *
-     * @param   string  to      The ISO code of the language file to be edited
      * @return void
      */
     public function langfiles ()
@@ -136,7 +176,6 @@ class AdminController extends BaseController
     /**
      * Edit javascript language files
      *
-     * @param   string  to      The ISO code of the language file to be edited
      * @return void
      */
     public function langfilesjs ()
@@ -198,7 +237,6 @@ class AdminController extends BaseController
     /**
      * Edit language files of error thrown by the interface
      *
-     * @param   string  to      The ISO code of the language file to be edited
      * @return View
      */
     public function langerror ()
@@ -260,7 +298,6 @@ class AdminController extends BaseController
     /**
      * Edit suggest resources language files
      *
-     * @param   string  to      The ISO code of the language file to be edited
      * @return View
      */
     public function langfilessuggest ()

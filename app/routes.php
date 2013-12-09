@@ -49,3 +49,6 @@ Route::get(  '/{lang}/admin/metadata-statistics',      'AdminController@metadata
 Route::get(  '/{lang}/admin/metadata-statistics/',     'AdminController@metadatastatistics' );
 Route::get(  '/{lang}/admin/other-services',           'AdminController@otherservices' );
 Route::get(  '/{lang}/admin/other-services/',          'AdminController@otherservices' );
+
+Route::get(  '/{lang}/admin/filters',                  'AdminController@filters' );
+Route::get(  '/{lang}/admin/filters/',                 'AdminController@filters' );
