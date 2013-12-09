@@ -11,6 +11,7 @@ return array(
 		'it'=>'istruzione superiore',
 		'lv'=>'augstākā izglītība',
 		'pl'=>'szkolnictwa wyższego',
+		'ar'=>'',
 	),
 	'vocational education'=>array(
 		'en'=>'vocational education',
@@ -23,6 +24,7 @@ return array(
 		'it'=>'istruzione professionale',
 		'lv'=>'profesionālā izglītība',
 		'pl'=>'kształcenia zawodowego',
+		'ar'=>'',
 	),
 	'professional development'=>array(
 		'en'=>'professional development',
@@ -35,6 +37,7 @@ return array(
 		'it'=>'sviluppo professionale',
 		'lv'=>'profesionālā attīstība',
 		'pl'=>'rozwoju zawodowego',
+		'ar'=>'',
 	),
 	'library'=>array(
 		'en'=>'library',
@@ -47,6 +50,7 @@ return array(
 		'it'=>'libreria',
 		'lv'=>'bibliotēka',
 		'pl'=>'Biblioteka',
+		'ar'=>'',
 	),
 	'compulsory education'=>array(
 		'en'=>'compulsory education',
@@ -59,6 +63,7 @@ return array(
 		'it'=>'istruzione obbligatoria',
 		'lv'=>'obligātā izglītība',
 		'pl'=>'Obowiązek szkolny',
+		'ar'=>'',
 	),
 	'continuing education'=>array(
 		'en'=>'continuing education',
@@ -71,6 +76,7 @@ return array(
 		'it'=>'formazione continua',
 		'lv'=>'Continuing education',
 		'pl'=>'kształcenia ustawicznego',
+		'ar'=>'',
 	),
 	'distance education'=>array(
 		'en'=>'distance education',
@@ -83,6 +89,7 @@ return array(
 		'it'=>'formazione a distanza',
 		'lv'=>'tālmācībā',
 		'pl'=>'kształcenie na odległość',
+		'ar'=>'',
 	),
 	'policy making'=>array(
 		'en'=>'policy making',
@@ -95,42 +102,46 @@ return array(
 		'it'=>'decisionale',
 		'lv'=>'politikas veidošanā',
 		'pl'=>'polityki',
+		'ar'=>'',
 	),
 	'pre-school'=>array(
-		'en'=>'pre-school',
-		'es'=>'pre escolar',
+		'en'=>'Pre-school',
+		'es'=>'Preescolar',
 		'de'=>'Vorschule',
 		'el'=>'προ-σχολείο',
-		'tr'=>'okul öncesi',
-		'et'=>'eelkool',
-		'fr'=>'école maternelle',
-		'it'=>'pre-scuola',
-		'lv'=>'pirmsskolas izglītības',
-		'pl'=>'przedszkola',
+		'tr'=>'Okul öncesi',
+		'et'=>'Eelkool',
+		'fr'=>'École maternelle',
+		'it'=>'Pre-scuola',
+		'lv'=>'Pirmsskolas izglītības',
+		'pl'=>'Przedszkola',
+		'ar'=>'',
 	),
 	'special education'=>array(
-		'en'=>'special education',
+		'en'=>'Special education',
 		'es'=>'Educación especial',
 		'de'=>'Sonderpädagogik',
 		'el'=>'ειδικής αγωγής',
 		'tr'=>'özel eğitim',
 		'et'=>'Eripedagoogika',
-		'fr'=>'éducation spéciale',
-		'it'=>'educazione speciale',
-		'lv'=>'speciālās izglītības',
-		'pl'=>'kształcenia specjalnego',
+		'fr'=>'Éducation spéciale',
+		'it'=>'Educazione speciale',
+		'lv'=>'Speciālās izglītības',
+		'pl'=>'Kształcenia specjalnego',
+		'ar'=>'',
 	),
 	'other'=>array(
-		'en'=>'other',
-		'es'=>'otros',
-		'de'=>'andere',
+		'en'=>'Other',
+		'es'=>'Otros',
+		'de'=>'Andere',
 		'el'=>'άλλες',
-		'tr'=>'diğer',
-		'et'=>'muud',
-		'fr'=>'autres',
-		'it'=>'altri',
-		'lv'=>'citi',
-		'pl'=>'inne',
+		'tr'=>'Diğer',
+		'et'=>'Muud',
+		'fr'=>'Autres',
+		'it'=>'Altri',
+		'lv'=>'Citi',
+		'pl'=>'Inne',
+		'ar'=>'',
 	),
 	'en'=>array(
 		'en'=>'English',
@@ -143,6 +154,7 @@ return array(
 		'it'=>'Inglese',
 		'lv'=>'Angļu',
 		'pl'=>'Angielski',
+		'ar'=>'',
 	),
 	'fr'=>array(
 		'en'=>'French',
@@ -155,6 +167,7 @@ return array(
 		'it'=>'Francese',
 		'lv'=>'Franču',
 		'pl'=>'Francuski',
+		'ar'=>'',
 	),
 	'de'=>array(
 		'en'=>'German',
@@ -167,6 +180,7 @@ return array(
 		'it'=>'Tedesco',
 		'lv'=>'Vācu',
 		'pl'=>'Niemiecki',
+		'ar'=>'',
 	),
 	'or'=>array(
 		'en'=>'Oriya',
@@ -179,6 +193,7 @@ return array(
 		'it'=>'Oriya',
 		'lv'=>'Oriju',
 		'pl'=>'Orija',
+		'ar'=>'',
 	),
 	'hi'=>array(
 		'en'=>'Hindi',
@@ -191,6 +206,7 @@ return array(
 		'it'=>'Hindi',
 		'lv'=>'Hindi',
 		'pl'=>'Hindi',
+		'ar'=>'',
 	),
 	'el'=>array(
 		'en'=>'Greek',
@@ -203,6 +219,7 @@ return array(
 		'it'=>'Greco',
 		'lv'=>'Grieķu',
 		'pl'=>'Grecki',
+		'ar'=>'',
 	),
 	'et'=>array(
 		'en'=>'Estonian',
@@ -215,6 +232,7 @@ return array(
 		'it'=>'Estone',
 		'lv'=>'Igauņu',
 		'pl'=>'Estoński',
+		'ar'=>'',
 	),
 	'kn'=>array(
 		'en'=>'Kannada',
@@ -227,6 +245,7 @@ return array(
 		'it'=>'Kannada',
 		'lv'=>'Kannaru',
 		'pl'=>'Kannada',
+		'ar'=>'',
 	),
 	'ro'=>array(
 		'en'=>'Romanian',
@@ -239,6 +258,7 @@ return array(
 		'it'=>'Rumeno',
 		'lv'=>'Rumāņu',
 		'pl'=>'Rumuński',
+		'ar'=>'',
 	),
 	'hu'=>array(
 		'en'=>'Hungarian',
@@ -251,6 +271,7 @@ return array(
 		'it'=>'Ungherese',
 		'lv'=>'Ungāru',
 		'pl'=>'Węgierski',
+		'ar'=>'',
 	),
 	'es'=>array(
 		'en'=>'Spanish',
@@ -263,6 +284,7 @@ return array(
 		'it'=>'Spagnolo',
 		'lv'=>'Spāņu',
 		'pl'=>'Hiszpański',
+		'ar'=>'',
 	),
 	'application/pdf'=>array(
 		'en'=>'application/pdf',
@@ -275,6 +297,7 @@ return array(
 		'it'=>'application/pdf',
 		'lv'=>'pieteikums/pdf',
 		'pl'=>'aplikacji/pdf',
+		'ar'=>'',
 	),
 	'text/html'=>array(
 		'en'=>'text/html',
@@ -287,6 +310,7 @@ return array(
 		'it'=>'testo/html',
 		'lv'=>'text/html',
 		'pl'=>'tekst/html',
+		'ar'=>'',
 	),
 	'image/jpeg'=>array(
 		'en'=>'image/jpeg',
@@ -299,6 +323,7 @@ return array(
 		'it'=>'immagine/jpeg',
 		'lv'=>'image/jpeg',
 		'pl'=>'image/jpeg',
+		'ar'=>'',
 	),
 	'application/msword'=>array(
 		'en'=>'application/msword',
@@ -311,6 +336,7 @@ return array(
 		'it'=>'Application/msword',
 		'lv'=>'pieteikums/msword',
 		'pl'=>'application/msword',
+		'ar'=>'',
 	),
 	'application/vnd.ms-powerpoint'=>array(
 		'en'=>'application/vnd.ms-powerpoint',
@@ -323,6 +349,7 @@ return array(
 		'it'=>'applicazione/vnd.ms-powerpoint',
 		'lv'=>'pieteikums/vnd.ms-powerpoint',
 		'pl'=>'application/vnd.ms-powerpoint',
+		'ar'=>'',
 	),
 	'application/octet-stream'=>array(
 		'en'=>'application/octet-stream',
@@ -335,6 +362,7 @@ return array(
 		'it'=>'application/octet-stream',
 		'lv'=>'pieteikums/octet-stream',
 		'pl'=>'aplikacji/oktet strumień',
+		'ar'=>'',
 	),
 	'application/zip'=>array(
 		'en'=>'application/zip',
@@ -347,6 +375,7 @@ return array(
 		'it'=>'applicazione/zip',
 		'lv'=>'pieteikums/zip',
 		'pl'=>'Aplikacja pocztowy',
+		'ar'=>'',
 	),
 	'image/gif'=>array(
 		'en'=>'image/gif',
@@ -359,6 +388,7 @@ return array(
 		'it'=>'Image/gif',
 		'lv'=>'Image/gif',
 		'pl'=>'Image/gif',
+		'ar'=>'',
 	),
 	'text/plain'=>array(
 		'en'=>'text/plain',
@@ -371,6 +401,7 @@ return array(
 		'it'=>'text/plain',
 		'lv'=>'text/plain',
 		'pl'=>'text/plain',
+		'ar'=>'',
 	),
 	'video/x-ms-wmv'=>array(
 		'en'=>'video/x-ms-wmv',
@@ -383,6 +414,7 @@ return array(
 		'it'=>'video/x-ms-wmv',
 		'lv'=>'video/x-ms-wmv',
 		'pl'=>'video/x-ms-wmv',
+		'ar'=>'',
 	),
 	'oeorganiceprints'=>array(
 		'en'=>'Organic ePrints',
@@ -395,7 +427,8 @@ return array(
 		'it'=>'Organic ePrints',
 		'lv'=>'Organic ePrints',
 		'pl'=>'Organic ePrints',
-		),
+		'ar'=>'',
+	),
 	'oeagroasis'=>array(
 		'en'=>'AGROASIS',
 		'es'=>'AGROASIS',
@@ -407,7 +440,8 @@ return array(
 		'it'=>'AGROASIS',
 		'lv'=>'AGROASIS',
 		'pl'=>'AGROASIS',
-		),	
+		'ar'=>'',)
+,	
 	'oeenoat'=>array(
 		'en'=>'ENOAT',
 		'es'=>'ENOAT',
@@ -419,7 +453,8 @@ return array(
 		'it'=>'ENOAT',
 		'lv'=>'ENOAT',
 		'pl'=>'ENOAT',
-		),
+		'ar'=>'',
+	),
 	'oebiagro'=>array(
 		'en'=>'Bio@gro',
 		'es'=>'Bio@gro',
@@ -431,7 +466,8 @@ return array(
 		'it'=>'Bio@gro',
 		'lv'=>'Bio@gro',
 		'pl'=>'Bio@gro',
-		),
+		'ar'=>'',
+	),
 	'oeecologica'=>array(
 		'en'=>'Ecologica',
 		'es'=>'Ecologica',
@@ -443,7 +479,8 @@ return array(
 		'it'=>'Ecologica',
 		'lv'=>'Ecologica',
 		'pl'=>'Ecologica',
-		),
+		'ar'=>'',
+	),
 	'oeintute'=>array(
 		'en'=>'Intute',
 		'es'=>'Intute',
@@ -455,7 +492,8 @@ return array(
 		'it'=>'Intute',
 		'lv'=>'Intute',
 		'pl'=>'Intute',
-		),
+		'ar'=>'',
+	),
 	'oeaua'=>array(
 		'en'=>'AUA',
 		'es'=>'AUA',
@@ -467,7 +505,8 @@ return array(
 		'it'=>'AUA',
 		'lv'=>'AUA',
 		'pl'=>'AUA',
-		),
+		'ar'=>'',
+	),
 	'oeeulsesthonian'=>array(
 		'en'=>'EULS',
 		'es'=>'EULS',
@@ -479,7 +518,8 @@ return array(
 		'it'=>'EULS',
 		'lv'=>'EULS',
 		'pl'=>'EULS',
-		),
+		'ar'=>'',
+	),
 	'oebmlfuwaustrian'=>array(
 		'en'=>'BMLFUW',
 		'es'=>'BMLFUW',
@@ -491,7 +531,8 @@ return array(
 		'it'=>'BMLFUW',
 		'lv'=>'BMLFUW',
 		'pl'=>'BMLFUW',
-		),
+		'ar'=>'',
+	),
 	'oefao '=>array(
 		'en'=>'FAO',
 		'es'=>'FAO',
@@ -503,7 +544,8 @@ return array(
 		'it'=>'FAO',
 		'lv'=>'FAO',
 		'pl'=>'FAO',
-		),
+		'ar'=>'',
+	),
 	'oeellinogermaniki'=>array(
 		'en'=>'Ellinogermaniki Agogi',
 		'es'=>'Ellinogermaniki Agogi',
@@ -515,7 +557,8 @@ return array(
 		'it'=>'Ellinogermaniki Agogi',
 		'lv'=>'Ellinogermaniki Agogi',
 		'pl'=>'Ellinogermaniki Agogi',
-		),
+		'ar'=>'',
+	),
 	'aglrseae'=>array(
 		'en'=>'SEAE',
 		'es'=>'SEAE',
@@ -527,7 +570,8 @@ return array(
 		'it'=>'SEAE',
 		'lv'=>'SEAE',
 		'pl'=>'SEAE',
-		),
+		'ar'=>'',
+	),
 	'aglrmiksike'=>array(
 		'en'=>'MIKSIKE',
 		'es'=>'MIKSIKE',
@@ -539,7 +583,8 @@ return array(
 		'it'=>'MIKSIKE',
 		'lv'=>'MIKSIKE',
 		'pl'=>'MIKSIKE',
-		),
+		'ar'=>'',
+	),
 	'digitalgreen'=>array(
 		'en'=>'Digital Green',
 		'es'=>'Digital Green',
@@ -551,7 +596,8 @@ return array(
 		'it'=>'Digital Green',
 		'lv'=>'Digital Green',
 		'pl'=>'Digital Green',
-		),
+		'ar'=>'',
+	),
 	'nsdlbeyond'=>array(
 		'en'=>'NSDL Beyond',
 		'es'=>'NSDL Beyond',
@@ -563,7 +609,8 @@ return array(
 		'it'=>'NSDL Beyond',
 		'lv'=>'NSDL Beyond',
 		'pl'=>'NSDL Beyond',
-		),
+		'ar'=>'',
+	),
 	'sercmicro'=>array(
 		'en'=>'Sermicro',
 		'es'=>'Sermicro',
@@ -575,7 +622,8 @@ return array(
 		'it'=>'Sermicro',
 		'lv'=>'Sermicro',
 		'pl'=>'Sermicro',
-		),
+		'ar'=>'',
+	),
 	'greenoer'=>array(
 		'en'=>'Green OER',
 		'es'=>'Green OER',
@@ -587,7 +635,8 @@ return array(
 		'it'=>'Green OER',
 		'lv'=>'Green OER',
 		'pl'=>'Green OER',
-		),
+		'ar'=>'',
+	),
 	'aglreol'=>array(
 		'en'=>'Encyclopedia of Life',
 		'es'=>'Encyclopedia of Life',
@@ -599,7 +648,8 @@ return array(
 		'it'=>'Encyclopedia of Life',
 		'lv'=>'Encyclopedia of Life',
 		'pl'=>'Encyclopedia of Life',
-		),
+		'ar'=>'',
+	),
 	'oerafrica'=>array(
 		'en'=>'OER Africa',
 		'es'=>'OER Africa',
@@ -611,7 +661,8 @@ return array(
 		'it'=>'OER Africa',
 		'lv'=>'OER Africa',
 		'pl'=>'OER Africa',
-		),
+		'ar'=>'',
+	),
 	'aglrnb'=>array(
 		'en'=>'Nature Bridge',
 		'es'=>'Nature Bridge',
@@ -623,7 +674,8 @@ return array(
 		'it'=>'Nature Bridge',
 		'lv'=>'Nature Bridge',
 		'pl'=>'Nature Bridge',
-		),
+		'ar'=>'',
+	),
 	'ruforum'=>array(
 		'en'=>'RuForum',
 		'es'=>'RuForum',
@@ -635,7 +687,8 @@ return array(
 		'it'=>'RuForum',
 		'lv'=>'RuForum',
 		'pl'=>'RuForum',
-		),
+		'ar'=>'',
+	),
 	'gfar'=>array(
 		'en'=>'GFAR',
 		'es'=>'GFAR',
@@ -647,7 +700,8 @@ return array(
 		'it'=>'GFAR',
 		'lv'=>'GFAR',
 		'pl'=>'GFAR',
-		),
+		'ar'=>'',
+	),
 	'aglrgsg'=>array(
 		'en'=>'Great School Gardens',
 		'es'=>'Great School Gardens',
@@ -659,7 +713,8 @@ return array(
 		'it'=>'Great School Gardens',
 		'lv'=>'Great School Gardens',
 		'pl'=>'Great School Gardens',
-		),
+		'ar'=>'',
+	),
 	'access'=>array(
 		'en'=>'Access Agriculture',
 		'es'=>'Access Agriculture',
@@ -671,7 +726,8 @@ return array(
 		'it'=>'Access Agriculture',
 		'lv'=>'Access Agriculture',
 		'pl'=>'Access Agriculture',
-		),
+		'ar'=>'',
+	),
 	'aglrllb'=>array(
 		'en'=>'Life Lab',
 		'es'=>'Life Lab',
@@ -683,7 +739,8 @@ return array(
 		'it'=>'Life Lab',
 		'lv'=>'Life Lab',
 		'pl'=>'Life Lab',
-		),
+		'ar'=>'',
+	),
 	'prodinraagro'=>array(
 		'en'=>'Prodinra Agro',
 		'es'=>'Prodinra Agro',
@@ -695,7 +752,8 @@ return array(
 		'it'=>'Prodinra Agro',
 		'lv'=>'Prodinra Agro',
 		'pl'=>'Prodinra Agro',
-		),
+		'ar'=>'',
+	),
 	'rurinc'=>array(
 		'en'=>'Rural Inclusion',
 		'es'=>'Rural Inclusion',
@@ -707,7 +765,8 @@ return array(
 		'it'=>'Rural Inclusion',
 		'lv'=>'Rural Inclusion',
 		'pl'=>'Rural Inclusion',
-		),
+		'ar'=>'',
+	),
 	'traglor'=>array(
 		'en'=>'Traglor',
 		'es'=>'Traglor',
@@ -719,7 +778,8 @@ return array(
 		'it'=>'Traglor',
 		'lv'=>'Traglor',
 		'pl'=>'Traglor',
-		),
+		'ar'=>'',
+	),
 	'uminho'=>array(
 		'en'=>'UMINHO',
 		'es'=>'UMINHO',
@@ -731,7 +791,8 @@ return array(
 		'it'=>'UMINHO',
 		'lv'=>'UMINHO',
 		'pl'=>'UMINHO',
-		),
+		'ar'=>'',
+	),
 	'faocapacityportal'=>array(
 		'en'=>'FAO Capacity Development Portal',
 		'es'=>'FAO Capacity Development Portal',
@@ -743,7 +804,8 @@ return array(
 		'it'=>'FAO Capacity Development Portal',
 		'lv'=>'FAO Capacity Development Portal',
 		'pl'=>'FAO Capacity Development Portal',
-		),
+		'ar'=>'',
+	),
 	'aglryoutube'=>array(
 		'en'=>'Youtube collection',
 		'es'=>'Youtube collection',
@@ -755,7 +817,8 @@ return array(
 		'it'=>'Youtube collection',
 		'lv'=>'Youtube collection',
 		'pl'=>'Youtube collection',
-		),	
+		'ar'=>'',)
+,	
 	'aglrflickr'=>array(
 		'en'=>'Flickr collection',
 		'es'=>'Flickr collection',
@@ -767,7 +830,8 @@ return array(
 		'it'=>'Flickr collection',
 		'lv'=>'Flickr collection',
 		'pl'=>'Flickr collection',
-		),
+		'ar'=>'',
+	),
 	'aglrslideshare'=>array(
 		'en'=>'Slideshare collection',
 		'es'=>'Slideshare collection',
@@ -779,7 +843,8 @@ return array(
 		'it'=>'Slideshare collection',
 		'lv'=>'Slideshare collection',
 		'pl'=>'Slideshare collection',
-		),
+		'ar'=>'',
+	),
 	'aglrscientific'=>array(
 		'en'=>'Scientific Blogs collection',
 		'es'=>'Scientific Blogs collection',
@@ -791,7 +856,8 @@ return array(
 		'it'=>'Scientific Blogs collection',
 		'lv'=>'Scientific Blogs collection',
 		'pl'=>'Scientific Blogs collection',
-		),
+		'ar'=>'',
+	),
 	'aglrcapacity '=>array(
 		'en'=>'Capacity.org',
 		'es'=>'Capacity.org',
@@ -803,7 +869,8 @@ return array(
 		'it'=>'Capacity.org',
 		'lv'=>'Capacity.org',
 		'pl'=>'Capacity.org',
-		),
+		'ar'=>'',
+	),
 	'aglrcerorganic'=>array(
 		'en'=>'CerOrganic',
 		'es'=>'CerOrganic',
@@ -815,7 +882,8 @@ return array(
 		'it'=>'CerOrganic',
 		'lv'=>'CerOrganic',
 		'pl'=>'CerOrganic',
-		),	
+		'ar'=>'',)
+,	
 	'aglrgrace'=>array(
 		'en'=>'GRACE Communications Foundation',
 		'es'=>'GRACE Communications Foundation',
@@ -827,8 +895,9 @@ return array(
 		'it'=>'GRACE Communications Foundation',
 		'lv'=>'GRACE Communications Foundation',
 		'pl'=>'GRACE Communications Foundation',
-		),		
-	'learner'=>array(
+		'ar'=>''),,
+
+'learner'=>array(
 		'en'=>'learner',
 		'es'=>'aprendiz',
 		'de'=>'Lernende',
@@ -839,6 +908,7 @@ return array(
 		'it'=>'discente',
 		'lv'=>'skolēns',
 		'pl'=>'uczący się',
+		'ar'=>'',
 	),
 	'manager'=>array(
 		'en'=>'manager',
@@ -851,6 +921,7 @@ return array(
 		'it'=>'Manager',
 		'lv'=>'pārvaldnieks',
 		'pl'=>'Menedżer',
+		'ar'=>'',
 	),
 	'counsellor'=>array(
 		'en'=>'counsellor',
@@ -863,6 +934,7 @@ return array(
 		'it'=>'Consigliere',
 		'lv'=>'Conseiller d \' ambassade',
 		'pl'=>'Doradca',
+		'ar'=>'',
 	),
 	'teacher'=>array(
 		'en'=>'teacher',
@@ -875,6 +947,7 @@ return array(
 		'it'=>'insegnante',
 		'lv'=>'skolotājs',
 		'pl'=>'nauczyciel',
+		'ar'=>'',
 	),
 	'parent'=>array(
 		'en'=>'parent',
@@ -887,6 +960,7 @@ return array(
 		'it'=>'padre',
 		'lv'=>'mātes',
 		'pl'=>'rodzic',
+		'ar'=>'',
 	),
 	'author'=>array(
 		'en'=>'author',
@@ -899,6 +973,7 @@ return array(
 		'it'=>'autore',
 		'lv'=>'Autors',
 		'pl'=>'Autor',
+		'ar'=>'',
 	),
 	'problem statement'=>array(
 		'en'=>'problem statement',
@@ -911,6 +986,7 @@ return array(
 		'it'=>'dichiarazione di problema',
 		'lv'=>'problēmu pārskats',
 		'pl'=>'oświadczenie problem',
+		'ar'=>'',
 	),
 	'broadcast'=>array(
 		'en'=>'broadcast',
@@ -923,6 +999,7 @@ return array(
 		'it'=>'trasmissione',
 		'lv'=>'apraides',
 		'pl'=>'nadawanie',
+		'ar'=>'',
 	),
 	'reference'=>array(
 		'en'=>'reference',
@@ -935,6 +1012,7 @@ return array(
 		'it'=>'riferimento',
 		'lv'=>'atsauces',
 		'pl'=>'odniesienia',
+		'ar'=>'',
 	),
 	'image'=>array(
 		'en'=>'image',
@@ -947,6 +1025,7 @@ return array(
 		'it'=>'immagine',
 		'lv'=>'attēlu',
 		'pl'=>'obraz',
+		'ar'=>'',
 	),
 	'guide (advice sheets)'=>array(
 		'en'=>'guide (advice sheets)',
@@ -959,6 +1038,7 @@ return array(
 		'it'=>'Guida (fogli consigli)',
 		'lv'=>'rokasgrāmata (padomu lapas)',
 		'pl'=>'Przewodnik (porady arkuszy)',
+		'ar'=>'',
 	),
 	'web page'=>array(
 		'en'=>'web page',
@@ -971,6 +1051,7 @@ return array(
 		'it'=>'pagina Web',
 		'lv'=>'Web lapu',
 		'pl'=>'strony sieci Web',
+		'ar'=>'',
 	),
 	'exploration'=>array(
 		'en'=>'exploration',
@@ -983,6 +1064,7 @@ return array(
 		'it'=>'esplorazione',
 		'lv'=>'izpēte',
 		'pl'=>'poszukiwania',
+		'ar'=>'',
 	),
 	'experiment'=>array(
 		'en'=>'experiment',
@@ -995,6 +1077,7 @@ return array(
 		'it'=>'esperimento',
 		'lv'=>'eksperiments',
 		'pl'=>'eksperyment',
+		'ar'=>'',
 	),
 	'project'=>array(
 		'en'=>'project',
@@ -1007,6 +1090,7 @@ return array(
 		'it'=>'progetto',
 		'lv'=>'projekts',
 		'pl'=>'',
+		'ar'=>'',
 	),
 	'presentation'=>array(
 		'en'=>'presentation',
@@ -1019,6 +1103,7 @@ return array(
 		'it'=>'presentazione',
 		'lv'=>'prezentācija',
 		'pl'=>'Prezentacja',
+		'ar'=>'',
 	),
 	'assessment'=>array(
 		'en'=>'assessment',
@@ -1031,6 +1116,7 @@ return array(
 		'it'=>'valutazione',
 		'lv'=>'novērtējums',
 		'pl'=>'oceny',
+		'ar'=>'',
 	),
 	'course'=>array(
 		'en'=>'course',
@@ -1043,6 +1129,7 @@ return array(
 		'it'=>'corso',
 		'lv'=>'kursu',
 		'pl'=>'Oczywiście',
+		'ar'=>'',
 	),
 	'text'=>array(
 		'en'=>'text',
@@ -1055,6 +1142,7 @@ return array(
 		'it'=>'testo',
 		'lv'=>'teksts',
 		'pl'=>'tekst',
+		'ar'=>'',
 	),
 	'case study'=>array(
 		'en'=>'case study',
@@ -1067,6 +1155,7 @@ return array(
 		'it'=>'caso di studio',
 		'lv'=>'gadījuma izpēte',
 		'pl'=>'',
+		'ar'=>'',
 	),
 	'demonstration'=>array(
 		'en'=>'demonstration',
@@ -1079,6 +1168,7 @@ return array(
 		'it'=>'dimostrazione',
 		'lv'=>'demonstrējumu',
 		'pl'=>'Pokaz',
+		'ar'=>'',
 	),
 	'drill and practice'=>array(
 		'en'=>'drill and practice',
@@ -1091,6 +1181,7 @@ return array(
 		'it'=>'trapano e pratica',
 		'lv'=>'urbšanas un prakse',
 		'pl'=>'Wiertła i praktyki',
+		'ar'=>'',
 	),
 	'data'=>array(
 		'en'=>'data',
@@ -1103,6 +1194,7 @@ return array(
 		'it'=>'dati',
 		'lv'=>'datu',
 		'pl'=>'danych',
+		'ar'=>'',
 	),
 	'educational game'=>array(
 		'en'=>'educational game',
@@ -1115,6 +1207,7 @@ return array(
 		'it'=>'gioco educativo',
 		'lv'=>'izglītojoša spēle',
 		'pl'=>'gra edukacyjna',
+		'ar'=>'',
 	),
 	'enquiry-oriented activity'=>array(
 		'en'=>'enquiry-oriented activity',
@@ -1127,6 +1220,7 @@ return array(
 		'it'=>'attività orientata su richiesta',
 		'lv'=>'uzziņu orientētas darbības',
 		'pl'=>'działania zorientowane na zapytanie',
+		'ar'=>'',
 	),
 	'open activity'=>array(
 		'en'=>'open activity',
@@ -1139,6 +1233,7 @@ return array(
 		'it'=>'Aprire attività',
 		'lv'=>'atvērtu darbību',
 		'pl'=>'otworzyć działalność',
+		'ar'=>'',
 	),
 	'other web resource'=>array(
 		'en'=>'other web resource',
@@ -1151,6 +1246,7 @@ return array(
 		'it'=>'altre risorse web',
 		'lv'=>'citiem interneta resursiem',
 		'pl'=>'innych zasobów sieci web',
+		'ar'=>'',
 	),
 	'video'=>array(
 		'en'=>'video',
@@ -1163,6 +1259,7 @@ return array(
 		'it'=>'video',
 		'lv'=>'video',
 		'pl'=>'wideo',
+		'ar'=>'',
 	),
 	'educational administration'=>array(
 		'en'=>'educational administration',
@@ -1175,6 +1272,7 @@ return array(
 		'it'=>'amministrazione educativa',
 		'lv'=>'izglītības pārvalde',
 		'pl'=>'edukacyjnych administracja',
+		'ar'=>'',
 	),
 	'in the natural history museum/centre (physical visit)'=>array(
 		'en'=>'in the natural history museum/centre (physical visit)',
@@ -1187,6 +1285,7 @@ return array(
 		'it'=>'la storia naturale museo/centro (visita fisica)',
 		'lv'=>'dabas vēstures muzejs/centrā (fiziskā apmeklējums)',
 		'pl'=>'w Muzeum historii naturalnej/centrum (fizyczne wizyty)',
+		'ar'=>'',
 	),
 	'school connected'=>array(
 		'en'=>'school Connected',
@@ -1199,6 +1298,7 @@ return array(
 		'it'=>'scuola Connected',
 		'lv'=>'skolas Connected',
 		'pl'=>'szkoły połączono',
+		'ar'=>'',
 	),
 	'ru'=>array(
 		'en'=>'Russian',
@@ -1211,6 +1311,7 @@ return array(
 		'it'=>'Russo',
 		'lv'=>'Krievu',
 		'pl'=>'Rosyjski',
+		'ar'=>'',
 	),
 	'no'=>array(
 		'en'=>'Norwegian',
@@ -1223,6 +1324,7 @@ return array(
 		'it'=>'Norvegese',
 		'lv'=>'Norvēģu',
 		'pl'=>'Norweski',
+		'ar'=>'',
 	),
 	'te'=>array(
 		'en'=>'Telugu',
@@ -1235,6 +1337,7 @@ return array(
 		'it'=>'Telugu',
 		'lv'=>'Telugu',
 		'pl'=>'Telugu',
+		'ar'=>'',
 	),
 	'it'=>array(
 		'en'=>'Italian',
@@ -1247,6 +1350,7 @@ return array(
 		'it'=>'Italiano',
 		'lv'=>'Itāliešu',
 		'pl'=>'Włoski',
+		'ar'=>'',
 	),
 	'pt'=>array(
 		'en'=>'Portuguese',
@@ -1259,6 +1363,7 @@ return array(
 		'it'=>'Portoghese',
 		'lv'=>'Portugāļu',
 		'pl'=>'Portugalski',
+		'ar'=>'',
 	),
 	'sv'=>array(
 		'en'=>'Swedish',
@@ -1271,6 +1376,7 @@ return array(
 		'it'=>'Svedese',
 		'lv'=>'Zviedru',
 		'pl'=>'Szwedzki',
+		'ar'=>'',
 	),
 	'nl'=>array(
 		'en'=>'Dutch',
@@ -1283,6 +1389,7 @@ return array(
 		'it'=>'Olandese',
 		'lv'=>'Holandiešu',
 		'pl'=>'Holenderski',
+		'ar'=>'',
 	),
 	'fi'=>array(
 		'en'=>'Finnish',
@@ -1295,6 +1402,7 @@ return array(
 		'it'=>'Finlandese',
 		'lv'=>'Somu',
 		'pl'=>'Fiński',
+		'ar'=>'',
 	),
 	'da'=>array(
 		'en'=>'Danish',
@@ -1307,6 +1415,7 @@ return array(
 		'it'=>'Danese',
 		'lv'=>'Dāņu',
 		'pl'=>'Duński',
+		'ar'=>'',
 	),
 	'tw'=>array(
 		'en'=>'Twi',
@@ -1319,6 +1428,7 @@ return array(
 		'it'=>'Twi',
 		'lv'=>'Twi',
 		'pl'=>'TWI',
+		'ar'=>'',
 	),
 	'pl'=>array(
 		'en'=>'Polish',
@@ -1331,6 +1441,7 @@ return array(
 		'it'=>'Polacco',
 		'lv'=>'Poļu',
 		'pl'=>'Polski',
+		'ar'=>'',
 	),
 	'cs'=>array(
 		'en'=>'Czech',
@@ -1343,6 +1454,7 @@ return array(
 		'it'=>'Ceco',
 		'lv'=>'Čehu',
 		'pl'=>'Czeski',
+		'ar'=>'',
 	),
 	'sk'=>array(
 		'en'=>'Slovak',
@@ -1355,6 +1467,7 @@ return array(
 		'it'=>'Slovacco',
 		'lv'=>'Slovāku',
 		'pl'=>'Słowacki',
+		'ar'=>'',
 	),
 	'cy'=>array(
 		'en'=>'Welsh',
@@ -1367,6 +1480,7 @@ return array(
 		'it'=>'Gallese',
 		'lv'=>'Velsiešu',
 		'pl'=>'Walijski',
+		'ar'=>'',
 	),
 	'ja'=>array(
 		'en'=>'Japanese (ja)',
@@ -1379,6 +1493,7 @@ return array(
 		'it'=>'Giapponese (ja)',
 		'lv'=>'Japāņu (Jā)',
 		'pl'=>'Japoński (ja)',
+		'ar'=>'',
 	),
 	'ar'=>array(
 		'en'=>'Arabic',
@@ -1391,6 +1506,7 @@ return array(
 		'it'=>'Arabo',
 		'lv'=>'Arābu',
 		'pl'=>'Arabski',
+		'ar'=>'',
 	),
 	'lv'=>array(
 		'en'=>'Latvian',
@@ -1403,6 +1519,7 @@ return array(
 		'it'=>'Lettone',
 		'lv'=>'Latviešu',
 		'pl'=>'Łotewski',
+		'ar'=>'',
 	),
 	'zh'=>array(
 		'en'=>'Chinese',
@@ -1415,6 +1532,7 @@ return array(
 		'it'=>'Cinese',
 		'lv'=>'Ķīniešu',
 		'pl'=>'Chiński',
+		'ar'=>'',
 	),
 	'xml'=>array(
 		'en'=>'XML',
@@ -1427,6 +1545,7 @@ return array(
 		'it'=>'XML',
 		'lv'=>'XML',
 		'pl'=>'XML',
+		'ar'=>'',
 	),
 	'audio/mp3'=>array(
 		'en'=>'audio/mp3',
@@ -1439,6 +1558,7 @@ return array(
 		'it'=>'audio/mp3',
 		'lv'=>'audio/mp3',
 		'pl'=>'audio/mp3',
+		'ar'=>'',
 	),
 	'video/mpeg'=>array(
 		'en'=>'video/mpeg',
@@ -1451,6 +1571,7 @@ return array(
 		'it'=>'video/mpeg',
 		'lv'=>'video/mpeg',
 		'pl'=>'wideo/mpeg',
+		'ar'=>'',
 	),
 	'video/mp4'=>array(
 		'en'=>'video/mp4',
@@ -1463,6 +1584,7 @@ return array(
 		'it'=>'video/mp4',
 		'lv'=>'video/mp4',
 		'pl'=>'Video/mp4',
+		'ar'=>'',
 	),
 	'application/x-shockwave-flash'=>array(
 		'en'=>'application/x-shockwave-flash',
@@ -1475,6 +1597,7 @@ return array(
 		'it'=>'Application/x-shockwave-flash',
 		'lv'=>'pieteikuma/x-shockwave-flash',
 		'pl'=>'application/x-shockwave-flash',
+		'ar'=>'',
 	),
 	'image/png'=>array(
 		'en'=>'image/png',
@@ -1487,6 +1610,7 @@ return array(
 		'it'=>'image/png',
 		'lv'=>'Image/png',
 		'pl'=>'obraz/png',
+		'ar'=>'',
 	),
 	'application/ppt'=>array(
 		'en'=>'application/ppt',
@@ -1499,6 +1623,7 @@ return array(
 		'it'=>'applicazione/ppt',
 		'lv'=>'pieteikums/ppt',
 		'pl'=>'aplikacji/ppt',
+		'ar'=>'',
 	),
 	'video/avi'=>array(
 		'en'=>'video/avi',
@@ -1511,6 +1636,7 @@ return array(
 		'it'=>'video/avi',
 		'lv'=>'video/avi',
 		'pl'=>'wideo/avi',
+		'ar'=>'',
 	),
 	'application/vnd.ms-excel'=>array(
 		'en'=>'application/vnd.ms-excel',
@@ -1523,6 +1649,7 @@ return array(
 		'it'=>'applicazione/vnd.ms-excel',
 		'lv'=>'pieteikums/vnd.ms-excel',
 		'pl'=>'application/vnd.ms-excel',
+		'ar'=>'',
 	),
 	'audio/mpeg'=>array(
 		'en'=>'audio/mpeg',
@@ -1535,6 +1662,7 @@ return array(
 		'it'=>'audio/mpeg',
 		'lv'=>'audio/mpeg',
 		'pl'=>'audio/mpeg',
+		'ar'=>'',
 	),
 	'video/quicktime'=>array(
 		'en'=>'video/quicktime',
@@ -1547,6 +1675,7 @@ return array(
 		'it'=>'video/quicktime',
 		'lv'=>'video/quicktime',
 		'pl'=>'wideo/quicktime',
+		'ar'=>'',
 	),
 	'application/msexcel'=>array(
 		'en'=>'application/msexcel',
@@ -1559,6 +1688,7 @@ return array(
 		'it'=>'applicazione/msexcel',
 		'lv'=>'pieteikums/msexcel',
 		'pl'=>'aplikacji/msexcel',
+		'ar'=>'',
 	),
 	'application/vnd.ms-word'=>array(
 		'en'=>'application/vnd.ms-word',
@@ -1571,6 +1701,7 @@ return array(
 		'it'=>'applicazione/vnd.ms-parola',
 		'lv'=>'pieteikums/vnd.ms-vārds',
 		'pl'=>'application/vnd.ms słowo',
+		'ar'=>'',
 	),
 	'nsdlbeyond'=>array(
 		'en'=>'NSDLBEYOND',
@@ -1583,6 +1714,7 @@ return array(
 		'it'=>'NSDLBEYOND',
 		'lv'=>'NSDLBEYOND',
 		'pl'=>'NSDLBEYOND',
+		'ar'=>'',
 	),
 	'edunhmc'=>array(
 		'en'=>'EDUNHMC',
@@ -1595,6 +1727,7 @@ return array(
 		'it'=>'EDUNHMC',
 		'lv'=>'EDUNHMC',
 		'pl'=>'EDUNHMC',
+		'ar'=>'',
 	),
 	'oeellinogermaniki'=>array(
 		'en'=>'EA',
@@ -1607,6 +1740,7 @@ return array(
 		'it'=>'EA',
 		'lv'=>'EA',
 		'pl'=>'EA',
+		'ar'=>'',
 	),
 	'oefao'=>array(
 		'en'=>'OEFAO',
@@ -1619,6 +1753,7 @@ return array(
 		'it'=>'OEFAO',
 		'lv'=>'OEFAO',
 		'pl'=>'OEFAO',
+		'ar'=>'',
 	),
 	'aglreol'=>array(
 		'en'=>'AGLREOL',
@@ -1631,6 +1766,7 @@ return array(
 		'it'=>'AGLREOL',
 		'lv'=>'AGLREOL',
 		'pl'=>'AGLREOL',
+		'ar'=>'',
 	),
 	'oeeulsesthonian'=>array(
 		'en'=>'EULS',
@@ -1643,6 +1779,7 @@ return array(
 		'it'=>'EULS',
 		'lv'=>'EULS',
 		'pl'=>'EULS',
+		'ar'=>'',
 	),
 	'oerafrica'=>array(
 		'en'=>'OERAFRICA',
@@ -1655,6 +1792,7 @@ return array(
 		'it'=>'OERAFRICA',
 		'lv'=>'OERAFRICA',
 		'pl'=>'OERAFRICA',
+		'ar'=>'',
 	),
 	'aglrnb'=>array(
 		'en'=>'AGLRNB',
@@ -1667,6 +1805,7 @@ return array(
 		'it'=>'AGLRNB',
 		'lv'=>'AGLRNB',
 		'pl'=>'AGLRNB',
+		'ar'=>'',
 	),
 	'ruforum'=>array(
 		'en'=>'RUFORUM',
@@ -1679,6 +1818,7 @@ return array(
 		'it'=>'RUFORUM',
 		'lv'=>'RUFORUM',
 		'pl'=>'RUFORUM',
+		'ar'=>'',
 	),
 	'gfar'=>array(
 		'en'=>'GFAR',
@@ -1691,6 +1831,7 @@ return array(
 		'it'=>'GFAR',
 		'lv'=>'GFAR',
 		'pl'=>'GFAR',
+		'ar'=>'',
 	),
 	'aglrgsg'=>array(
 		'en'=>'AGLRGSG',
@@ -1703,6 +1844,7 @@ return array(
 		'it'=>'AGLRGSG',
 		'lv'=>'AGLRGSG',
 		'pl'=>'AGLRGSG',
+		'ar'=>'',
 	),
 	'access'=>array(
 		'en'=>'ACCESS',
@@ -1715,6 +1857,7 @@ return array(
 		'it'=>'ACCESS',
 		'lv'=>'ACCESS',
 		'pl'=>'ACCESS',
+		'ar'=>'',
 	),
 	'aglrllb'=>array(
 		'en'=>'AGLRLLB',
@@ -1727,6 +1870,7 @@ return array(
 		'it'=>'AGLRLLB',
 		'lv'=>'AGLRLLB',
 		'pl'=>'AGLRLLB',
+		'ar'=>'',
 	),
 	'counselor'=>array(
 		'en'=>'counselor',
@@ -1739,6 +1883,7 @@ return array(
 		'it'=>'Counselor',
 		'lv'=>'padomdevējs',
 		'pl'=>'Doradca',
+		'ar'=>'',
 	),
 	'guide'=>array(
 		'en'=>'guide',
@@ -1751,6 +1896,7 @@ return array(
 		'it'=>'Guida',
 		'lv'=>'rokasgrāmata',
 		'pl'=>'Przewodnik',
+		'ar'=>'',
 	),
 	'lesson plan'=>array(
 		'en'=>'lesson plan',
@@ -1763,6 +1909,7 @@ return array(
 		'it'=>'piano di lezione',
 		'lv'=>'nodarbību plāns',
 		'pl'=>'',
+		'ar'=>'',
 	),
 	'audio'=>array(
 		'en'=>'audio',
@@ -1775,6 +1922,7 @@ return array(
 		'it'=>'audio',
 		'lv'=>'audio',
 		'pl'=>'audio',
+		'ar'=>'',
 	),
 	'glossary'=>array(
 		'en'=>'glossary',
@@ -1787,6 +1935,7 @@ return array(
 		'it'=>'Glossario',
 		'lv'=>'Glosārijs',
 		'pl'=>'Słownik pojęć',
+		'ar'=>'',
 	),
 	'tool'=>array(
 		'en'=>'tool',
@@ -1799,6 +1948,7 @@ return array(
 		'it'=>'strumento',
 		'lv'=>'līdzeklis',
 		'pl'=>'narzędzie',
+		'ar'=>'',
 	),
 	'application'=>array(
 		'en'=>'application',
@@ -1811,6 +1961,7 @@ return array(
 		'it'=>'applicazione',
 		'lv'=>'pieteikums',
 		'pl'=>'Aplikacja',
+		'ar'=>'',
 	),
 	'learning asset'=>array(
 		'en'=>'learning asset',
@@ -1823,6 +1974,7 @@ return array(
 		'it'=>'attività di apprendimento',
 		'lv'=>'mācību līdzekļu',
 		'pl'=>'Nauka aktywów',
+		'ar'=>'',
 	),
 	'simulation'=>array(
 		'en'=>'simulation',
@@ -1835,6 +1987,7 @@ return array(
 		'it'=>'simulazione',
 		'lv'=>'simulācija',
 		'pl'=>'Symulacja',
+		'ar'=>'',
 	),
 	'guide(advice sheets)'=>array(
 		'en'=>'Guide(advice sheets)',
@@ -1847,6 +2000,7 @@ return array(
 		'it'=>'Guida (fogli consigli)',
 		'lv'=>'Rokasgrāmata (padomu lapas)',
 		'pl'=>'Przewodnik (porady arkuszy)',
+		'ar'=>'',
 	),
 	'pathway'=>array(
 		'en'=>'pathway',
@@ -1859,6 +2013,7 @@ return array(
 		'it'=>'via',
 		'lv'=>'ceļš',
 		'pl'=>'droga',
+		'ar'=>'',
 	),
 	'model'=>array(
 		'en'=>'model',
@@ -1871,6 +2026,7 @@ return array(
 		'it'=>'modello',
 		'lv'=>'modelis',
 		'pl'=>'modelu',
+		'ar'=>'',
 	),
 	'weblog'=>array(
 		'en'=>'weblog',
@@ -1883,6 +2039,7 @@ return array(
 		'it'=>'weblog',
 		'lv'=>'weblog',
 		'pl'=>'Weblog',
+		'ar'=>'',
 	),
 	'web resource'=>array(
 		'en'=>'Web resource',
@@ -1895,6 +2052,7 @@ return array(
 		'it'=>'Risorsa Web',
 		'lv'=>'Interneta resurss',
 		'pl'=>'Zasobu sieci Web',
+		'ar'=>'',
 	),
 
 	/**
@@ -1911,6 +2069,7 @@ return array(
 		'it'=>'University Second Cycle',
 		'lv'=>'University Second Cycle',
 		'pl'=>'University Second Cycle',
+		'ar'=>'',
 	),
 	'secondary education'=>array(
 		'en'=>'Secondary Education',
@@ -1923,6 +2082,7 @@ return array(
 		'it'=>'Secondary Education',
 		'lv'=>'Secondary Education',
 		'pl'=>'Secondary Education',
+		'ar'=>'',
 	),
 	'university postgraduate'=>array(
 		'en'=>'University Postgraduate',
@@ -1935,6 +2095,7 @@ return array(
 		'it'=>'University Postgraduate',
 		'lv'=>'University Postgraduate',
 		'pl'=>'University Postgraduate',
+		'ar'=>'',
 	),
 	'university first cycle'=>array(
 		'en'=>'University First Cycle',
@@ -1947,6 +2108,7 @@ return array(
 		'it'=>'University First Cycle',
 		'lv'=>'University First Cycle',
 		'pl'=>'University First Cycle',
+		'ar'=>'',
 	),
 	'primary education'=>array(
 		'en'=>'Primary Education',
@@ -1959,6 +2121,7 @@ return array(
 		'it'=>'Primary Education',
 		'lv'=>'Primary Education',
 		'pl'=>'Primary Education',
+		'ar'=>'',
 	),
 	'vocational training'=>array(
 		'en'=>'Vocational Training',
@@ -1971,6 +2134,7 @@ return array(
 		'it'=>'Vocational Training',
 		'lv'=>'Vocational Training',
 		'pl'=>'Vocational Training',
+		'ar'=>'',
 	),
 	'technical school second cycle'=>array(
 		'en'=>'Technical School Second Cycle',
@@ -1983,6 +2147,7 @@ return array(
 		'it'=>'Technical School Second Cycle',
 		'lv'=>'Technical School Second Cycle',
 		'pl'=>'Technical School Second Cycle',
+		'ar'=>'',
 	),
 	'continuous formation'=>array(
 		'en'=>'Continuous Formation',
@@ -1995,6 +2160,7 @@ return array(
 		'it'=>'Continuous Formation',
 		'lv'=>'Continuous Formation',
 		'pl'=>'Continuous Formation',
+		'ar'=>'',
 	),
 	'professional formation'=>array(
 		'en'=>'Professional Formation',
@@ -2007,6 +2173,7 @@ return array(
 		'it'=>'Professional Formation',
 		'lv'=>'Professional Formation',
 		'pl'=>'Professional Formation',
+		'ar'=>'',
 	),
 	'technical school first cycle'=>array(
 		'en'=>'technical school first cycle',
@@ -2019,6 +2186,7 @@ return array(
 		'it'=>'technical school first cycle',
 		'lv'=>'technical school first cycle',
 		'pl'=>'technical school first cycle',
+		'ar'=>'',
 	),
 	'tr'=>array(
 		'en'=>'Turkish',
@@ -2031,6 +2199,7 @@ return array(
 		'it'=>'Turkish',
 		'lv'=>'Turkish',
 		'pl'=>'Turkish',
+		'ar'=>'',
 	),
 	'lt'=>array(
 		'en'=>'Lithuanian',
@@ -2043,6 +2212,7 @@ return array(
 		'it'=>'Lithuanian',
 		'lv'=>'Lithuanian',
 		'pl'=>'Lithuanian',
+		'ar'=>'',
 	),
 	'uk'=>array(
 		'en'=>'Ukranian',
@@ -2055,6 +2225,7 @@ return array(
 		'it'=>'Ukranian',
 		'lv'=>'Ukranian',
 		'pl'=>'Ukranian',
+		'ar'=>'',
 	),
 	'text/xml'=>array(
 		'en'=>'text/xml',
@@ -2067,6 +2238,7 @@ return array(
 		'it'=>'testo/xml',
 		'lv'=>'text/xml',
 		'pl'=>'tekst/xml',
+		'ar'=>'',
 	),
 	'thesis'=>array(
 		'en'=>'Thesis',
@@ -2079,6 +2251,7 @@ return array(
 		'it'=>'Thesis',
 		'lv'=>'Thesis',
 		'pl'=>'Thesis',
+		'ar'=>'',
 	),
 	'lesson'=>array(
 		'en'=>'lesson',
@@ -2091,6 +2264,7 @@ return array(
 		'it'=>'lesson',
 		'lv'=>'lesson',
 		'pl'=>'lesson',
+		'ar'=>'',
 	),
 	'photo'=>array(
 		'en'=>'photo',
@@ -2103,6 +2277,7 @@ return array(
 		'it'=>'photo',
 		'lv'=>'photo',
 		'pl'=>'photo',
+		'ar'=>'',
 	),
 	'drawing'=>array(
 		'en'=>'drawing',
@@ -2115,6 +2290,7 @@ return array(
 		'it'=>'drawing',
 		'lv'=>'drawing',
 		'pl'=>'drawing',
+		'ar'=>'',
 	),
 	'farmer training'=>array(
 		'en'=>'farmer training',
@@ -2127,6 +2303,7 @@ return array(
 		'it'=>'farmer training',
 		'lv'=>'farmer training',
 		'pl'=>'farmer training',
+		'ar'=>'',
 	),
 	'directory'=>array(
 		'en'=>'directory',
@@ -2139,6 +2316,7 @@ return array(
 		'it'=>'directory',
 		'lv'=>'directory',
 		'pl'=>'directory',
+		'ar'=>'',
 	),
 	'research'=>array(
 		'en'=>'research',
@@ -2151,6 +2329,7 @@ return array(
 		'it'=>'research',
 		'lv'=>'research',
 		'pl'=>'research',
+		'ar'=>'',
 	),
 	'graphics'=>array(
 		'en'=>'graphics',
@@ -2163,6 +2342,7 @@ return array(
 		'it'=>'graphics',
 		'lv'=>'graphics',
 		'pl'=>'graphics',
+		'ar'=>'',
 	),
 	'map'=>array(
 		'en'=>'map',
@@ -2175,6 +2355,7 @@ return array(
 		'it'=>'map',
 		'lv'=>'map',
 		'pl'=>'map',
+		'ar'=>'',
 	),
 	'slide'=>array(
 		'en'=>'slide',
@@ -2187,6 +2368,7 @@ return array(
 		'it'=>'slide',
 		'lv'=>'slide',
 		'pl'=>'slide',
+		'ar'=>'',
 	),
 	'technical information'=>array(
 		'en'=>'technical information',
@@ -2199,6 +2381,7 @@ return array(
 		'it'=>'technical information',
 		'lv'=>'technical information',
 		'pl'=>'technical information',
+		'ar'=>'',
 	),
 	'adaptation'=>array(
 		'en'=>'adaptation',
@@ -2211,6 +2394,7 @@ return array(
 		'it'=>'adaptation',
 		'lv'=>'adaptation',
 		'pl'=>'adaptation',
+		'ar'=>'',
 	),
 	'proceedings'=>array(
 		'en'=>'proceedings',
@@ -2223,6 +2407,7 @@ return array(
 		'it'=>'proceedings',
 		'lv'=>'proceedings',
 		'pl'=>'proceedings',
+		'ar'=>'',
 	),
 	'table'=>array(
 		'en'=>'table',
@@ -2235,6 +2420,7 @@ return array(
 		'it'=>'table',
 		'lv'=>'table',
 		'pl'=>'table',
+		'ar'=>'',
 	),
 	'introduction'=>array(
 		'en'=>'introduction',
@@ -2247,6 +2433,7 @@ return array(
 		'it'=>'introduction',
 		'lv'=>'introduction',
 		'pl'=>'introduction',
+		'ar'=>'',
 	),
 	'report'=>array(
 		'en'=>'report',
@@ -2259,6 +2446,7 @@ return array(
 		'it'=>'report',
 		'lv'=>'report',
 		'pl'=>'report',
+		'ar'=>'',
 	),
 	'diagram'=>array(
 		'en'=>'diagram',
@@ -2271,6 +2459,7 @@ return array(
 		'it'=>'diagram',
 		'lv'=>'diagram',
 		'pl'=>'diagram',
+		'ar'=>'',
 	),
 	'assembly'=>array(
 		'en'=>'assembly',
@@ -2283,6 +2472,7 @@ return array(
 		'it'=>'assembly',
 		'lv'=>'assembly',
 		'pl'=>'assembly',
+		'ar'=>'',
 	),
 	'summary of information'=>array(
 		'en'=>'summary of information',
@@ -2295,6 +2485,7 @@ return array(
 		'it'=>'summary of information',
 		'lv'=>'summary of information',
 		'pl'=>'summary of information',
+		'ar'=>'',
 	),
 	'book'=>array(
 		'en'=>'book',
@@ -2307,6 +2498,7 @@ return array(
 		'it'=>'book',
 		'lv'=>'book',
 		'pl'=>'book',
+		'ar'=>'',
 	),
 	'examination'=>array(
 		'en'=>'examination',
@@ -2319,6 +2511,7 @@ return array(
 		'it'=>'examination',
 		'lv'=>'examination',
 		'pl'=>'examination',
+		'ar'=>'',
 	),
 	'brochure'=>array(
 		'en'=>'brochure',
@@ -2331,6 +2524,7 @@ return array(
 		'it'=>'brochure',
 		'lv'=>'brochure',
 		'pl'=>'brochure',
+		'ar'=>'',
 	),
 	'encyclopedic'=>array(
 		'en'=>'encyclopedic',
@@ -2343,6 +2537,7 @@ return array(
 		'it'=>'encyclopedic',
 		'lv'=>'encyclopedic',
 		'pl'=>'encyclopedic',
+		'ar'=>'',
 	),
 	'news'=>array(
 		'en'=>'news',
@@ -2355,6 +2550,7 @@ return array(
 		'it'=>'news',
 		'lv'=>'news',
 		'pl'=>'news',
+		'ar'=>'',
 	),
 	'trial/test'=>array(
 		'en'=>'trial,test',
@@ -2367,5 +2563,6 @@ return array(
 		'it'=>'trial,test',
 		'lv'=>'trial,test',
 		'pl'=>'trial,test',
+		'ar'=>'',
 	),
 );
