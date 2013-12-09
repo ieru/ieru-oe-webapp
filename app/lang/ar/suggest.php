@@ -1,5 +1,5 @@
 <?php
 return array(
-'line1'=>'Drag the following Bookmarklet to your bookmarks. To suggest a new resource, just go to the website you want to suggest as a new resource, and click on the bookmarklet you just added.',
-'line2'=>'In the new window, fill in the fields and click on the \'Send Suggestion\' button when you are done.',
+'line1'=>'اسحب Bookmarklet التالية إلى الإشارات المرجعية الخاصة بك. لتشير إلى مورد جديد، انتقل إلى الموقع الذي تريد أن تقترح كمورد جديد، وانقر على bookmarklet قمت بإضافتها توا.',
+'line2'=>'في نافذة جديدة، قم بملء الحقول وانقر على زر \'\"إرسال الاقتراح\"\' عند الانتهاء.',
 );
