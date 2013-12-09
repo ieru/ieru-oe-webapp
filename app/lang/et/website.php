@@ -10,6 +10,7 @@ return array(
 'es'=>'hispaania',
 'pl'=>'poola',
 'tr'=>'türgi',
+'ar'=>'العربية',
 'resource_language'=>'See allikas on ',
 'age_rage_context'=>'Tüüpiline vanusevahemik kontekstis',
 'comments'=>'kommentaarid',

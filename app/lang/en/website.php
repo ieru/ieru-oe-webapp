@@ -10,6 +10,7 @@ return array(
 'es'=>'Español',
 'pl'=>'Polski',
 'tr'=>'Türkçe',
+'ar'=>'العربية',
 'resource_language'=>'This resource is in',
 'age_rage_context'=>'Typical age range context',
 'comments'=>'Comments',

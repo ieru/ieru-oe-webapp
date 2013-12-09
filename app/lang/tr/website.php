@@ -10,6 +10,7 @@ return array(
 'es'=>'Español',
 'pl'=>'Polski',
 'tr'=>'Türkçe',
+'ar'=>'العربية',
 'resource_language'=>'Bu kaynağın dili',
 'age_rage_context'=>'Önerilen yaş aralığı',
 'comments'=>'Yorumlar',
