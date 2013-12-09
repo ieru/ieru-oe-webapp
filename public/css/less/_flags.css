@@ -31,9 +31,9 @@
 .flag.flag-ao {
   background-position: -144px 0;
 }
-.flag.flag-ar {
+/*.flag.flag-ar {
   background-position: -160px 0;
-}
+}*/
 .flag.flag-as {
   background-position: -176px 0;
 }
@@ -328,6 +328,7 @@
 .flag.flag-iq {
   background-position: -160px -66px;
 }
+.flag.flag-ar,
 .flag.flag-ir {
   background-position: -176px -66px;
 }
