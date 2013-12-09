@@ -227,7 +227,7 @@
         <div id="page-navigational">
             <div class="container">
                 <div class="row">
-                    <iframe width="100%" height="800" src="/navigational.html" style="border: 0; "></iframe>
+                    <iframe width="100%" height="800" src="http://kos.appgee.net/" style="border: 0; "></iframe>
                 </div>
             </div>
         </div>
