@@ -158,7 +158,7 @@
                 <nav class="hidden-sm">
                     <ul class="list-inline">
                         <li><a href="/<?php echo LANG ?>/#/"><?php echo Lang::get('website.home') ?></a></li>
-                        <li><a href="/<?php echo LANG ?>/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                        <!--<li><a href="/<?php echo LANG ?>/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
                     <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
                         <li><a href="/<?php echo LANG ?>/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
                         <li><a href="/<?php echo LANG ?>/#/recommended"><?php echo Lang::get('website.menu_recommendations') ?></a></li>
@@ -1068,7 +1068,7 @@
                     <div class="col-lg-3">
                         <ul>
                             <li><a href="/<?php echo LANG ?>/#/"><?php echo Lang::get('website.home') ?></a></li>
-                            <li><a href="/<?php echo LANG ?>/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
+                            <!--<li><a href="/<?php echo LANG ?>/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>-->
                         <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
                             <li><a href="/<?php echo LANG ?>/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
                             <li><a href="/<?php echo LANG ?>/#/user/register"><?php echo Lang::get('website.register') ?></a></li>
