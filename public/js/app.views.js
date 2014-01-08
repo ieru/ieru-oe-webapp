@@ -508,6 +508,9 @@ App.Views.SearchResults = Backbone.View.extend({
                     }
                 }
 
+            // Set default hash string
+            this.model.set('hash',Sha1.hash(this.model.get('texts')[this.model.get('metadata_language')].title+this.model.get('texts')[this.model.get('metadata_language')].description));
+console.log( this.model.get('hash'));
             this.render();
         },
 
