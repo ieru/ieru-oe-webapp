@@ -31,6 +31,7 @@ class AdminController extends BaseController
         define( 'PERMISSION_ACCESS_LANG_FILES_IT', 209 );
         define( 'PERMISSION_ACCESS_LANG_FILES_PL', 210 );
         define( 'PERMISSION_ACCESS_LANG_FILES_AR', 211 );
+        define( 'PERMISSION_ACCESS_LANG_FILES_RU', 212 );
 
         define( 'PERMISSION_ACCESS_AGINFRA_DATA',  300 );
 
@@ -135,7 +136,7 @@ class AdminController extends BaseController
             {
                 $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode( $helpers[$key] ).'&service=microsoft&to='.$to;
                 $data = json_decode( $this->_curl_get_data( $url ) );
-                $term = $data->data->translation;
+                $term = @$data->data->translation;
             }
         }
 
@@ -199,7 +200,7 @@ class AdminController extends BaseController
             {
                 $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode($helpers[$key]).'&service=microsoft&to='.$to;
                 $data = json_decode( $this->_curl_get_data( $url ) );
-                $term = $data->data->translation;
+                $term = @$data->data->translation;
             }
         }
 
@@ -260,7 +261,7 @@ class AdminController extends BaseController
             {
                 $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode($helpers[$key]).'&service=microsoft&to='.$to;
                 $data = json_decode( $this->_curl_get_data( $url ) );
-                $term = $data->data->translation;
+                $term = @$data->data->translation;
             }
         }
 
@@ -314,7 +315,7 @@ class AdminController extends BaseController
             {
                 $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode( $helpers[$key] ).'&service=microsoft&to='.$to;
                 $data = json_decode( $this->_curl_get_data( $url ) );
-                $term = $data->data->translation;
+                $term = @$data->data->translation;
             }
         }
 
