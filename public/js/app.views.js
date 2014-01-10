@@ -28,6 +28,7 @@ $('#page-feedback button[type=submit]').on('click', function(e){
     model.save().then(function(response){
         var success = response.success ? 'success' : 'danger';
         $('#send-feedback .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button><p>'+err(response.errcode)+'</p></div>');
+        window.scrollTo(0,0);
         if ( response.success ){
             that.find('.control-group').removeClass('has-error');
             $('#page-feedback button[type=reset]').trigger('click').scrollTop();
