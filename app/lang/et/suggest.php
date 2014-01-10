@@ -1,5 +1,5 @@
 <?php
 return array(
-'line1'=>'Lohistage järgmised Bookmarklet järjehoidjad. Soovitama uut ressurssi, vaid soovitan uut ressurssi veebisaidil ja klõpsa funktsionaaljärjehoidjal äsja lisatud.',
-'line2'=>'Uues aknas väljad ning vajutage nupule \"Saada soovitus\" kui olete valmis.',
+'line1'=>'Lohistage järgmised järjehoidjad enda järjehoidjate hulka. Uue allika soovitamiseks mine sobivale veebilehele, mida sa soovid uue allikana teistele soovitada, ning vajuta järjehoidjale, mis sa just lisasid.',
+'line2'=>'Täida uues aknas väljad ning vajuta nupule \\\"Saada soovitus\\\", kui oled valmis.',
 );
