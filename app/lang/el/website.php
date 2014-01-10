@@ -11,6 +11,7 @@ return array(
 'pl'=>'Polski',
 'tr'=>'Türkçe',
 'ar'=>'العربية',
+'ru'=>'Русский язык',
 'resource_language'=>'Η γλώσσα αυτού του αντικειμένου είναι',
 'age_rage_context'=>'Τυπικό εύρος ηλικίας',
 'comments'=>'Σχόλια',

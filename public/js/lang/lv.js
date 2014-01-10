@@ -37,6 +37,8 @@ lang_file = {
 "nl":"Holandiešu",
 "hin":"Hindi",
 "kan":"Kannaru",
+"sl":"Slovenian",
+"cn":"Chinese",
 "ori":"Oriju",
 "german":"Vācu",
 "greek":"Grieķu",

@@ -11,6 +11,7 @@ return array(
 'pl'=>'Polski',
 'tr'=>'Türkçe',
 'ar'=>'العربية',
+'ru'=>'Русский язык',
 'resource_language'=>'Bu kaynağın dili',
 'age_rage_context'=>'Önerilen yaş aralığı',
 'comments'=>'Yorumlar',

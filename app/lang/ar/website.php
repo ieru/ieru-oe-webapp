@@ -11,6 +11,7 @@ return array(
 'pl'=>'Polski',
 'tr'=>'Türkçe',
 'ar'=>'العربية',
+'ru'=>'Русский язык',
 'resource_language'=>'هذا المورد في',
 'age_rage_context'=>'سياق مجموعة نموذجية من العمر',
 'comments'=>'تعليقات',

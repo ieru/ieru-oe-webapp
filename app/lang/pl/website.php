@@ -11,6 +11,7 @@ return array(
 'pl'=>'Polski',
 'tr'=>'Türkçe',
 'ar'=>'العربية',
+'ru'=>'Русский язык',
 'resource_language'=>'zasobów języka',
 'age_rage_context'=>'wieku wściekłość kontekście',
 'comments'=>'Komentarze',

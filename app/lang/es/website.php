@@ -11,6 +11,7 @@ return array(
 'pl'=>'Polski',
 'tr'=>'Türkçe',
 'ar'=>'العربية',
+'ru'=>'Русский язык',
 'resource_language'=>'Este recurso está en',
 'age_rage_context'=>'Rango de edad típico',
 'comments'=>'Comentarios',
