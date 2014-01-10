@@ -157,7 +157,7 @@
                         </ul>
                     </div>
                 </form>
-                <nav class="hidden-sm">
+                <nav style="height: 40px; overflow: hidden; " class="hidden-sm">
                     <ul class="list-inline">
                         <li><a href="/<?php echo LANG ?>/#/"><?php echo Lang::get('website.home') ?></a></li>
                         <li><a href="/<?php echo LANG ?>/#/navigation"><?php echo Lang::get('website.navigational_search') ?></a></li>
