@@ -354,6 +354,63 @@ class AdminController extends BaseController
     }
 
     /**
+     * Edit about text language files
+     *
+     * @return View
+     */
+    public function about ()
+    {
+        $to = $this->_check_language_moderation();
+
+        $lang = require( app_path().'/lang/'.$to.'/about.php' );
+        $helpers = require( app_path().'/lang/en/about.php' );
+
+        // Check to translate empty tags
+        foreach ( $lang as $key=>&$term )
+        {
+            if ( $term == '' )
+            {
+                $url = 'http://'.API_SERVER.'/api/analytics/translate?text='.urlencode( $helpers[$key] ).'&service=microsoft&to='.$to;
+                $data = json_decode( $this->_curl_get_data( $url ) );
+                $term = @$data->data->translation;
+            }
+        }
+
+        $this->layout->content = View::make('admin.viewtextarea')
+                ->with( 'lang', $lang )
+                ->with( 'helpers', $helpers );
+    }
+
+    public function aboutsend ()
+    {
+        $to = $this->_check_language_moderation();
+
+        // Path to the file that stores the variables
+        $file = app_path().'/lang/'.$to.'/about.php';
+        $helpers = require( app_path().'/lang/en/about.php' );
+
+        // Write the file
+        if ( $fp = fopen( $file, 'w+' ) )
+        {
+            fwrite( $fp, "<?php\n" );
+            fwrite( $fp, "return array(\n" );
+            foreach ( $_POST as $key=>$value )
+                fwrite( $fp, "'".strtolower($key)."'=>'". addslashes($value)."',\n" );
+            fwrite( $fp, ");" );
+            fclose( $fp );
+        }
+
+        // Load the language file
+        $lang = require( app_path().'/lang/'.$to.'/about.php' );
+
+        // Request to build the view
+        $this->layout->content = View::make('admin.viewtextarea')
+                ->with( 'title', 'Organic Lingua' )
+                ->with( 'lang', $lang )
+                ->with( 'helpers', $helpers );
+    }
+
+    /**
      * Connects with the remote services. Sets a timeout for connecting the 
      * service and a timeout for receiving the data.
      *

@@ -55,6 +55,7 @@ App.Router = Backbone.Router.extend({
 
 	navigation: function(id){
 		show_view( 'page-navigational' );
+		console.log(URL);
 		Box.set('page', !!id?id:1);
 		if ( $('#flash').html() == '' ){
 	    	swfobject.embedSWF(URL, flashID, width, height, flashVersion, expressInstallURL, flashvars, params, attributes);

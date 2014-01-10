@@ -43,6 +43,11 @@ Route::get(  '/{lang}/admin/langerror/',               'AdminController@langerro
 Route::post( '/{lang}/admin/langerror',                'AdminController@langerrorsend' );
 Route::post( '/{lang}/admin/langerror/',               'AdminController@langerrorsend' );
 
+Route::get(  '/{lang}/admin/about',                    'AdminController@about' );
+Route::get(  '/{lang}/admin/about/',                   'AdminController@about' );
+Route::post( '/{lang}/admin/about',                    'AdminController@aboutsend' );
+Route::post( '/{lang}/admin/about/',                   'AdminController@aboutsend' );
+
 Route::get(  '/{lang}/admin/term-trends',              'AdminController@termtrends' );
 Route::get(  '/{lang}/admin/term-trends/',             'AdminController@termtrends' );
 Route::get(  '/{lang}/admin/metadata-statistics',      'AdminController@metadatastatistics' );

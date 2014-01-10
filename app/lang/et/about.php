@@ -1,14 +1,14 @@
 <?php
 return array(
-'about'=>'<h1>About Organic.Edunet</h1>
-<p>Organic.Edunet (www.organic-edunet.eu) is a learning portal which provides access to thousands of quality digital learning resources on organic agriculture, agroecology and other green topics, such as ecology, sustainability, biodiversity, environment and energy. It aims to facilitate access, usage and exploitation of such educational content. Learning resources available through the Organic.Edunet Web portal are appropriate for school and university level, as well as for vocational training and adult/lifelong learning thus targeting pupils, students, teachers, researchers, and general learners.</p>
-<p>The Organic.Edunet portal focuses on multilinguality in order to facilitate its usage by users all over the world. It features a user interface currently available in nine (9) languages and offers automatic metadata translation tools supporting eleven (11) languages. The resources available through the portal are available in eleven (11) languages (mainly English but also Estonian, French, German, Greek, Hungarian, Norwegian, Romanian, Russian, Spanish and Turkish), while the metadata for each resource are manually translated in up to eight (8) languages and additional translations can be automatically provided by the portal’s components. </p>
-<p>For any information please contact us at: info [at] organic-edunet [dot] eu.</p>
+'about'=>'<h1>Umbes Organic.Edunet</h1>
+<p>Organic.Edunet (www.organic-edunet.eu) on õppe portaal, mis pakub juurdepääsu tuhandeid kvaliteediga digitaalne õpperessurssidele Mahepõllumajandus, agroecology ja muu roheline teemasid nagu ökoloogia, säästva arengu, bioloogiline mitmekesisus, keskkonna ja energeetika. Eesmärk on hõlbustada juurdepääsu, kasutamise ja kasutamise hariduse sisu. Korral kooli ja ülikooli tasemel, samuti kutseõppe ja täiskasvanu/elukestva õppe seega suunatud õpilaste, üliõpilaste, õpetajate, teadlaste ja üldise õppijad ei õppe vahendeid Organic.Edunet veebiportaali kaudu.</p>
+<p>Organic.Edunet portaal keskendub infotsükli selleks, et hõlbustada selle kasutamine kasutajad üle kogu maailma. Praegu saadaval üheksa (9) keeltes kasutajaliidest ja pakub automaatsed metaandmete tõlkeprogrammide toetavad üksteist (11) keeles. Portaali kaudu kättesaadavate ressursside on üheteistkümne (11) keeles (peamiselt Eesti aga ka Eesti, prantsuse, saksa, Kreeka Ungari Norra Rumeenia Vene Hispaania ja Türgi), metaandmed iga ressursi on käsitsi kuni kaheksa (8) tekst tõlgitud ja täiendavate tõlgete saab automaatselt ette portaali osad.</p>
+<p>Mis tahes teabe saamiseks palun võtke meiega ühendust: info [at] mahepõllumajandusliku edunet [dot] ELi.</p>
 
-<h2>Funding</h2>
-<p>The Organic.Edunet Web portal was initially developed in the context of "Organic.Edunet: A Multilingual Federation of Learning Repositories with Quality Content for the Awareness and Education of European Youth about Organic Agriculture and Agroecology" targeted project of the eContentplus programme. (http://ec.europa.eu/information_society/activities/econtentplus/index_en.htm#)</p>
+<h2>Rahastamine</h2>
+<p>Organic.Edunet portaal oli algselt välja töötatud programmi eContentplus \"Organic.Edunet: A mitmekeelne Föderatsiooni ning õppe hoidlates koos kvaliteedi sisu jaoks the teadlikkus ja haridus ning Euroopa noorte umbes orgaaniliste põllumajandus ja Agroecology\" suunatud projekti raames. (http://ec.europa.eu/information_society/activities/econtentplus/index_en.htm#)</p>
 
-<p>The portal has been further developed and populated in the context of several other initiatives, including the following:</p>
-<p>"Organic.Lingua: Demonstrating the potential of a multilingual Web portal for sustainable agricultural and environmental education", co-funded by the CIP ICT Policy Support Programme (www.organic-lingua.eu)</p>
-<p>"Organic.Balkanet: Developing the skills of Organic Agriculture Trainers for the Balkans" co-funded by the Leonardo da Vinci Programme (www.organic-balkanet.eu).</p>'
+<p>Portaal on edasi arendada ja asustatud seoses mitmeid teisi algatusi, sealhulgas järgmisi:</p>
+<p>\"Organic.Lingua: mis näitavad potentsiaali säästva põllumajandusliku ja keskkonnaalase hariduse mitmekeelne veebiportaal\", kaas rahastatud raamprogrammi info-ja sidetehnoloogia poliitika toetusprogramm (www.organic-lingua.eu)</p>
+<p>\"Organic.Balkanet: orgaaniline põllumajandus koolitajate oskuste arendamise eest Balkanil\" Leonardo da Vinci programmi (www.organic-balkanet.eu) poolt.</p>',
 );

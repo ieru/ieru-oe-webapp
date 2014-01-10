@@ -167,6 +167,7 @@
                             <li><a href="/<?php echo LANG ?>/admin/langfilesjs">Loaded with javascript</a></li>
                             <li><a href="/<?php echo LANG ?>/admin/langfilessuggest">Suggest section</a></li>
                             <li><a href="/<?php echo LANG ?>/admin/langerror">Error codes</a></li>
+                            <li><a href="/<?php echo LANG ?>/admin/about">About text</a></li>
                         <?php endif; ?>
                         <?php if ( AdminController::$_user->check_permission( PERMISSION_ACCESS_AGINFRA_DATA ) ): ?>
                             <li class="nav-header">Statistics</li>
