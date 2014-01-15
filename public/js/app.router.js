@@ -11,9 +11,6 @@ App.Router = Backbone.Router.extend({
 		'user/register': 			 'register',
 		'user/register/:user/:hash': 'activate',
 
-		'navigation': 				 'navigation',
-		'navigation/:id': 			 'navigation',
-
 		'listing': 					 'listing',
 		'listing/:id': 				 'listing',
 
@@ -51,18 +48,6 @@ App.Router = Backbone.Router.extend({
         var section = new App.Views.SectionHome({ model: sections });
 
         ganalytics();
-	},
-
-	navigation: function(id){
-		show_view( 'page-navigational' );
-		console.log(URL);
-		Box.set('page', !!id?id:1);
-		if ( $('#flash').html() == '' ){
-	    	swfobject.embedSWF(URL, flashID, width, height, flashVersion, expressInstallURL, flashvars, params, attributes);
-		}
-    	initInterface($);
-
-    	ganalytics();
 	},
 
 	listing: function(){
