@@ -37,7 +37,7 @@
                 "section":
                 {
                     "en":"General Public",
-                    "es":"Publico General"
+                    "es":"Público General"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
@@ -47,7 +47,7 @@
                 "section":
                 {
                     "en":"Do It Yourself",
-                    "es":"Hazlo t� mismo"
+                    "es":"Hazlo tú mismo"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
@@ -101,7 +101,7 @@
                 "section":
                 {
                     "en":"Green Your Lesson Plan",
-                    "es":"Planifícate en verde"
+                    "es":"PlanifÃcate en verde"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
@@ -208,7 +208,7 @@
                 "section":
                 {
                     "en":"Training Material",
-                    "es":"Material de formaci�n"
+                    "es":"Material de formación"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
@@ -228,7 +228,7 @@
                 "section":
                 {
                     "en":"Certification & Labelling",
-                    "es":"Certificaci�n"
+                    "es":"Certificación"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
@@ -238,7 +238,7 @@
                 "section":
                 {
                     "en":"Job Profiles",
-                    "es":"FFFFFF"
+                    "es":"Perfiles de trabajo"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
@@ -251,7 +251,7 @@
                 "section":
                 {
                     "en":"Farming Futures",
-                    "es":"FFFFFF"
+                    "es":"Futuro de la agricultura"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
@@ -261,7 +261,7 @@
                 "section":
                 {
                     "en":"Animal Husbandry",
-                    "es":"FFFFFFF"
+                    "es":"Ganadería"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
@@ -271,7 +271,7 @@
                 "section":
                 {
                     "en":"Crop Production",
-                    "es":"FFFFFFFF"
+                    "es":"Producción de cultivos"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
@@ -281,7 +281,7 @@
                 "section":
                 {
                     "en":"Cultivation Techniques",
-                    "es":"FFFFFFFFFF"
+                    "es":"Técnicas de cultivo"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
@@ -334,7 +334,7 @@
                 "section":
                 {
                     "en":"Food Safety & Nutrition",
-                    "es":"FFFFFF"
+                    "es":"Seguridad alimentaria y nutrición"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
@@ -344,7 +344,7 @@
                 "section":
                 {
                     "en":"Energy efficiency",
-                    "es":"NFFFFFFFFFFF"
+                    "es":"Eficiencia energética"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
@@ -354,7 +354,7 @@
                 "section":
                 {
                     "en":"Horticulture & Gardening",
-                    "es":"FFFFFFFFFF"
+                    "es":"Horticultura y jardinería"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
@@ -364,11 +364,11 @@
                 "section":
                 {
                     "en":"Aromatic & medicinal plants",
-                    "es":"FFFFFF"
+                    "es":"Plantas medicinales y aromáticas"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "link":    "/#/search/aromatic medicinal/1/"
+                "link":    "/#/search/aromatic/1/"
             }
         ],
         "themes":
@@ -377,7 +377,7 @@
                 "section":
                 {
                     "en":"Slow Food Stories",
-                    "es":"FFFFFF"
+                    "es":"Relatos sobre Slow Food"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
@@ -387,7 +387,7 @@
                 "section":
                 {
                     "en":"Games for Nature",
-                    "es":"FFFFFFF"
+                    "es":"Juegos por la naturaleza"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
@@ -397,7 +397,7 @@
                 "section":
                 {
                     "en":"GRACE multimedia",
-                    "es":"FFFFFFFF"
+                    "es":"GRACE multimedia"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
@@ -450,7 +450,7 @@
                 "section":
                 {
                     "en":"Grow mushrooms",
-                    "es":"FFFFFFF"
+                    "es":"Cultiva hongos"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
@@ -460,7 +460,7 @@
                 "section":
                 {
                     "en":"Home Fruit Production",
-                    "es":"FFFFFFF"
+                    "es":"Producción de fruta casera"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
@@ -470,7 +470,7 @@
                 "section":
                 {
                     "en":"Pruning",
-                    "es":"FFFFFFF"
+                    "es":"Poda"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
@@ -480,7 +480,7 @@
                 "section":
                 {
                     "en":"Weed control",
-                    "es":"FFFFFF"
+                    "es":"Control de malas hierbas"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
@@ -493,7 +493,7 @@
                 "section":
                 {
                     "en":"Composting",
-                    "es":"FFFFFFFFFF"
+                    "es":"Compostaje"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
@@ -546,7 +546,7 @@
                 "section":
                 {
                     "en":"Courses",
-                    "es":"FFFFFFF"
+                    "es":"Cursos"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
@@ -556,7 +556,7 @@
                 "section":
                 {
                     "en":"Research studies",
-                    "es":"FFFFFFFFFFFF"
+                    "es":"Estudios de investigación"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
@@ -566,7 +566,7 @@
                 "section":
                 {
                     "en":"Teaching with Data",
-                    "es":"FFFFFFF"
+                    "es":"Enseña con datos"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
@@ -576,7 +576,7 @@
                 "section":
                 {
                     "en":"Experiments & labs",
-                    "es":"Retransmisiones"
+                    "es":"Experimentos y laboratorios"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
@@ -589,7 +589,7 @@
                 "section":
                 {
                     "en":"Water Conservation",
-                    "es":"FFFFFFFFFF"
+                    "es":"Convervación del agua"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
@@ -599,7 +599,7 @@
                 "section":
                 {
                     "en":"Forest Biodiversity",
-                    "es":"FFFFFFFFFF"
+                    "es":"Biodiversidad en el bosque"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
@@ -609,7 +609,7 @@
                 "section":
                 {
                     "en":"Organic Food",
-                    "es":"FFFFFFF"
+                    "es":"Comida orgánica"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
@@ -619,7 +619,7 @@
                 "section":
                 {
                     "en":"Waste management",
-                    "es":"FFFFFFFFFFFF"
+                    "es":"Gestión de residuos"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
