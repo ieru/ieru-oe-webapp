@@ -1063,6 +1063,7 @@
                             <li><a href="/<?php echo LANG ?>/#/suggest"><?php echo Lang::get('website.suggest_a_new_resource') ?></a></li>
                             <li><a href="/<?php echo LANG ?>/#/user/register"><?php echo Lang::get('website.register') ?></a></li>
                         <?php endif; ?>
+                            <li><a href="/<?php echo LANG ?>/#/feedback"><?php echo Lang::get('website.feedback') ?></a></li>
                             <li><a href="/<?php echo LANG ?>/#/about"><?php echo Lang::get('website.about') ?></a></li>
                             <li><a href="/<?php echo LANG ?>/#/privacy"><?php echo Lang::get('website.privacy_policy') ?></a></li>
                         </ul>
