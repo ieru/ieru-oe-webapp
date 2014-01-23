@@ -6,9 +6,9 @@ return array(
 <p>For any information please contact us at: info [at] organic-edunet [dot] eu.</p>
 
 <h2>Funding</h2>
-<p>The Organic.Edunet Web portal was initially developed in the context of "Organic.Edunet: A Multilingual Federation of Learning Repositories with Quality Content for the Awareness and Education of European Youth about Organic Agriculture and Agroecology" targeted project of the eContentplus programme. (http://ec.europa.eu/information_society/activities/econtentplus/index_en.htm#)</p>
+<p>The Organic.Edunet Web portal was initially developed in the context of \\\"Organic.Edunet: A Multilingual Federation of Learning Repositories with Quality Content for the Awareness and Education of European Youth about Organic Agriculture and Agroecology\\\" targeted project of the eContentplus programme. (http://ec.europa.eu/information_society/activities/econtentplus/index_en.htm#)</p>
 
 <p>The portal has been further developed and populated in the context of several other initiatives, including the following:</p>
-<p>"Organic.Lingua: Demonstrating the potential of a multilingual Web portal for sustainable agricultural and environmental education", co-funded by the CIP ICT Policy Support Programme (www.organic-lingua.eu)</p>
-<p>"Organic.Balkanet: Developing the skills of Organic Agriculture Trainers for the Balkans" co-funded by the Leonardo da Vinci Programme (www.organic-balkanet.eu).</p>'
+<p>\\\"Organic.Lingua: Demonstrating the potential of a multilingual Web portal for sustainable agricultural and environmental education\\\", co-funded by the CIP ICT Policy Support Programme (www.organic-lingua.eu)</p>
+<p>\\\"Organic.Balkanet: Developing the skills of Organic Agriculture Trainers for the Balkans\\\" co-funded by the Leonardo da Vinci Programme (www.organic-balkanet.eu).</p>',
 );
