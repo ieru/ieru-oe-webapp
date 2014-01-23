@@ -1207,22 +1207,27 @@
                     <li><hr/></li>
                     <li>
                         <strong><?php echo Lang::get('website.resource_type') ?>:</strong>
-                        <% if ( !!types && types.length > 0 ){ %>
-                            <% for ( var i in types ){ %>
-                            <%= types[i] %>,
+                        <% if ( !!texts[interfaceLanguage].types && texts[interfaceLanguage].types.length > 0 ){ %>
+                            <% for ( var i in texts[interfaceLanguage].types ){ %>
+                            <%= texts[interfaceLanguage].types[i] %>,
                             <% } %>
                         <% }else{ %>
                             <%= lang('none') %>
                         <% } %>
                     </li>
                     <li>
-                        <strong><?php echo Lang::get('website.media_format') ?>:</strong> <%= format %>
+                        <strong><?php echo Lang::get('website.media_format') ?>:</strong>
+                        <% if ( !!texts[interfaceLanguage].format ){ %>
+                            <%= texts[interfaceLanguage].format %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
                     </li>
                     <li>
                         <strong><?php echo Lang::get('website.educational_context') ?>:</strong>
-                        <% if ( !!educational && educational.length > 0 ){ %>
-                            <% for ( var i in educational ){ %>
-                            <%= educational[i] %>,
+                        <% if ( !!texts[interfaceLanguage].educational && texts[interfaceLanguage].educational.length > 0 ){ %>
+                            <% for ( var i in texts[interfaceLanguage].educational ){ %>
+                            <%= texts[interfaceLanguage].educational[i] %>,
                             <% } %>
                         <% }else{ %>
                             <%= lang('none') %>
@@ -1230,9 +1235,9 @@
                     </li>
                     <li>
                         <strong><?php echo Lang::get('website.intended_audience') ?>:</strong>
-                        <% if ( !!audience && audience.length > 0 ){ %>
-                            <% for ( var i in audience ){ %>
-                            <%= audience[i] %>,
+                        <% if ( !!texts[interfaceLanguage].audience && texts[interfaceLanguage].audience.length > 0 ){ %>
+                            <% for ( var i in texts[interfaceLanguage].audience ){ %>
+                            <%= texts[interfaceLanguage].audience[i] %>,
                             <% } %>
                         <% }else{ %>
                             <%= lang('none') %>
@@ -1489,6 +1494,7 @@
             //$.ajaxSetup({ cache: false });
 
             // Wait for search request
+            var interfaceLanguage = "<?php echo LANG ?>"
             var Box = new App.Models.App();
             var sections = new App.Models.Sections();
             var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
