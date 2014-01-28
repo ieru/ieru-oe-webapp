@@ -1495,7 +1495,7 @@
             //$.ajaxSetup({ cache: false });
 
             // Wait for search request
-            var interfaceLanguage = "<?php echo LANG ?>"
+            var interfaceLanguage = $('html').attr('lang');
             var Box = new App.Models.App();
             var sections = new App.Models.Sections();
             var filtersBarView = new App.Views.FiltersBar({ collection: Box.get('filters') });
@@ -1530,7 +1530,6 @@
                 var WIDGET_HOST = 'http://organiclingua.know-center.tugraz.at/';
                 var path_js = '/UGC/ugc-widget-server/';
 
-                var lang = $(this).parents('article').find('.resource-change-lang').attr('data-lang');
                 var type_text = $(this).parents('article').find('.resource-change-lang').find('li > a').html();
                 var action = !!type_text.match(/human/gi) ? 'edit' : 'translate';
                 try {
@@ -1539,11 +1538,11 @@
                     x.src = WIDGET_HOST + path_js + "loadUGC.js";
                     if ( action == 'edit'){
                         // CORRECT
-                        x.setAttribute("Language", lang);
+                        x.setAttribute("Language", $('html').attr('lang'));
                     }else{
                         //TRANSLATE
                         x.setAttribute("sourceLanguage", 'en');
-                        x.setAttribute("targetLanguage", lang); 
+                        x.setAttribute("targetLanguage", $('html').attr('lang')); 
                     }
                     x.setAttribute('Name', '<?php echo $_user->user_username ?>');
                     x.setAttribute('Username', '<?php echo $_user->user_username ?>');
@@ -1572,6 +1571,7 @@
                         x.setAttribute('Email', '<?php echo $_user->user_email ?>');
                         x.setAttribute('Operation', 'index');
                         x.setAttribute('id', 'LOMWidget');
+                        x.setAttribute("Language", $('html').attr('lang'));
                         x.setAttribute('URL', window.location.href);
                         document.getElementsByTagName('head')[0].appendChild(x);
                     } catch (e) {}

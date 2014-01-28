@@ -30,6 +30,7 @@ try {
 	x.setAttribute("WidgetHeight", "710");
 	x.setAttribute("NumRecommendations", 100);
 	x.setAttribute("ShowTop", "true");
+	x.setAttribute("Language", $('html').attr('lang'));
 	x.setAttribute("WidgetTitle", "");
 	x.setAttribute('id', ID);
 	document.getElementsByTagName("head")[0].appendChild(x);

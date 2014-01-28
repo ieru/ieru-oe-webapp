@@ -192,9 +192,9 @@ App.Views.LoginForm = Backbone.View.extend({
     logout: function(e){
         e.preventDefault();
 
-        var model = new App.Models.Logout({usertoken:_.cookie('usertoken')});
+        var model = new App.Models.Logout({usertoken:_.cookie('usertoken', { 'path': '/' })});
         model.fetch().then(function(response){
-            _.cookie('usertoken',null);
+            _.cookie('usertoken',null, { 'path': '/' });
             location.reload();
         });
     },
@@ -209,7 +209,7 @@ App.Views.LoginForm = Backbone.View.extend({
         var that = this;
         model.fetch().then(function(response){
             if ( response.success ){
-                _.cookie('usertoken',response.data.usertoken);
+                _.cookie('usertoken',response.data.usertoken, { 'path': '/' });
                 location.reload();
             }else{
                 that.$el.find('.control-group').addClass('has-error');
@@ -310,9 +310,9 @@ App.Views.Grnet.Rating = Backbone.View.extend({
 
     addRating: function(e){
         e.preventDefault();
-        if ( _.cookie('usertoken')){
+        if ( _.cookie('usertoken', { 'path': '/' })){
             var rating = $(e.currentTarget).attr('class').split(' ')[1].split('-')[2];
-            var addRating = new App.Models.Grnet.AddRating({location:this.model.get('id'), rating:parseInt(rating)+1, usertoken:_.cookie('usertoken')});
+            var addRating = new App.Models.Grnet.AddRating({location:this.model.get('id'), rating:parseInt(rating)+1, usertoken:_.cookie('usertoken', { 'path': '/' })});
             var that = this;
             addRating.save().then(function(response){
                 if ( response.success )
@@ -387,7 +387,7 @@ App.Views.Translation.Rating = Backbone.View.extend({
     addRating: function(e){
         // Translation Rating Model Save
         e.preventDefault();
-        if ( _.cookie('usertoken')){
+        if ( _.cookie('usertoken', { 'path': '/' })){
             this.model.set('rating', parseInt($(e.currentTarget).attr('class').split(' ')[1].split('-')[2])+1);
             var that = this;
             this.model.save().then(function(response){
@@ -449,7 +449,7 @@ App.Views.SearchResults = Backbone.View.extend({
         // Add pagination box
         this.$el.append( '<div class="app-content-pagination"></div>' );
 
-        if ( !_.cookie('usertoken') )
+        if ( !_.cookie('usertoken', { 'path': '/' }) )
             $('body .ugc-widget').tooltip({'title':lang('log_in_or_register_for_improving_translation')});
 
         return this;
@@ -535,7 +535,7 @@ console.log( this.model.get('hash'));
 
             // Add translation ratings
             var translation = this.$el.find('.translation-rating');
-            var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
+            var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken', { 'path': '/' }), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
             var ratings = new App.Views.Translation.Rating({model: request});
             this.model.set('tratingsModel',ratings);
             translation.find('img').remove();
@@ -629,7 +629,7 @@ console.log( this.model.get('hash'));
         addRating: function(e){
             // Translation Rating Model Save
             e.preventDefault();
-            if ( _.cookie('usertoken')){
+            if ( _.cookie('usertoken', { 'path': '/' })){
                 this.model.set('rating', parseInt($(e.currentTarget).attr('class').split(' ')[1].split('-')[2])+1);
                 var that = this;
                 this.model.save().then(function(response){
@@ -1249,7 +1249,7 @@ App.Views.FullResource = Backbone.View.extend({
 
         // Add translation ratings
         var translation = this.$el.find('.translation-rating');
-        var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken'), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
+        var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken', { 'path': '/' }), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
         var ratings = new App.Views.Translation.Rating({model: request});
         this.model.set('tratingsModel',ratings);
         translation.find('img').remove();
