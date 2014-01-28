@@ -129,10 +129,16 @@ App.Views.Autotranslate = Backbone.View.extend({
     },
 
     initialize: function(){
+        // Set autotrans to ON by default
+        if ( !!!_.cookie('autotrans', { 'path': '/' }) ){
+            _.cookie('autotrans', true, { 'path': '/' });
+        }
+        console.log( _.cookie('autotrans', { 'path': '/' }) );
+
         home_translation = false;
         // Autotranslate home page contents
         vent.on('auto:translate', function(){
-            if ( _.cookie('autotrans') && !home_translation && $('#page-home').css('display') == 'block' ){
+            if ( _.cookie('autotrans', { path: '/' }) == true && !home_translation && $('#page-home').css('display') == 'block' ){
                 $('#home-content .translation-text').each(function(){
                     var that = $(this);
                     var text = $(this).html();
@@ -147,29 +153,29 @@ App.Views.Autotranslate = Backbone.View.extend({
         }),
 
         vent.on( 'search:resolved', function(){
-            if ( _.cookie('autotrans') ){
+            if ( _.cookie('autotrans', { path: '/' }) == 'true' ){
                 vent.trigger('auto:translate');
             }
         }, this);
 
         vent.on( 'resource:loaded', function(){
-            if ( _.cookie('autotrans') ){
+            if ( _.cookie('autotrans', { path: '/' }) == 'true' ){
                 vent.trigger('auto:translate');
             }
         }, this);
 
-        if ( _.cookie('autotrans') ){
+        if ( _.cookie('autotrans', { path: '/' }) == 'true' ){
             this.$el.find('input').attr('checked','checked');
         }
     },
 
     switch: function(){
-        if ( !!_.cookie('autotrans') ){
+        if ( !!_.cookie('autotrans', { path: '/' }) && _.cookie('autotrans', { path: '/' }) == 'true' ){
             vent.trigger('cancel:ajaxs');
             vent.trigger('auto:rollback');
-            _.cookie('autotrans',null);
+            _.cookie('autotrans', false, { path: '/' });
         }else{
-            _.cookie('autotrans', true);
+            _.cookie('autotrans', true, { path: '/' });
             vent.trigger('auto:translate');
         }
     }
