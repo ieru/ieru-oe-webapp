@@ -1270,6 +1270,33 @@ App.Views.Register.Activate = Backbone.View.extend({
     }
 });
 
+App.Views.Register.Retrieve = Backbone.View.extend({
+    el: '#page-retrieve-password',
+
+    events: {
+        'click #form-retrieve-submit': 'retrieve',
+    },
+
+    retrieve: function(e){
+        e.preventDefault();
+        console.log('click');
+        $('.close').trigger('click');
+        var email = $('#form-retrieve-email').val();
+
+        if ( email )
+        {
+            this.model.set('email',email);
+            this.model.fetch().done(function(response){
+                var success = response.success ? 'success' : 'danger';
+                $('#page-retrieve-password .row form').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button>'+response.message+'</div>');
+            });
+        }
+        else
+        {
+            $('#page-retrieve-password .row form').prepend('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button>Email can not be empty</div>');
+        }
+    }
+});
 
 App.Views.Recommended = Backbone.View.extend({
     initialize: function(){

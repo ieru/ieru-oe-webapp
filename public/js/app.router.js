@@ -109,6 +109,7 @@ App.Router = Backbone.Router.extend({
 	recommended: function(){
 		show_view( 'page-recommended' );
 
+		vent.trigger('cancel:ajaxs');
 		var section = new App.Views.Recommended();
 
 		ganalytics();
@@ -116,26 +117,42 @@ App.Router = Backbone.Router.extend({
 
 	privacy: function(){
 		show_view( 'page-privacy' );
+
+		vent.trigger('cancel:ajaxs');
+
 		ganalytics();
 	},
 
 	about: function(){
 		show_view( 'page-about' );
+
+		vent.trigger('cancel:ajaxs');
+
 		ganalytics();
 	},
 
 	feedback: function(){
 		show_view( 'page-feedback' );
+
+		vent.trigger('cancel:ajaxs');
+
 		ganalytics();
 	},
 
 	suggest: function(){
 		show_view( 'page-suggest' );
+
+		vent.trigger('cancel:ajaxs');
+
 		ganalytics();
 	},
 
 	retrieve: function(){
 		show_view( 'page-retrieve-password' );
+
+		vent.trigger('cancel:ajaxs');
+		var register = new App.Views.Register.Retrieve({model: new App.Models.Register.Retrieve()});
+
 		ganalytics();
 	}
 })

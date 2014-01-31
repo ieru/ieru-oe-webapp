@@ -159,6 +159,18 @@ App.Models.Register.Activate = Backbone.Model.extend({
 	},
 })
 
+App.Models.Register.Retrieve = Backbone.Model.extend({
+	urlRoot: api_server+'/api/organic/users/retrieve',
+
+	url: function() {
+		return this.urlRoot;
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
+	},
+})
+
 App.Models.Sections = Backbone.Model.extend({
 	//urlRoot: '/js/sections.json?time='+new Date().getTime(),
 	urlRoot: '/js/sections.json?version=0.9',

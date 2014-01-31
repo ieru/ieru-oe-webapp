@@ -1043,7 +1043,7 @@
                             <div class="control-group">
                                 <label style="padding-top: 0 !important; " class="col col-lg-4 control-label"></label>
                                 <div class="col col-lg-8 controls">
-                                    <button type="submit" class="btn btn-primary" id="form-register-submit"><?php echo Lang::get('website.register') ?></button>
+                                    <button type="submit" class="btn btn-primary" id="form-register-submit">c
                                 </div>
                             </div>
                         </div>
@@ -1052,7 +1052,6 @@
             </form>
         </div>
 
-
         <!-- RETRIEVE PASSWORD -->
         <div id="page-retrieve-password">
             <div class="container">
@@ -1060,7 +1059,19 @@
                     <section class="col-lg-12">
                         <h2>Retrieve password</h2>
                         <p>Please click in the following link to request a new password for the site for your account.</p>
-                        <form>
+                        <form class="col-lg-6">
+                            <div class="control-group">
+                                <label style="padding-top: 0 !important; " class="col col-lg-4 control-label" for="form-retrieve-email"><?php echo Lang::get('website.email') ?></label>
+                                <div class="col col-lg-8 controls">
+                                    <input class="input-with-feedback" type="text" id="form-retrieve-email" name="form-retrieve-email">
+                                </div>
+                            </div>
+                            <div class="control-group" style="margin-top: 50px; ">
+                                <label style="padding-top: 0 !important; " class="col col-lg-4 control-label"></label>
+                                <div class="col col-lg-8 controls">
+                                    <button type="submit" class="btn btn-primary" id="form-retrieve-submit">Retrieve password</button>
+                                </div>
+                            </div>
                         </form>
                     </section>
                 </div>
