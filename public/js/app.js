@@ -29,6 +29,7 @@ function show_view ( view ){
   $('#page-about').hide();
   $('#page-suggest').hide();
   $('#page-feedback').hide();
+  $('#page-retrieve-password').hide();
 
 	$('#'+view).show();
 }

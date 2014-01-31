@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?php echo LANG ?>">
     <head>
-        <?php define( 'VERSION', '0.11' );?>
+        <?php define( 'VERSION', '0.2.5' );?>
         <title>Organic.Edunet</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,8 +64,8 @@
                                             </div>
                                         </div>
                                         <button id="submit-login-form" type="submit" class="btn btn-primary"><?php echo Lang::get('website.submit') ?></button>
-                                        <!--<p class="divider" role="presentation"></p>
-                                        <p><a href="#/user/retrieve"><?php echo Lang::get('website.forgot_password') ?></a></p>-->
+                                        <p class="divider" role="presentation"></p>
+                                        <p><a href="#/user/retrieve"><?php echo Lang::get('website.forgot_password') ?></a></p>
                                     </form>
                                 </li>
                             </ul>
@@ -1052,6 +1052,22 @@
             </form>
         </div>
 
+
+        <!-- RETRIEVE PASSWORD -->
+        <div id="page-retrieve-password">
+            <div class="container">
+                <div class="row">
+                    <section class="col-lg-12">
+                        <h2>Retrieve password</h2>
+                        <p>Please click in the following link to request a new password for the site for your account.</p>
+                        <form>
+
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
         <!-- PAGE FOOTER -->
         <footer id="footer">
             <div class="container">
@@ -1461,7 +1477,7 @@
             </div>
             <ul class="list-unstyled list-inline">
             <% for ( var i in sections ) { %>
-                <li class="col col-lg-3 section-image-hover">
+                <li class="col col-lg-2 section-image-hover">
                     <a class="school" href="<%=sections[i].link%>">
                         <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>" />
                         <%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>

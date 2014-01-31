@@ -22,6 +22,8 @@ App.Router = Backbone.Router.extend({
 
 		'feedback':                  'feedback',
 
+		'user/retrieve':                  'retrieve',
+
 		'suggest':                   'suggest',
 
 		'privacy': 					 'privacy',
@@ -129,6 +131,11 @@ App.Router = Backbone.Router.extend({
 
 	suggest: function(){
 		show_view( 'page-suggest' );
+		ganalytics();
+	},
+
+	retrieve: function(){
+		show_view( 'page-retrieve-password' );
 		ganalytics();
 	}
 })
