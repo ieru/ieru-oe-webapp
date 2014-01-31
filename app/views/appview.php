@@ -1061,7 +1061,6 @@
                         <h2>Retrieve password</h2>
                         <p>Please click in the following link to request a new password for the site for your account.</p>
                         <form>
-
                         </form>
                     </section>
                 </div>
