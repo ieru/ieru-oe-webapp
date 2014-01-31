@@ -2,31 +2,31 @@ App.Router = Backbone.Router.extend({
 	routes: {
 		'': 'index',
 
-		'search/:id': 				 'search',
-		'search/:id/:page':    		 'search_page',
-		'search/:id/:page/:filters': 'search_page',
+		'search/:id': 				  'search',
+		'search/:id/:page':    		  'search_page',
+		'search/:id/:page/:filters':  'search_page',
 
-		'resource/:id': 			 'resource',
+		'resource/:id': 			  'resource',
 
-		'user/register': 			 'register',
-		'user/register/:user/:hash': 'activate',
+		'user/register': 			  'register',
+		'user/register/:user/:hash':  'activate',
+		'user/retrieve':              'retrieve',
+		'user/password/change/:hash': 'acceptpassword',
 
-		'listing': 					 'listing',
-		'listing/:id': 				 'listing',
+		'listing': 					  'listing',
+		'listing/:id': 				  'listing',
 
-		'section/:section':          'section',
+		'section/:section':           'section',
 
-		'recommended':               'recommended',
+		'recommended':                'recommended',
 
-		'about':                     'about',
+		'about':                      'about',
 
-		'feedback':                  'feedback',
+		'feedback':                   'feedback',
 
-		'user/retrieve':                  'retrieve',
+		'suggest':                    'suggest',
 
-		'suggest':                   'suggest',
-
-		'privacy': 					 'privacy',
+		'privacy': 					  'privacy',
 	},
 
 	index: function(){
@@ -152,6 +152,15 @@ App.Router = Backbone.Router.extend({
 
 		vent.trigger('cancel:ajaxs');
 		var register = new App.Views.Register.Retrieve({model: new App.Models.Register.Retrieve()});
+
+		ganalytics();
+	},
+
+	acceptpassword: function(){
+		show_view( 'accept-password-change' );
+
+		vent.trigger('cancel:ajaxs');
+		var register = new App.Views.Register.AcceptChange({model: new App.Models.Register.AcceptChange()});
 
 		ganalytics();
 	}
