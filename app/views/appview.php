@@ -407,6 +407,7 @@
 
                 </div>
             </div>
+        </div>
 
         <!-- RECOMMENDATIONS -->
         <div id="page-recommended">
