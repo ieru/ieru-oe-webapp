@@ -151,11 +151,11 @@ App.Models.Register.AcceptChange = Backbone.Model.extend({
 	urlRoot: api_server+'/api/organic/users/password/change/',
 
 	url: function() {
-		return this.urlRoot + this.get('username') ;
+		return this.urlRoot + this.get('hash') ;
 	},
 
 	fetch: function(){
-		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+		return Backbone.Model.prototype.fetch.call(this);
 	},
 })
 
