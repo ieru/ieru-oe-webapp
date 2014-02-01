@@ -1270,6 +1270,16 @@ App.Views.Register.Activate = Backbone.View.extend({
     }
 });
 
+App.Views.Register.AcceptChange = Backbone.View.extend({
+    initialize: function (){
+        $('#page-register-user-confirm .row').empty();
+        this.model.fetch().done(function(response){
+            var success = response.success ? 'success' : 'danger';
+            $('#page-register-user-confirm .row').html('<div class="alert alert-'+success+'">'+response.message+'</div>');
+        });
+    }
+});
+
 App.Views.Register.Retrieve = Backbone.View.extend({
     el: '#page-retrieve-password',
 

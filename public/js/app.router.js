@@ -156,11 +156,11 @@ App.Router = Backbone.Router.extend({
 		ganalytics();
 	},
 
-	acceptpassword: function(){
+	acceptpassword: function(hash){
 		show_view( 'accept-password-change' );
 
 		vent.trigger('cancel:ajaxs');
-		var register = new App.Views.Register.AcceptChange({model: new App.Models.Register.AcceptChange()});
+		var register = new App.Views.Register.AcceptChange({model: new App.Models.Register.AcceptChange({hash:hash})});
 
 		ganalytics();
 	}

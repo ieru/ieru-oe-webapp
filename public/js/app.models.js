@@ -147,6 +147,18 @@ App.Models.Register.New = Backbone.Model.extend({
 	},
 });
 
+App.Models.Register.AcceptChange = Backbone.Model.extend({
+	urlRoot: api_server+'/api/organic/users/password/change/',
+
+	url: function() {
+		return this.urlRoot + this.get('username') ;
+	},
+
+	fetch: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON() });
+	},
+})
+
 App.Models.Register.Activate = Backbone.Model.extend({
 	urlRoot: api_server+'/api/organic/users',
 
