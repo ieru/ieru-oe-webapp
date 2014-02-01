@@ -30,6 +30,7 @@ function show_view ( view ){
   $('#page-suggest').hide();
   $('#page-feedback').hide();
   $('#page-retrieve-password').hide();
+  $('#page-change-password-confirm').hide();
 
 	$('#'+view).show();
 }

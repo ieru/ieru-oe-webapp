@@ -157,7 +157,7 @@ App.Router = Backbone.Router.extend({
 	},
 
 	acceptpassword: function(hash){
-		show_view( 'accept-password-change' );
+		show_view( 'page-change-password-confirm' );
 
 		vent.trigger('cancel:ajaxs');
 		var register = new App.Views.Register.AcceptChange({model: new App.Models.Register.AcceptChange({hash:hash})});

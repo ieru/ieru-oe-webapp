@@ -400,6 +400,14 @@
             </div>
         </div>
 
+        <!-- ACCEPT PASSWORD CHANGE-->
+        <div id="page-change-password-confirm">
+            <div class="container">
+                <div class="row" style="padding-top: 30px; ">
+
+                </div>
+            </div>
+
         <!-- RECOMMENDATIONS -->
         <div id="page-recommended">
             <div class="container">
