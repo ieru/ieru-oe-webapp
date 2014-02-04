@@ -367,7 +367,8 @@
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "link":    "/#/search/slow food"
-            },
+            }
+        ],
         "carousel":
         [
             {
@@ -414,11 +415,11 @@
                 "section":
                 {
                     "en":"Grow mushrooms",
-                    "es":"Cultiva hongos"
+                    "es":"Cultivo de setas"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "link":    "/#/search/mushroom/1/collection=oeintute|digitalgreen|TRAGLOR|OPTUNESCO|oefao"
+                "link":    "/#/search/mushroom/1/collection=OEINTUTE|DIGITALGREEN|TRAGLOR|OPTUNESCO|OEFAO"
             },
             {
                 "section":
@@ -428,23 +429,23 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "link":    "/#/search/home gardening/1/collection=oeintute"
+                "link":    "/#/search/home gardening/1/collection=OEINTUTE"
             },
             {
                 "section":
                 {
                     "en":"Pruning",
-                    "es":"Poda"
+                    "es":"Recorte"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "link":    "/#/search/pruning/1"
+                "link":    "/#/search/pruning/1/"
             },
             {
                 "section":
                 {
                     "en":"Weed control",
-                    "es":"Control de malas hierbas"
+                    "es":"Control de plagas"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
@@ -457,7 +458,7 @@
                 "section":
                 {
                     "en":"Composting",
-                    "es":"Compostaje"
+                    "es":"Composting"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
@@ -629,99 +630,3 @@
         ]
     }
 }
-"Do it yourself":
-    {
-        "sections":
-        [
-            {
-                "section":
-                {
-                    "en":"Grow mushrooms",
-                    "es":"FFFFFFF"
-                },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "link":    "/#/search/mushroom/1/collection=OEINTUTE|DIGITALGREEN|TRAGLOR|OPTUNESCO|OEFAO"
-            },
-            {
-                "section":
-                {
-                    "en":"Home Fruit Production",
-                    "es":"FFFFFFF"
-                },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "link":    "/#/search/home gardening/1/collection=OEINTUTE"
-            },
-            {
-                "section":
-                {
-                    "en":"Pruning",
-                    "es":"FFFFFFF"
-                },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "link":    "/#/search/pruning/1/"
-            },
-            {
-                "section":
-                {
-                    "en":"Weed control",
-                    "es":"FFFFFF"
-                },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "link":    "/#/search/weed control/1/educationalContext=continuing education|vocational education"
-            }
-        ],
-        "themes":
-        [
-            {
-                "section":
-                {
-                    "en":"Composting",
-                    "es":"FFFFFFFFFF"
-                },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "link":    "/#/search/composting/1/educationalContext=continuing education"
-            }
-        ],
-        "carousel":
-        [
-            {
-                "image": "/images/carousel/UnglySaysWho.png",
-                "alt":   "Ugly? Says Who?",
-                "link":  "http://www.pbs.org/wnet/nature/lessons/ugly-says-who/lesson/422/"
-            },
-            {
-                "image": "/images/carousel/GardenPollinators.png",
-                "alt":   "Garden Pollinators",
-                "link":  "http://www.lifelab.org/wp-content/uploads/2010/02/3rdGardenPollinators2012.pdf"
-            }
-        ],
-        "latest":
-        [
-            {
-                "id": 100
-            },
-            {
-                "id": 100
-            },
-            {
-                "id": 100
-            },
-            {
-                "id": 100
-            },
-            {
-                "id": 100
-            }
-        ],
-        "featured":
-        [
-            {
-                "id": 100
-            }
-        ]
-    }
