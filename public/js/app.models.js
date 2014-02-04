@@ -250,3 +250,12 @@ App.Models.Feedback = Backbone.Model.extend({
 		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
 	},
 });
+
+App.Models.ChangeSettings = Backbone.Model.extend({
+
+	urlRoot: api_server+'/api/organic/users/settings',
+
+	save: function(){
+		return Backbone.Model.prototype.fetch.call(this, { data: this.toJSON(), type: 'POST' });
+	},
+});

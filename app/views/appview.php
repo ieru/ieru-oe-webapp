@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?php echo LANG ?>">
     <head>
-        <?php define( 'VERSION', '0.2.7' );?>
+        <?php define( 'VERSION', '0.2.8' );?>
         <title>Organic.Edunet</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@
                         <li role="menu" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <!--<li role="presentation">< data-toggle="modal" href="#change-account"><span class="glyphicon glyphicon-wrench"></span> <?php echo Lang::get('website.change_account_details'); ?></a></li>-->
+                                <li role="presentation"><a data-toggle="modal" href="#change-account"><span class="glyphicon glyphicon-wrench"></span> <?php echo Lang::get('website.change_account_details'); ?></a></li>
                                 <li role="presentation"><a data-toggle="modal" href="#suggest-modal"><span class="glyphicon glyphicon-leaf"></span> <?php echo Lang::get('website.suggest_a_new_resource'); ?></a></li>
                                 <li role="presentation"><a data-toggle="modal" href="#" class="ugc-widget-own"><span class="glyphicon glyphicon-pencil"></span> <?php echo Lang::get('website.view_own_resources'); ?></a></li>
                                 <?php if ( $_user->check_permission( PERMISSION_ACCESS_ADMIN_ZONE ) ): ?>
@@ -1052,7 +1052,7 @@
                             <div class="control-group">
                                 <label style="padding-top: 0 !important; " class="col col-lg-4 control-label"></label>
                                 <div class="col col-lg-8 controls">
-                                    <button type="submit" class="btn btn-primary" id="form-register-submit">c
+                                    <button type="submit" class="btn btn-primary" id="form-register-submit"><?php echo Lang::get('website.register') ?></button>
                                 </div>
                             </div>
                         </div>
@@ -1066,8 +1066,8 @@
             <div class="container">
                 <div class="row">
                     <section class="col-lg-12">
-                        <h2>Retrieve password</h2>
-                        <p>Please click in the following link to request a new password for the site for your account.</p>
+                        <h2><?php echo Lang::get('website.retrieve_password') ?></h2>
+                        <p><?php echo Lang::get('website.retrieve_password_text') ?></p>
                         <form class="col-lg-6">
                             <div class="control-group">
                                 <label style="padding-top: 0 !important; " class="col col-lg-4 control-label" for="form-retrieve-email"><?php echo Lang::get('website.email') ?></label>
@@ -1078,7 +1078,7 @@
                             <div class="control-group" style="margin-top: 50px; ">
                                 <label style="padding-top: 0 !important; " class="col col-lg-4 control-label"></label>
                                 <div class="col col-lg-8 controls">
-                                    <button type="submit" class="btn btn-primary" id="form-retrieve-submit">Retrieve password</button>
+                                    <button type="submit" class="btn btn-primary" id="form-retrieve-submit"><?php echo Lang::get('website.retrieve_password') ?></button>
                                 </div>
                             </div>
                         </form>
@@ -1163,14 +1163,28 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Change account details</h4>
+                        <h4 class="modal-title"><?php echo Lang::get('website.change_account_details'); ?></h4>
                     </div>
                     <div class="modal-body">
-                        
+                        <form  class="form-horizontal row">
+                            <h4><?php echo Lang::get('website.change_password') ?> <small>(only will be changed if not empty)</small></h4>
+                            <div class="control-group">
+                                <label class="col-lg-4 control-label" for="form-new-password"><?php echo Lang::get('website.password') ?></label>
+                                <div class="col-lg-8 controls">
+                                    <input class="input-with-feedback" type="password" id="form-new-password" name="form-new-password">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="col-lg-4 control-label" for="form-new-password-repeat"><?php echo Lang::get('website.repeat_new_password') ?></label>
+                                <div class="col-lg-8 controls">
+                                    <input class="input-with-feedback" type="password" id="form-new-password-repeat" name="form-new-password-repeat">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo Lang::get('website.close') ?></button>
+                        <button type="submit" class="btn btn-primary"><?php echo Lang::get('website.save_changes') ?></button>
                     </div>
                 </div>
             </div>
@@ -1540,6 +1554,7 @@
             var doSearch = new App.Views.DoSearch();
             var doLogin = new App.Views.LoginForm();
             var doRegister = new App.Views.RegisterNewUser();
+            var doChangeSettings = new App.Views.ChangeSettings({model: new App.Models.ChangeSettings()});
             var autoTranslate = new App.Views.Autotranslate();
             var changedFilters = false;
 

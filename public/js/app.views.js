@@ -1259,6 +1259,30 @@ App.Views.FullResource = Backbone.View.extend({
     }
 });
 
+App.Views.ChangeSettings = Backbone.View.extend({
+    el: '#change-account',
+
+    events: {
+        'click button[type=submit]': 'savechanges',
+    },    
+
+    savechanges: function (e){
+        e.preventDefault();
+
+        this.model.set('password', $('#form-new-password').val());
+        this.model.set('password-repeat', $('#form-new-password-repeat').val());
+        this.model.set('token', _.cookie('usertoken', { 'path': '/' }));
+
+        this.model.save().done(function(response){
+            var success = response.success ? 'success' : 'danger';
+            $('#change-account .row .close').trigger('click');
+            $('#change-account .row').prepend('<div class="alert alert-'+success+'"><button type="button" class="close" data-dismiss="alert">&times;</button>'+response.message+'</div>');
+        });
+
+        console.log('click');
+    }
+});
+
 App.Views.Register = {};
 App.Views.Register.Activate = Backbone.View.extend({
     render: function (){

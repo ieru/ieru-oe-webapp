@@ -145,4 +145,10 @@ return array(
 'send_feedback'=>'Prześlij opinię',
 'reset_form'=>'Reset postaci',
 'feedback'=>'Sprzężenie zwrotne',
+'close'=>'Zamknij',
+'change_password'=>'Zmiana hasła',
+'repeat_new_password'=>'Powtórz nowe hasło',
+'save_changes'=>'Zapisz zmiany',
+'retrieve_password'=>'Odzyskaj hasło',
+'retrieve_password_text'=>'Proszę kliknąć w poniższy link, aby poprosić o nowe hasło na stronie Twojego konta.',
 );

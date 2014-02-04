@@ -145,4 +145,10 @@ return array(
 'title'=>'Titre',
 'body'=>'Corps',
 'reset_form'=>'Réinitialiser le formulaire',
+'close'=>'Fermer',
+'change_password'=>'Changer mot de passe',
+'repeat_new_password'=>'Répéter nouveau mot de passe',
+'save_changes'=>'Enregistrer les modifications',
+'retrieve_password'=>'Récupérer mot de passe',
+'retrieve_password_text'=>'Cliquer dans le lien ci-dessous pour demander un nouveau mot de passe pour le site pour votre compte.',
 );
