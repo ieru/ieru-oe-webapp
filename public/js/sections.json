@@ -51,7 +51,7 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
-                "link":    "/#/section/generalpublic"
+                "link":    "/#/section/doityourself"
             }
         ],
         "carousel":
@@ -90,7 +90,7 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "link":    "/#/search/*/1/educationalLearningResourceType=educational game:collection=greenoer|oeellinogermaniki|aglroel|aglrrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
+                "link":    "/#/search/*/1/educationalLearningResourceType=educational game:collection=greenoer|oeellinogermaniki|aglroel|aglrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
             },
             {
                 "section":
@@ -100,7 +100,7 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "link":    "/#/search/*/1/educationalLearningResourceType=lesson plan:collection=greenoer|oeellinogermaniki|aglroel|aglrrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
+                "link":    "/#/search/*/1/educationalLearningResourceType=lesson plan:collection=greenoer|oeellinogermaniki|aglroel|aglrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
             },
             {
                 "section":
@@ -110,7 +110,7 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "link":    "/#/search/*/1/educationalLearningResourceType=broadcast|video|audio:collection=greenoer|oeellinogermaniki|aglroel|aglrrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
+                "link":    "/#/search/*/1/educationalLearningResourceType=broadcast|video|audio:collection=greenoer|oeellinogermaniki|aglroel|aglrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
             }
         ],
         "themes":
@@ -123,7 +123,7 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "link":    "/#/search/polar/1/educationalLearningResourceType=reference:collection=NSDLBEYOND:educationalContext=compulsory education"
+                "link":    "/#/search/polar/1/educationalLearningResourceType=reference:collection=nsdlbeyond:educationalContext=compulsory education"
             },
             {
                 "section": "Insects and Plants",
@@ -144,7 +144,7 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
-                "link":    "/#/search/school garden, organic garden, organic gardening/1/collection=greenoer|oeellinogermaniki|aglroel|aglrrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety:educationalContext=pre-school|compulsory education"
+                "link":    "/#/search/school garden, organic garden, organic gardening/1/collection=greenoer|oeellinogermaniki|aglroel|aglrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety:educationalContext=pre-school|compulsory education"
             },
             {
                 "section":
@@ -237,21 +237,11 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "link":    "/#/search/job profile/1/collection=aglrfarmingfuture|agricomjobs"
+                "link":    "/#/search/job profile/1/educationalContext=vocational education:educationalContext=professional development"
             }
         ],
         "themes":
         [
-            {
-                "section":
-                {
-                    "en":"Farming Futures",
-                    "es":"Futuro de la agricultura"
-                },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "link":    "/#/search/*/1/collection=aglrfarmingfuture"
-            },
             {
                 "section":
                 {
@@ -333,7 +323,7 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "link":    "/#/search/*/1/educationalContext=continuing education:collection=aglrfoodsafety|agrlslowfood"
+                "link":    "/#/search/food safety"
             },
             {
                 "section":
@@ -376,29 +366,8 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "link":    "/#/search/*/1/educationalLearningResourceType=weblog:collection=aglrslowfood"
+                "link":    "/#/search/slow food"
             },
-            {
-                "section":
-                {
-                    "en":"Games for Nature",
-                    "es":"Juegos por la naturaleza"
-                },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
-                "link":    "/#/search/*/1/collection=AGLRGAMESNATURE"
-            },
-            {
-                "section":
-                {
-                    "en":"GRACE multimedia",
-                    "es":"GRACE multimedia"
-                },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
-                "link":    "/#/search/*/1/collection=AGLRGRACE"
-            }
-        ],
         "carousel":
         [
             {
@@ -555,7 +524,7 @@
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
                 "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "link":    "/#/search/*/1/:educationalContext=higher education:educationalLearningResourceType=reference|case study:collection=greenoer|oerafrica|oeorganiceprints|oespanish"
+                "link":    "/#/search/*/1/educationalContext=higher education:educationalLearningResourceType=reference|case study:collection=greenoer|oerafrica|oeorganiceprints|oespanish"
             },
             {
                 "section":
@@ -660,3 +629,99 @@
         ]
     }
 }
+"Do it yourself":
+    {
+        "sections":
+        [
+            {
+                "section":
+                {
+                    "en":"Grow mushrooms",
+                    "es":"FFFFFFF"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+                "link":    "/#/search/mushroom/1/collection=OEINTUTE|DIGITALGREEN|TRAGLOR|OPTUNESCO|OEFAO"
+            },
+            {
+                "section":
+                {
+                    "en":"Home Fruit Production",
+                    "es":"FFFFFFF"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+                "link":    "/#/search/home gardening/1/collection=OEINTUTE"
+            },
+            {
+                "section":
+                {
+                    "en":"Pruning",
+                    "es":"FFFFFFF"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "link":    "/#/search/pruning/1/"
+            },
+            {
+                "section":
+                {
+                    "en":"Weed control",
+                    "es":"FFFFFF"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "link":    "/#/search/weed control/1/educationalContext=continuing education|vocational education"
+            }
+        ],
+        "themes":
+        [
+            {
+                "section":
+                {
+                    "en":"Composting",
+                    "es":"FFFFFFFFFF"
+                },
+                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+                "link":    "/#/search/composting/1/educationalContext=continuing education"
+            }
+        ],
+        "carousel":
+        [
+            {
+                "image": "/images/carousel/UnglySaysWho.png",
+                "alt":   "Ugly? Says Who?",
+                "link":  "http://www.pbs.org/wnet/nature/lessons/ugly-says-who/lesson/422/"
+            },
+            {
+                "image": "/images/carousel/GardenPollinators.png",
+                "alt":   "Garden Pollinators",
+                "link":  "http://www.lifelab.org/wp-content/uploads/2010/02/3rdGardenPollinators2012.pdf"
+            }
+        ],
+        "latest":
+        [
+            {
+                "id": 100
+            },
+            {
+                "id": 100
+            },
+            {
+                "id": 100
+            },
+            {
+                "id": 100
+            },
+            {
+                "id": 100
+            }
+        ],
+        "featured":
+        [
+            {
+                "id": 100
+            }
+        ]
+    }
