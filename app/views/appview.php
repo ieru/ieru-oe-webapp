@@ -1520,23 +1520,8 @@
             </ul>
         </script>
 
-        <!-- jQuery + Bootstrap -->
-        <script src="/js/jquery.js"></script>
-        <script src="/js/vendor/bootstrap/bootstrap.js"></script>
-        <script src="/js/vendor/twitter/typeahead.js"></script>
-        <!-- Activate IE8 responsive features -->
-        <!--<script src="/js/respond.js"></script>-->
-        <!-- Libraries for using Backbone.js -->
-        <!--<script data-main="/js/app/main"  src="/js/require.js"></script>-->
-        <script src="/js/underscore.js"></script>
-        <script src="/js/backbone.js"></script>
         <!-- App javaScript files -->
-        <script src="/js/app.js?date=<?php echo VERSION?>"></script>
-        <script src="/js/app.models.js?date=<?php echo VERSION?>"></script>
-        <script src="/js/app.views.js?date=<?php echo VERSION?>"></script>
-        <script src="/js/app.collections.js?date=<?php echo VERSION?>"></script>
-        <script src="/js/app.router.js?date=<?php echo VERSION?>"></script>
-        <!--Default language file -->
+        <script src="/js/app.min.js?date=<?php echo VERSION?>"></script>
         <script src="/js/lang/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
         <script src="/js/lang/error/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
 

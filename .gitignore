@@ -7,3 +7,5 @@ composer.lock
 xml
 access_log
 error_log
+npm-debug.log
+node_modules
