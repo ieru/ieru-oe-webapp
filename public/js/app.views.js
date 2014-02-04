@@ -1300,6 +1300,9 @@ App.Views.Register.AcceptChange = Backbone.View.extend({
         this.model.fetch().done(function(response){
             var success = response.success ? 'success' : 'danger';
             $('#page-change-password-confirm .row').html('<div class="alert alert-'+success+'">'+response.message+'</div>');
+        }).error(function(response){
+            var success = response.success ? 'success' : 'danger';
+            $('#page-change-password-confirm .row').html('<div class="alert alert-'+success+'">'+response.message+'</div>');
         });
     }
 });
