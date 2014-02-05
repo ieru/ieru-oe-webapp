@@ -125,7 +125,7 @@ return array(
 'pseudo-feedback'=>'توسيع نطاق نتائج البحث استناداً إلى تردد مصطلحات علم الوجود',
 'semantic_expansion'=>'توسيع نطاق البحث باستخدام علم الوجود',
 'automatic_language_identification'=>'التعرف التلقائي للغة',
-'footer_copyright_notice'=>'Organic.Edunet تموله جزئيا تحت ',
+'footer_copyright_notice'=>'ويتم تمويل Organic.Edunet جزئيا في إطار برنامج دعم السياسات تكنولوجيا المعلومات والاتصالات (تكنولوجيا المعلومات والاتصالات PSP) كجزء من القدرة التنافسية والابتكار البرنامج الإطاري من الجماعة الأوروبية',
 'abstracts_language_expanation'=>'عرض عنوان ووصف للمورد في لغة مختلفة',
 'accept_use_terms_and_conditions'=>'أنني أقبل شروط الاستخدام',
 'view_own_resources'=>'عرض المحتوى المقترح',
