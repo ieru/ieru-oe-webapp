@@ -258,3 +258,30 @@ Utf8.decode = function(strUtf) {
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+$('.carousel').carousel();
+
+$('.sections-categories').on('mouseover', 'li', function(){
+    var img = $(this).find('img');
+    img.attr('src', img.attr('data-hover'));
+});
+$('.sections-categories').on('mouseout', 'li', function(){
+    var img = $(this).find('img');
+    img.attr('src', img.attr('data-leave'));
+});
