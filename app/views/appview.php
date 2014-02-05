@@ -52,7 +52,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.sign_in') ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <form id="login-form">
+                                    <form id="login-form" action="">
                                         <div class="control-group">
                                             <div class="controls">
                                                 <input class="input-with-feedback" id="login-form-username" type="text" placeholder="<?php echo Lang::get('website.user') ?>"/>
@@ -77,11 +77,11 @@
                         <li style="margin-right: 15px; ">
                             <div style="margin-left: 10px; float: right; padding-top: 9px; ">
                                 <div class="onoffswitch" id="button-autotranslate">
-                                    <input type="checkbox" id="myonoffswitch" class="onoffswitch-checkbox" name="onoffswitch">
-                                    <div class="onoffswitch-label">
+                                    <input type="checkbox" autocomplete="off" id="myonoffswitch" class="onoffswitch-checkbox" name="onoffswitch">
+                                    <label for="myonoffswitch" class="onoffswitch-label">
                                         <div class="onoffswitch-inner"></div>
                                         <div class="onoffswitch-switch"></div>
-                                    </div>
+                                    </label>
                                 </div> 
                             </div>
                             <div style="float: right; padding-top: 9px; color: #eee; "><?php echo Lang::get('website.auto-translate'); ?></div>
@@ -116,7 +116,7 @@
                         <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px; "><?php echo Lang::get('website.website_motto') ?></small>
                     </h1>
                 </a>
-                <form id="search-form"  class="pull-right">
+                <form id="search-form" action="" class="pull-right">
                     <div id="search-form-div">
                         <div class="input-group">
                             <input id="form-search" autocomplete="off" type="text" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
@@ -132,7 +132,7 @@
                             <li><input id="search-checkbox-prfexpansion" type="checkbox" /> <label for="search-checkbox-prfexpansion"> <?php echo Lang::get('website.pseudo-feedback'); ?></label></li>
                             <li><input id="search-checkbox-semanticexpansion" type="checkbox" /> <label for="search-checkbox-semanticexpansion"> <?php echo Lang::get('website.semantic_expansion'); ?></label></li>
                             <li>
-                                <label style="margin-left: 16px; "> <?php echo Lang::get('website.automatic_language_identification'); ?></label>
+                                <label for="search-checkbox-autolangidentification" style="margin-left: 16px; "> <?php echo Lang::get('website.automatic_language_identification'); ?></label>
                                 <ul id="autolangidentification-dropdown" class="organic-dropdown list-unstyled">
                                     <li class="dropdown">
                                         <a class="dropdown-toggle" id="autolangidentifier" role="button" data-toggle="dropdown" href="javascript:;" data-lang="guess" onclick="$(this).parent().toggleClass('open');"><?php echo Lang::get('website.guess_language'); ?> <span class="glyphicon glyphicon-chevron-down"></span></a>
@@ -175,9 +175,9 @@
         <div id="page-home">
 
             <!-- Banner section -->
-            <div class="home-banner">
+            <div id="home-banner">
                 <div class="container">
-                    <div class="carousel-example-generic carousel slide">
+                    <div id="carousel-example-generic" class="carousel slide">
                     </div>
                 </div>
             </div>
@@ -202,9 +202,9 @@
         <div id="page-section">
 
             <!-- Banner section -->
-            <div class="home-banner">
+            <div id="home-banner">
                 <div class="container">
-                    <div class="carousel-example-generic carousel slide">
+                    <div id="carousel-example-generic" class="carousel slide">
                     </div>
                 </div>
             </div>
@@ -242,7 +242,7 @@
                                 <span><?php echo Lang::get('website.results_per_page') ?>:</span>
                                 <ul class="organic-dropdown list-unstyled">
                                     <li id="results-per-page" class="dropdown">
-                                        <a href="#" data-toggle="dropdown" role="button" class="lang-<?php echo LANG ?> dropdown-toggle">
+                                        <a href="#" data-toggle="dropdown" role="button" id="lang-<?php echo LANG ?>" class="dropdown-toggle">
                                             10
                                             <span class="glyphicon glyphicon-chevron-down"></span>
                                         </a>
@@ -340,10 +340,10 @@
         <!-- FEEDBACK PAGE -->
         <div id="page-feedback">
             <form id="send-feedback" method="post" style="margin-top: 15px; ">
-                <h3><?php echo Lang::get('website.send_feedback') ?></h3>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
+                            <legend><?php echo Lang::get('website.send_feedback') ?></legend>
                             <div class="control-group">
                                 <label class="control-label"><?php echo Lang::get('website.name') ?></label>
                                 <div class="controls">
@@ -427,8 +427,10 @@
                         <p>
                             This disclaimer contains the general conditions governing the use and access to Organic.Lingua Platform (the "Platform") and liabilities arising out of their use,
                             in compliance with European standards of personal data protection:
+                            <a name="content">
                                 Directive 95/46/EC of the European Parliament and of the Council of 24 October 1995 on the protection of individuals with regard to the processing of
                                 personal data and on the free movement of such data (Data Protection Directive); Directive 2000/31/EC
+                            </a>
                             on certain legal aspects of information society services, in particular electronic commerce, in the Internal Market (Directive on electronic commerce); and
                             Directive 2002/22/EC on universal service and usersí rights relating to electronic communications networks and services, Directive 2002/58/EC concerning
                             the processing of personal data and the protection of privacy in the electronic communications sector.
@@ -806,7 +808,7 @@
                         <p>
                             As regards the links established by other pages towards the website Organic.Lingua Platform must adhere to the following stipulations:
                         </p>
-                        <ul>
+                        <ul type="disc">
                             <li>
                                 You must request permission before carrying out links and shall state expressly granted.
                             </li>
@@ -1006,10 +1008,10 @@
         <!-- REGISTER NEW ACCOUNT PAGE -->
         <div id="page-register-user">
             <form id="register-new-user" class="form-horizontal">
-                <h3><?php echo Lang::get('website.register_a_new_user') ?></h3>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
+                            <legend><?php echo Lang::get('website.register_a_new_user') ?></legend>
                             <div class="control-group">
                                 <label style="padding-top: 0 !important; " class="col col-lg-4 control-label" for="form-register-name"><?php echo Lang::get('website.name') ?></label>
                                 <div class="col col-lg-8 controls">
@@ -1044,7 +1046,7 @@
                                 <div class="col col-lg-4 control-label">
                                 </div>
                                 <div class="col col-lg-8 controls" style="margin-bottom: 10px; ">
-                                    <input type="checkbox" name="form-register-accept" class="input-with-feedback" id="form-register-accept"/> <a href="/<?php echo LANG ?>/#/privacy" target="_blank"><?php echo Lang::get('website.accept_use_terms_and_conditions') ?></a>
+                                    <input type="checkbox" name="form-register-accept" class="input-with-feedback" id="form-register-accept"/> <a href="/<?php echo LANG ?>/#/privacy" target="_blank"><?php echo Lang::get('website.accept_use_terms_and_conditions') ?></a></button>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -1466,7 +1468,7 @@
         <script id="section-carousel" type="text/template">
             <ol class="carousel-indicators">
             <% for ( var i in carousel ) { %>
-                <li data-target=".carousel-example-generic" data-slide-to="<%=i%>" <% if ( i==0 ) { %>class="active"<% } %>></li>
+                <li data-target="#carousel-example-generic" data-slide-to="<%=i%>" <% if ( i==0 ) { %>class="active"<% } %>></li>
             <% } %>
             </ol>
 
@@ -1482,8 +1484,8 @@
             <% } %>
             </div>
 
-            <a class="left carousel-control" href=".carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
-            <a class="right carousel-control" href=".carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
         </script>
 
         <script id="sections-categories" type="text/template">
