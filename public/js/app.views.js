@@ -14,7 +14,7 @@ $('#form-search').bind('typeahead:selected', function(e){
     $('.tt-query').val($(this).next().html());
     Box.set('searchText', $(this).next().html());
     var stext = Box.get('searchText') == '' ? '' : '/'+Box.get('searchText');
-    Router.navigate('#/'+get_section()+stext+'/1'+get_filters_formatted());
+    Router.navigate('#/search'+stext+'/1'+get_filters_formatted());
     $('#header form').submit();
     $('.tt-dropdown-menu').hide();
 });
