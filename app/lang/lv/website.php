@@ -151,4 +151,5 @@ return array(
 'save_changes'=>'Saglabāt izmaiņas',
 'retrieve_password'=>'Izgūt paroli',
 'retrieve_password_text'=>'Lūdzu, noklikšķiniet uz šīs saites, lai pieprasītu vietu savam kontam jaunu paroli.',
+'report_resource_as_inappropriate'=>'Nepiemērota resursu pārskats',
 );

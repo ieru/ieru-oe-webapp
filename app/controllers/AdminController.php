@@ -220,7 +220,8 @@ class AdminController extends BaseController
         if ( $fp = fopen( $file, 'w+' ) )
         {
             fwrite( $fp, "lang_file = " );
-            fwrite( $fp, json_encode( $_POST ) );
+            $encode = json_encode( $_POST );
+            fwrite( $fp, preg_replace( '/","/si', "\"\n,\"", $encode ) );
             fclose( $fp );
         }
 

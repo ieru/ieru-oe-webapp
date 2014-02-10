@@ -151,4 +151,5 @@ return array(
 'save_changes'=>'Değişiklikleri Kaydet',
 'retrieve_password'=>'Şifre almak',
 'retrieve_password_text'=>'Lütfen hesabınız için site için yeni bir parola istemek için aşağıdaki bağlantıyı tıklatın.',
+'report_resource_as_inappropriate'=>'Rapor uygunsuz kaynak',
 );

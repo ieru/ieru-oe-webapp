@@ -157,4 +157,5 @@ return array(
 'save_changes'=>'Save changes',
 'retrieve_password'=>'Retrieve password',
 'retrieve_password_text'=>'Please click in the following link to request a new password for the site for your account.',
+'report_resource_as_inappropriate'=>'Report inappropriate resource',
 );

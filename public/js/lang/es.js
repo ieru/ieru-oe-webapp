@@ -1,139 +1,137 @@
-lang_file = {
-"resource_language":"Este recurso está en",
-"age_rage_context":"Rango de edad típico",
-"comments":"Comentarios",
-"keywords":"Palabras clave",
-"rate":"Valoración",
-"improve_translation":"Mejorar traducción",
-"more_info":"Más detalles",
-"extended_search":"Búsqueda avanzada",
-"all_words":"Todas las palabras",
-"exact_phrase":"Frase exacta",
-"filter_resource_language":"Idioma del recurso",
-"filter_order":"Orden",
-"filter_educational_level":"Nivel educativo",
-"filter_resource_type":"Tipo de recurso",
-"any":"Cualquiera",
-"ar":"Arabic",
-"de":"Alemán",
-"el":"Griego",
-"en":"Inglés",
-"es":"Español",
-"et":"Estonio",
-"hu":"Húngaro",
-"no":"Noruego",
-"ro":"Rumano",
-"ru":"Ruso",
-"fr":"Francés",
-"hi":"Hindi",
-"it":"Italiano",
-"lv":"Letón",
-"pl":"Polaco",
-"pt":"Portugués",
-"tr":"Turco",
-"da":"Danés",
-"fi":"Finés",
-"sv":"Sueco",
-"nl":"Holandés",
-"hin":"Hindi",
-"kan":"Canarés",
-"cn":"Chinese",
-"ori":"Oriya",
-"sl":"Slovenian",
-"german":"Alemán",
-"greek":"Griego",
-"english":"Inglés",
-"spanish":"Español",
-"estonian":"Estonio",
-"hungarian":"Húngaro",
-"norwegian":"Noruego",
-"romanian":"Rumano",
-"russian":"Ruso",
-"french":"Francés",
-"hindi":"Hindú",
-"italian":"Italiano",
-"latvian":"Letón",
-"polish":"Polaco",
-"portuguese":"Portugués",
-"turkish":"Turco",
-"no_history_yet":"No hay historial.",
-"no_reviewing_history_yet":"No hay historial de revisiones.",
-"no_tags":"No hay etiquetas.",
-"results_per_page":"Resultados por página",
-"remove_filters":"eliminar filtros",
-"you_are_searching_for":"Estás buscando ",
-"results":"Resultados",
-"of":"de",
-"first":"Primera",
-"previous":"Anterior",
-"next":"Siguiente",
-"end":"Última",
-"back":"Volver",
-"access_to_the_resource":"Acceder al recurso",
-"view_metadata_details":"Ver metadatos",
-"typical_age_range_context":"Rango de edad típico",
-"language":"Idioma",
-"validated_by":"Validado por",
-"report_a_problem":"Informar de un problema",
-"rating":"Valoración",
-"reviews":"Crítica",
-"view_rating_history":"Ver historial de valoraciones",
-"view_reviewing_history":"Ver historial de críticas",
-"general":"General",
-"identifier":"Identificador",
-"catalog":"Catálogo",
-"entry":"Entrada",
-"coverage":"Cobertura",
-"structure":"Estructura",
-"votes":"votos",
-"user":"Usuario",
-"review":"Revisión",
-"reviewed":"Revisado",
-"home":"Inicio",
-"navigational_search":"Búsqueda navegacional",
-"featured_resource":"Recurso destacado",
-"latest_resources":"Últimos recursos",
-"search":"Buscar...",
-"reset_tree":"Reiniciar árbol",
-"loading_resource":"Cargando recurso, por favor espere...",
-"active_filters":"Filtros activos",
-"jquery_filter_educational":"Contexto educativo",
-"jquery_filter_language":"Idioma del recurso",
-"jquery_filter_format":"Formato",
-"jquery_filter_educational_role":"Audiencia",
-"jquery_filter_ontological_classification":"Colección",
-"register":"Registrarse",
-"submit":"Enviar",
-"logout":"Desconectar",
-"sign_in":"Conectarse",
-"register_a_new_user":"Registrar nuevo usuario",
-"username":"Nombre de usuario",
-"email":"Correo electrónico",
-"repeat_password":"Repetir contraseña",
-"password":"Contraseña",
-"welcome":"Bienvenido",
-"abstracts_language":"Idioma del resumen",
-"log_in_or_register_for_rating":"Inicia sesión o regístrate para calificar",
-"auto-translate":"Autotraducción",
-"filters":"Filtros",
-"none":"ninguno",
-"tags":"Etiquetas",
-"suggest_a_new_resource":"Sugerir un nuevo recurso",
-
-"educationalContext":"Contexto educativo",
-"technicalFormat":"Formato",
-"educationalRole":"Audiencia",
-"human":"Humano",
-"automatic":"Automático",
-"last":"Última",
-"log_in_or_register_for_improving_translation": "Inicia sesión o regístrate para mejorar la traducción",
-"wrong_username_or_password": "Nombre de usuario o contraseña incorrectos",
-"no_ratings_yet": "No se ha emitido ningún voto.",
-"empty_search_not_allowed": "Por favor, introduce un término de búsqueda",
-"translating": "Traducción en curso",
-"loading_resources":"Realizando búsqueda, por favor espere...",
-"character_not_allowed": "La búsqueda contiene un caracter no permitido",
-"apply_filters": "Añadir filtros",
-"collection":"Colección",
-"educationalLearningResourceType":"Tipo"
-}
+lang_file = {"resource_language":"Este recurso est\u00e1 en"
+,"age_rage_context":"Rango de edad t\u00edpico"
+,"comments":"Comentarios"
+,"keywords":"Palabras clave"
+,"rate":"Valoraci\u00f3n"
+,"improve_translation":"Mejorar traducci\u00f3n"
+,"more_info":"M\u00e1s detalles"
+,"extended_search":"B\u00fasqueda avanzada"
+,"all_words":"Todas las palabras"
+,"exact_phrase":"Frase exacta"
+,"filter_resource_language":"Idioma del recurso"
+,"filter_order":"Orden"
+,"filter_educational_level":"Nivel educativo"
+,"filter_resource_type":"Tipo de recurso"
+,"any":"Cualquiera"
+,"ar":"Arabic"
+,"de":"Alem\u00e1n"
+,"el":"Griego"
+,"en":"Ingl\u00e9s"
+,"es":"Espa\u00f1ol"
+,"et":"Estonio"
+,"hu":"H\u00fangaro"
+,"no":"Noruego"
+,"ro":"Rumano"
+,"ru":"Ruso"
+,"fr":"Franc\u00e9s"
+,"hi":"Hindi"
+,"it":"Italiano"
+,"lv":"Let\u00f3n"
+,"pl":"Polaco"
+,"pt":"Portugu\u00e9s"
+,"tr":"Turco"
+,"da":"Dan\u00e9s"
+,"fi":"Fin\u00e9s"
+,"sv":"Sueco"
+,"nl":"Holand\u00e9s"
+,"hin":"Hindi"
+,"kan":"Canar\u00e9s"
+,"cn":"Chinese"
+,"ori":"Oriya"
+,"sl":"Slovenian"
+,"german":"Alem\u00e1n"
+,"greek":"Griego"
+,"english":"Ingl\u00e9s"
+,"spanish":"Espa\u00f1ol"
+,"estonian":"Estonio"
+,"hungarian":"H\u00fangaro"
+,"norwegian":"Noruego"
+,"romanian":"Rumano"
+,"russian":"Ruso"
+,"french":"Franc\u00e9s"
+,"hindi":"Hind\u00fa"
+,"italian":"Italiano"
+,"latvian":"Let\u00f3n"
+,"polish":"Polaco"
+,"portuguese":"Portugu\u00e9s"
+,"turkish":"Turco"
+,"no_history_yet":"No hay historial."
+,"no_reviewing_history_yet":"No hay historial de revisiones."
+,"no_tags":"No hay etiquetas."
+,"results_per_page":"Resultados por p\u00e1gina"
+,"remove_filters":"eliminar filtros"
+,"you_are_searching_for":"Est\u00e1s buscando "
+,"results":"Resultados"
+,"of":"de"
+,"first":"Primera"
+,"previous":"Anterior"
+,"next":"Siguiente"
+,"end":"\u00daltima"
+,"back":"Volver"
+,"access_to_the_resource":"Acceder al recurso"
+,"view_metadata_details":"Ver metadatos"
+,"typical_age_range_context":"Rango de edad t\u00edpico"
+,"language":"Idioma"
+,"validated_by":"Validado por"
+,"report_a_problem":"Informar de un problema"
+,"rating":"Valoraci\u00f3n"
+,"reviews":"Cr\u00edtica"
+,"view_rating_history":"Ver historial de valoraciones"
+,"view_reviewing_history":"Ver historial de cr\u00edticas"
+,"general":"General"
+,"identifier":"Identificador"
+,"catalog":"Cat\u00e1logo"
+,"entry":"Entrada"
+,"coverage":"Cobertura"
+,"structure":"Estructura"
+,"votes":"votos"
+,"user":"Usuario"
+,"review":"Revisi\u00f3n"
+,"reviewed":"Revisado"
+,"home":"Inicio"
+,"navigational_search":"B\u00fasqueda navegacional"
+,"featured_resource":"Recurso destacado"
+,"latest_resources":"\u00daltimos recursos"
+,"search":"Buscar..."
+,"reset_tree":"Reiniciar \u00e1rbol"
+,"loading_resource":"Cargando recurso, por favor espere..."
+,"active_filters":"Filtros activos"
+,"jquery_filter_educational":"Contexto educativo"
+,"jquery_filter_language":"Idioma del recurso"
+,"jquery_filter_format":"Formato"
+,"jquery_filter_educational_role":"Audiencia"
+,"jquery_filter_ontological_classification":"Colecci\u00f3n"
+,"register":"Registrarse"
+,"submit":"Enviar"
+,"logout":"Desconectar"
+,"sign_in":"Conectarse"
+,"register_a_new_user":"Registrar nuevo usuario"
+,"username":"Nombre de usuario"
+,"email":"Correo electr\u00f3nico"
+,"repeat_password":"Repetir contrase\u00f1a"
+,"password":"Contrase\u00f1a"
+,"welcome":"Bienvenido"
+,"abstracts_language":"Idioma del resumen"
+,"log_in_or_register_for_rating":"Inicia sesi\u00f3n o reg\u00edstrate para calificar"
+,"auto-translate":"Autotraducci\u00f3n"
+,"filters":"Filtros"
+,"none":"ninguno"
+,"tags":"Etiquetas"
+,"suggest_a_new_resource":"Sugerir un nuevo recurso"
+,"educationalContext":"Contexto educativo"
+,"technicalFormat":"Formato"
+,"educationalRole":"Audiencia"
+,"human":"Humano"
+,"automatic":"Autom\u00e1tico"
+,"last":"\u00daltima"
+,"log_in_or_register_for_improving_translation":"Inicia sesi\u00f3n o reg\u00edstrate para mejorar la traducci\u00f3n"
+,"wrong_username_or_password":"Nombre de usuario o contrase\u00f1a incorrectos"
+,"no_ratings_yet":"No se ha emitido ning\u00fan voto."
+,"empty_search_not_allowed":"Por favor, introduce un t\u00e9rmino de b\u00fasqueda"
+,"translating":"Traducci\u00f3n en curso"
+,"loading_resources":"Realizando b\u00fasqueda, por favor espere..."
+,"character_not_allowed":"La b\u00fasqueda contiene un caracter no permitido"
+,"apply_filters":"A\u00f1adir filtros"
+,"collection":"Colecci\u00f3n"
+,"educationalLearningResourceType":"Tipo"
+,"inappropriate_resource":"Recurso inadecuado"}

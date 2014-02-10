@@ -151,4 +151,5 @@ return array(
 'save_changes'=>'Сохранить изменения',
 'retrieve_password'=>'Получить пароль',
 'retrieve_password_text'=>'Пожалуйста, нажмите на следующую ссылку, чтобы запросить новый пароль для сайта для вашей учетной записи.',
+'report_resource_as_inappropriate'=>'Доклад неуместно ресурс',
 );

@@ -151,4 +151,5 @@ return array(
 'save_changes'=>'حفظ التغييرات',
 'retrieve_password'=>'استرداد كلمة المرور',
 'retrieve_password_text'=>'الرجاء انقر فوق الارتباط التالي لطلب كلمة مرور جديدة للموقع للحساب الخاص بك.',
+'report_resource_as_inappropriate'=>'تقرير الموارد غير مناسب',
 );

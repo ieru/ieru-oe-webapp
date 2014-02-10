@@ -347,7 +347,7 @@
                             <div class="control-group">
                                 <label class="control-label"><?php echo Lang::get('website.name') ?></label>
                                 <div class="controls">
-                                    <input type="text" name="form-feedback-name">
+                                    <input type="text" name="form-feedback-name" id="form-feedback-name">
                                 </div>
                             </div>
                             <div class="control-group">
@@ -359,26 +359,27 @@
                             <div class="control-group">
                                 <label  class="control-label"><?php echo Lang::get('website.feedback_type') ?></label>
                                 <div>
-                                    <select name="form-feedback-type">
-                                        <option value="Bug"><?php echo Lang::get('website.bug') ?></option>
-                                        <option value="Feature request"><?php echo Lang::get('website.feature_request') ?></option>
-                                        <option value="General comment"><?php echo Lang::get('website.general_comment') ?></option>
+                                    <select id="form-feedback-type" name="form-feedback-type">
+                                        <option data-select="bug" value="Bug"><?php echo Lang::get('website.bug') ?></option>
+                                        <option data-select="feature" value="Feature request"><?php echo Lang::get('website.feature_request') ?></option>
+                                        <option data-select="comment" value="General comment"><?php echo Lang::get('website.general_comment') ?></option>
+                                        <option data-select="inappropriate" value="Inappropriate resource"><?php echo Lang::get('website.report_resource_as_inappropriate') ?></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label  class="control-label"><?php echo Lang::get('website.subject') ?></label>
                                 <div>
-                                    <input type="text" name="form-feedback-subject">
+                                    <input type="text" id="form-feedback-subject" name="form-feedback-subject">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label  class="control-label"><?php echo Lang::get('website.body') ?></label>
                                 <div>
-                                    <textarea name="form-feedback-body" rows="10"></textarea>
+                                    <textarea id="form-feedback-body" name="form-feedback-body" rows="10"></textarea>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group" style="margin-top: 20px; ">
                                 <div>
                                     <button type="submit" class="btn btn-default"><?php echo Lang::get('website.send_feedback') ?></button>
                                     <button type="reset" class="btn btn-default"><?php echo Lang::get('website.reset_form') ?></button>
@@ -728,6 +729,10 @@
                         <strong><?php echo Lang::get('website.collection') ?>:</strong>
                             <%= xml.split('/')[0] %>
                     </li>
+                    <li><hr/></li>
+                    <li>
+                        <a href="#/feedback/<%= id %>/inappropriate" class="label" style="font-size: 12px; "><?php echo Lang::get('website.report_resource_as_inappropriate') ?></a>
+                    </li>
                 </ul>
             </footer>
         </script>
@@ -794,6 +799,10 @@
                         <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong> 
                     </li>
                     <% } %>
+                    <li><hr/></li>
+                    <li>
+                        <a href="#/feedback/<%= id %>/inappropriate" class="label" style="font-size: 12px; "><?php echo Lang::get('website.report_resource_as_inappropriate') ?></a>
+                    </li>
                 </ul>
             </footer>
         </script>

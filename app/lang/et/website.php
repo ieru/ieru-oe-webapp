@@ -151,4 +151,5 @@ return array(
 'save_changes'=>'Salvesta muudatused',
 'retrieve_password'=>'Too parooli',
 'retrieve_password_text'=>'Palun klõpsake järgmist linki Unustasid salasõna oma kontole saidi.',
+'report_resource_as_inappropriate'=>'Aruande sobimatud ressursi',
 );

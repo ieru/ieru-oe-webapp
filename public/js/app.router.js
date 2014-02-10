@@ -23,6 +23,7 @@ App.Router = Backbone.Router.extend({
 		'about':                      'about',
 
 		'feedback':                   'feedback',
+		'feedback/:id/:type':         'feedback',
 
 		'suggest':                    'suggest',
 
@@ -131,10 +132,18 @@ App.Router = Backbone.Router.extend({
 		ganalytics();
 	},
 
-	feedback: function(){
+	feedback: function(id, type){
 		show_view( 'page-feedback' );
 
 		vent.trigger('cancel:ajaxs');
+		$('#form-feedback-name').focus();
+
+		if ( id )
+		{
+			$('#form-feedback-type option[data-select='+type+']').prop('selected', true);
+			$('#form-feedback-body').val("\n\nURL: http://organic-edunet.eu/en/#/resource/"+id);
+			$('#form-feedback-subject').val(lang('inappropriate_resource'));
+		}
 
 		ganalytics();
 	},

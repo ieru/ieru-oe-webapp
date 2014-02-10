@@ -151,4 +151,5 @@ return array(
 'save_changes'=>'Enregistrer les modifications',
 'retrieve_password'=>'Récupérer mot de passe',
 'retrieve_password_text'=>'Cliquer dans le lien ci-dessous pour demander un nouveau mot de passe pour le site pour votre compte.',
+'report_resource_as_inappropriate'=>'Rapport ressources inappropriés',
 );

@@ -149,4 +149,5 @@ return array(
 'save_changes'=>'Speichern Sie die Änderungen',
 'retrieve_password'=>'Passwort abrufen',
 'retrieve_password_text'=>'Klicken Sie auf den folgenden Link um ein neues Passwort für die Website für Ihr Konto anfordern.',
+'report_resource_as_inappropriate'=>'Bericht unangemessen Ressource',
 );
