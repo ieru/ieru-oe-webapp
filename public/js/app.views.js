@@ -523,7 +523,7 @@ console.log( this.model.get('hash'));
 
         render: function(){
             this.$el.html( this.template( this.model.toJSON() ) );
-            
+
             // Add Ratings
             var grnet = this.$el.find('.grnet-rating');
             grnet.append('<img src="/images/ajax-loader.gif" />');
@@ -593,9 +593,9 @@ console.log( this.model.get('hash'));
                                 this.ajaxKeywords.done(function(response){
                                     texts[to].keywords = response.data.translation.split(',');
                                     box.render();
-                                }); 
+                                });
                             }
-                        }); 
+                        });
                     // Translate keywords
                     }else if ( !!texts[from].keywords ){
                         var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
@@ -603,7 +603,7 @@ console.log( this.model.get('hash'));
                         this.ajaxKeywords.done(function(response){
                             texts[to].keywords = response.data.translation.split(',');
                             box.render();
-                        }); 
+                        });
                     }
                 });
             }
@@ -614,8 +614,8 @@ console.log( this.model.get('hash'));
 
             if ( Box.get('searchText') != '' ){
                 var filterModel = new App.Models.Filter({
-                    clave:  'keyword', 
-                    valor:  $(e.currentTarget).attr('href').split('/')[3], 
+                    clave:  'keyword',
+                    valor:  $(e.currentTarget).attr('href').split('/')[3],
                     indice: Box.get('filters').length
                 });
                 filtersBarView.collection.add(filterModel);
@@ -738,7 +738,7 @@ App.Views.Facets = Backbone.View.extend({
                     var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
 
                     Box.set('page',1);
-                    
+
                     // Try to add the filter
                     for ( var i in filtersBarView.collection.models )
                         if ( filtersBarView.collection.models[i].get('valor') == filter )
@@ -925,7 +925,7 @@ App.Views.DoSearch = Backbone.View.extend({
             jsonpCallback: 'jsonCallback',
             contentType: "application/json",
             dataType: 'jsonp',
-            success: function(data) 
+            success: function(data)
             {
                 if ( !!data ){
 
@@ -980,7 +980,7 @@ App.Views.DoSearch = Backbone.View.extend({
                     });
                 }
             }
-        });        
+        });
     },
 
     submit: function(e){
@@ -1055,7 +1055,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Generate response
         this.ajax.then(function(response){
-            
+
             if ( get_section() != 'search' )
                 return;
 
@@ -1219,9 +1219,9 @@ App.Views.FullResource = Backbone.View.extend({
                             this.ajaxKeywords.done(function(response){
                                 texts[to].keywords = response.data.translation.split(',');
                                 box.render();
-                            }); 
+                            });
                         }
-                    }); 
+                    });
                 // Translate keywords
                 }else if ( !!texts[from].keywords ){
                     var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
@@ -1229,7 +1229,7 @@ App.Views.FullResource = Backbone.View.extend({
                     this.ajaxKeywords.done(function(response){
                         texts[to].keywords = response.data.translation.split(',');
                         box.render();
-                    }); 
+                    });
                 }
             });
         }
@@ -1237,7 +1237,7 @@ App.Views.FullResource = Backbone.View.extend({
 
     render: function(){
         this.$el.html( this.template( this.model.toJSON() ) );
-        
+
         // Add resource ratings
         var grnet = this.$el.find('.grnet-rating');
         grnet.append('<img src="/images/ajax-loader.gif" />');
@@ -1264,7 +1264,7 @@ App.Views.ChangeSettings = Backbone.View.extend({
 
     events: {
         'click button[type=submit]': 'savechanges',
-    },    
+    },
 
     savechanges: function (e){
         e.preventDefault();

@@ -13,12 +13,17 @@
 
         <!-- iOS web app configuration -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent" /> 
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent" />
         <link rel="apple-touch-icon" href="/images/ios-icon.png"/>
         <!--<link rel="apple-touch-startup-image" href="img/splash.png" />-->
+
+		<link rel="stylesheet" href="/js/redpanda_slider/style/style.css" />
+
+        <script src="/js/redpanda_slider/js/modernizr-1.7.min.js"></script>
+
     </head>
 
-    <body>
+    <body onload="ayaSlider()" onunload="unloadFunc()">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -82,7 +87,7 @@
                                         <div class="onoffswitch-inner"></div>
                                         <div class="onoffswitch-switch"></div>
                                     </label>
-                                </div> 
+                                </div>
                             </div>
                             <div style="float: right; padding-top: 9px; color: #eee; "><?php echo Lang::get('website.auto-translate'); ?></div>
                         </li>
@@ -116,7 +121,7 @@
                         <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px; "><?php echo Lang::get('website.website_motto') ?></small>
                     </h1>
                 </a>
-                <form id="search-form" action="" class="pull-right">
+                <form id="search-form" method="POST" action="" class="pull-right">
                     <div id="search-form-div">
                         <div class="input-group">
                             <input id="form-search" autocomplete="off" type="text" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
@@ -179,6 +184,7 @@
                 <div class="container">
                     <div id="carousel-example-generic" class="carousel slide">
                     </div>
+
                 </div>
             </div>
 
@@ -202,10 +208,10 @@
         <div id="page-section">
 
             <!-- Banner section -->
-            <div id="home-banner">
+            <div id="home-banner" class="hidden-sm">
                 <div class="container">
-                    <div id="carousel-example-generic" class="carousel slide">
-                    </div>
+                	<!--<div id="carousel-example-generic" class="carousel slide">
+                    </div>-->
                 </div>
             </div>
 
@@ -233,9 +239,9 @@
                         </aside>
                         <div id="app-content-info" class="col col-lg-9">
                             <div class="jquery-results-bar pull-left">
-                                <?php echo Lang::get('website.results') ?> 
+                                <?php echo Lang::get('website.results') ?>
                                 <span id="jquery-results-first">1</span> -
-                                <span id="jquery-results-last">10</span> <?php echo Lang::get('website.of') ?> 
+                                <span id="jquery-results-last">10</span> <?php echo Lang::get('website.of') ?>
                                 <span id="jquery-results-total">983</span>
                             </div>
                             <div class="search-results-per-page pull-right">
@@ -632,7 +638,7 @@
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> 
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong>
                         <% if ( typeof age_range != 'undefined' ) { for ( var i in age_range ) { %>
                             <%= age_range[i] %>
                         <% } } else { %><%= lang('none') %><% } %>
@@ -640,7 +646,7 @@
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
-                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
+                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong>
                         <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords.length > 0 ){ %>
                             <% for ( var i in texts[metadata_language].keywords ){ %>
                             <%= texts[metadata_language].keywords[i] %>,
@@ -661,7 +667,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                 <% for ( var i in texts ){ %>
-                                    <li class="<%= texts[i].type_class %> list-unstyled"> 
+                                    <li class="<%= texts[i].type_class %> list-unstyled">
                                         <a class="lang-select-<%= texts[i].lang %>" href="#">
                                             <span class="glyphicon glyphicon-user"></span>
                                             <%= lang(i) %> (<%= lang(texts[i].type) %>)
@@ -675,7 +681,7 @@
                     </li>
                     <% if ( texts[metadata_language].type != 'human' ) { %>
                     <li class="translation-rating">
-                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong> 
+                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong>
                     </li>
                     <% } %>
                     <li><hr/></li>
@@ -749,19 +755,23 @@
             <% } %>
                 </small>
             </header>
-                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %>...</span> <a class="label label-primary moreinfo" href="/<?php echo LANG ?>/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %>...</span> <a class="label label-primary moreinfo" href="/<?php echo LANG ?>/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a>
+
+                <!-- agroknow mathiou -->
+                <a class="label label-primary moreinfo" href="/<?php echo LANG ?>/#/translation_comp/<%= id %>"> COMPARE TRANSLATIONS</a>
+                <!-- /agroknow mathiou --> </p>
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> 
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong>
                         <% if ( typeof age_range != 'undefined' ) { for ( var i in age_range ) { %>
-                            <%= age_range[i] %>  
+                            <%= age_range[i] %>
                         <% } } else { %><%= lang('none') %><% } %>
                     </li>
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
-                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
+                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong>
                         <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords.length > 0 ){ %>
                             <% for ( var i in texts[metadata_language].keywords ){ %>
                             <a class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></a>
@@ -782,7 +792,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                 <% for ( var i in texts ){ %>
-                                    <li class="<%= texts[i].type_class %> list-unstyled"> 
+                                    <li class="<%= texts[i].type_class %> list-unstyled">
                                         <a class="lang-select-<%= texts[i].lang %>" href="#">
                                             <span class="glyphicon glyphicon-user"></span>
                                             <%= lang(i) %> (<%= lang(texts[i].type) %>)
@@ -796,7 +806,7 @@
                     </li>
                     <% if ( texts[metadata_language].type != 'human' ) { %>
                     <li class="translation-rating">
-                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong> 
+                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong>
                     </li>
                     <% } %>
                     <li><hr/></li>
@@ -897,27 +907,212 @@
 
         </script>
 
+
+		<!--SLIDER-->
         <script id="section-carousel" type="text/template">
-            <ol class="carousel-indicators">
-            <% for ( var i in carousel ) { %>
-                <li data-target="#carousel-example-generic" data-slide-to="<%=i%>" <% if ( i==0 ) { %>class="active"<% } %>></li>
-            <% } %>
-            </ol>
+           <!--
+					 <ol class="carousel-indicators">
+						            <% for ( var i in carousel ) { %>
+						                <li data-target="#carousel-example-generic" data-slide-to="<%=i%>" <% if ( i==0 ) { %>class="active"<% } %>></li>
+						            <% } %>
+					            </ol>
 
-            <div class="carousel-inner">
-            <% for ( var i in carousel ) { %>
-                <div class="item <% if ( i==0 ) { %>active<% } %>">
-                    <a href="<%=carousel[i].link%>">
-                        <img src="<%=carousel[i].image%>" alt="<%=carousel[i].alt%>">
-                    </a>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            <% } %>
-            </div>
+					            <div class="carousel-inner">
+					            <% for ( var i in carousel ) { %>
+					                <div class="item <% if ( i==0 ) { %>active<% } %>">
+					                    <a href="<%=carousel[i].link%>">
+					                        <img src="<%=carousel[i].image%>" alt="<%=carousel[i].alt%>">
+					                    </a>
+					                    <div class="carousel-caption">
+					                    </div>
+					                </div>
+					            <% } %>
+					            </div>
 
-            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
-            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+					            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
+					            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+					-->
+
+<!-- RED PANDA SLIDER -->
+			<section id="slideshow-wrapper">
+					<h2>Our Tools</h2>
+
+					<section id="slideshow-inner">
+						<a href="#" id="prev">prev</a>
+						<a href="#" id="next">next</a>
+
+						<section id="slideshow"  style="visibility: hidden;" >
+
+							<!-- SLIDE 1 -->
+							<div id="slide1" data-in="left:960;ease:linear;duration:400;delay:50" data-out="left:-1000;ease:linear;delay:7000">
+							<img
+							     id="search-layer"
+							     src="/js/redpanda_slider/slideshow/slide1/search-layer.jpg"
+							     data-in="opacity:0;left:100;delay:400;duration:1000;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="lens"
+							     src="/js/redpanda_slider/slideshow/slide1/lens.png"
+							     data-in="opacity:0;delay:1800;duration:1000;"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no1"
+							     src="/js/redpanda_slider/slideshow/slide1/no1.png"
+							     data-in="opacity:0;left:200;delay:2400;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no2"
+							     src="/js/redpanda_slider/slideshow/slide1/no2.png"
+							     data-in="opacity:0;left:250;delay:2550;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no3"
+							     src="/js/redpanda_slider/slideshow/slide1/no3.png"
+							     data-in="opacity:0;left:200;delay:2700;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no4"
+							     src="/js/redpanda_slider/slideshow/slide1/no4.png"
+							     data-in="opacity:0;left:250;delay:2850;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no5"
+							     src="/js/redpanda_slider/slideshow/slide1/no5.png"
+							     data-in="opacity:0;left:200;delay:3000;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<i
+							   id="no1i"
+							   data-in="opacity:0;delay:2900;duration:450;"
+							   data-out="delay:7000;"
+							>1</i>
+							<i
+							   id="no2i"
+							   data-in="opacity:0;delay:3050;duration:450;"
+							   data-out="delay:7000;"
+							>2</i>
+							<i
+							   id="no3i"
+							   data-in="opacity:0;delay:3200;duration:450;"
+							   data-out="delay:7000;"
+							>3</i>
+							<i
+							   id="no4i"
+							   data-in="opacity:0;delay:3350;duration:450;"
+							   data-out="delay:7000;"
+							>4</i>
+							<i
+							   id="no5i"
+							   data-in="opacity:0;delay:3500;duration:450;"
+							   data-out="delay:7000;"
+							>5</i>
+							<h3 data-in="left:-50px;opacity:0;duration:200;delay:3500;ease:linear" data-out="delay:7000;" >Multilingual content discovery</h3>
+							<p data-in="left:-50px;opacity:0;duration:200;delay:3600;ease:linear" data-out="delay:7000;">You can easily search using your native language and discover educational resources in languages other than the language of your search</p>
+
+						</div>
+
+							<!-- SLIDE 2 -->
+							<div id="slide2" data-in="left:960;ease:linear;duration:400;delay:50" data-out="left:-1000;ease:linear;delay:10000">
+							<img
+							     id="tags-layer"
+							     src="/js/redpanda_slider/slideshow/slide2/s1.png"
+							     data-in="opacity:0;left:100;delay:400;duration:1000;ease:linear"
+							     data-out="left:-100;opacity:0;delay:10000;"
+							/>
+							<img
+							     id="org-2"
+							     src="/js/redpanda_slider/slideshow/slide2/s2.png"
+							     data-in="opacity:0;delay:1800;duration:1000;"
+							     data-out="opacity:0;delay:10000;"
+							/>
+							<img
+							     id="org-3"
+							     src="/js/redpanda_slider/slideshow/slide2/s3.png"
+							     data-in="opacity:0;delay:2800;duration:1000;"
+							     data-out="opacity:0;delay:10000;"
+							/>
+							<img
+							     id="org-4"
+							     src="/js/redpanda_slider/slideshow/slide2/s4.png"
+							     data-in="opacity:0;delay:3800;duration:1000;"
+							     data-out="opacity:0;delay:10000;"
+							/>
+							<img
+							     id="org-5"
+							     src="/js/redpanda_slider/slideshow/slide2/s5.png"
+							     data-in="opacity:0;left:-100;delay:4800;duration:500;"
+							     data-out="opacity:0;delay:10000;"
+							/>
+							<h3 data-in="left:-50px;opacity:0;duration:200;delay:5800;ease:linear" data-out="delay:10000;" >Domain powered content discovery</h3>
+							<p data-in="left:-50px;opacity:0;duration:200;delay:6000;ease:linear" data-out="delay:10000;">Content discovery in Organic.Edunet portal is facilitated by a domain specific model developed by a network of experts in Organic Agrculture and Agro-ecology.</p>
+						</div>
+
+							<!-- SLIDE 3 -->
+							<div id="slide3" data-in="left:960;ease:linear;duration:400;delay:50" data-out="left:-1000;ease:linear;delay:7000">
+							<img
+							     id="s3s2"
+							     src="/js/redpanda_slider/slideshow/slide3/s2.png"
+							     data-in="opacity:0;left:-100;delay:400;duration:1000;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							/>
+							<img
+							     id="s3s3"
+							     src="/js/redpanda_slider/slideshow/slide3/s3.png"
+							     data-in="opacity:0;top:100;delay:400;duration:1000;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							/>
+							<img
+							     id="s3s1"
+							     src="/js/redpanda_slider/slideshow/slide3/s1.png"
+							     data-in="opacity:0;left:-100;delay:2600;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="s3s4"
+							     src="/js/redpanda_slider/slideshow/slide3/s4.png"
+							     data-in="opacity:0;delay:1600;duration:1000;"
+							     data-out="opacity:0;delay:7000;"
+							/>
+							<h3 data-in="left:-50px;opacity:0;duration:200;delay:3100;ease:linear" data-out="delay:7000000;" >Evaluate and improve automatic translations</h3>
+							<p data-in="left:-50px;opacity:0;duration:200;delay:3200;ease:linear" data-out="delay:7000000;">You can help us to improve the quality of the translations by evaluating and proposing corrections for automatic translations</p>
+
+						</div>
+
+							<!-- SLIDE 4 -->
+							<div id="slide4" data-in="left:960;ease:linear;duration:400;delay:50" data-out="left:-1000;ease:linear;delay:7000">
+							<h3 data-in="left:-100px;opacity:0;duration:1000;delay:400;ease:linear" data-out="delay:7000;" >Suggest learning resources</h3>
+							<p data-in="left:100px;opacity:0;duration:1000;delay:500;ease:linear" data-out="delay:7000;">Suggest learning resources to the Organic.Edunet network by following a simple three step procedure</p>
+							<img
+							     id="s4s1"
+							     src="/js/redpanda_slider/slideshow/slide4/s1.png"
+							     data-in="left:960px;opacity:0;duration:1000;delay:1800;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							/>
+							<img
+							     id="s4s2"
+							     src="/js/redpanda_slider/slideshow/slide4/s2.png"
+							     data-in="left:960px;opacity:0;duration:1000;delay:2800;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							/>
+							<img
+							     id="s4s3"
+							     src="/js/redpanda_slider/slideshow/slide4/s3.png"
+							     data-in="left:960px;opacity:0;duration:1000;delay:3800;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							/>
+
+						</div>
+
+						</section>
+					</section>
+				</section>
+
         </script>
 
         <script id="sections-categories" type="text/template">
@@ -926,7 +1121,7 @@
             </div>
             <ul class="list-unstyled list-inline clearfix" style="margin-top: 25px; ">
             <% for ( var i in sections ) { %>
-                <li class="col col-lg-2 section-image-hover">
+                <li class="col col-lg-4 section-image-hover">
                     <a class="school" href="<%=sections[i].link%>">
                         <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>" />
                         <%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>
@@ -953,6 +1148,8 @@
         </script>
 
         <!-- App javaScript files -->
+
+
         <script src="/js/app.min.js?date=<?php echo VERSION?>"></script>
         <script src="/js/lang/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
         <script src="/js/lang/error/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
@@ -985,7 +1182,7 @@
                 return false;
             })
 
-            // 
+            //
             $('#search-form input[type=checkbox], #search-form label').bind('click', function (e) { e.stopPropagation() })
         </script>
 
@@ -1009,7 +1206,7 @@
                     }else{
                         //TRANSLATE
                         x.setAttribute("sourceLanguage", 'en');
-                        x.setAttribute("targetLanguage", $('html').attr('lang')); 
+                        x.setAttribute("targetLanguage", $('html').attr('lang'));
                     }
                     x.setAttribute('Name', '<?php echo $_user->user_username ?>');
                     x.setAttribute('Username', '<?php echo $_user->user_username ?>');
@@ -1023,7 +1220,7 @@
                     alert(e.getMessage());
                 }
             })
-            
+
             // View own resources
             $('html').on('click', '.ugc-widget-own', function(event){
                 javascript:(function() {
@@ -1055,6 +1252,22 @@
             });
         <?php endif; ?>
         </script>
+
+
+        	<!-- RED PANDA SLIDER -->
+			<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+	        <script src="/js/redpanda_slider/js/ayaSlider.js"></script>
+			<script type="text/javascript">
+				function ayaSlider() {
+						$('#slideshow').ayaSlider({
+							previous : $('#prev'),
+							next : $('#next')
+						});
+						document.getElementById('slideshow').style.visibility="visible";
+				};
+			</script>
+			<!-- / RED PANDA SLIDER -->
 
     </body>
 </html>

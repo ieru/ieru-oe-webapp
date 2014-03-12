@@ -1,13 +1,13 @@
 <?php
-class AdminController extends BaseController 
+class AdminController extends BaseController
 {
     /**
      * @var layout controller
      */
     protected $layout = 'layouts.admin';
 
-    /** 
-     * @var Logged user information 
+    /**
+     * @var Logged user information
      */
     public static $_user = null;
 
@@ -41,12 +41,12 @@ class AdminController extends BaseController
         // Check if the user is trying to change the website language
         $route = explode( '/', $_SERVER['REQUEST_URI'] );
         if ( !isset( $route[1] ) OR $route[1] == '' OR strlen( $route[1] ) != 2 )
-            header( 'Location: /en' );           
+            header( 'Location: /en' );
 
         // Define language as constant and change locale
         define( 'LANG', $route[1] );
         App::setLocale(LANG);
-        
+
         // Get user data
         if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] )
         {
@@ -99,7 +99,7 @@ class AdminController extends BaseController
                 }
             }
         }
-        
+
         // Write the file
         if ( $fp = fopen( $file, 'w+' ) )
         {
@@ -412,13 +412,13 @@ class AdminController extends BaseController
     }
 
     /**
-     * Connects with the remote services. Sets a timeout for connecting the 
+     * Connects with the remote services. Sets a timeout for connecting the
      * service and a timeout for receiving the data.
      *
      * @param   String  $url        The url to retrieve, it must return a json.
      * @return  String  json returned by remote service
      */
-    private function & _curl_get_data ( $url ) 
+    private function & _curl_get_data ( $url )
     {
         $ch = curl_init();
         curl_setopt( $ch, CURLOPT_URL, $url );
@@ -460,7 +460,7 @@ class AdminController extends BaseController
     {
         if ( !static::$_user->check_permission( PERMISSION_ACCESS_AGINFRA_DATA ) )
             die( '403 Unauthorized Access' );
-        
+
         $this->layout->content = View::make('admin.termtrends');
     }
 

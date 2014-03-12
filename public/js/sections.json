@@ -9,8 +9,8 @@
                     "en":"School",
                     "es":"Escuela"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s0h.png",
+                "image":   "../images/landing_pages_icons/school/open_class.png",
+                "imageh":  "../images/landing_pages_icons/school/open_class_h.png",
                 "link":    "#/section/school"
             },
             {
@@ -19,8 +19,8 @@
                     "en":"University & Research",
                     "es":"Académico"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s1h.png",
+                "image":   "../images/landing_pages_icons/university/school.png",
+                "imageh":  "../images/landing_pages_icons/university/school_h.png",
                 "link":    "#/section/academic"
             },
             {
@@ -29,8 +29,8 @@
                     "en":"Professional & Business",
                     "es":"Profesional"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s2.png",
+                "image":   "../images/landing_pages_icons/professional/job_profile.png",
+                "imageh":  "../images/landing_pages_icons/professional/job_profile_h.png",
                 "link":    "#/section/professional"
             },
             {
@@ -39,20 +39,21 @@
                     "en":"General Public",
                     "es":"Público General"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
+                "image":   "../images/landing_pages_icons/public/plants.png",
+                "imageh":  "../images/landing_pages_icons/public/plants_h.png",
                 "link":    "#/section/generalpublic"
             },
             {
                 "section":
                 {
                     "en":"Do It Yourself",
-                    "es":"Hazlo tú mismo"
+                    "es":"Do It Yourself"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
+                "image":   "../images/landing_pages_icons/diy/composting.png",
+                "imageh":  "../images/landing_pages_icons/diy/composting_h.png",
                 "link":    "#/section/doityourself"
             }
+
         ],
         "carousel":
         [

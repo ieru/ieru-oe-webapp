@@ -28,6 +28,10 @@ App.Router = Backbone.Router.extend({
 		'suggest':                    'suggest',
 
 		'privacy': 					  'privacy',
+
+		/* agroknow - mathiou */
+		'translation_comp/:id' :	'translation_comp'
+
 	},
 
 	index: function(){
@@ -57,9 +61,10 @@ App.Router = Backbone.Router.extend({
 		show_view( 'page-app' );
 	},
 
-	search: function(text){
+	search: function( text ) {
 		//$('#header form').submit();
 		Router.navigate('#/search/'+text+'/1');
+
 	},
 
 	search_page: function(text,page,filters){
@@ -71,11 +76,18 @@ App.Router = Backbone.Router.extend({
 		ganalytics();
 	},
 
+	/* agroknow - mathiou */
+	translation_comp: function(id) {
+		show_view( 'page-resource' );
+
+		var resource = new App.Views.FullResource({ model: new App.Models.FullResource({id:id}) });
+		ganalytics();
+	},
+
 	resource: function(id){
 		show_view( 'page-resource' );
 
 		var resource = new App.Views.FullResource({ model: new App.Models.FullResource({id:id}) });
-
 		ganalytics();
 	},
 
@@ -172,5 +184,6 @@ App.Router = Backbone.Router.extend({
 		var register = new App.Views.Register.AcceptChange({model: new App.Models.Register.AcceptChange({hash:hash})});
 
 		ganalytics();
-	}
+	},
+
 })

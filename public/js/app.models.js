@@ -34,7 +34,6 @@ App.Models.Grnet.Rating = Backbone.Model.extend({
 	url: function() {
 		return this.urlRoot + '/' + this.id + '/rating';
 	},
-
 	fetch: function(){
 		return Backbone.Model.prototype.fetch.call(this, {});
 	},

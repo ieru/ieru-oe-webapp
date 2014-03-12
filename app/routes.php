@@ -18,6 +18,11 @@ Route::get( '/',        	function(){ return Redirect::to('/en/'); } );
 Route::get( '/{lang}',  	'HomeController@index' );
 Route::get( '/{lang}/', 	'HomeController@index' );
 
+/* mathiou */
+/* ADDED TO SOLVE THE ISSUE WITH POSTING THE SEARCH FORM ID WITH SEARCH */
+Route::post( '/{lang}',  	'HomeController@index' );
+Route::post( '/{lang}/', 	'HomeController@index' );
+
 /**
  * Admin zone router
  */
