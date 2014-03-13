@@ -25,7 +25,7 @@ try {
 	console.log("http://" + WIDGET_HOST + WIDGET_PATH + SOURCE)
 	x.setAttribute("RecommendationType", "user"); //or "resource" for resource recommendations
 	x.setAttribute("ViewType","ListLarge"); //ListLarge, ListSmall, OverviewLarge, OverviewBubble
-	x.setAttribute("RecommendationIdentifier", "mdaliani"); //either resource or user id aionescu mdaliani
+	x.setAttribute("RecommendationIdentifier", $("#user-username").html()); //either resource or user id aionescu mdaliani
 	x.setAttribute("WidgetWidth", "710");
 	x.setAttribute("WidgetHeight", "710");
 	x.setAttribute("NumRecommendations", 100);

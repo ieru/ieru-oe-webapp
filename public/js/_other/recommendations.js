@@ -8,7 +8,7 @@ try {
     var x = document.createElement("SCRIPT");
     x.type = "text/javascript";
     x.src = "http://" + WIDGET_HOST + WIDGET_PATH + "LoadListVIZ_alternate.js?ranum=" + item_id;
-    x.setAttribute("RecommendationType", "user"); //"user" for user recommendations
+    x.setAttribute("RecommendationType", "resource"); //"user" for user recommendations
     x.setAttribute("ViewType","ListSmall"); //ListLarge or ListSmall - purely informational
     x.setAttribute("NumRecommendations", 5); //how many recommendations are shown
     x.setAttribute("RecommendationIdentifier", item_id); //either resource or user id
