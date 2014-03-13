@@ -15,6 +15,7 @@ try {
     x.setAttribute("WidgetWidth", "100%");
     x.setAttribute("WidgetHeight", "100%");
     x.setAttribute("Language", $('html').attr('lang'));
+    x.setAttribute("uiLanguage", $('html').attr('lang'));
     x.setAttribute("ShowTop", "false"); //set to "true" or "false" to show title, search box, and sort options
     x.setAttribute("WidgetTitle", ""); //empty if no title
     x.setAttribute('id', 'ListWidget');
