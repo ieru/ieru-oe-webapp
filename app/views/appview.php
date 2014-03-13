@@ -1017,6 +1017,7 @@
                     x.setAttribute('Operation', action);
                     x.setAttribute('id', 'LOMWidget');
                     x.setAttribute("LOMID", $(this).attr('data-id'));
+                    x.setAttribute("uiLanguage", $('html').attr('lang'));
                     x.setAttribute("LOMLocation", 'http://organic-edunet.eu/xml/'+$(this).attr('data-location'));
                     document.getElementsByTagName("head")[0].appendChild(x);
                 }catch(e){
@@ -1039,6 +1040,7 @@
                         x.setAttribute('Operation', 'index');
                         x.setAttribute('id', 'LOMWidget');
                         x.setAttribute("Language", $('html').attr('lang'));
+                        x.setAttribute("uiLanguage", $('html').attr('lang'));
                         x.setAttribute('URL', window.location.href);
                         document.getElementsByTagName('head')[0].appendChild(x);
                     } catch (e) {}
