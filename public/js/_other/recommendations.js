@@ -8,13 +8,14 @@ try {
     var x = document.createElement("SCRIPT");
     x.type = "text/javascript";
     x.src = "http://" + WIDGET_HOST + WIDGET_PATH + "LoadListVIZ_alternate.js?ranum=" + item_id;
-    x.setAttribute("RecommendationType", "user"); //"user" for user recommendations
+    x.setAttribute("RecommendationType", "resource"); //"user" for user recommendations
     x.setAttribute("ViewType","ListSmall"); //ListLarge or ListSmall - purely informational
     x.setAttribute("NumRecommendations", 5); //how many recommendations are shown
     x.setAttribute("RecommendationIdentifier", item_id); //either resource or user id
     x.setAttribute("WidgetWidth", "100%");
     x.setAttribute("WidgetHeight", "100%");
     x.setAttribute("Language", $('html').attr('lang'));
+    x.setAttribute("uiLanguage", $('html').attr('lang'));
     x.setAttribute("ShowTop", "false"); //set to "true" or "false" to show title, search box, and sort options
     x.setAttribute("WidgetTitle", ""); //empty if no title
     x.setAttribute('id', 'ListWidget');

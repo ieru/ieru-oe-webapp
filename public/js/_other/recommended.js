@@ -25,12 +25,13 @@ try {
 	console.log("http://" + WIDGET_HOST + WIDGET_PATH + SOURCE)
 	x.setAttribute("RecommendationType", "user"); //or "resource" for resource recommendations
 	x.setAttribute("ViewType","ListLarge"); //ListLarge, ListSmall, OverviewLarge, OverviewBubble
-	x.setAttribute("RecommendationIdentifier", "mdaliani"); //either resource or user id aionescu mdaliani
+	x.setAttribute("RecommendationIdentifier", $("#user-username").html()); //either resource or user id aionescu mdaliani
 	x.setAttribute("WidgetWidth", "710");
 	x.setAttribute("WidgetHeight", "710");
 	x.setAttribute("NumRecommendations", 100);
 	x.setAttribute("ShowTop", "true");
 	x.setAttribute("Language", $('html').attr('lang'));
+	x.setAttribute("uiLanguage", $('html').attr('lang'));
 	x.setAttribute("WidgetTitle", "");
 	x.setAttribute('id', ID);
 	document.getElementsByTagName("head")[0].appendChild(x);

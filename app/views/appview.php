@@ -39,7 +39,7 @@
                     <ul id="user-zone" class="nav navbar-nav">
                     <?php if ( isset( $_COOKIE['usertoken'] ) AND $_COOKIE['usertoken'] <> '' AND @is_object( $_user ) ): ?>
                         <li role="menu" class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.welcome'); ?>, <?php echo  $_user->user_username ?> <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Lang::get('website.welcome'); ?>, <span id="user-username"><?php echo  $_user->user_username ?></span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li role="presentation"><a data-toggle="modal" href="#change-account"><span class="glyphicon glyphicon-wrench"></span> <?php echo Lang::get('website.change_account_details'); ?></a></li>
                                 <li role="presentation"><a data-toggle="modal" href="#suggest-modal"><span class="glyphicon glyphicon-leaf"></span> <?php echo Lang::get('website.suggest_a_new_resource'); ?></a></li>
@@ -1214,6 +1214,7 @@
                     x.setAttribute('Operation', action);
                     x.setAttribute('id', 'LOMWidget');
                     x.setAttribute("LOMID", $(this).attr('data-id'));
+                    x.setAttribute("uiLanguage", $('html').attr('lang'));
                     x.setAttribute("LOMLocation", 'http://organic-edunet.eu/xml/'+$(this).attr('data-location'));
                     document.getElementsByTagName("head")[0].appendChild(x);
                 }catch(e){
@@ -1236,6 +1237,7 @@
                         x.setAttribute('Operation', 'index');
                         x.setAttribute('id', 'LOMWidget');
                         x.setAttribute("Language", $('html').attr('lang'));
+                        x.setAttribute("uiLanguage", $('html').attr('lang'));
                         x.setAttribute('URL', window.location.href);
                         document.getElementsByTagName('head')[0].appendChild(x);
                     } catch (e) {}
