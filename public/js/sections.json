@@ -15,7 +15,7 @@
                     "it":"Scuola",
                     "lv":"Skola",
                     "tr":"Okul",
-                    "pl":"szkoła",
+                    "pl":"Szkoła",
                     "ar":"مدرسة",
                     "ru":"Школа"             
                 },
@@ -35,7 +35,7 @@
                     "it":"Università e Ricerca",
                     "lv":"Universitāte  & Pētniecība",
                     "tr":"Üniversite & Araştırma",
-                    "pl":"Uniwersytet i Badania",
+                    "pl":"Uniwersytet & Nauka",
                     "ar":"الجامعة والبحث العلمي",
                     "ru":"Университет и исследование"
 
@@ -77,7 +77,7 @@
                     "it":"Pubblico",
                     "lv":"Plašai sabiedrībi",
                     "tr":"Genel",
-                    "pl":"Ogółu Społeczeństwa",
+                    "pl":"Ogólny Publiczność",
                     "ar":"العموميات",
                     "ru":"Общедоступный"
                 },
@@ -136,7 +136,7 @@
                     "it":"Aula all'aperto",
                     "lv":"Brīva gaisotne klasē",
                     "tr":"Açık Hava Dersliği",
-                    "pl":"Powietrze w klasie otwartej",
+                    "pl":"Klasa otwarta",
                     "ar":"حصص دراسية في الهواء الطلق",
                     "ru":"Обучение на открытом воздухе"
                 },
@@ -156,7 +156,7 @@
                     "it":"Apprendimento basato su giochi",
                     "lv":"Uz spēli balstīta mācīšanās",
                     "tr":"Oyun-tabanlı Öğrenme",
-                    "pl":"Profesjonalne & Business",
+                    "pl":"Nauka podstawie gry",
                     "ar":"التعلم المعتمد على العاب متخصصة",
                     "ru":"Занимательное игровое обучение"
                 },
@@ -176,7 +176,7 @@
                     "it":"Rendi verde il tuo modulo didattico",
                     "lv":"Jūsu zaļais nodarbību plāns",
                     "tr":"Ders Planınızı Yeşertin",
-                    "pl":"Twój plan lekcji zielony",
+                    "pl":"Zielona edukacja",
                     "ar":"خطة دراسية صديقة للبيئة",
                     "ru":"Измените учебный план на „зелёный“"
                 },
@@ -219,7 +219,7 @@
                     "it":"Storie polari",
                     "lv":"Polārie stāsti",
                     "tr":"Polar Öyküler",
-                    "pl":"Polarne Stories",
+                    "pl":"Polarne opowiadania",
                     "ar":"اقصص حول القطب الجنوبي والشمالي",
                     "ru":"Полярные истории"
                 },
@@ -240,7 +240,7 @@
                     "it":"Insetti e piante",
                     "lv":"Kukaiņi un augi",
                     "tr":"Böcekler ve Bitkiler",
-                    "pl":"Owady i Rośliny",
+                    "pl":"Owady i rośliny",
                     "ar":"المهن والأعمال",
                     "ru":"Насекомые и растения"
                 },
@@ -260,7 +260,7 @@
                     "it":"Giardini scuola",
                     "lv":"Skolas dārzs",
                     "tr":"Okul Bahçeleri",
-                    "pl":"Szkoła Ogrody",
+                    "pl":"Szkolny ogród",
                     "ar":"احدائق مدرسيّة",
                     "ru":"Школьный сад"
                 },
@@ -343,7 +343,7 @@
                     "it":"Documentazione",
                     "lv":"Mācību materiāli",
                     "tr":"Eğitim Materyali",
-                    "pl":"Materiały Szkoleniowe",
+                    "pl":"Materiały szkoleniowe",
                     "ar":"مادة تدريبية",
                     "ru":"Учебный материал"
                 },
@@ -363,7 +363,7 @@
                     "it":"Standard alimentare",
                     "lv":"Pārtikas standarti",
                     "tr":"Gıda Standartları",
-                    "pl":"Standardowe Jedzenie",
+                    "pl":"Standardów Żywności",
                     "ar":"االمعايير الغذائية",
                     "ru":"Пищевые стандарты"
                 },
@@ -383,7 +383,7 @@
                     "it":"Certificazione e etichettatura",
                     "lv":"Sertifikācija un marķēšana",
                     "tr":"Sertifikasyon ve Etiketleme",
-                    "pl":"Certyfikacja i oznakowanie",
+                    "pl":"Certyfikacja i Oznakowanie",
                     "ar":"اعتماد المنتج والملصقات",
                     "ru":"Сертификация и маркировка"
                 },
@@ -403,7 +403,7 @@
                     "it":"Profili lavorativi",
                     "lv":"Darba apraksti",
                     "tr":"Meslek Profilleri",
-                    "pl":"Profile Zawodowe",
+                    "pl":"Profile zawodowe",
                     "ar":"اوصف وظيفي/توصيفات",
                     "ru":"Рабочие профили"
                 },
@@ -426,7 +426,7 @@
                     "it":"Zootecnica",
                     "lv":"Lopkopība",
                     "tr":"Hayvan Yetiştirme",
-                    "pl":"Hodowla Zwierząt",
+                    "pl":"Hodowla zwierząt",
                     "ar":"اتربية الحيوانات الداجنة",
                     "ru":"Содержание домашних животных"
                 },
@@ -466,7 +466,7 @@
                     "it":"Tecniche di coltivazione",
                     "lv":"Audzēšanas metodes",
                     "tr":"Ekim Teknikleri",
-                    "pl":"Techniki Uprawy",
+                    "pl":"Techniki uprawy",
                     "ar":"اتقنيات زراعية",
                     "ru":"Агротехника"
                 },
@@ -549,7 +549,7 @@
                     "it":"Efficienza energetica",
                     "lv":"Energoefektivitāte",
                     "tr":"Enerji Etkinliği",
-                    "pl":"Εfektywność Εnergetyczna",
+                    "pl":"Efektywność energetyczna",
                     "ar":"كفاءة استخدام الطاقة",
                     "ru":"Энергоэффективность"
                 },
@@ -612,7 +612,7 @@
                     "it":"Storie Slow Food",
                     "lv":"Laba un veselīgas pārtikas stāsti",
                     "tr":"Yavaş Yemek Öyküleri",
-                    "pl":"Slow food Historie",
+                    "pl":"Slow Food Historie",
                     "ar":"اقصص من حركة سلوفود الداعية لترك الأطعمة السريعة",
                     "ru":"Истории „о медленном питании“"
                 },
@@ -675,7 +675,7 @@
                     "it":"Coltivare funghi",
                     "lv":"Sēņu augšana",
                     "tr":"Mantar Yetiştiriciliği",
-                    "pl":"Rosną Grzyby",
+                    "pl":"Rosną pieczarki",
                     "ar":"زراعة وتنمية الفطر",
                     "ru":"Выращивание грибов"
                 },
@@ -695,7 +695,7 @@
                     "it":"Produzione casalinga di frutta",
                     "lv":"Mājas augļu ražošana",
                     "tr":"Evde Meyve Yetiştiriciliği",
-                    "pl":"Produkcja Owoców w Domu",
+                    "pl":"Produkcja owoców w domu",
                     "ar":"الانتاج المنزلي للفاكهة",
                     "ru":"Домашнее выращивание фруктов"
                 },
@@ -758,7 +758,7 @@
                     "it":"Compostaggio",
                     "lv":"Kompostrēšana",
                     "tr":"Kompostlama",
-                    "pl":"kompostowanie",
+                    "pl":"Kompostowanie",
                     "ar":"التسميد وصناعة الأسمدة",
                     "ru":"компостирование"
                 },
@@ -821,7 +821,7 @@
                     "it":"Corsi",
                     "lv":"Kursi",
                     "tr":"Dersler",
-                    "pl":"kursy",
+                    "pl":"Kursy",
                     "ar":"امقرر تعليمي/مساقات دراسية",
                     "ru":"Курсы"
                 },
@@ -841,7 +841,7 @@
                     "it":"Studi scientifici",
                     "lv":"Pētījumi",
                     "tr":"Araştırma Çalışmaları",
-                    "pl":"Badania Naukowe",
+                    "pl":"Studia Naukowe",
                     "ar":"المهن والأعمال",
                     "ru":"Исследование"
                 },
@@ -964,7 +964,7 @@
                     "it":"Gestione dei Rifiuti",
                     "lv":"Atkritumu apsaimniekošana",
                     "tr":"Atık Yönetimi",
-                    "pl":"Ζarządzanie odpadami",
+                    "pl":"Zarządzanie odpadami",
                     "ar":"اإدارة النفايات",
                     "ru":"Обработка отходов"
                 },
