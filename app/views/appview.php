@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?php echo LANG ?>">
     <head>
-        <?php define( 'VERSION', '0.2.14' );?>
+        <?php define( 'VERSION', '0.2.15' );?>
         <title>Organic.Edunet</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
