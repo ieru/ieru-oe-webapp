@@ -95,6 +95,7 @@ App.Views.Sections = Backbone.View.extend({
 
         render: function(){
             this.model.set('default_lang',Box.get('interface'));
+            this.model.set('content_width', 90/this.model.toJSON().sections.length);
             this.$el.html( this.template( this.model.toJSON() ) );
             return this;
         }
@@ -112,6 +113,7 @@ App.Views.Sections = Backbone.View.extend({
 
         render: function(){
             this.model.set('default_lang',Box.get('interface'));
+            this.model.set('content_width', 90/this.model.toJSON().sections.length);
             this.$el.html( this.template( this.model.toJSON() ) );
             return this;
         }
