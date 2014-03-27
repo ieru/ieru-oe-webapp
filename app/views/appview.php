@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?php echo LANG ?>">
     <head>
-        <?php define( 'VERSION', '0.2.15' );?>
+        <?php define( 'VERSION', '0.2.16' );?>
         <title>Organic.Edunet</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -924,9 +924,9 @@
             <div class="col col-lg-12">
                 <h2><?php echo Lang::get('website.featured_sections') ?></h2>
             </div>
-            <ul class="list-unstyled list-inline clearfix" style="margin-top: 25px; ">
+            <ul class="list-unstyled list-inline clearfix" style="margin-top: 25px; text-align: center; ">
             <% for ( var i in sections ) { %>
-                <li class="col col-lg-2 section-image-hover">
+                <li class="section-image-hover" style="width: <%=content_width%>%; margin: auto; vertical-align: top; ">
                     <a class="school" href="<%=sections[i].link%>">
                         <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>" />
                         <%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>
@@ -940,9 +940,9 @@
             <div class="col col-lg-12">
                 <h2><?php echo Lang::get('website.hot_themes') ?></h2>
             </div>
-            <ul class="list-unstyled list-inline">
+            <ul class="list-unstyled list-inline" style="text-align: center; ">
             <% for ( var i in sections ) { %>
-                <li class="col col-lg-2 section-image-hover">
+                <li class="section-image-hover" style="width: <%=content_width%>%; margin: auto; vertical-align: top; ">
                     <a class="school" href="<%=sections[i].link%>">
                         <img src="<%=sections[i].image%>" data-hover="<%=sections[i].imageh%>" data-leave="<%=sections[i].image%>" alt="<%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>" />
                         <%=sections[i].section[default_lang]?sections[i].section[default_lang]:sections[i].section.en%>
