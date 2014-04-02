@@ -16,7 +16,7 @@
                     "lv":"Skola",
                     "tr":"Okul",
                     "pl":"Szkoła",
-                    "ar":"مدرسة",
+                    "ar":"محتوى مدرسي",
                     "ru":"Школа"             
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s0.png",
@@ -36,7 +36,7 @@
                     "lv":"Universitāte  & Pētniecība",
                     "tr":"Üniversite & Araştırma",
                     "pl":"Uniwersytet & Nauka",
-                    "ar":"الجامعة والبحث العلمي",
+                    "ar":"امحتوى جامعي وأبحاث متميزة",
                     "ru":"Университет и исследование"
 
                 },
@@ -57,7 +57,7 @@
                     "lv":"Profesionāls &  Uzņēmējdarbība",
                     "tr":"Meslek & İş",
                     "pl":"Profesjonalne & Business",
-                    "ar":"المهن والأعمال",
+                    "ar":"مهن واعمال",
                     "ru":"Профессиональный и предпринимательский"
 
                 },
@@ -98,7 +98,7 @@
                     "lv":"Izdari to pats",
                     "tr":"Kendiniz YAPIN",
                     "pl":"Zrób to sam",
-                    "ar":"اعمال ذاتية",
+                    "ar":"إصنع  بنفسك",
                     "ru":"СДЕЛАЙТЕ сами"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
@@ -530,7 +530,7 @@
                     "lv":"Pārtikas drošība  & uzturvērtība",
                     "tr":"Gıda Güvenliği & Besleme",
                     "pl":"Bezpieczeństwa Żywności i Żywienia",
-                    "ar":"اسلامة الأغذية (الأمن الغذائي) و التغذية",
+                    "ar":"حول الأمن الغذائي والتغذية",
                     "ru":"Безопасность пищевых продуктов и питание"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
@@ -676,7 +676,7 @@
                     "lv":"Sēņu augšana",
                     "tr":"Mantar Yetiştiriciliği",
                     "pl":"Rosną pieczarki",
-                    "ar":"زراعة وتنمية الفطر",
+                    "ar":"زراعة الفطر",
                     "ru":"Выращивание грибов"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
@@ -759,7 +759,7 @@
                     "lv":"Kompostrēšana",
                     "tr":"Kompostlama",
                     "pl":"Kompostowanie",
-                    "ar":"التسميد وصناعة الأسمدة",
+                    "ar":"عالم التسميد وصناعة الأسمدة",
                     "ru":"компостирование"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
@@ -822,7 +822,7 @@
                     "lv":"Kursi",
                     "tr":"Dersler",
                     "pl":"Kursy",
-                    "ar":"امقرر تعليمي/مساقات دراسية",
+                    "ar":"امساقات دراسية",
                     "ru":"Курсы"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
@@ -905,7 +905,7 @@
                     "lv":"Ūdens saglabāšana",
                     "tr":"Su Muhafazası",
                     "pl":"Ochrona wody",
-                    "ar":"احفظ المياه (المحافظ على المياه)",
+                    "ar":"حفظ المياه",
                     "ru":"Сохранение воды"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
@@ -925,7 +925,7 @@
                     "lv":"Meža bioloģiskā daudzveidība",
                     "tr":"Orman Biyoçeşitliliği",
                     "pl":"Różnorodność biologiczna lasów",
-                    "ar":"التنوع الحيوي في الغابات( التنوع البيولوجي للغابات)",
+                    "ar":"التنوع الحيوي في الغابات",
                     "ru":"Биоразнообразие лесов"
                 },
                 "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
