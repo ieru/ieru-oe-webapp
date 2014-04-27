@@ -5302,7 +5302,7 @@ h1,
 h2,
 h3,
 h4 {
-  /*font-family: @abydosTitlesFont; 
+  /*font-family: @abydosTitlesFont;
       font-weight: @abydosTitlesFontWeight;*/
   font-weight: 400;
 }
@@ -5375,7 +5375,7 @@ a:hover {
   top: 3px;
 }
 .navbar-brand {
-  /*font-family: @abydosTitlesFont; 
+  /*font-family: @abydosTitlesFont;
       font-weight: @abydosTitlesFontWeight;*/
   font-weight: 400;
   font-size: 22px;
@@ -6215,3 +6215,30 @@ a:hover {
 html[lang="ar"] {
   direction: ltr;
 }
+
+
+
+
+.domainTermTooltip {
+    display: none;  /* NEW */
+    background:  #eaff3d;
+    border: 1px solid rgba(0,0,0, 0.1);
+    margin-left: 0px;
+    -moz-box-shadow: 0px 0px 6px 2px #4a4949;
+	-webkit-box-shadow: 0px 0px 6px 2px #4a4949;
+	box-shadow: 0px 0px 6px 2px #4a4949;
+    position: absolute;
+    z-index: 1000;
+}
+
+.domainTerm {
+	background-color: yellow;
+	margin:0px;
+	padding:0px;
+	display: inline-block;
+}
+.domainTerm:hover .domainTermTooltip { /* NEW */
+    display: block;
+    text-decoration: none;
+}
+

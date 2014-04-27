@@ -4,11 +4,11 @@ define([
   'underscore',
   'backbone',
   'router', // Request router.js
-], 
+],
 function($, _, Backbone, Router)
 {
   alert('x');
-  var api_server = 'http://api.dev';
+  var api_server = 'http://ak.oeanalytic-dev.agroknow.gr';
 
   (function(){
     window.App = {
@@ -20,7 +20,7 @@ function($, _, Backbone, Router)
       Ajaxs: {},
       Searches: {}
     };
-    
+
     window.vent = _.extend({}, Backbone.Events);
   })();
 

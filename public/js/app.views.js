@@ -525,7 +525,7 @@ console.log( this.model.get('hash'));
 
         render: function(){
             this.$el.html( this.template( this.model.toJSON() ) );
-            
+
             // Add Ratings
             var grnet = this.$el.find('.grnet-rating');
             grnet.append('<img src="/images/ajax-loader.gif" />');
@@ -595,9 +595,9 @@ console.log( this.model.get('hash'));
                                 this.ajaxKeywords.done(function(response){
                                     texts[to].keywords = response.data.translation.split(',');
                                     box.render();
-                                }); 
+                                });
                             }
-                        }); 
+                        });
                     // Translate keywords
                     }else if ( !!texts[from].keywords ){
                         var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
@@ -605,7 +605,7 @@ console.log( this.model.get('hash'));
                         this.ajaxKeywords.done(function(response){
                             texts[to].keywords = response.data.translation.split(',');
                             box.render();
-                        }); 
+                        });
                     }
                 });
             }
@@ -616,8 +616,8 @@ console.log( this.model.get('hash'));
 
             if ( Box.get('searchText') != '' ){
                 var filterModel = new App.Models.Filter({
-                    clave:  'keyword', 
-                    valor:  $(e.currentTarget).attr('href').split('/')[3], 
+                    clave:  'keyword',
+                    valor:  $(e.currentTarget).attr('href').split('/')[3],
                     indice: Box.get('filters').length
                 });
                 filtersBarView.collection.add(filterModel);
@@ -740,7 +740,7 @@ App.Views.Facets = Backbone.View.extend({
                     var parent  = this.$el.parents('.accordion-group').find('.accordion-heading').find('a').attr('title');
 
                     Box.set('page',1);
-                    
+
                     // Try to add the filter
                     for ( var i in filtersBarView.collection.models )
                         if ( filtersBarView.collection.models[i].get('valor') == filter )
@@ -927,7 +927,7 @@ App.Views.DoSearch = Backbone.View.extend({
             jsonpCallback: 'jsonCallback',
             contentType: "application/json",
             dataType: 'jsonp',
-            success: function(data) 
+            success: function(data)
             {
                 if ( !!data ){
 
@@ -982,7 +982,7 @@ App.Views.DoSearch = Backbone.View.extend({
                     });
                 }
             }
-        });        
+        });
     },
 
     submit: function(e){
@@ -1057,7 +1057,7 @@ App.Views.DoSearch = Backbone.View.extend({
 
         // Generate response
         this.ajax.then(function(response){
-            
+
             if ( get_section() != 'search' )
                 return;
 
@@ -1221,9 +1221,9 @@ App.Views.FullResource = Backbone.View.extend({
                             this.ajaxKeywords.done(function(response){
                                 texts[to].keywords = response.data.translation.split(',');
                                 box.render();
-                            }); 
+                            });
                         }
-                    }); 
+                    });
                 // Translate keywords
                 }else if ( !!texts[from].keywords ){
                     var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
@@ -1231,7 +1231,7 @@ App.Views.FullResource = Backbone.View.extend({
                     this.ajaxKeywords.done(function(response){
                         texts[to].keywords = response.data.translation.split(',');
                         box.render();
-                    }); 
+                    });
                 }
             });
         }
@@ -1239,7 +1239,7 @@ App.Views.FullResource = Backbone.View.extend({
 
     render: function(){
         this.$el.html( this.template( this.model.toJSON() ) );
-        
+
         // Add resource ratings
         var grnet = this.$el.find('.grnet-rating');
         grnet.append('<img src="/images/ajax-loader.gif" />');
@@ -1261,12 +1261,183 @@ App.Views.FullResource = Backbone.View.extend({
     }
 });
 
+
+
+/* LABS */
+App.Views.Labs = Backbone.View.extend({
+    el: '#labs-viewport',
+
+    className: 'clearfix',
+
+    template: _.template( $('#labs-content-full').html() ),
+
+    events: {
+        'click .organic-dropdown ul a': 'changeLanguage',
+    },
+
+    initialize: function(){
+        // Cancel any ongoing ajax requests
+        vent.on( 'cancel:ajaxs', function(){
+            if ( !!this.ajaxTitle ){
+                this.ajaxTitle.abort();
+                delete this.ajaxTitle;
+            }
+            if ( !!this.ajaxDescription ){
+                this.ajaxDescription.abort();
+                delete this.ajaxDescription;
+            }
+            if ( !!this.ajaxKeywords ){
+                this.ajaxKeywords.abort();
+                delete this.ajaxKeywords;
+            }
+        }, this );
+
+        vent.on( 'auto:translate', function(){
+            this.changeLanguage();
+        }, this );
+
+        $('#labs-viewport').html('<img src="/images/loading_edu.gif" /> '+lang('loading_resource'));
+
+        // Fetch the resource data
+        var that = this;
+        this.ajax = this.model.fetch();
+        this.ajax.then(function(response){
+            that.model = new App.Models.Labs(response.data);
+
+            // Get language to show of those available in the resource
+            if ( !!that.model.get('texts')[Box.get('interface')] && that.model.get('texts')[Box.get('interface')].title != '' )
+                that.model.set('metadata_language', Box.get('interface'));
+            else if ( !!that.model.get('texts').en && that.model.get('texts').en.title != '' )
+                that.model.set('metadata_language', 'en');
+            else
+                for ( var lang in that.model.get('texts') )
+                    if ( that.model.get('texts')[lang].title ){
+                        that.model.set('metadata_language', lang);
+                        break;
+                    }
+
+            // Set default hash string
+            that.model.set('hash',Sha1.hash(that.model.get('texts')[that.model.get('metadata_language')].title+that.model.get('texts')[that.model.get('metadata_language')].description));
+
+            // Render
+            that.render();
+
+            // Add recommendations
+            $('#ugc-dialog-form').remove();
+            var script = document.createElement('script');
+            script.id = 'resource-related-resources';
+            script.type = 'text/javascript';
+            script.src = '/js/_other/recommendations.js';
+            $('#page-resource > .container > .row').append(script);
+
+            vent.trigger('resource:loaded');
+        });
+    },
+
+    changeLanguage: function(e){
+        if ( !!e ) {
+            e.preventDefault();
+            vent.trigger('cancel:ajaxs');
+        }
+
+        var texts = this.model.get('texts');
+        var to = ( !!e ) ? $(e.currentTarget).attr('class').split('-')[2] : $('#user-selected-language').attr('alt');
+        var from = 'en';
+        var that = this.$el;
+        var thot = this;
+        var box = this;
+
+        that.find('header h2 a').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
+        this.model.set('metadata_language', to);
+
+        // Change to the desired language if there is a translation set for it
+        if ( texts[to].title != '' ){
+            this.model.set('metadata_language_from', from);
+            this.model.set('hash',Sha1.hash(this.model.get('texts')[to].title+this.model.get('texts')[to].description));
+            this.render();
+        // If the texts are not in the desired language, request translation
+        }else{
+            // Get the language to translate from (english by default)
+            if ( texts[from] == undefined || texts[from].title == '' )
+                for ( from in texts )
+                    if ( texts[from].title )
+                        break;
+            this.model.set('metadata_language_from', from);
+
+            // Translate title
+            var title = new App.Models.Translation.Language({text: texts[from].title, from:from, to:to});
+            this.ajaxTitle = title.fetch({timeout:10000});
+            this.ajaxTitle.done(function(response){
+                texts[to].title = response.data.translation;
+                that.find('header h2 a').html(response.data.translation);
+                thot.model.set('service', response.data.service_used);
+                // Translate description
+                if ( !!texts[from].description ){
+                    that.find('> p > span').html('<img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
+                    var description = new App.Models.Translation.Language({text: texts[from].description, from:from, to:to});
+                    this.ajaxDescription = description.fetch({timeout:10000});
+                    this.ajaxDescription.done(function(response){
+                        texts[to].description = response.data.translation;
+                        thot.model.set('hash',Sha1.hash(texts[to].title+texts[to].description));
+                        that.find('> p > span').html(response.data.translation);
+
+                        // translate keywords
+                        if ( !!texts[from].keywords ){
+                            that.find('.search-result-keywords').html('<strong>'+lang('keywords')+':</strong> <img src="/images/ajax-loader.gif" /> '+lang('translating')+'...');
+                            var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
+                            this.ajaxKeywords = keywords.fetch({timeout:10000});
+                            this.ajaxKeywords.done(function(response){
+                                texts[to].keywords = response.data.translation.split(',');
+                                box.render();
+                            });
+                        }
+                    });
+                // Translate keywords
+                }else if ( !!texts[from].keywords ){
+                    var keywords = new App.Models.Translation.Language({text: texts[from].keywords.join(','), from:from, to:to});
+                    this.ajaxKeywords = keywords.fetch({timeout:10000});
+                    this.ajaxKeywords.done(function(response){
+                        texts[to].keywords = response.data.translation.split(',');
+                        box.render();
+                    });
+                }
+            });
+        }
+    },
+
+    render: function(){
+        this.$el.html( this.template( this.model.toJSON() ) );
+
+        // Add resource ratings
+        var grnet = this.$el.find('.grnet-rating');
+        grnet.append('<img src="/images/ajax-loader.gif" />');
+        var request = new App.Models.Grnet.Rating({id:this.model.get('id')})
+        var ratings = new App.Views.Grnet.Rating({model: request});
+        this.model.set('ratingsModel',ratings);
+        grnet.find('img').remove();
+        grnet.append(this.model.get('ratingsModel').el);
+
+        // Add translation ratings
+        var translation = this.$el.find('.translation-rating');
+        var request = new App.Models.Translation.Rating({id:this.model.get('id'), rating:5, usertoken:_.cookie('usertoken', { 'path': '/' }), hash: this.model.get('hash'), from: this.model.get('metadata_language_from'), to: this.model.get('metadata_language'), service: this.model.get('service')});
+        var ratings = new App.Views.Translation.Rating({model: request});
+        this.model.set('tratingsModel',ratings);
+        translation.find('img').remove();
+        translation.append(this.model.get('tratingsModel').el);
+
+        return this;
+    }
+});
+/* /LABS */
+
+
+
 App.Views.ChangeSettings = Backbone.View.extend({
     el: '#change-account',
 
     events: {
         'click button[type=submit]': 'savechanges',
-    },    
+    },
 
     savechanges: function (e){
         e.preventDefault();

@@ -17,10 +17,10 @@
                     "tr":"Okul",
                     "pl":"Szkoła",
                     "ar":"محتوى مدرسي",
-                    "ru":"Школа"             
+                    "ru":"Школа"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s0h.png",
+                "image":   "../images/landing_pages_icons/school/open_class.png",
+                "imageh":  "../images/landing_pages_icons/school/open_class_h.png",
                 "link":    "#/section/school"
             },
             {
@@ -40,8 +40,8 @@
                     "ru":"Университет и исследование"
 
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s1h.png",
+                "image":   "../images/landing_pages_icons/university/school.png",
+                "imageh":  "../images/landing_pages_icons/university/school_h.png",
                 "link":    "#/section/academic"
             },
             {
@@ -61,8 +61,8 @@
                     "ru":"Профессиональный и предпринимательский"
 
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s2.png",
+                "image":   "../images/landing_pages_icons/professional/job_profile.png",
+                "imageh":  "../images/landing_pages_icons/professional/job_profile_h.png",
                 "link":    "#/section/professional"
             },
             {
@@ -81,8 +81,8 @@
                     "ar":"العموميات",
                     "ru":"Общедоступный"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
+                "image":   "../images/landing_pages_icons/public/plants.png",
+                "imageh":  "../images/landing_pages_icons/public/plants_h.png",
                 "link":    "#/section/generalpublic"
             },
             {
@@ -101,10 +101,11 @@
                     "ar":"إصنع  بنفسك",
                     "ru":"СДЕЛАЙТЕ сами"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/s3.png",
+                "image":   "../images/landing_pages_icons/diy/composting.png",
+                "imageh":  "../images/landing_pages_icons/diy/composting_h.png",
                 "link":    "#/section/doityourself"
             }
+
         ],
         "carousel":
         [
@@ -140,8 +141,8 @@
                     "ar":"حصص دراسية في الهواء الطلق",
                     "ru":"Обучение на открытом воздухе"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+                "image":   "../images/landing_pages_icons/school/open_class.png",
+                "imageh":  "../images/landing_pages_icons/school/open_class_h.png",
                 "link":    "#/search/*/1/educationalLearningResourceType=exploration:collection=aglrgsg|greenoer"
             },
             {
@@ -160,8 +161,8 @@
                     "ar":"التعلم المعتمد على العاب متخصصة",
                     "ru":"Занимательное игровое обучение"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+                "image":   "../images/landing_pages_icons/school/game_based.png",
+                "imageh":  "../images/landing_pages_icons/school/game_based_h.png",
                 "link":    "#/search/*/1/educationalLearningResourceType=educational game:collection=greenoer|oeellinogermaniki|aglroel|aglrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
             },
             {
@@ -180,8 +181,8 @@
                     "ar":"خطة دراسية صديقة للبيئة",
                     "ru":"Измените учебный план на „зелёный“"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "image":   "../images/landing_pages_icons/school/green_lesson.png",
+                "imageh":  "../images/landing_pages_icons/school/green_lesson_h.png",
                 "link":    "#/search/*/1/educationalLearningResourceType=lesson plan:collection=greenoer|oeellinogermaniki|aglroel|aglrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
             },
             {
@@ -200,8 +201,8 @@
                     "ar":"إذاعة وبث",
                     "ru":"Передачи"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "image":   "../images/landing_pages_icons/school/broadcast.png",
+                "imageh":  "../images/landing_pages_icons/school/broadcast_h.png",
                 "link":    "#/search/*/1/educationalLearningResourceType=broadcast|video|audio:collection=greenoer|oeellinogermaniki|aglroel|aglrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety"
             }
         ],
@@ -223,8 +224,8 @@
                     "ar":"اقصص حول القطب الجنوبي والشمالي",
                     "ru":"Полярные истории"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+                "image":   "../images/landing_pages_icons/school/polar.png",
+                "imageh":  "../images/landing_pages_icons/school/polar_h.png",
                 "link":    "#/search/polar/1/educationalLearningResourceType=reference:collection=nsdlbeyond:educationalContext=compulsory education"
             },
             {
@@ -244,8 +245,8 @@
                     "ar":"المهن والأعمال",
                     "ru":"Насекомые и растения"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
+                "image":   "../images/landing_pages_icons/school/insects.png",
+                "imageh":  "../images/landing_pages_icons/school/insects_h.png",
                 "link":    "#/search/plants insects/1/collection=greenoer|aglroel|NSDLBEYOND|greenoer:educationalContext=pre-school|compulsory education"
             },
             {
@@ -264,8 +265,8 @@
                     "ar":"احدائق مدرسيّة",
                     "ru":"Школьный сад"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
+                "image":   "../images/landing_pages_icons/school/garden.png",
+                "imageh":  "../images/landing_pages_icons/school/garden_h.png",
                 "link":    "#/search/school garden, organic garden, organic gardening/1/collection=greenoer|oeellinogermaniki|aglroel|aglrnb|aglrgsg|aglrslowfood|aglrllb|aglrfoodsafety:educationalContext=pre-school|compulsory education"
             },
             {
@@ -284,8 +285,8 @@
                     "ar":"مرشد اعادة التدوير",
                     "ru":"Переработка"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
+                "image":   "../images/landing_pages_icons/school/recycle.png",
+                "imageh":  "../images/landing_pages_icons/school/recycle_h.png",
                 "link":    "#/search/recycling/1/collection=greenoer|AGLRNB|aglrgsg:educationalContext=pre-school|compulsory education"
             }
         ],
@@ -347,8 +348,8 @@
                     "ar":"مادة تدريبية",
                     "ru":"Учебный материал"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+                "image":   "../images/landing_pages_icons/professional/training.png",
+                "imageh":  "../images/landing_pages_icons/professional/training_h.png",
                 "link":    "#/search/*/1/educationalContext=continuing education|vocational education|policy making:educationalLearningResourceType=course"
             },
             {
@@ -367,8 +368,8 @@
                     "ar":"االمعايير الغذائية",
                     "ru":"Пищевые стандарты"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+                "image":   "../images/landing_pages_icons/professional/food.png",
+                "imageh":  "../images/landing_pages_icons/professional/food_h.png",
                 "link":    "#/search/food standard/1/educationalContext=continuing education|vocational education|policy making:collection=AGLRFAOCDX|oeintute"
             },
             {
@@ -387,8 +388,8 @@
                     "ar":"اعتماد المنتج والملصقات",
                     "ru":"Сертификация и маркировка"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "image":   "../images/landing_pages_icons/professional/certification.png",
+                "imageh":  "../images/landing_pages_icons/professional/certification_h.png",
                 "link":    "#/search/certification, organic certification, labelling, labeling/1/educationalContext=continuing education|vocational education|policy making"
             },
             {
@@ -407,8 +408,8 @@
                     "ar":"اوصف وظيفي/توصيفات",
                     "ru":"Рабочие профили"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "image":   "../images/landing_pages_icons/professional/job_profile.png",
+                "imageh":  "../images/landing_pages_icons/professional/job_profile_h.png",
                 "link":    "#/search/job profile/1/educationalContext=vocational education:educationalContext=professional development"
             }
         ],
@@ -430,8 +431,8 @@
                     "ar":"اتربية الحيوانات الداجنة",
                     "ru":"Содержание домашних животных"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
+                "image":   "../images/landing_pages_icons/professional/animal.png",
+                "imageh":  "../images/landing_pages_icons/professional/animal_h.png",
                 "link":    "#/search/animal husbandry/1/collection=oeorganiceprints|oeintute|OEEULSESTONIAN"
             },
             {
@@ -450,8 +451,8 @@
                     "ar":"إنتاج المحاصيل",
                     "ru":"Растениеводство"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
+                "image":   "../images/landing_pages_icons/professional/crop_production.png",
+                "imageh":  "../images/landing_pages_icons/professional/crop_production_h.png",
                 "link":    "#/search/crop production/1/collection=OEBMLFUWAUSTRIAN|oeorganiceprints|oeintute|faocapacityportal"
             },
             {
@@ -470,8 +471,8 @@
                     "ar":"اتقنيات زراعية",
                     "ru":"Агротехника"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
+                "image":   "../images/landing_pages_icons/professional/cultivation_tech.png",
+                "imageh":  "../images/landing_pages_icons/professional/cultivation_tech_h.png",
                 "link":    "#/search/*/1/collection=digitalgreen"
             }
         ],
@@ -533,8 +534,8 @@
                     "ar":"حول الأمن الغذائي والتغذية",
                     "ru":"Безопасность пищевых продуктов и питание"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+                "image":   "../images/landing_pages_icons/public/nutrition.png",
+                "imageh":  "../images/landing_pages_icons/public/nutrition_h.png",
                 "link":    "#/search/food safety"
             },
             {
@@ -553,8 +554,8 @@
                     "ar":"كفاءة استخدام الطاقة",
                     "ru":"Энергоэффективность"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+                "image":   "../images/landing_pages_icons/public/energy.png",
+                "imageh":  "../images/landing_pages_icons/public/energy_h.png",
                 "link":    "#/search/energy/1/educationalContext=continuing education"
             },
             {
@@ -573,8 +574,8 @@
                     "ar":"البستنة أو علم الجنانة",
                     "ru":"Садоводство"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "image":   "../images/landing_pages_icons/public/gardening.png",
+                "imageh":  "../images/landing_pages_icons/public/gardening_h.png",
                 "link":    "#/search/horticulture, home gardens/1/educationalContext=continuing education|distance education"
             },
             {
@@ -593,8 +594,8 @@
                     "ar":"النباتات العطرية والطبية",
                     "ru":"Ароматические и лекарственные растения"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "image":   "../images/landing_pages_icons/public/plants.png",
+                "imageh":  "../images/landing_pages_icons/public/plants_h.png",
                 "link":    "#/search/aromatic/1"
             }
         ],
@@ -616,8 +617,8 @@
                     "ar":"اقصص من حركة سلوفود الداعية لترك الأطعمة السريعة",
                     "ru":"Истории „о медленном питании“"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+                "image":   "../images/landing_pages_icons/public/slow_food.png",
+                "imageh":  "../images/landing_pages_icons/public/slow_food_h.png",
                 "link":    "#/search/slow food"
             }
         ],
@@ -679,9 +680,9 @@
                     "ar":"زراعة الفطر",
                     "ru":"Выращивание грибов"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "link":    "#/search/mushroom/1/collection=OEINTUTE|DIGITALGREEN|TRAGLOR|OPTUNESCO|OEFAO"
+                "image":   "../images/landing_pages_icons/diy/mushrooms.png",
+                "imageh":  "../images/landing_pages_icons/diy/mushrooms_h.png",
+                "link":    "#/search/mushroom"
             },
             {
                 "section":
@@ -699,9 +700,9 @@
                     "ar":"الانتاج المنزلي للفاكهة",
                     "ru":"Домашнее выращивание фруктов"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "link":    "#/search/home gardening/1/collection=OEINTUTE"
+                "image":   "../images/landing_pages_icons/diy/fruit.png",
+                "imageh":  "../images/landing_pages_icons/diy/fruit_h.png",
+                "link":    "#/search/home gardening"
             },
             {
                 "section":
@@ -719,8 +720,8 @@
                     "ar":"تشذيب (تهذيب)",
                     "ru":"обрезка"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "image":   "../images/landing_pages_icons/diy/prunning.png",
+                "imageh":  "../images/landing_pages_icons/diy/prunning_h.png",
                 "link":    "#/search/pruning/1/"
             },
             {
@@ -739,8 +740,8 @@
                     "ar":"امكافحة الاعشاب الضارة",
                     "ru":"прополка"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "image":   "../images/landing_pages_icons/diy/weed_control.png",
+                "imageh":  "../images/landing_pages_icons/diy/weed_control_h.png",
                 "link":    "#/search/weed control/1/educationalContext=continuing education|vocational education"
             }
         ],
@@ -762,8 +763,8 @@
                     "ar":"عالم التسميد وصناعة الأسمدة",
                     "ru":"компостирование"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+                "image":   "../images/landing_pages_icons/diy/composting.png",
+                "imageh":  "../images/landing_pages_icons/diy/composting_h.png",
                 "link":    "#/search/composting/1/educationalContext=continuing education"
             }
         ],
@@ -825,8 +826,8 @@
                     "ar":"امساقات دراسية",
                     "ru":"Курсы"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s0.png",
+                "image":   "../images/landing_pages_icons/university/school.png",
+                "imageh":  "../images/landing_pages_icons/university/school_h.png",
                 "link":    "#/search/*/1/educationalContext=higher education:educationalLearningResourceType=course:collection=aglrfoodsafety|RUFORUM|oerafrica|greenoer|oeagroasis|sermicro|oeintute"
             },
             {
@@ -845,8 +846,8 @@
                     "ar":"المهن والأعمال",
                     "ru":"Исследование"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s1.png",
+                "image":   "../images/landing_pages_icons/university/research.png",
+                "imageh":  "../images/landing_pages_icons/university/research_h.png",
                 "link":    "#/search/*/1/educationalContext=higher education:educationalLearningResourceType=reference|case study:collection=greenoer|oerafrica|oeorganiceprints|oespanish"
             },
             {
@@ -865,8 +866,8 @@
                     "ar":"االتدريس المعتمد على البيانات",
                     "ru":"Обучение, которое основывается на данных"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s2.png",
+                "image":   "../images/landing_pages_icons/university/teaching.png",
+                "imageh":  "../images/landing_pages_icons/university/teaching_h.png",
                 "link":    "#/search/*/1/educationalContext=higher education:educationalLearningResourceType=data:collection=greenoer|sermicro"
             },
             {
@@ -885,8 +886,8 @@
                     "ar":"تجارب ومختبرات",
                     "ru":"Эксперименты и лаборатории"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/s3.png",
+                "image":   "../images/landing_pages_icons/university/lab.png",
+                "imageh":  "../images/landing_pages_icons/university/lab_h.png",
                 "link":    "#/search/*/1/educationalContext=higher education:educationalLearningResourceType=experiment:collection=sermicro"
             }
         ],
@@ -908,8 +909,8 @@
                     "ar":"حفظ المياه",
                     "ru":"Сохранение воды"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm0.png",
+                "image":   "../images/landing_pages_icons/university/water.png",
+                "imageh":  "../images/landing_pages_icons/university/water_h.png",
                 "link":    "#/search/water conservation/1/collection=oeintute|sermicro|oefao|prodinraagro"
             },
             {
@@ -928,8 +929,8 @@
                     "ar":"التنوع الحيوي في الغابات",
                     "ru":"Биоразнообразие лесов"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm1.png",
+                "image":   "../images/landing_pages_icons/university/forest.png",
+                "imageh":  "../images/landing_pages_icons/university/forest_h.png",
                 "link":    "#/search/forest biodiversity/1/collection=oeintute|oefao|prodinraagro|oeorganiceprints|oespanish"
             },
             {
@@ -948,8 +949,8 @@
                     "ar":"أغذية عضوية",
                     "ru":"Профессиональный и предпринимательский"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm2.png",
+                "image":   "../images/landing_pages_icons/university/organic.png",
+                "imageh":  "../images/landing_pages_icons/university/organic_h.png",
                 "link":    "#/search/organic food/1/collection=oefao|prodinraagro|oeorganiceprints|faocapacityportal|aglrfoodsafety"
             },
             {
@@ -968,8 +969,8 @@
                     "ar":"اإدارة النفايات",
                     "ru":"Обработка отходов"
                 },
-                "image":   "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
-                "imageh":  "http://www.greenlearningnetwork.org/organicedunet/style/images/school-sliders/sm3.png",
+                "image":   "../images/landing_pages_icons/university/waste.png",
+                "imageh":  "../images/landing_pages_icons/university/waste_h.png",
                 "link":    "#/search/waste management/1/collection=oeintute|oeaua|prodinraagro|oeorganiceprints|sermicro"
             }
         ],

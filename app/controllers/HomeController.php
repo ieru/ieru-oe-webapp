@@ -25,7 +25,7 @@ class HomeController extends BaseController {
         // Check if the user is trying to change the website language
         $route = explode( '/', $_SERVER['REQUEST_URI'] );
         if ( !isset( $route[1] ) OR $route[1] == '' OR strlen( $route[1] ) != 2 )
-            header( 'Location: /en' );           
+            header( 'Location: /en' );
 
         // Define language as constant and change locale
         define( 'LANG', $route[1] );

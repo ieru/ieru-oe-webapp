@@ -13,12 +13,16 @@
 
         <!-- iOS web app configuration -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent" /> 
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent" />
         <link rel="apple-touch-icon" href="/images/ios-icon.png"/>
         <!--<link rel="apple-touch-startup-image" href="img/splash.png" />-->
+
+		<link rel="stylesheet" href="/js/redpanda_slider/style/style.css" />
+		<script src="/js/redpanda_slider/js/modernizr-1.7.min.js"></script>
+
     </head>
 
-    <body>
+    <body onload="ayaSlider()" onunload="unloadFunc()">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -82,7 +86,7 @@
                                         <div class="onoffswitch-inner"></div>
                                         <div class="onoffswitch-switch"></div>
                                     </label>
-                                </div> 
+                                </div>
                             </div>
                             <div style="float: right; padding-top: 9px; color: #eee; "><?php echo Lang::get('website.auto-translate'); ?></div>
                         </li>
@@ -113,10 +117,10 @@
                 <a href="/<?php echo LANG ?>/#/">
                     <h1 class="pull-left hidden-sm" style="position: relative; ">
                         Organic.Edunet
-                        <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px; "><?php echo Lang::get('website.website_motto') ?></small>
+                        <small style="position: absolute; bottom: 10px; left: 102px; font-size: 18px; "><?php echo Lang::get('website.website_motto') ?> </small>
                     </h1>
                 </a>
-                <form id="search-form" action="" class="pull-right">
+                <form id="search-form" method="POST" action="" class="pull-right">
                     <div id="search-form-div">
                         <div class="input-group">
                             <input id="form-search" autocomplete="off" type="text" name="form-search" placeholder="<?php echo Lang::get('website.search') ?>" />
@@ -175,18 +179,291 @@
         <div id="page-home">
 
             <!-- Banner section -->
-            <div id="home-banner">
+            <!--<div id="home-banner">
                 <div class="container">
                     <div id="carousel-example-generic" class="carousel slide">
                     </div>
                 </div>
-            </div>
+            </div>-->
+
+            <section id="slideshow-wrapper">
+				<!--<h2>Our Tools</h2>-->
+
+				<section id="slideshow-inner">
+					<a href="#" id="prev">prev</a>
+					<a href="#" id="next">next</a>
+
+					<section id="slideshow">
+
+						<!-- SLIDE 1 -->
+						<div id="slide1" data-in="left:960;ease:linear;duration:400;delay:50" data-out="left:-1000;ease:linear;delay:7000">
+							<img
+							     id="search-layer"
+							     src="../js/redpanda_slider/slideshow/slide1/search-layer.jpg"
+							     data-in="opacity:0;left:100;delay:400;duration:1000;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="lens"
+							     src="../js/redpanda_slider/slideshow/slide1/lens.png"
+							     data-in="opacity:0;delay:1800;duration:1000;"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no1"
+							     src="../js/redpanda_slider/slideshow/slide1/no1.png"
+							     data-in="opacity:0;left:200;delay:2400;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no2"
+							     src="../js/redpanda_slider/slideshow/slide1/no2.png"
+							     data-in="opacity:0;left:250;delay:2550;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no3"
+							     src="../js/redpanda_slider/slideshow/slide1/no3.png"
+							     data-in="opacity:0;left:200;delay:2700;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no4"
+							     src="../js/redpanda_slider/slideshow/slide1/no4.png"
+							     data-in="opacity:0;left:250;delay:2850;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="no5"
+							     src="../js/redpanda_slider/slideshow/slide1/no5.png"
+							     data-in="opacity:0;left:200;delay:3000;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<i
+							   id="no1i"
+							   data-in="opacity:0;delay:2900;duration:450;"
+							   data-out="delay:7000;"
+							>1</i>
+							<i
+							   id="no2i"
+							   data-in="opacity:0;delay:3050;duration:450;"
+							   data-out="delay:7000;"
+							>2</i>
+							<i
+							   id="no3i"
+							   data-in="opacity:0;delay:3200;duration:450;"
+							   data-out="delay:7000;"
+							>3</i>
+							<i
+							   id="no4i"
+							   data-in="opacity:0;delay:3350;duration:450;"
+							   data-out="delay:7000;"
+							>4</i>
+							<i
+							   id="no5i"
+							   data-in="opacity:0;delay:3500;duration:450;"
+							   data-out="delay:7000;"
+							>5</i>
+							<h3 style="padding-top:30px;" data-in="left:-50px;opacity:0;duration:200;delay:3500;ease:linear" data-out="delay:7000;" >
+								<?php echo Lang::get('website.slide_1_title'); ?>
+							</h3>
+							<p data-in="left:-50px;opacity:0;duration:200;delay:3600;ease:linear" data-out="delay:7000;">
+							<?php echo Lang::get('website.slide_1_body'); ?></p>
+
+							<span data-in="left:-50px;opacity:0;duration:200;delay:3600;ease:linear" data-out="delay:7000;"><?php echo Lang::get('website.slide_1_results_in_all_languages'); ?></span>
+						</div>
+
+						<!-- SLIDE 2 -->
+						<div id="slide2" data-in="left:960;ease:linear;duration:400;delay:50" data-out="left:-1000;ease:linear;delay:5000">
+
+							<img
+							     id="tree"
+							     src="../js/redpanda_slider/slideshow/slide2/s6.png"
+							     data-in="opacity:0;left:-100;delay:900;duration:1000;ease:linear"
+							     data-out="left:100;opacity:0;delay:5000;"
+							/>
+
+							<h3 data-in="left:-50px;opacity:0;duration:200;delay:2200;ease:linear" data-out="delay:5000;" >
+							<?php echo Lang::get('website.slide_2_title'); ?></h3>
+							<p data-in="left:-50px;opacity:0;duration:200;delay:2300;ease:linear" data-out="delay:5000;">
+							<br><br><?php echo Lang::get('website.slide_2_body'); ?></p>
+
+						</div>
+
+						<!-- SLIDE 3 -->
+						<div id="slide3" data-in="left:960;ease:linear;duration:400;delay:50" data-out="left:-1000;ease:linear;delay:7000">
+							<img
+							     id="s3s2"
+							     src="../js/redpanda_slider/slideshow/slide3/s2.png"
+							     data-in="opacity:0;left:-100;delay:400;duration:1000;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							/>
+							<img
+							     id="s3s3"
+							     src="../js/redpanda_slider/slideshow/slide3/s3.png"
+							     data-in="opacity:0;top:100;delay:400;duration:1000;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							/>
+							<img
+							     id="s3s1"
+							     src="../js/redpanda_slider/slideshow/slide3/s1.png"
+							     data-in="opacity:0;left:-100;delay:2600;duration:500;ease:linear"
+							     data-out="left:-100;opacity:0;delay:7000;"
+							/>
+							<img
+							     id="s3s4"
+							     src="../js/redpanda_slider/slideshow/slide3/s4.png"
+							     data-in="opacity:0;delay:1600;duration:1000;"
+							     data-out="opacity:0;delay:7000;"
+							/>
+							<span id="s3s4t" data-in="opacity:0;delay:1600;duration:1000;" data-out="opacity:0;delay:7000;"><?php echo Lang::get('website.slide_3_improve_translation'); ?></span>
+							<h3 data-in="left:-50px;opacity:0;duration:200;delay:3100;ease:linear" data-out="delay:7000;" >
+								<?php echo Lang::get('website.slide_3_title'); ?>
+							</h3>
+							<p data-in="left:-50px;opacity:0;duration:200;delay:3200;ease:linear" data-out="delay:7000;">
+								<br><?php echo Lang::get('website.slide_3_body'); ?>
+							</p>
+
+						</div>
+
+						<!-- SLIDE 4 -->
+						<div id="slide4" data-in="left:960;ease:linear;duration:400;delay:50" data-out="left:-1000;ease:linear;delay:7000">
+							<h3 data-in="left:-100px;opacity:0;duration:1000;delay:400;ease:linear" data-out="delay:7000;" >
+								<?php echo Lang::get('website.slide_4_title'); ?>
+							</h3>
+							<p data-in="left:100px;opacity:0;duration:1000;delay:500;ease:linear" data-out="delay:7000;">
+								<?php echo Lang::get('website.slide_4_body'); ?>
+							</p>
+							<div
+							     id="s4s1"
+							     data-in="left:960px;opacity:0;duration:1000;delay:1800;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							>
+								<img src="../js/redpanda_slider/slideshow/slide4/s1.png" />
+								<span><?php echo Lang::get('website.slide_4_bookmark'); ?></span>
+							</div>
+							<div
+							     id="s4s2"
+							     data-in="left:960px;opacity:0;duration:1000;delay:2800;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							>
+								<img src="../js/redpanda_slider/slideshow/slide4/s2.png" />
+								<span><?php echo Lang::get('website.slide_4_click_to_suggest'); ?></span>
+							</div>
+							<div
+							     id="s4s3"
+							     data-in="left:960px;opacity:0;duration:1000;delay:3800;ease:linear"
+							     data-out="opacity:0;delay:7000;"
+							>
+								<img src="../js/redpanda_slider/slideshow/slide4/s3.png" />
+								<span><?php echo Lang::get('website.slide_4_submit_suggestion'); ?></span>
+							</div>
+
+						</div>
+
+					</section>
+
+				</section>
+
+			</section>
 
             <!-- Sections -->
             <div class="container">
                 <div class="row sections-categories">
                 </div>
             </div>
+
+			<!-- JOIN US - PARTICIPATE -->
+            <section id="section1" class="centered">
+				<article>
+					<h2><?php echo Lang::get('website.join_us'); ?></h2>
+					<img src="../js/redpanda_slider/images/door.png" />
+					<p><?php echo Lang::get('website.register_text'); ?></p>
+					<a href="/<?php echo LANG ?>/#/user/register"><?php echo Lang::get('website.join_us'); ?></a>
+				</article>
+
+				<article>
+					<h2><?php echo Lang::get('website.participate'); ?></h2>
+					<img src="../js/redpanda_slider/images/people.png" />
+					<p><?php echo Lang::get('website.participate_text'); ?></p>
+					<a href="http://wiki.organic-edunet.eu/index.php/Main_Page" target=_blank ><?php echo Lang::get('website.participate'); ?></a>
+				</article>
+
+			</section>
+
+			<!-- OVERS -->
+			<section id="overs">
+
+				<h2 style="color:#87a5af; font-size:48px; font-weight:bold; margin: 0px; padding:15px 0px 0px 0px">
+					<?php echo Lang::get('website.behind_the_organic_edunet'); ?>
+				</h2>
+
+				<div class="centered clearfix">
+
+					<!--
+						<article id="a1">
+						<a href="#"><?php echo Lang::get('website.view'); ?></a>
+						<div></div>
+						<h2><?php echo Lang::get('website.behind_the_organic_edunet'); ?></h2>
+					</article>
+					-->
+
+					<article id="a2">
+						<a href="http://wiki.organic-lingua.eu/Open_Source_Tools" target=_blank ><?php echo Lang::get('website.view'); ?></a>
+						<div></div>
+						<h2><?php echo Lang::get('website.tools_supporting'); ?></h2>
+					</article>
+
+					<article id="a3">
+						<a href=" http://wiki.organic-lingua.eu/Language_Resources" target=_blank ><?php echo Lang::get('website.view'); ?></a>
+						<div></div>
+						<h2><?php echo Lang::get('website.language_resources'); ?></h2>
+					</article>
+
+					<article id="a4">
+						<a href="http://wiki.organic-lingua.eu/Best_Practices" target=_blank ><?php echo Lang::get('website.view'); ?></a>
+						<div></div>
+						<h2><?php echo Lang::get('website.best_practices'); ?></h2>
+					</article>
+
+				</div>
+			</section>
+
+			<!-- PARTNERS -->
+			<!--
+				<section id="section2">
+				<div class="centered clearfix">
+					<article>
+						<p>Developed by</p>
+						<img src="../js/redpanda_slider/images/uah.jpg" />
+						<h3>UAX</h3>
+					</article>
+					<article>
+						<p>Operated by</p>
+						<img src="../js/redpanda_slider/images/agroknow.jpg" />
+						<h3>AGROKNOW</h3>
+					</article>
+					<article>
+						<p>Designed by</p>
+						<a href="../js/redpanda_slider/http://www.redpanda.gr"><img src="../js/redpanda_slider/images/redpanda.jpg" /></a>
+						<h3><a href="../js/redpanda_slider/http://www.redpanda.gr">RED PANDA</a></h3>
+					</article>
+					<section class="eu_fund">
+						<p>With partial EU funding support from</p>
+						<div class="clearfix">
+							<article>
+								<img src="../js/redpanda_slider/images/infra.jpg" />
+								<h3>AGINFRA</h3>
+							</article>
+							<article>
+								<img src="../js/redpanda_slider/images/lingua.jpg" />
+								<h3>ORGANIC LINGUA</h3>
+							</article>
+						</div>
+					</section>
+				</div>
+			</section>
+			-->
 
             <!-- Main content section -->
             <div class="container">
@@ -202,10 +479,10 @@
         <div id="page-section">
 
             <!-- Banner section -->
-            <div id="home-banner">
+            <div id="home-banner" class="hidden-sm">
                 <div class="container">
-                    <div id="carousel-example-generic" class="carousel slide">
-                    </div>
+                	<!--<div id="carousel-example-generic" class="carousel slide">
+                    </div>-->
                 </div>
             </div>
 
@@ -233,9 +510,9 @@
                         </aside>
                         <div id="app-content-info" class="col col-lg-9">
                             <div class="jquery-results-bar pull-left">
-                                <?php echo Lang::get('website.results') ?> 
+                                <?php echo Lang::get('website.results') ?>
                                 <span id="jquery-results-first">1</span> -
-                                <span id="jquery-results-last">10</span> <?php echo Lang::get('website.of') ?> 
+                                <span id="jquery-results-last">10</span> <?php echo Lang::get('website.of') ?>
                                 <span id="jquery-results-total">983</span>
                             </div>
                             <div class="search-results-per-page pull-right">
@@ -289,6 +566,31 @@
                 </div>
             </div>
         </div>
+
+       <!-- VIEW LABS PAGE -->
+        <!--
+			<div id="labs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-offset-3" style="margin-top: 15px; ">
+                        <span class="glyphicon glyphicon-arrow-left"></span> <a href="#" onclick="window.history.back(); return false;"><?php echo Lang::get('website.back') ?></a>
+                    </div>
+                    <aside class="col-lg-3 hidden-sm">
+                    </aside>
+                    <section id="resource-full-content" class="col-lg-9">
+                        <article id="labs-viewport" >
+                        </article>
+                        <hr/>
+                        <div id="resource-recommendations">
+                            <header>
+                                <h2><?php echo Lang::get('website.recommended_resources') ?></h2>
+                            </header>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+		-->
 
         <!-- ABOUT PAGE -->
         <div id="page-about">
@@ -616,6 +918,10 @@
         <?php endif; ?>
         <!-- END MODALS -->
 
+
+
+
+
         <script id="resource-content-full" type="text/template">
             <header>
                 <figure class="hidden-sm">
@@ -632,7 +938,7 @@
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> 
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong>
                         <% if ( typeof age_range != 'undefined' ) { for ( var i in age_range ) { %>
                             <%= age_range[i] %>
                         <% } } else { %><%= lang('none') %><% } %>
@@ -640,7 +946,7 @@
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
-                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
+                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong>
                         <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords.length > 0 ){ %>
                             <% for ( var i in texts[metadata_language].keywords ){ %>
                             <%= texts[metadata_language].keywords[i] %>,
@@ -661,7 +967,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                 <% for ( var i in texts ){ %>
-                                    <li class="<%= texts[i].type_class %> list-unstyled"> 
+                                    <li class="<%= texts[i].type_class %> list-unstyled">
                                         <a class="lang-select-<%= texts[i].lang %>" href="#">
                                             <span class="glyphicon glyphicon-user"></span>
                                             <%= lang(i) %> (<%= lang(texts[i].type) %>)
@@ -675,7 +981,7 @@
                     </li>
                     <% if ( texts[metadata_language].type != 'human' ) { %>
                     <li class="translation-rating">
-                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong> 
+                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong>
                     </li>
                     <% } %>
                     <li><hr/></li>
@@ -732,10 +1038,152 @@
                     <li><hr/></li>
                     <li>
                         <a href="#/feedback/<%= id %>/inappropriate" class="label" style="font-size: 12px; "><?php echo Lang::get('website.report_resource_as_inappropriate') ?></a>
+
+						<!-- CHECK DOMAIN TERMINOLOGY -->
+						<!-- this language : <?php echo LANG ?> -->
+                        <a href="javascript:;" onclick="checkDomainTerminology( '<?php echo LANG ?>' , '<%=metadata_language%>',
+                        '<%=texts['<?php echo LANG?>'].description%>', '<%=texts[metadata_language].description%>')" class="label" style="font-size: 12px;"><?php echo Lang::get('website.check_domain_terminology') ?></a>
                     </li>
                 </ul>
             </footer>
         </script>
+
+
+<!-- LABS TEMPLATE -->
+        <script id="labs-content-full" type="text/template">
+            <header>
+                <figure class="hidden-sm">
+                    <img class="img-thumbnail" src="http://api.pagepeeker.com/v2/thumbs.php?size=m&url=<%= location %>" border="1" alt="Preview" />
+                </figure>
+                <h2 class="resource-title"><a href="<%= location %>" target="_blank"><%= texts[metadata_language].title %></a></h2>
+                <small><?php echo Lang::get('website.resource_language') ?>
+            <% for ( var i in languages ){ %>
+                <span class="resourcelang"><img src="/images/blank.png" class="flag flag-<%= languages[i] %>" alt="<%= lang(languages[i]) %>" /> <%= lang(languages[i]) %></span>
+            <% } %>
+                </small>
+            </header>
+            <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description %><% } %></span></p>
+            <footer>
+                <hr/>
+                <ul class="list-unstyled">
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong>
+                        <% if ( typeof age_range != 'undefined' ) { for ( var i in age_range ) { %>
+                            <%= age_range[i] %>
+                        <% } } else { %><%= lang('none') %><% } %>
+                    </li>
+                    <li class="grnet-rating">
+                        <strong><?php echo Lang::get('website.rate') ?>:</strong>
+                    </li>
+                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong>
+                        <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords.length > 0 ){ %>
+                            <% for ( var i in texts[metadata_language].keywords ){ %>
+                            <%= texts[metadata_language].keywords[i] %>,
+                            <% } %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li><hr/></li>
+                    <li class="clearfix">
+                        <strong><?php echo Lang::get('website.abstracts_language') ?>:</strong>
+                        <ul class="resource-change-lang organic-dropdown list-unstyled" style="display: inline; " data-lang="<%= metadata_language %>">
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" role="button" class="dropdown-toggle">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <%= lang(metadata_language) %> (<%= lang(texts[metadata_language].type) %>)
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                <% for ( var i in texts ){ %>
+                                    <li class="<%= texts[i].type_class %> list-unstyled">
+                                        <a class="lang-select-<%= texts[i].lang %>" href="#">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <%= lang(i) %> (<%= lang(texts[i].type) %>)
+                                        </a>
+                                    </li>
+                                <% } %>
+                                </ul>
+                            </li>
+                        </ul>
+                        <a href="#" data-location="<%= xml %>" data-id="<%= id %>" onclick="return false;" data-toggle="tooltip" class="ugc-widget"> <span class="glyphicon glyphicon-info-sign"></span> <?php echo Lang::get('website.improve_translation'); ?></a>
+                    </li>
+                    <% if ( texts[metadata_language].type != 'human' ) { %>
+                    <li class="translation-rating">
+                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong>
+                    </li>
+                    <% } %>
+                    <li><hr/></li>
+                    <li>
+                        <strong><?php echo Lang::get('website.resource_type') ?>:</strong>
+                        <% if ( !!texts[interfaceLanguage].types && texts[interfaceLanguage].types.length > 0 ){ %>
+                            <% for ( var i in texts[interfaceLanguage].types ){ %>
+                            <%= texts[interfaceLanguage].types[i] %>,
+                            <% } %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.media_format') ?>:</strong>
+                        <% if ( !!texts[interfaceLanguage].format ){ %>
+                            <%= texts[interfaceLanguage].format %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.educational_context') ?>:</strong>
+                        <% if ( !!texts[interfaceLanguage].educational && texts[interfaceLanguage].educational.length > 0 ){ %>
+                            <% for ( var i in texts[interfaceLanguage].educational ){ %>
+                            <%= texts[interfaceLanguage].educational[i] %>,
+                            <% } %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.intended_audience') ?>:</strong>
+                        <% if ( !!texts[interfaceLanguage].audience && texts[interfaceLanguage].audience.length > 0 ){ %>
+                            <% for ( var i in texts[interfaceLanguage].audience ){ %>
+                            <%= texts[interfaceLanguage].audience[i] %>,
+                            <% } %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.copyright') ?>:</strong>
+                        <% if ( !!audience ){ %>
+                            <%= copyright.description %>
+                        <% }else{ %>
+                            <%= lang('none') %>
+                        <% } %>
+                    </li>
+                    <li>
+                        <strong><?php echo Lang::get('website.collection') ?>:</strong>
+                            <%= xml.split('/')[0] %>
+                    </li>
+                    <li><hr/></li>
+                    <li>
+                        <a href="#/feedback/<%= id %>/inappropriate" class="label" style="font-size: 12px; "><?php echo Lang::get('website.report_resource_as_inappropriate') ?></a>
+
+						<!-- CHECK DOMAIN TERMINOLOGY -->
+						<!-- this language : <?php echo LANG ?> -->
+                        <a href="javascript:;" onclick="checkDomainTerminology( '<?php echo LANG ?>' , '<%=metadata_language%>',
+                        '<%=texts['<?php echo LANG?>'].description%>', '<%=texts[metadata_language].description%>')" class="label" style="font-size: 12px;">Check domain terminology</a>
+                    </li>
+                </ul>
+            </footer>
+        </script>
+<!-- /LABS TEMPLATE -->
+
+
+
+
+
+
+
+
 
         <script id="resource-content" type="text/template">
             <header>
@@ -749,19 +1197,23 @@
             <% } %>
                 </small>
             </header>
-                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %>...</span> <a class="label label-primary moreinfo" href="/<?php echo LANG ?>/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a></p>
+                <p><span class="resource-description"><% if ( texts[metadata_language].description ){ %><%= texts[metadata_language].description.substr(0,200).trim() %><% } %>...</span> <a class="label label-primary moreinfo" href="/<?php echo LANG ?>/#/resource/<%= id %>"><span class="glyphicon glyphicon-plus"></span> <?php echo Lang::get('website.more_info') ?></a>
+
+                <!-- agroknow mathiou -->
+                <!-- <a class="label label-primary moreinfo" href="/<?php echo LANG ?>/#/labs/<%= id %>"> COMPARE TRANSLATIONS</a> -->
+                <!-- /agroknow mathiou --> </p>
             <footer>
                 <hr/>
                 <ul class="list-unstyled">
-                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong> 
+                    <li><strong><?php echo Lang::get('website.age_rage_context') ?>:</strong>
                         <% if ( typeof age_range != 'undefined' ) { for ( var i in age_range ) { %>
-                            <%= age_range[i] %>  
+                            <%= age_range[i] %>
                         <% } } else { %><%= lang('none') %><% } %>
                     </li>
                     <li class="grnet-rating">
                         <strong><?php echo Lang::get('website.rate') ?>:</strong>
                     </li>
-                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong> 
+                    <li class="search-result-keywords clearfix"><strong><?php echo Lang::get('website.keywords') ?>:</strong>
                         <% if ( !!texts[metadata_language].keywords && texts[metadata_language].keywords.length > 0 ){ %>
                             <% for ( var i in texts[metadata_language].keywords ){ %>
                             <a class="label" href="/browser/keyword/<%= texts[metadata_language].keywords[i] %>"><%= texts[metadata_language].keywords[i] %></a>
@@ -782,7 +1234,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                 <% for ( var i in texts ){ %>
-                                    <li class="<%= texts[i].type_class %> list-unstyled"> 
+                                    <li class="<%= texts[i].type_class %> list-unstyled">
                                         <a class="lang-select-<%= texts[i].lang %>" href="#">
                                             <span class="glyphicon glyphicon-user"></span>
                                             <%= lang(i) %> (<%= lang(texts[i].type) %>)
@@ -796,7 +1248,7 @@
                     </li>
                     <% if ( texts[metadata_language].type != 'human' ) { %>
                     <li class="translation-rating">
-                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong> 
+                        <strong><?php echo Lang::get('website.rate_translation') ?> (<%=lang(metadata_language)%>):</strong>
                     </li>
                     <% } %>
                     <li><hr/></li>
@@ -897,29 +1349,34 @@
 
         </script>
 
+
+		<!--SLIDER-->
         <script id="section-carousel" type="text/template">
-            <ol class="carousel-indicators">
-            <% for ( var i in carousel ) { %>
-                <li data-target="#carousel-example-generic" data-slide-to="<%=i%>" <% if ( i==0 ) { %>class="active"<% } %>></li>
-            <% } %>
-            </ol>
+           <!--
+					 <ol class="carousel-indicators">
+						            <% for ( var i in carousel ) { %>
+						                <li data-target="#carousel-example-generic" data-slide-to="<%=i%>" <% if ( i==0 ) { %>class="active"<% } %>></li>
+						            <% } %>
+					            </ol>
 
-            <div class="carousel-inner">
-            <% for ( var i in carousel ) { %>
-                <div class="item <% if ( i==0 ) { %>active<% } %>">
-                    <a href="<%=carousel[i].link%>">
-                        <img src="<%=carousel[i].image%>" alt="<%=carousel[i].alt%>">
-                    </a>
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            <% } %>
-            </div>
+					            <div class="carousel-inner">
+					            <% for ( var i in carousel ) { %>
+					                <div class="item <% if ( i==0 ) { %>active<% } %>">
+					                    <a href="<%=carousel[i].link%>">
+					                        <img src="<%=carousel[i].image%>" alt="<%=carousel[i].alt%>">
+					                    </a>
+					                    <div class="carousel-caption">
+					                    </div>
+					                </div>
+					            <% } %>
+					            </div>
 
-            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
-            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+					            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
+					            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+					-->
         </script>
 
+		<!-- SECTIONS -->
         <script id="sections-categories" type="text/template">
             <div class="col col-lg-12">
                 <h2><?php echo Lang::get('website.featured_sections') ?></h2>
@@ -953,6 +1410,8 @@
         </script>
 
         <!-- App javaScript files -->
+
+
         <script src="/js/app.min.js?date=<?php echo VERSION?>"></script>
         <script src="/js/lang/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
         <script src="/js/lang/error/<?php echo LANG ?>.js?date=<?php echo VERSION?>"></script>
@@ -985,7 +1444,7 @@
                 return false;
             })
 
-            // 
+            //
             $('#search-form input[type=checkbox], #search-form label').bind('click', function (e) { e.stopPropagation() })
         </script>
 
@@ -1009,7 +1468,7 @@
                     }else{
                         //TRANSLATE
                         x.setAttribute("sourceLanguage", 'en');
-                        x.setAttribute("targetLanguage", $('html').attr('lang')); 
+                        x.setAttribute("targetLanguage", $('html').attr('lang'));
                     }
                     x.setAttribute('Name', '<?php echo $_user->user_username ?>');
                     x.setAttribute('Username', '<?php echo $_user->user_username ?>');
@@ -1024,7 +1483,7 @@
                     alert(e.getMessage());
                 }
             })
-            
+
             // View own resources
             $('html').on('click', '.ugc-widget-own', function(event){
                 javascript:(function() {
@@ -1058,5 +1517,106 @@
         <?php endif; ?>
         </script>
 
+
+        	<!-- RED PANDA SLIDER -->
+			<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+	        <script src="/js/redpanda_slider/js/ayaSlider.js"></script>
+	        <script src="/js/redpanda_slider/js/jquery.transform2d.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function () {
+
+					$('#slideshow').ayaSlider({
+						previous : $('#prev'),
+						next : $('#next')
+					});
+
+					$('#overs article > div').css('transform', 'translate(-20px, -20px) rotate(-10deg)');
+
+					$('#overs article').mouseenter(function() {
+						$(this).find('div').stop().animate({ transform: 'translate(-20px, -110px) rotate(0deg)' });
+						$(this).find('h2').stop().animate({ top: '20px' });
+					}).mouseleave(function() {
+						$(this).find('div').stop().animate({ transform: 'translate(-20px, -20px) rotate(-10deg)' });
+						$(this).find('h2').stop().animate({ top: '40px' });
+					});
+
+			});
+			</script >
+			<!-- / RED PANDA SLIDER -->
+
+			<!-- AK CHECK DOMAIN TERMINOLOGY -->
+			<script type="text/javascript">
+
+				function checkDomainTerminology( from, to, init_description, description) {
+					/*console.log(from, to, init_description, description); */
+					/* console.log($('#resource-full-content').find('.resource-description')); */
+
+					var url = "http://research.celi.it:8080/DomainTerminologyChecker/rest/domain_terminology_checker?from="+from+"&to="+to+"&source="+init_description.replace(/ /g,'+')+"&translation="+description.replace(/ /g,'+')+"&service=microsoft&domainID=organic.lingua&json_output=true";
+					/*console.log(url); */
+
+					if( from == to ){
+						alert('<?php echo Lang::get('website.translate_before_call_domain_terminology_service') ?>');
+					}
+					else {
+						$.ajax({
+							type: "POST",
+					        crossDomain: true,
+					        dataType: "json",
+							url: "/proxyCrossDomain.php",
+							data: { url : url}
+						})
+						.done(function( response ) {
+							console.log(response);
+
+							if(response.WrongDomainTermsPair) {
+								//ONLY ONE TERM
+								if( response.WrongDomainTermsPair['Translation'] ) {
+									console.log('if');
+
+									var temp = '<span class="domainTerm"><a href="javascript:;" class=\"highlight\">'+response.WrongDomainTermsPair['Translation']['@matchedText']+'<\/a><span class=\"domainTermTooltip\">Suggestion: '+response.WrongDomainTermsPair['Translation']['@prefLabel']+'<\/span><\/span>';
+
+									console.log(response.WrongDomainTermsPair['Translation'], response.WrongDomainTermsPair['Translation']['@matchedText']);
+									console.log(temp);
+									console.log(response);
+									description = description.replace( response.WrongDomainTermsPair['Translation']['@matchedText'], temp);
+									$('#resource-full-content').find('.resource-description').html(description);
+								} else { //MANY TERMS
+
+									console.log('else');
+
+									for (var dtc in response.WrongDomainTermsPair) {
+										console.log(dtc,response.WrongDomainTermsPair[dtc]);
+									}
+
+									var temp = '<div class="domainTerm"><a href="javascript:;" class=\"highlight\">'+response.WrongDomainTermsPair['Translation']['@matchedText']+'<\/a><span class=\"domainTermTooltip\">Suggestion: '+response.WrongDomainTermsPair['Translation']['@prefLabel']+'<\/span><\/div>';
+
+									description = description.replace( response.WrongDomainTermsPair['Translation']['@matchedText'], temp);
+									$('#resource-full-content').find('.resource-description').html(description);
+								}
+							} else {
+								alert('<?php echo Lang::get('website.no_domain_terminology_suggestions_available') ?>');
+							}
+
+						});
+					}
+				}
+
+
+			</script>
+			<!-- /AK -->
+
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
