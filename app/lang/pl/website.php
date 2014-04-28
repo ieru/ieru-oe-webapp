@@ -173,7 +173,7 @@ return array(
 'behind_the_organic_edunet' => 'What is behind the organic edunet',
 'tools_supporting' => 'Tools supporting Organic edunet',
 'language_resources' => 'Our language resources',
-'best_practices' => 'Best practices'
+'best_practices' => 'Best practices',
 'check_domain_terminology'=>'Check domain terminology',
 'translate_before_call_domain_terminology_service' => 'Please make a translation before call Domain Terminology Service.',
 'no_domain_terminology_suggestions_available'=>'There are no domain terminology suggestions available for this resource'
