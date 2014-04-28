@@ -36,6 +36,7 @@ App.Router = Backbone.Router.extend({
 
 	index: function(){
 		show_view( 'page-home' );
+		$('#slideshow-wrapper').show();
 
 		vent.trigger('cancel:ajaxs');
 
