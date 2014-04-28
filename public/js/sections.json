@@ -888,7 +888,7 @@
                 },
                 "image":   "../images/landing_pages_icons/university/lab.png",
                 "imageh":  "../images/landing_pages_icons/university/lab_h.png",
-                "link":    "#/search/*/1/educationalContext=higher education:educationalLearningResourceType=experiment:collection=sermicro"
+                "link":    "#/search/*/1/educationalContext=higher education:educationalLearningResourceType=experiment"
             }
         ],
         "themes":
