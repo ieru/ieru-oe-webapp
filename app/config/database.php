@@ -49,9 +49,9 @@ return array(
 		'mysql' => array(
 			'driver'   => 'mysql',
 			'host'     => 'localhost',
-			'database' => 'ak_organic_resources',
+			'database' => 'ieru_organic_resources',
 			'username' => 'root',
-			'password' => 'foxoo',
+			'password' => '',
 			'charset'  => 'utf8',
 			'collation'=> 'utf8_general_ci',
 			'prefix'   => '',
@@ -59,9 +59,9 @@ return array(
 		'oauth' => array(
 			'driver'   => 'mysql',
 			'host'     => 'localhost',
-			'database' => 'ak_organic_oauth',
+			'database' => 'ieru_organic_oauth',
 			'username' => 'root',
-			'password' => 'foo',
+			'password' => '',
 			'charset'  => 'utf8',
 			'collation'=> 'utf8_general_ci',
 			'prefix'   => '',

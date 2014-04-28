@@ -31,6 +31,7 @@ function show_view ( view ){
   $('#page-feedback').hide();
   $('#page-retrieve-password').hide();
   $('#page-change-password-confirm').hide();
+  $('#slideshow-wrapper').hide();
 
   $('#labs').hide();
 
